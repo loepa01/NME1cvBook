@@ -18,7 +18,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 
 ## Podmínky udělení zápočtu
 - max. 3 absence ??
-- vypracování 4 domácích úloh (2 úlohy z první části - [Dominika Jochcová](https://github.com/jochcova/NMEcv/), 2 úlohy zadané v druhé části - BUDE PŘIDÁNO)
+- vypracování 4 domácích úloh (2 úlohy z první části - [Dominika Jochcová](https://github.com/jochcova/NMEcv/), 2 úlohy zadané v druhé části)
 
 ## Úkoly
 ...BUDE PŘIDÁNO...

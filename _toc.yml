@@ -7,15 +7,15 @@ parts:
   - caption: "Obsah cvičení"
     numbered: True
     chapters:
-    - file: uvod-python
+    - file: lekce/01-uvod-python
       title: Úvod do jazyka Python
-    - file: nelinearni-rce
+    - file: lekce/02-nelinearni-rce
       title: Nelineární rovnice
-    - file: extremy-fci
+    - file: lekce/03-extremy-fci
       title: Extrémy funkcí
-    - file: integrace
+    - file: lekce/04-integrace
       title: Numerická integrace
-    - file: reseni-odr
+    - file: lekce/05-reseni-odr
       title: Obyčejné diferenciální rovnice
-    - file: reseni-okraj
+    - file: lekce/06-reseni-okraj
       title: Diferenciální rovnice s okrajovou podmínkou
