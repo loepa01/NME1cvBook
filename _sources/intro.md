@@ -1,9 +1,10 @@
 # Numerické metody (NME1cv) - cvičení 2024
 
-Tyto stránky obsahují materiály ke cvičení předmětu NME1 v pátek od 10:00 a 12:00.
+Tyto stránky obsahují materiály ke cvičení předmětu NME1.
 
 Materiály k přednášce najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/).
 Materiály ke cvičením najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/).
+Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičících.
 
 ## Rozvrh pro letní semestr 2023/2024
 - Pátek 10:00 - 11:40, 12:00 - 13:40
@@ -17,7 +18,7 @@ Materiály ke cvičením najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/c
 
 ## Podmínky udělení zápočtu
 - max. 3 absence ??
-- vypracování 4 domácích úloh (2 úlohy z první části - [Dominika Jochcová](https://github.com/jochcova/NMEcv/), 2 úlohy zadané v druhé části - BUDE PŘIDÁNO)
+- vypracování 4 domácích úloh (2 úlohy z první části - [Dominika Jochcová](https://github.com/jochcova/NMEcv/), 2 úlohy zadané v druhé části)
 
 ## Úkoly
 ...BUDE PŘIDÁNO...
