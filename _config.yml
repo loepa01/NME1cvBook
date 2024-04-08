@@ -3,7 +3,7 @@
 
 title: NME1cvBook
 author: Jiří Löffelmann
-logo: logo2.png
+logo: images/cphys-logo5.png
 copyright: "2024"
 
 # Force re-execution of notebooks on each build.
@@ -31,6 +31,8 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  favicon: cphys2.png
 
 # ignore VS code files
-exclude_patterns: [".history", "README.md"]
+only_build_toc_files: true
+exclude_patterns: [".history", "README.md", "markdown*", "notebooks*"]

@@ -7,7 +7,15 @@ parts:
   - caption: "Obsah cvičení"
     numbered: True
     chapters:
-    - file: markdown
-    - file: notebooks
-    - file: markdown-notebooks
-    - file: mymarkdownfile
+    - file: uvod-python
+      title: Úvod do jazyka Python
+    - file: nelinearni-rce
+      title: Nelineární rovnice
+    - file: extremy-fci
+      title: Extrémy funkcí
+    - file: integrace
+      title: Numerická integrace
+    - file: reseni-odr
+      title: Obyčejné diferenciální rovnice
+    - file: reseni-okraj
+      title: Diferenciální rovnice s okrajovou podmínkou
