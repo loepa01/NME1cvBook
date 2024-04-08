@@ -4,6 +4,7 @@ Tyto stránky obsahují materiály ke cvičení předmětu NME1.
 
 Materiály k přednášce najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/).
 Materiály ke cvičením najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/).
+
 Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičících.
 
 ## Rozvrh pro letní semestr 2023/2024
