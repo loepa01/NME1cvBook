@@ -33,4 +33,4 @@ html:
   use_repository_button: true
 
 # ignore VS code files
-exclude_patterns: [".history"]
+exclude_patterns: [".history", "README.md"]
