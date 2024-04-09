@@ -1,6 +1,6 @@
 # Numerické metody (NME1cv) - cvičení 2024
 
-Tyto stránky obsahují materiály ke cvičení předmětu NME1.
+Tyto stránky obsahují materiály ke cvičení předmětu 12NME1.
 
 Materiály k přednášce najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/).
 Materiály ke cvičením najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/).

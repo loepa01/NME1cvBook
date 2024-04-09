@@ -42,4 +42,4 @@ launch_buttons:
 
 # ignore VS code files
 only_build_toc_files: true
-exclude_patterns: [".history", "README.md", "insp"]
+exclude_patterns: [".history", "README.md", "markdown*", "notebooks*", "insp"]
