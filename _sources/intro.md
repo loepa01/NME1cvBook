@@ -27,6 +27,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
 - prostředí [Jupyter notebook](https://jupyter.org/)
+?? PŘIDAT ODKAZ NA PRVNI NOTEBOOK
 
 ## Vedení kurzu
 Tento kurz je veden skupinou Počítačové fyziky na KFE, FJFI ČVUT.

@@ -185,6 +185,8 @@
 <li class="toctree-l1"><a class="reference internal" href="04-integrace.html">4. Numerická integrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-reseni-odr.html">5. Obyčejné diferenciální rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">7. Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">8. Notebooks with MyST Markdown</a></li>
 </ul>
 
     </div>
@@ -269,6 +271,24 @@
     <img src="../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce/01-uvod-python.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
 </a>
 </li>
       
@@ -429,8 +449,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">1.1. Instalace Pythonu a prostředí Jupyter notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.2. Knihovna numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">1.1. Instalace Pythonu a prostředí Jupyter notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spravce-balicku">1.1.1. Správce balíčků</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postup-instalace">1.1.2. Postup instalace</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.2. Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">1.3. Jazyk Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">1.3.1. Hello world!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">1.3.2. Základní aritmetické operace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky">1.3.3. Podmínky</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.4. Opakování - cykly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkce">1.3.5. Funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.6. Základní datové struktury</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.4. Knihovna numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">1.5. Vizualizace dat - matplotlib.pyplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">1.6. Knihovna Scipy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zdroje">1.7. Další zdroje</a></li>
 </ul>
             </nav>
         </div>
@@ -446,10 +483,105 @@ document.write(`
 <h1><span class="section-number">1. </span>Úvod do jazyka Python<a class="headerlink" href="#uvod-do-jazyka-python" title="Link to this heading">#</a></h1>
 <section id="instalace-pythonu-a-prostredi-jupyter-notebook">
 <h2><span class="section-number">1.1. </span>Instalace Pythonu a prostředí Jupyter notebook<a class="headerlink" href="#instalace-pythonu-a-prostredi-jupyter-notebook" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tohle je poznámka</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tohle je tip</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Tohle je tip</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Tohle je see also</p>
+</div>
+<blockquote>
+<div><p>:memo: <strong>Warning</strong></p>
+<p>This is a warning</p>
+</div></blockquote>
+<p>Tohle je <strong>text</strong></p>
+<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>)</p>
+<section id="spravce-balicku">
+<h3><span class="section-number">1.1.1. </span>Správce balíčků<a class="headerlink" href="#spravce-balicku" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>pip, anaconda - použití, výhody</p></li>
+<li><p>jak instalovat balíčky, knihovny</p></li>
+</ul>
+</section>
+<section id="postup-instalace">
+<h3><span class="section-number">1.1.2. </span>Postup instalace<a class="headerlink" href="#postup-instalace" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>postup pro různé možnosti - VS code, Binder, Jupyter hub</p></li>
+<li><p>ukázání na hodině</p></li>
+</ul>
+</section>
+</section>
+<section id="jupyter-notebook">
+<h2><span class="section-number">1.2. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>definice, použití, výhody a nevýhody</p></li>
+<li></li>
+</ul>
+</section>
+<section id="jazyk-python">
+<h2><span class="section-number">1.3. </span>Jazyk Python<a class="headerlink" href="#jazyk-python" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>interpreter</p></li>
+<li><p>weakly typed, nehlasí nějaké chyby, až pří běhu</p></li>
+<li></li>
+</ul>
+<section id="hello-world">
+<h3><span class="section-number">1.3.1. </span>Hello world!<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>koment a print</p></li>
+</ul>
+</section>
+<section id="zakladni-aritmeticke-operace">
+<h3><span class="section-number">1.3.2. </span>Základní aritmetické operace<a class="headerlink" href="#zakladni-aritmeticke-operace" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>přidat //</p></li>
+</ul>
+</section>
+<section id="podminky">
+<h3><span class="section-number">1.3.3. </span>Podmínky<a class="headerlink" href="#podminky" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>sintaxe podmínek, odsazení</p></li>
+</ul>
+</section>
+<section id="opakovani-cykly">
+<h3><span class="section-number">1.3.4. </span>Opakování - cykly<a class="headerlink" href="#opakovani-cykly" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>syntaxe, break, continue - ukázat na vhodných příkladech</p></li>
+</ul>
+</section>
+<section id="funkce">
+<h3><span class="section-number">1.3.5. </span>Funkce<a class="headerlink" href="#funkce" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>syntaxe, příklad - rekurzivně faktoriál/Fibonnaci</p></li>
+</ul>
+</section>
+<section id="zakladni-datove-struktury">
+<h3><span class="section-number">1.3.6. </span>Základní datové struktury<a class="headerlink" href="#zakladni-datove-struktury" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>array</p></li>
+<li><p>list</p></li>
+<li><p>dict</p></li>
+<li><p>indexování - různé možnosti</p></li>
+</ul>
+</section>
 </section>
 <section id="knihovna-numpy">
-<h2><span class="section-number">1.2. </span>Knihovna numpy<a class="headerlink" href="#knihovna-numpy" title="Link to this heading">#</a></h2>
-<p>… popis</p>
+<h2><span class="section-number">1.4. </span>Knihovna numpy<a class="headerlink" href="#knihovna-numpy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>popis knihovny, využití</p></li>
+<li><p>jednotlivé operace, rozdíl oproti normálnímu poli</p></li>
+<li><p>typy, přetypování, matice, atd.</p></li>
+<li><p>ukázka na úlohách z předchozích přednášek..</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -481,6 +613,35 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="vizualizace-dat-matplotlib-pyplot">
+<h2><span class="section-number">1.5. </span>Vizualizace dat - matplotlib.pyplot<a class="headerlink" href="#vizualizace-dat-matplotlib-pyplot" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>popis knihovny, k čemu je</p></li>
+<li><p>představení různých možností vizualizace</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="knihovna-scipy">
+<h2><span class="section-number">1.6. </span>Knihovna Scipy<a class="headerlink" href="#knihovna-scipy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>popis knihovny, na co se hodí</p></li>
+<li><p>nejužitěčnější funkce pro algebru, optimalizaci, NN, atd</p></li>
+<li><p>ukázka na příkladech z předchozích hodin - srovnání</p></li>
+</ul>
+</section>
+<section id="dalsi-zdroje">
+<h2><span class="section-number">1.7. </span>Další zdroje<a class="headerlink" href="#dalsi-zdroje" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>kde se naučit více, procvičit</p></li>
+<li><p>Bonus úloha ?</p></li>
+</ul>
 </section>
 </section>
 
@@ -548,8 +709,25 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">1.1. Instalace Pythonu a prostředí Jupyter notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.2. Knihovna numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">1.1. Instalace Pythonu a prostředí Jupyter notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spravce-balicku">1.1.1. Správce balíčků</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postup-instalace">1.1.2. Postup instalace</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.2. Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">1.3. Jazyk Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">1.3.1. Hello world!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">1.3.2. Základní aritmetické operace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky">1.3.3. Podmínky</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.4. Opakování - cykly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkce">1.3.5. Funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.6. Základní datové struktury</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.4. Knihovna numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">1.5. Vizualizace dat - matplotlib.pyplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">1.6. Knihovna Scipy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zdroje">1.7. Další zdroje</a></li>
 </ul>
   </nav></div>
 
