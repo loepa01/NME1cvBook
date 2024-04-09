@@ -19,3 +19,5 @@ parts:
       title: Obyčejné diferenciální rovnice
     - file: lekce/06-reseni-okraj
       title: Diferenciální rovnice s okrajovou podmínkou
+    - file: markdown
+    - file: markdown-notebooks
