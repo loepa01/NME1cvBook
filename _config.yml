@@ -49,4 +49,4 @@ parse:
 
 # ignore VS code files
 only_build_toc_files: true
-exclude_patterns: [".history", "README.md", "markdown*", "notebooks*", "insp"]
+exclude_patterns: [".history", "README.md", "markdown*", "notebooks*", "insp", "admonitions-test.ipynb"]
