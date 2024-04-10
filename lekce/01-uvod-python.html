@@ -458,18 +458,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">1.3. Jazyk Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentare">1.3.1. Komentáře</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">1.3.2. Základní aritmetické operace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky">1.3.3. Podmínky</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.4. Opakování - cykly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkce">1.3.5. Funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.6. Základní datové struktury</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">1.3.7. Další základní funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">1.3.8. Import knihoven</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-if-else-a-elif">1.3.3. Podmínky - if, else a elif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.4. Základní datové struktury</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kontejnery">1.3.5. Kontejnery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.6. Opakování - cykly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-vlastni-funkce">1.3.7. Definice vlastní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">1.3.8. Další základní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">1.3.9. Import knihoven</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.4. Knihovna numpy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">1.5. Vizualizace dat - matplotlib.pyplot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">1.6. Knihovna Scipy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zdroje">1.7. Další zdroje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">1.7. Bonus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zdroje">1.8. Další zdroje</a></li>
 </ul>
             </nav>
         </div>
@@ -481,51 +483,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="uvod-do-jazyka-python">
+  <section id="uvod-do-jazyka-python">
 <h1><span class="section-number">1. </span>Úvod do jazyka Python<a class="headerlink" href="#uvod-do-jazyka-python" title="Link to this heading">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Tohle je poznámka</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Tohle je tip</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Tohle je warning</p>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Tohle je see also</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Tohle je important</p>
-</div>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Tohle je attention</p>
-</div>
-<div class="alert admonition">
-<p class="admonition-title">Cvičení</p>
-<p>Tohle je cvičení</p>
-</div>
-<div class="attention admonition">
-<p class="admonition-title">Cvičení</p>
-<p>Tohle je cvičení</p>
-</div>
-<div class="admonition alert">
-<p class="alert alert-block alert-warning">Cvičení</p>
-<p>Tohle je cvičení</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Tohle je warning</p>
-</div>
-<div class="alert alert-block alert-warning"><b>Cvičení 01.01: </b> Vypočtěte objem jehlanu o stranách 3 a 4 majiícího výšku 7. </div><p>Tato přednáška přestavuje stručný úvod do programovacího jazyka Python. Probrány jsou jak základní tak pokročilejší nástroje, které budou používány po zbytek kurzu. Pro zájemce o hlubší porozumění Pythonu doporučuji kurz <a class="reference external" href="https://fjfi.pythonic.eu/">Vědecké programování v Pythonu</a> (12PYTH), ze kterého tato přednáška čerpá.</p>
+<p>Tato přednáška přestavuje stručný úvod do programovacího jazyka Python. Probrány jsou jak základní tak pokročilejší nástroje, které budou používány po zbytek kurzu. Pro zájemce o hlubší porozumění Pythonu doporučuji kurz <a class="reference external" href="https://fjfi.pythonic.eu/">Vědecké programování v Pythonu</a> (12PYTH), ze kterého tato přednáška čerpá.</p>
+<p>Další užitečný kurz v češtině je například od <a class="reference external" href="https://naucse.python.cz/course/pyladies/">Pyladies</a>.</p>
 <section id="instalace-pythonu-a-prostredi-jupyter-notebook">
-<h2><span class="section-number">1.1. </span>Instalace Pythonu a prostředí Jupyter notebook<a class="headerlink" href="#instalace-pythonu-a-prostredi-jupyter-notebook" title="Link to this heading">#</a></h2>
+<span id="install-all"></span><h2><span class="section-number">1.1. </span>Instalace Pythonu a prostředí Jupyter notebook<a class="headerlink" href="#instalace-pythonu-a-prostredi-jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>V druhé části kurzu Numerických metod budeme používat moderní prostědí <a class="reference external" href="https://jupyter.org/">Jupyter notebook</a> (soubory s koncovkou <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>), které jsou velmi vhodné jak na výuku tak na rychlé otestování a prototipování kódu.</p>
 <p>Máte volbu mezi dvěmi možnostmi, jak sledovat přednášku a mít možnost spouštět kód:</p>
 <ol class="arabic simple">
@@ -534,9 +497,6 @@ document.write(`
 </ol>
 <section id="postup-instalace">
 <h3><span class="section-number">1.1.1. </span>Postup instalace<a class="headerlink" href="#postup-instalace" title="Link to this heading">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">ukázání</span> <span class="n">na</span> <span class="n">hodině</span>
-</pre></div>
-</div>
 <p><strong>Online interaktivní prostředí</strong> (doporučuji)</p>
 <p>Pro spuštení interaktivní verze této stránky klikněte ve vrchním menu na <i class="fas fa-rocket" aria-hidden="true"></i> a zvolte:</p>
 <ul class="simple">
@@ -544,11 +504,14 @@ document.write(`
 <li><p><em>JupyterHub</em> - místní prostědí běžící u nás na FJFI, umožňuje <strong>uložit</strong> ve vlastním účtu</p></li>
 <li><p><em>Google Colab</em> - na vlastní nebezpečí</p></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #F4330C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #F7C8C0; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Pozor</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
 <p>Spuštění prostředí <em>Binder</em> může trvat několik desítek sekund. Jupyter notebook je v tomto prostředí uložen pod dočasným URL. Při zavření okna se postup ztratí! Je nutné tedy upravený soubor před zavřením okna stáhnout.</p>
+</p>
 </div>
-<p><strong>Lokální prostření</strong></p>
+</div><p><strong>Lokální prostření</strong></p>
 <p>Pro programování na svém počítači je třeba:</p>
 <ol class="arabic simple">
 <li><p>Nainstalovat <a class="reference external" href="https://www.python.org/downloads/">Python</a> (často již nainstalován s OS)</p></li>
@@ -558,12 +521,15 @@ document.write(`
 </ol>
 <p>Jako alternativu doporučuji použít IDE (Integrated Development Environment) <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, ve kterém je možné přidat rozšíření pro <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a> a <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter notebook</a>.
 Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github">odpovídající rozšíření</a>.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
 <p>Další možnosti instalace nástrojů jsou popsány <a class="reference external" href="https://fjfi.pythonic.eu/posts/nastroje.html#Doporu%C4%8Den%C3%A1-sada-n%C3%A1stroj%C5%AF">zde</a>.</p>
 <p>Pro pokročilé možnosti <em>virtuálních prostředí</em> postupujte podle postupu <a class="reference external" href="https://fjfi.pythonic.eu/posts/prvni-krucky.html#Virtu%C3%A1ln%C3%AD-prost%C5%99ed%C3%AD">zde</a> nebo <a class="reference external" href="https://valenpe7.github.io/numerical_methods/README.html#run-the-notebooks-offline">zde</a>.</p>
+</p>
 </div>
-</section>
+</div></section>
 </section>
 <section id="jupyter-notebook">
 <h2><span class="section-number">1.2. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
@@ -574,8 +540,14 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 <p>V této kapitolce se krátce seznámíme, jak se s Jupyter notebooky pracuje. Podrobný popis všech vychytávek si můžete přečíst <a class="reference external" href="https://realpython.com/jupyter-notebook-introduction/">zde</a>.</p>
 <section id="hello-world">
 <h3><span class="section-number">1.2.1. </span>Hello world!<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h3>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
 <p>Napište <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world!&quot;)</span></code> a stiskněte <code class="docutils literal notranslate"><span class="pre">Shift</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (nebo <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code>)</p>
-<div class="cell docutils container">
+</p>
+</div>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
 </pre></div>
@@ -594,22 +566,30 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 <li><p>Vyberte tento nový řádek a stiskněte <code class="docutils literal notranslate"><span class="pre">m</span></code>. Nyní lze do řádku místo kódu zapisovat text.</p></li>
 </ol>
 <p>Pokud chcete řádek převést na kód, stiskněte <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
 <p>Pro nápovědu stiskněte <code class="docutils literal notranslate"><span class="pre">h</span></code>.</p>
+</p>
 </div>
-</section>
+</div></section>
 </section>
 <section id="jazyk-python">
 <h2><span class="section-number">1.3. </span>Jazyk Python<a class="headerlink" href="#jazyk-python" title="Link to this heading">#</a></h2>
+<p>Python je univerzální programovací jazyk, hojně používaný vědeckou komunitou. Existuje spousta knihoven řešící celou řadou úloh za vás. Některé nejpoužívanější knihovny si v tomto kurzu ukážeme.</p>
+<p>Základní vlastnosti Pythonu (vs C++):</p>
 <ul class="simple">
-<li><p>interpreter</p></li>
-<li><p>weakly typed, nehlasí nějaké chyby, až pří běhu</p></li>
+<li><p><em>Dynamicky typovaný</em> jazyk - typ proměnné se určuje až při běhu programu</p></li>
+<li><p><em>Silně typovaný</em> (strongly typed) jazyk - vše má jasně definovaný typed</p></li>
+<li><p><em>Interpretovaný</em> jazyk - kód v Pythonu není kompilován, až při běhu dochází k jeho interpretaci</p></li>
+<li><p>Obsahuje rozsáhlou <em>vestavěnou knihovnu modulů</em> a funkcí</p></li>
+<li><p>Přehledná, jednoduchá a čitelná <em>syntaxe</em></p></li>
+<li><p>Objekově orientovaný + funkcionální programování</p></li>
 </ul>
-<p>Cílem této kapitoly je</p>
 <section id="komentare">
 <h3><span class="section-number">1.3.1. </span>Komentáře<a class="headerlink" href="#komentare" title="Link to this heading">#</a></h3>
-<p>Jednořádkový komentář se zadává za znak <code class="docutils literal notranslate"><span class="pre">#</span></code>, více řádků lze zakomentovat pomocí <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> a <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>:</p>
+<p>Jednořádkový komentář se zadává za znak <code class="docutils literal notranslate"><span class="pre">#</span></code>, více řádků lze zakomentovat obklopením <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># toto je komentar</span>
@@ -619,6 +599,7 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 <span class="sd">radku...</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span> 
+<span class="c1">#print(&quot;Hello world not printed!&quot;) </span>
 </pre></div>
 </div>
 </div>
@@ -643,7 +624,7 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 <span class="n">podil</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 <span class="n">podil_beze_zbytku</span> <span class="o">=</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span>
 
-<span class="n">mocnina</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="n">b</span>
+<span class="n">mocnina</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="n">b</span>    <span class="c1"># v C++ pow()</span>
 <span class="n">zbytek_po_deleni</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
 
 <span class="c1"># vypis</span>
@@ -651,7 +632,8 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rozdíl &#39;</span><span class="p">,</span> <span class="n">rozdil</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Součin &#39;</span><span class="p">,</span> <span class="n">soucin</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Podíl &#39;</span><span class="p">,</span> <span class="n">podil</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Podíl beze zbytku &#39;</span><span class="p">,</span> <span class="n">podil</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Podíl beze zbytku &#39;</span><span class="p">,</span> <span class="n">podil_beze_zbytku</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mocnina &#39;</span><span class="p">,</span> <span class="n">mocnina</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zbytek po dělení &#39;</span><span class="p">,</span> <span class="n">zbytek_po_deleni</span><span class="p">)</span>
 </pre></div>
@@ -662,7 +644,7 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 Rozdíl  38.0
 Součin  215.0
 Podíl  8.6
-Podíl beze zbytku  8.6
+Podíl beze zbytku  8.0
 Mocnina  147008443.0
 Zbytek po dělení  3.0
 </pre></div>
@@ -670,40 +652,511 @@ Zbytek po dělení  3.0
 </div>
 </div>
 </section>
-<section id="podminky">
-<h3><span class="section-number">1.3.3. </span>Podmínky<a class="headerlink" href="#podminky" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>sintaxe podmínek, odsazení</p></li>
-</ul>
-</section>
-<section id="opakovani-cykly">
-<h3><span class="section-number">1.3.4. </span>Opakování - cykly<a class="headerlink" href="#opakovani-cykly" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>syntaxe, break, continue - ukázat na vhodných příkladech</p></li>
-</ul>
-</section>
-<section id="funkce">
-<h3><span class="section-number">1.3.5. </span>Funkce<a class="headerlink" href="#funkce" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>syntaxe, příklad - rekurzivně faktoriál/Fibonnaci</p></li>
-</ul>
+<section id="podminky-if-else-a-elif">
+<h3><span class="section-number">1.3.3. </span>Podmínky - if, else a elif<a class="headerlink" href="#podminky-if-else-a-elif" title="Link to this heading">#</a></h3>
+<p>Za klíčovými slovy <code class="docutils literal notranslate"><span class="pre">if</span></code> a <code class="docutils literal notranslate"><span class="pre">else</span></code> musíme psát <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cislo</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">cislo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cislo</span><span class="p">,</span> <span class="s2">&quot;je kladne.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">cislo</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>    <span class="c1"># logický výraz může být uzavřen závorky</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cislo</span><span class="p">,</span> <span class="s2">&quot;je zaporne&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;musi to byt nula&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tento text se vypise vzdy.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>musi to byt nula
+Tento text se vypise vzdy.
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #F4330C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #F7C8C0; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Pozor</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Vnitřní bloky kódu se v Pythonu <strong>odsazují</strong> o <code class="docutils literal notranslate"><span class="pre">tab</span></code> nebo <strong>čtyři mezery</strong>! (V C++ je block uzavřen závorky <code class="docutils literal notranslate"><span class="pre">{</span></code> a <code class="docutils literal notranslate"><span class="pre">}</span></code>, a odsazení může být libovolné.)</p>
+</p>
+</div>
+</div><p>Logické hodnoty jsou <code class="docutils literal notranslate"><span class="pre">True</span></code> a <code class="docutils literal notranslate"><span class="pre">False</span></code>, operátory pro složitější logické výrazy jsou <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> a <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="o">==</span> <span class="p">(</span><span class="ow">not</span> <span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False True
+True
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="zakladni-datove-struktury">
-<h3><span class="section-number">1.3.6. </span>Základní datové struktury<a class="headerlink" href="#zakladni-datove-struktury" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.4. </span>Základní datové struktury<a class="headerlink" href="#zakladni-datove-struktury" title="Link to this heading">#</a></h3>
+<p><strong>String</strong> (řetězec)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="s2">&quot;Abc</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span>    <span class="c1"># string lze vytvořit například takto</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Abc3Abc3Abc3!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># různé způsoby tisku čísla a textu</span>
+<span class="n">cislo</span> <span class="o">=</span> <span class="mi">37</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cislo = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cislo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cislo = </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cislo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cislo = </span><span class="si">{</span><span class="n">cislo</span><span class="si">}</span><span class="s2">, cislo^2 = </span><span class="si">{</span><span class="n">cislo</span><span class="o">**</span><span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cislo = </span><span class="si">{0}</span><span class="s2">, cislo^2 = </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cislo</span><span class="p">,</span> <span class="n">cislo</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cislo = 37
+cislo = 37
+cislo = 37, cislo^2 = 1369
+cislo = 37, cislo^2 = 1369
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Konverze typů</strong></p>
+<p>Každá proměnná má v Pythonu jasně definovaný typ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 &lt;class &#39;int&#39;&gt;
+text &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mezi datovými typy je možné přecházet pomocí speciálních funkcí:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)</span>        <span class="c1"># string -&gt; int</span>
+<span class="nb">float</span><span class="p">(</span><span class="s2">&quot;3.14&quot;</span><span class="p">)</span>   <span class="c1"># string -&gt; float</span>
+<span class="nb">str</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>       <span class="c1"># float -&gt; string</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.14&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kontejnery">
+<h3><span class="section-number">1.3.5. </span>Kontejnery<a class="headerlink" href="#kontejnery" title="Link to this heading">#</a></h3>
+<p>Kontejnery jsou datové struktury obsahující větší počet prvků.
+Mezi základní patří:</p>
 <ul class="simple">
-<li><p>array</p></li>
-<li><p>list</p></li>
-<li><p>dict</p></li>
-<li><p>indexování - různé možnosti</p></li>
-<li><p>type()</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> - <em>neměnitelný</em> seznam (pole)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> - <em>měnitelný</em> seznam (pole)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dics</span></code> - <em>asociativní</em> pole</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code> - množina prvků</p></li>
 </ul>
+<p>Dále uvidíme, že:</p>
+<ul class="simple">
+<li><p>Prvky nemusejí být stejného typu!</p></li>
+<li><p>Pro indexování (přístup k jednotlivým prvkům) se používají závorky <code class="docutils literal notranslate"><span class="pre">[]</span></code> a indexuje se od <strong>0</strong>.</p></li>
+</ul>
+<p><strong>Tuple</strong></p>
+<p>Tuple je n-tice prvků, které po vytvoření nelze měnit!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>           <span class="c1"># Základní syntax vytváření tuple (kulaté závorky)</span>
+<span class="n">tuple2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span>                <span class="c1"># Závorky nejsou povinné, ale... !</span>
+<span class="n">tuple3</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>     <span class="c1"># Pokročilé: Vytvoření tuple z jiného kontejneru</span>
+<span class="n">tuple4</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>   <span class="c1"># Pokročilé: Vytvoření tuple z iterátoru / generátoru</span>
+<span class="n">tuple5</span> <span class="o">=</span> <span class="p">()</span>                    <span class="c1"># Prázdný tuple</span>
+<span class="n">tuple6</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;single&quot;</span><span class="p">,</span> <span class="p">)</span>          <span class="c1"># Tuple s jedním prvkem</span>
+<span class="n">tuple7</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>     <span class="c1"># Tuple může pochopitelně obsahovat další tuple</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple1=</span><span class="si">{</span><span class="n">tuple1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple2=</span><span class="si">{</span><span class="n">tuple2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple3=</span><span class="si">{</span><span class="n">tuple3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple4=</span><span class="si">{</span><span class="n">tuple4</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple5=</span><span class="si">{</span><span class="n">tuple5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple6=</span><span class="si">{</span><span class="n">tuple6</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple7=</span><span class="si">{</span><span class="n">tuple7</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple1=(1, &#39;a&#39;, 5)
+tuple2=(1, &#39;a&#39;)
+tuple3=(&#39;a&#39;, &#39;b&#39;)
+tuple4=(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+tuple5=()
+tuple6=(&#39;single&#39;,)
+tuple7=(0, &#39;1&#39;, (0, 1, 2))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tuple4</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>         <span class="c1"># První prvek</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>        <span class="c1"># Poslední prvek</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple4</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>        <span class="c1"># Předposlední prvek</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+9
+8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vyzkoušejte, že skutečně není možné přepsat prvky <code class="docutils literal notranslate"><span class="pre">tuple</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#tuple1[0] = 58</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>V praxi se s tímto typem setkáte při volání funkcí, které vrací více hodnot. Odpovídající proměnné je pak možné <em>rozbalit</em> následujícím způsobem:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dvecisla</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">58</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">dvecisla</span><span class="p">()</span>   <span class="c1"># rozbalení tuplu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37 58
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>List</strong></p>
+<p>List je opět n-tice prvků, ale oproti <code class="docutils literal notranslate"><span class="pre">tuple</span></code> je možné prvky měnit. Odpovídá polím (array) v C++. Navíc ale může obsahovat prvky různých typů!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(),</span> <span class="p">[]</span>                 <span class="c1"># prázdný list</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>    <span class="c1"># list vytvoříme pomocí [...]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;0.0&quot;</span><span class="p">]</span>    <span class="c1"># můžeme tam dát libovolné typy</span>
+<span class="n">list3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tuple1</span><span class="p">)</span>       <span class="c1"># nebo list vytvořit z tuple</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+[0, 0.0, &#39;0.0&#39;]
+[1, &#39;a&#39;, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jazyk Python poskytuje tyto základní operace pro práci se seznami (poli):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># všechny dostupné funkce pro operace s polem</span>
+<span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">item</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;append, clear, copy, count, extend, index, insert, pop, remove, reverse, sort&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>         <span class="c1"># přidání prvku</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>              <span class="c1"># list1 se změnil!</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>        <span class="c1"># vyjme poslední prvek</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+
+<span class="n">list1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>         <span class="c1"># odstranění prvku(ů)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+[&#39;d&#39;, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;]
+a
+[&#39;d&#39;, &#39;c&#39;, &#39;b&#39;]
+[&#39;c&#39;, &#39;b&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>U kontejnerů typu <code class="docutils literal notranslate"><span class="pre">tuple</span></code> a <code class="docutils literal notranslate"><span class="pre">list</span></code> lze provádět výběr více prvků najednou pomocí <strong>řezů</strong> podle pravidla:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">dolní_mez</span><span class="p">]</span> <span class="p">:</span> <span class="p">[</span><span class="n">horní_mez</span><span class="p">]</span> <span class="p">:</span> <span class="p">[</span><span class="n">krok</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[:])</span>     <span class="c1"># vyber všechny prvky</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># vyber první 2 prvky</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>    <span class="c1"># vyber prvních 5 prvků</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>   <span class="c1"># vyber prvky 1-6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">5</span><span class="p">:])</span>    <span class="c1"># vyber všechny prvky od indexu 5 dál </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>   <span class="c1"># poslední tři prvky</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># sudé prvky</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1]
+[0, 1, 2, 3, 4]
+[1, 2, 3, 4, 5, 6]
+[5, 6, 7, 8, 9]
+[7, 8, 9]
+[0, 2, 4, 6, 8]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Dict</strong> a <strong>Set</strong></p>
+<p>Tyto kontejnery používat typicky v kurzu nebudeme. Zájemci se o nich můžou vzdělat opět <a class="reference external" href="https://fjfi.pythonic.eu/posts/kontejnery.html">zde</a>.</p>
+</section>
+<section id="opakovani-cykly">
+<h3><span class="section-number">1.3.6. </span>Opakování - cykly<a class="headerlink" href="#opakovani-cykly" title="Link to this heading">#</a></h3>
+<p><strong>For</strong></p>
+<p>Zde využijeme funkci <code class="docutils literal notranslate"><span class="pre">range(min,max,krok)</span></code>, která vytvoří sekvenci celých čísel od <code class="docutils literal notranslate"><span class="pre">min</span></code> po <code class="docutils literal notranslate"><span class="pre">max</span></code> <em><strong>(prvek max není v sekvenci obsažen)</strong></em> s uvedeným krokem. Výchozí hodnoty jsou <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">=</span> <span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">krok</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Tuto funkci lze použít několika různými způsoby:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pole</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>    <span class="c1"># procházení pole verze 1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pole</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pole</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+4
+8
+16
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Foreach</strong></p>
+<p>Další způsob procházení pole je pomocí <em>foreach</em> konstrukce, která v Pythonu má stejný zápis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pole</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>    <span class="c1"># procházení pole verze 2</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pole</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+4
+8
+16
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>While</strong></p>
+<p>Dalším typem cyklu je <code class="docutils literal notranslate"><span class="pre">while</span></code> cyklus, který běží dokud je splněna určitá podmínka.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code> je možné napsat zkratkou pomocí <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">1</span></code> (ovšem C++ operátor <code class="docutils literal notranslate"><span class="pre">x++</span></code> v Pythonu použít nelze!).</p>
+</p>
+</div>
+</div><p><strong>Continue</strong></p>
+<p>Pomocí příkazu <code class="docutils literal notranslate"><span class="pre">continue</span></code> lze přeskočit zbytek iterace v cyklu a skočit na další:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># sudá čísla nebudeme vypisovat</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a = </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Konec, a = </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a = 1
+a = 3
+a = 5
+Konec, a = 1
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Break</strong></p>
+<p>Pomocí příkazu <code class="docutils literal notranslate"><span class="pre">break</span></code> lze předčasně ukončit cyklus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pomocí break najdeme největší trojciferené číslo dělitelné 19ti</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">19</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Výsledek je: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="n">a</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># break nespustí else část</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nic jsme nenašli&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Výsledek je: 988
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>V Pythonu je možné psát <code class="docutils literal notranslate"><span class="pre">else</span></code> blok za <code class="docutils literal notranslate"><span class="pre">while</span></code> cyklus, který se spustí ve chvíli, kdy je podmínka <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</p>
+</div>
+</div></section>
+<section id="definice-vlastni-funkce">
+<h3><span class="section-number">1.3.7. </span>Definice vlastní funkce<a class="headerlink" href="#definice-vlastni-funkce" title="Link to this heading">#</a></h3>
+<p>Vlastní funkce se definují pomocí hesla <code class="docutils literal notranslate"><span class="pre">def</span></code>. Ukážeme si to na výpočtu faktoriálu pomocí rekurze:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="dalsi-zakladni-funkce">
-<h3><span class="section-number">1.3.7. </span>Další základní funkce<a class="headerlink" href="#dalsi-zakladni-funkce" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.8. </span>Další základní funkce<a class="headerlink" href="#dalsi-zakladni-funkce" title="Link to this heading">#</a></h3>
 <p>Python obsahuje několik základních funkcí, které se běžně při psaní kódu používají.
 Celý jejich seznam můžete nalézt <a class="reference external" href="https://docs.python.org/3.12/library/functions.html">zde</a>.
 Tady je výtah těch nejběžnějších, které se nám budou hodit:</p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir()</span></code> - vrací seznam dostupných funkcí</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">print()</span></code> - výpis na standartní výstup</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code> - vrací délku řetězce</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">range()</span></code> - vrací sekvenci/pole po sobě jdoucích čísel</p></li>
@@ -715,18 +1168,31 @@ Tady je výtah těch nejběžnějších, které se nám budou hodit:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">open()</span></code> - otevření souboru</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">close()</span></code> - zavření souboru</p></li>
 </ul>
-<div class="cell docutils container">
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Vyžádejte si od uživatele číslo pomocí funkce <code class="docutils literal notranslate"><span class="pre">input()</span></code> a vytiskněte jeho druhou mocninu.</p>
+</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Budete potřebovat také funkci <code class="docutils literal notranslate"><span class="pre">int()</span></code> nebo <code class="docutils literal notranslate"><span class="pre">float()</span></code>.</p>
+</p>
+</div>
+</div>
+</div>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### DOPLŇTE ###</span>
-<span class="c1">#a = float(input(&quot;Zadej číslo: &quot;))</span>
-<span class="c1">#print(a*2)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="import-knihoven">
-<h3><span class="section-number">1.3.8. </span>Import knihoven<a class="headerlink" href="#import-knihoven" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.9. </span>Import knihoven<a class="headerlink" href="#import-knihoven" title="Link to this heading">#</a></h3>
 <p>Pro využití určité knihovny v kódu je třeba dannou knihovnu importovat.
 Například knihovnu pro různé matematické funkce přidáme pomocí <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> (v C++ ekvivalentní <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code>).</p>
 <div class="cell docutils container">
@@ -763,13 +1229,24 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
 
-
 <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7071067811865476
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>    <span class="c1"># volání funkce faktorial z knihovny math</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
 </pre></div>
 </div>
 </div>
@@ -838,10 +1315,45 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 <li><p>ukázka na příkladech z předchozích hodin - srovnání</p></li>
 </ul>
 </section>
+<section id="bonus">
+<h2><span class="section-number">1.7. </span>Bonus<a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Doplňte chybějící části označené <code class="docutils literal notranslate"><span class="pre">???</span></code> a opravte chyby, aby fungoval program na hru Oko bere (Black jack):</p>
+</p>
+</div>
+</div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import random
+
+soucet = 0
+while ???:
+    print(&#39;Máš&#39;, soucet, &#39;bodů&#39;)
+    odpoved = input(&#39;Otočit kartu? &#39;)
+    if odpoved == &#39;ano&#39;:
+        ??? = random.randrange(2, 11)
+        print(&#39;Otočil/a jsi&#39;, karta)
+        soucet = ???
+    elif ???:
+        break
+    else:
+        ???
+
+if soucet == 21:
+    print(&#39;Gratuluji! Vyhrál/a jsi!&#39;)
+???
+    print(&#39;Smůla!&#39;, soucet, &#39;bodů je moc!&#39;)
+else:
+    print(&#39;Chybělo jen&#39;, 21 - soucet, &#39;bodů!&#39;)
+</pre></div>
+</div>
+</section>
 <section id="dalsi-zdroje">
-<h2><span class="section-number">1.7. </span>Další zdroje<a class="headerlink" href="#dalsi-zdroje" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8. </span>Další zdroje<a class="headerlink" href="#dalsi-zdroje" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>kde se naučit více, procvičit</p></li>
+<li><p>Pandas</p></li>
+<li><p>Tensorflow - jen zminit..</p></li>
 <li><p>Bonus úloha ?</p></li>
 </ul>
 </section>
@@ -922,18 +1434,20 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">1.3. Jazyk Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentare">1.3.1. Komentáře</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">1.3.2. Základní aritmetické operace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky">1.3.3. Podmínky</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.4. Opakování - cykly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkce">1.3.5. Funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.6. Základní datové struktury</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">1.3.7. Další základní funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">1.3.8. Import knihoven</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-if-else-a-elif">1.3.3. Podmínky - if, else a elif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.4. Základní datové struktury</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kontejnery">1.3.5. Kontejnery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.6. Opakování - cykly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-vlastni-funkce">1.3.7. Definice vlastní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">1.3.8. Další základní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">1.3.9. Import knihoven</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.4. Knihovna numpy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">1.5. Vizualizace dat - matplotlib.pyplot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">1.6. Knihovna Scipy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zdroje">1.7. Další zdroje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">1.7. Bonus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zdroje">1.8. Další zdroje</a></li>
 </ul>
   </nav></div>
 
