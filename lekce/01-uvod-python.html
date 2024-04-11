@@ -629,7 +629,7 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">43</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="n">soucet</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="n">rozdil</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
@@ -653,13 +653,13 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Součet  48.0
-Rozdíl  38.0
-Součin  215.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Součet  48
+Rozdíl  38
+Součin  215
 Podíl  8.6
-Podíl beze zbytku  8.0
-Mocnina  147008443.0
-Zbytek po dělení  3.0
+Podíl beze zbytku  8
+Mocnina  147008443
+Zbytek po dělení  3
 </pre></div>
 </div>
 </div>
@@ -736,6 +736,7 @@ True
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># různé způsoby tisku čísla a textu</span>
 <span class="n">cislo</span> <span class="o">=</span> <span class="mi">37</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cislo =&quot;</span><span class="p">,</span> <span class="n">cislo</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cislo = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cislo</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cislo = </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cislo</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cislo = </span><span class="si">{</span><span class="n">cislo</span><span class="si">}</span><span class="s2">, cislo^2 = </span><span class="si">{</span><span class="n">cislo</span><span class="o">**</span><span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -745,6 +746,7 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cislo = 37
+cislo = 37
 cislo = 37
 cislo = 37, cislo^2 = 1369
 cislo = 37, cislo^2 = 1369
@@ -1655,14 +1657,20 @@ size: 4 dim: 2
 <p>Výběr pomocí masky:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[[[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maska</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">],</span> 
         <span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> 
         <span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> 
-        <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">]]]</span>   <span class="c1"># výběr rohových prvků</span>
+        <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">maska</span><span class="p">))</span>
+
+<span class="n">matrix</span><span class="p">[</span><span class="n">maska</span><span class="p">]</span>   <span class="c1"># výběr rohových prvků</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  4,  3, 16])
 </pre></div>
 </div>
@@ -1755,7 +1763,7 @@ size: 4 dim: 2
 </div>
 </div>
 </div>
-<p>Násobení matic a vektorů se provádí pomocí funkce <code class="docutils literal notranslate"><span class="pre">dot</span></code> nebo operátoru <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>:</p>
+<p>Násobení matic a vektorů se provádí pomocí funkce <code class="docutils literal notranslate"><span class="pre">dot()</span></code> nebo operátoru <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># matice 2x3</span>
@@ -1945,9 +1953,9 @@ size: 4 dim: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.59350402, 0.20655008],
-       [0.20117268, 0.75751703],
-       [0.94093554, 0.28783168]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.9486669 , 0.22475554],
+       [0.1532798 , 0.40476254],
+       [0.73006146, 0.54925259]])
 </pre></div>
 </div>
 </div>
@@ -2300,6 +2308,14 @@ else:
 </ol>
 <p>Pro nápovědu se můžete podívat do materiálu jiných cvičení <a class="reference external" href="https://mjirka.github.io/nme/Cviceni06vyplnene.html#razeni-vyberem-selection-sort">zde</a>.</p>
 </p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>V Pythonu lze prohodit hodnotu dvou proměnných pomocí výrazu <code class="docutils literal notranslate"><span class="pre">a,b</span> <span class="pre">=</span> <span class="pre">b,a</span></code> (v C++ funkce <code class="docutils literal notranslate"><span class="pre">swap(a,b)</span></code>).</p>
+</p>
+</div>
+</div>
 </div>
 </div><ol class="arabic simple">
 <li><p>Selection sort</p></li>
