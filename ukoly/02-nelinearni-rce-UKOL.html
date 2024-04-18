@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Hledání extrémů funkcí &#8212; NME1cvBook</title>
+    <title>Zápočtový úkol 1 &#8212; NME1cvBook</title>
   
   
   
@@ -57,12 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lekce/03-extremy-fci';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ukoly/02-nelinearni-rce-UKOL';</script>
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Numerická integrace" href="04-integrace.html" />
-    <link rel="prev" title="2. Řešení nelineárních rovnic" href="02-nelinearni-rce.html" />
+    <link rel="prev" title="6. Řešení diferenciálních rovnic s okrajovou podmínkou" href="../lekce/06-reseni-okraj.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,17 +179,17 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-nelinearni-rce.html">2. Nelineární rovnice</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04-integrace.html">4. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05-reseni-odr.html">5. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/02-nelinearni-rce.html">2. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/03-extremy-fci.html">3. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/04-integrace.html">4. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/05-reseni-odr.html">5. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Nelinearní rovnice</a></li>
 </ul>
 
     </div>
@@ -243,7 +244,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce/03-extremy-fci.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/ukoly/02-nelinearni-rce-UKOL.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -261,7 +262,7 @@
       
       
       
-      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce/03-extremy-fci.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/ukoly/02-nelinearni-rce-UKOL.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +280,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce/03-extremy-fci.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/ukoly/02-nelinearni-rce-UKOL.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -327,7 +328,7 @@
       
       
       
-      <li><a href="https://github.com/loepa01/NME1cvBook/issues/new?title=Issue%20on%20page%20%2Flekce/03-extremy-fci.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/loepa01/NME1cvBook/issues/new?title=Issue%20on%20page%20%2Fukoly/02-nelinearni-rce-UKOL.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +358,7 @@
       
       
       
-      <li><a href="../_sources/lekce/03-extremy-fci.ipynb" target="_blank"
+      <li><a href="../_sources/ukoly/02-nelinearni-rce-UKOL.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -439,7 +440,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Hledání extrémů funkcí</h1>
+    <h1>Zápočtový úkol 1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -453,8 +454,90 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hledani-extremu-funkci">
-<h1><span class="section-number">3. </span>Hledání extrémů funkcí<a class="headerlink" href="#hledani-extremu-funkci" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="zapoctovy-ukol-1">
+<span id="ukol1"></span><h1>Zápočtový úkol 1<a class="headerlink" href="#zapoctovy-ukol-1" title="Link to this heading">#</a></h1>
+<p>Newton-Raphsonova metoda 2D - soustava dvou nelineárních rovnic.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 1</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pomocí Newton-Raphsonovy metody najděte řešení soustavy nelineárních rovnic:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    0 &amp;= f_1(x,y) = x^{2} + 4x - y^2 - 2y - 1, \\
+    0 &amp;= f_2(x,y) = x^{2} + 2x + 5y - 4.
+\end{align}
+\end{split}\]</div>
+<p>Vykreslete obě zadané funkce a vyznačte nalezený kořen. Jaký je celkový počet řešení?</p>
+<p>Nalezněte <strong>všechny</strong> řešení soustavy.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Definice funkcí a jejich derivací</strong></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>K sestavení matice <span class="math notranslate nohighlight">\(\mathbb{J}\)</span> je potřeba spočítat parciální derivace obou funkcí podle <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(y\)</span>. To je možné, stejně jako jsme viděli u 1D Newtonovy metody, buď <em>analyticky</em> nebo pomocí <em>konečné diference</em>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analýza soustavy funkcí</strong></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro analýzu soustavy rovnic můžete například použít funkce <a class="reference external" href="https://matplotlib.org/stable/plot_types/arrays/contour.html#sphx-glr-plot-types-arrays-contour-py"><code class="docutils literal notranslate"><span class="pre">contour()</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/plot_types/arrays/contourf.html#sphx-glr-plot-types-arrays-contourf-py"><code class="docutils literal notranslate"><span class="pre">consourf()</span></code></a> nebo <a class="reference external" href="https://matplotlib.org/stable/plot_types/3D/surface3d_simple.html#sphx-glr-plot-types-3d-surface3d-simple-py"><code class="docutils literal notranslate"><span class="pre">plot_surface()</span></code></a> z knihovny <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>.</p>
+<p>K vykreslení <em>nulových bodů</em> jedné funkce lze nastavit parametry <code class="docutils literal notranslate"><span class="pre">levels=0,</span> <span class="pre">colors='b'</span></code> ve funkci <code class="docutils literal notranslate"><span class="pre">contour()</span></code>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Implementace metody Newton-Raphson ve 2D</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analýza konvergence</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ověření konvergence</span>
+<span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Vizualizace řešení</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -470,7 +553,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./lekce"
+            path: "./ukoly"
         },
         predefinedOutput: true
     }
@@ -488,22 +571,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02-nelinearni-rce.html"
+       href="../lekce/06-reseni-okraj.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Řešení nelineárních rovnic</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Řešení diferenciálních rovnic s okrajovou podmínkou</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="04-integrace.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Numerická integrace</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
