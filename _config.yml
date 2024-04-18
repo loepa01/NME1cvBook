@@ -9,7 +9,7 @@ copyright: "2024"
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: 'off'
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -40,13 +40,18 @@ launch_buttons:
   thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
   colab_url                 : "https://colab.research.google.com" # The URL of Google Colab (https://colab.research.google.com)
 
-parse:
-  myst_enable_extensions:
-    # don't forget to list any other extensions you want enabled,
-    # including those that are enabled by default!
-    - html_admonition
-    - html_image
+#parse:
+#  myst_enable_extensions:
+#    # don't forget to list any other extensions you want enabled,
+#    # including those that are enabled by default!
+#    - html_admonition
+#    - html_image
+#    - amsmath
 
 # ignore VS code files
 only_build_toc_files: true
 exclude_patterns: [".history", "README.md", "markdown*", "notebooks*", "insp", "admonitions-test.ipynb"]
+
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

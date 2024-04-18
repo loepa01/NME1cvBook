@@ -7,7 +7,7 @@ parts:
   - caption: "Obsah cvičení"
     numbered: True
     chapters:
-    - file: lekce/01-uvod-python
+    - file: lekce-vyplnene/01-uvod-python-vypl
       title: Úvod do jazyka Python
     - file: lekce/02-nelinearni-rce
       title: Nelineární rovnice
@@ -19,3 +19,9 @@ parts:
       title: Obyčejné diferenciální rovnice
     - file: lekce/06-reseni-okraj
       title: Diferenciální rovnice s okrajovou podmínkou
+      
+  - caption: "Úkoly"
+    numbered: False
+    chapters:
+    - file: ukoly/02-nelinearni-rce-UKOL
+      title: 2. Nelinearní rovnice
