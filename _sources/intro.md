@@ -25,6 +25,10 @@ V druhé části kurzu je pro získání zápočtu třeba odevzdat **dva** vypra
 
 Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **dva** vámi vybrané úkoly. Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů.
 
+Úkoly odevzdávejte mailem.
+
+Deadline na všechny úkoly je do **20. června**.
+
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
 - prostředí [Jupyter notebook](https://jupyter.org/) (instalace popsána [zde](install-all))
