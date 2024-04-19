@@ -9,7 +9,7 @@ parts:
     chapters:
     - file: lekce-vyplnene/01-uvod-python-vypl
       title: Úvod do jazyka Python
-    - file: lekce/02-nelinearni-rce
+    - file: lekce-vyplnene/02-nelinearni-rce-vypl
       title: Nelineární rovnice
     - file: lekce/03-extremy-fci
       title: Extrémy funkcí
