@@ -12,6 +12,7 @@ parts:
     - file: lekce-vyplnene/02-nelinearni-rce-vypl
       title: Nelineární rovnice
     - file: lekce/03-extremy-fci
+    #- file: lekce-vyplnene/03-extremy-fci-vypl
       title: Extrémy funkcí
     - file: lekce/04-integrace
       title: Numerická integrace
@@ -25,3 +26,5 @@ parts:
     chapters:
     - file: ukoly/02-nelinearni-rce-UKOL
       title: 2. Nelinearní rovnice
+    - file: ukoly/03-extremy-fci-UKOL
+      title: 2. Extrémy funkcí
