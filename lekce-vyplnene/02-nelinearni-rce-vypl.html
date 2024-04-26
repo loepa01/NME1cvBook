@@ -191,6 +191,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-extremy-fci-UKOL.html">2. Extrémy funkcí</a></li>
 </ul>
 
     </div>
@@ -480,6 +481,11 @@ document.write(`
 <h1><span class="section-number">2. </span>Řešení nelineárních rovnic<a class="headerlink" href="#reseni-nelinearnich-rovnic" title="Link to this heading">#</a></h1>
 <p>V této kapitole si představíme několik algoritmů a metod na řešení jedné nebo soustavy nelineárních rovnic.</p>
 <p>Oproti linearním rovnicím budeme vždy potřebovat <strong>počátečný odhad</strong> řešení, který budeme <strong>iteračně zpřesňovat</strong> určitou metodou.</p>
+<p>U metod nás bude zajímat:</p>
+<ul class="simple">
+<li><p><em>rychlost konvergence</em> - počet kroků potřebných k dosažený požadovené přesnosti</p></li>
+<li><p><em>jistota konvergence</em> - jestli máme zajištěno, že metoda skončí v bodě, kde se nachází řešení a ne např. v lokálním extrému</p></li>
+</ul>
 <section id="reseni-jedne-rovnice">
 <h2><span class="section-number">2.1. </span>Řešení jedné rovnice<a class="headerlink" href="#reseni-jedne-rovnice" title="Link to this heading">#</a></h2>
 <p>Pokud řešíme pouze jednu rovnici, lze snadno využít určité prioritní znalosti jak funkce vypadá, a omezit hledání řešení (kořenů) pouze na určitý interval.
@@ -582,7 +588,6 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 <span class="n">reseni</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">iteraci</span><span class="p">))</span> <span class="c1"># aktualni odhad reseni</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraci</span><span class="p">):</span>
-    <span class="c1">## DOPLŇTE ##</span>
     <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
@@ -717,7 +722,6 @@ a_{n+1} = \frac{a_{n-1} f(a_{n}) - a_{n} f(a_{n-1})}{f(a_{n}) - f(a_{n-1})}
 <span class="n">reseni2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">iteraci2</span><span class="p">))</span> <span class="c1"># aktualni odhad reseni</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraci2</span><span class="p">):</span>
-    <span class="c1">## DOPLŇTE ##</span>
     <span class="n">a2</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">a1</span>
     <span class="n">a1</span> <span class="o">=</span> <span class="n">a2</span>
@@ -833,7 +837,6 @@ Sečna:   -4.282289017870752 7.105427357601002e-15 3.552713678800501e-15
 <span class="n">reseni3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">iteraci3</span><span class="p">))</span> <span class="c1"># aktualni odhad reseni</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraci3</span><span class="p">):</span>
-    <span class="c1">## DOPLŇTE ##</span>
     <span class="n">a2</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">a1</span>
@@ -975,7 +978,6 @@ f(x_{i}+\Delta x)=f(x_{i})+\Delta x f'(x_{i})+\dfrac{(\Delta x)^{2}}{2}f''(x_{i}
 <span class="n">reseni4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">iteraci4</span><span class="p">))</span> <span class="c1"># aktualni odhad reseni</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraci4</span><span class="p">):</span>
-    <span class="c1">## DOPLŇTE ##</span>
     <span class="n">a1</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dxf2</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
     <span class="n">epsilon4</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a0</span> <span class="o">-</span> <span class="n">a1</span><span class="p">)</span>
     <span class="n">a0</span> <span class="o">=</span> <span class="n">a1</span>
@@ -1128,7 +1130,7 @@ f_{i}(\vec{x}+\delta\vec{x})=f_{i}(\vec{x})+\sum_{j=1}^{n}\dfrac{\partial f_{i}}
 \)</span></p></li>
 <li><p>řešíme tedy soustavu <span class="math notranslate nohighlight">\(n\)</span> lineárních rovnic s neznámou <span class="math notranslate nohighlight">\(\delta \vec{x}\)</span>, označme <span class="math notranslate nohighlight">\(\mathbb{J}_{i,j} = \dfrac{\partial f_{i}}{\partial x_{j}}\)</span></p></li>
 <li><p>dostaneme soustavu: <span class="math notranslate nohighlight">\(\mathbb{J} \cdot \delta \vec{x} = -\vec{f}\)</span></p></li>
-<li><p>iterační vztah pro funkci <span class="math notranslate nohighlight">\(n\)</span> proměnných: <span class="math notranslate nohighlight">\(x_{i}^{(k+1)}=x_{i}^{(k)} - \sum_{j=1}^{n}\mathbb{J}_{i,j}^{-1} f_{j}\)</span></p></li>
+<li><p>iterační vztah pro funkci <span class="math notranslate nohighlight">\(n\)</span> proměnných: <span class="math notranslate nohighlight">\(x_{i}^{(k+1)}=x_{i}^{(k)} + \sum_{j=1}^{n}\mathbb{J}_{i,j}^{-1} f_{j}\)</span></p></li>
 </ul>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 1</div>
