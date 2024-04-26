@@ -27,4 +27,4 @@ parts:
     - file: ukoly/02-nelinearni-rce-UKOL
       title: 2. Nelinearní rovnice
     - file: ukoly/03-extremy-fci-UKOL
-      title: 2. Extrémy funkcí
+      title: 3. Extrémy funkcí
