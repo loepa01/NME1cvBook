@@ -1121,6 +1121,25 @@ Realná chyba: 2.868257542587571e-08
 <section id="gaussovy-kvadratury">
 <h2><span class="section-number">4.2. </span>Gaussovy kvadratury<a class="headerlink" href="#gaussovy-kvadratury" title="Link to this heading">#</a></h2>
 <p>Na přednášce jste viděli teorii týkající se Gaussových kvadratur. Tyto metody jsou v praxi běžně používané, díky tomu, že jsou přesné pro polynomy do stupně až <span class="math notranslate nohighlight">\(2N - 1\)</span>. Přesto si je zde nepředstavíme, jelikož by bylo časové náročné si je podrobně projít a analyzovat jejich vlastnosti. Na ukázku implementace se můžete podívat například <a class="reference external" href="https://mjirka.github.io/nme/Cviceni09vyplnene.html#">zde</a>.</p>
+<p>Tato metoda je pro Python implementována v knihovně SciPy funkcí <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad()</span></code></a>. Tato funkce počítá hodnotu integrálu se strojovou přesností.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+
+<span class="n">I_gauss</span><span class="p">,</span> <span class="n">chyba_gauss</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_gaussKvad:&#39;</span><span class="p">,</span> <span class="n">I_gauss</span><span class="p">,</span> <span class="s1">&#39;| chyba:&#39;</span><span class="p">,</span> <span class="n">chyba_gauss</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:   &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_gaussKvad: 2.3149749160962623 | chyba: 5.1238144212141194e-12
+I_presny:    2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="integrace-funkci-vice-promennych-nd">
 <h2><span class="section-number">4.3. </span>Integrace funkcí více proměnných (nD)<a class="headerlink" href="#integrace-funkci-vice-promennych-nd" title="Link to this heading">#</a></h2>
