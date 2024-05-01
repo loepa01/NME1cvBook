@@ -7,14 +7,17 @@ parts:
   - caption: "Obsah cvičení"
     numbered: True
     chapters:
+    #- file: lekce/01-uvod-python
     - file: lekce-vyplnene/01-uvod-python-vypl
       title: Úvod do jazyka Python
+    #- file: lekce/02-nelinearni-rce
     - file: lekce-vyplnene/02-nelinearni-rce-vypl
       title: Nelineární rovnice
-    - file: lekce/03-extremy-fci
-    #- file: lekce-vyplnene/03-extremy-fci-vypl
+    #- file: lekce/03-extremy-fci
+    - file: lekce-vyplnene/03-extremy-fci-vypl
       title: Extrémy funkcí
     - file: lekce/04-integrace
+    #- file: lekce-vyplnene/04-integrace-vypl
       title: Numerická integrace
     - file: lekce/05-reseni-odr
       title: Obyčejné diferenciální rovnice
@@ -28,3 +31,5 @@ parts:
       title: 2. Nelinearní rovnice
     - file: ukoly/03-extremy-fci-UKOL
       title: 3. Extrémy funkcí
+    - file: ukoly/04-integrace-UKOL.ipynb
+      title: 4. Numerická integrace
