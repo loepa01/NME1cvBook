@@ -11,7 +11,9 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 * Trojanova 13, učebna T-125 (od 10h), T-124 (od 12h)
 * [Jiří Löffelmann](https://usermap.cvut.cz/profile/7a2ecf76-b3c3-4716-b1b2-cd6859a8e193), [loffejir@fjfi.cvut.cz](mailto:loffejir@fjfi.cvut.cz)
 * druhá část: 6 cvičení (od 12.4. do 17.5.)
-* 4. cvičení (3.5.) bude výuka online nebo formou videa !
+* cvičení 3.5. není cvičení v prezenční formě !
+    - máte za úkol samostatně si projít připravený notebook ke 4. tématu
+    - vyplněný notebook (s vyřešenými úkoly) mi pošlete mailem a bude vám započítána docházka z této hodiny
 
 ```{tableofcontents}
 ```
@@ -35,6 +37,7 @@ Deadline na všechny úkoly je do **20. června**.
 - po proběhnutí cvičení naleznete doplněné notebooky na GitHubu (ve vrchním menu tlačítko <i class="fab fa-github" aria-hidden="true"></i>)
 - po nějaké době je aktualizována i webová stránka s vyplněným Jupyter notebookem
 
+(literatura)=
 ## Doporučená literatura
 [1] W. H. Press, B. P. Flannery, S. A. Teukolsky, V. H. Vetterling, Numerical Recipes: The art of scientific computing, Cambridge University Press, Cambridge, 3rd edition 2007.
 
