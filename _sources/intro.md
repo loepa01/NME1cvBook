@@ -29,7 +29,9 @@ Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro z
 
 Úkoly odevzdávejte mailem.
 
-Deadline na všechny úkoly je do **20. června**.
+Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba to zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
+
+Deadline na všechny úkoly je do **14. června**.
 
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
