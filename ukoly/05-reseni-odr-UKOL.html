@@ -463,14 +463,16 @@ document.write(`
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 4</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Pomocí Runge-Kuttovy metody 4. řádu řešte následující ODR druhého řádu pro <a class="reference external" href="https://en.wikipedia.org/wiki/Van_der_Pol_oscillator">Van der Polův oscilátor</a>:
-$<span class="math notranslate nohighlight">\(
+<p>Pomocí Runge-Kuttovy metody 4. řádu řešte následující ODR druhého řádu pro <a class="reference external" href="https://en.wikipedia.org/wiki/Van_der_Pol_oscillator">Van der Polův oscilátor</a>:</p>
+<div class="math notranslate nohighlight">
+\[
 y^{\prime \prime} + \varepsilon \left(y^2 - 1\right) y^{\prime} + y = 0,
-\)</span>$</p>
-<p>s počáteční podmínkou:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>s počáteční podmínkou:</p>
+<div class="math notranslate nohighlight">
+\[
 y^{\prime}(0) = 1, \hspace{5pt} y(0) = 1.
-\)</span>$</p>
+\]</div>
 <p>Diferenciální rovnici je třeba převést na soustavu dvou ODR 1. řádu a pak aplikovat metodu RK4.
 Jak se liší chování dynamického systému pro <span class="math notranslate nohighlight">\(\varepsilon = 0.2\)</span> a <span class="math notranslate nohighlight">\(\varepsilon = 4\)</span>? Vykreslete řešení pro obě možnosti a okomentujte výslednou křivku. Zvolte časový interval dostatečně dlouhý tak, aby se chování oscilátoru ustálilo.</p>
 </p>
