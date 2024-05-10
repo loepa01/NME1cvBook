@@ -34,3 +34,5 @@ parts:
       title: 3. Extrémy funkcí
     - file: ukoly/04-integrace-UKOL.ipynb
       title: 4. Numerická integrace
+    - file: ukoly/05-reseni-odr-UKOL.ipynb
+      title: 5. Obyčejné diferenciální rovnice
