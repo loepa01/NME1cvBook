@@ -20,6 +20,7 @@ parts:
     #- file: lekce-vyplnene/04-integrace-vypl
       title: Numerická integrace
     - file: lekce/05-reseni-odr
+    #- file: lekce-vyplnene/05-reseni-odr-vypl
       title: Obyčejné diferenciální rovnice
     - file: lekce/06-reseni-okraj
       title: Diferenciální rovnice s okrajovou podmínkou
