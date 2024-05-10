@@ -13,7 +13,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 * druhá část: 6 cvičení (od 12.4. do 17.5.)
 * cvičení 3.5. není cvičení v prezenční formě !
     - máte za úkol samostatně si projít připravený notebook ke 4. tématu
-    - vyplněný notebook (s vyřešenými úkoly) mi pošlete mailem a bude vám započítána docházka z této hodiny
+    - vyplněný notebook (s vyřešenými úkoly) mi pošlete mailem a bude vám započítána docházka z této hodiny (deadline 15.5.)
 
 ```{tableofcontents}
 ```

@@ -492,7 +492,7 @@ Pro započítání docházky z této hodiny mi pošlete tento notebook s vyplně
 </div>
 </div><section class="tex2jax_ignore mathjax_ignore" id="numericka-integrace-1d">
 <h1><span class="section-number">4. </span>Numerická integrace (1D)<a class="headerlink" href="#numericka-integrace-1d" title="Link to this heading">#</a></h1>
-<p>V tomto cviční si ukážeme několik numerických metod pro vyčíslení integrálů funkcí jedné proměnné (1D) na počítači. Ukažeme si také, jak se v určuje <strong>chyba</strong> a jak získat metodu vyššího řádu pomocí <em>Rombergovy metody</em>.</p>
+<p>V tomto cvičení si ukážeme několik numerických metod pro vyčíslení integrálů funkcí jedné proměnné (1D) na počítači. Ukažeme si také, jak se v určuje <strong>chyba</strong> a jak získat metodu vyššího řádu pomocí <em>Rombergovy metody</em>.</p>
 <p>Numerické integrování funkcí, také nazývané <em>kvadratura</em> (výpočet obsahu plochy), spočívá v nahrazení integrálu konečnou sumou aproximující jeho hodnotu. Konkrétně se zajímáme o vyhodnocení intergálu tvaru:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -653,7 +653,7 @@ I_presny:      2.3149749160962623
 <p>Jak obecně určit chybu bez znalosti přesného výsledku? K tomu využijeme znalosti řádu metody. Konkrétně pro <em>levostranné pravidlo</em> víme, že dostaneme přibližnou hodnotu integrálu ve tvaru (lze odvodit pomocí Taylorova rozvoje, viz přednáška nebo [1]):</p>
 <div class="math notranslate nohighlight">
 \[
-I_h = I + a h + b h^2 + ... \equiv  I_h + \varepsilon(I_h)
+I_h = I + a h + b h^2 + ... \equiv  I + \varepsilon(I_h)
 \]</div>
 <p>Trik spočívá ve využití výsledku stejné metody pro dvakrát větší velikost podintervalů, který je tvaru:</p>
 <div class="math notranslate nohighlight">
@@ -733,7 +733,7 @@ I_presny:      2.3149749160962623
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-    I_h &amp;= I + a h^2 + b h^4 + ... \equiv  I_h + \varepsilon(I_h) \\
+    I_h &amp;= I + a h^2 + b h^4 + ... \equiv  I + \varepsilon(I_h) \\
     I_{2h} &amp;= I + a (2h)^2 + b (2h)^4 + ...
 \end{align}
 \end{split}\]</div>
@@ -817,7 +817,7 @@ I_presny:  2.3149749160962623
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-    I_h &amp;= I + a h^4 + b h^5 + ... \equiv  I_h + \varepsilon(I_h) \\
+    I_h &amp;= I + a h^4 + b h^5 + ... \equiv  I + \varepsilon(I_h) \\
     I_{2h} &amp;= I + a (2h)^4 + b (2h)^5 + ...
 \end{align}
 \end{split}\]</div>
@@ -895,7 +895,7 @@ I_presny:   2.3149749160962623
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-    I_h &amp;= I + a h^2 + b h^3 + ... \equiv  I_h + \varepsilon(I_h) \\
+    I_h &amp;= I + a h^2 + b h^3 + ... \equiv  I + \varepsilon(I_h) \\
     I_{2h} &amp;= I + a (2h)^2 + b (2h)^3 + ...
 \end{align}
 \end{split}\]</div>
@@ -930,7 +930,7 @@ Zajímavá myšlenka, která vede k <em>Rombergově metodě</em>, je využít ho
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-    I_h &amp;= I + a h^2 + b h^4 + ... \equiv  I_h + \varepsilon(I_h) \\
+    I_h &amp;= I + a h^2 + b h^4 + ... \equiv  I + \varepsilon(I_h) \\
     I_{2h} &amp;= I + a (2h)^2 + b (2h)^4 + ...
 \end{align}
 \end{split}\]</div>
@@ -1220,7 +1220,7 @@ I_presny:      2.3149749160962623
 \[
 \varepsilon \approx V \sqrt{\frac{\sigma_N}{M}} = V \sqrt{\frac{\langle f^2 \rangle - \langle f \rangle ^2}{M}} \sim \frac{1}{\sqrt{M}},
 \]</div>
-<p>kde <span class="math notranslate nohighlight">\(\sigma_N\)</span> je variance, <span class="math notranslate nohighlight">\(V\)</span> velikost oblasti a <span class="math notranslate nohighlight">\(N\)</span> počet vzorků. Chyba tedy klesá pouze s odmocninou počtu vzorků! Je tedy jasné, že pro funkce málo proměnných je naprosto neužitečná, jelikož máme k dispozici metody, které konvergují výrazně rychleji. Ale při <span class="math notranslate nohighlight">\(D &gt;= 8\)</span> už začíná mít tato metoda (ve vylepšené formě) význam a velká výhoda je pak jednoduchost implementace.</p>
+<p>kde <span class="math notranslate nohighlight">\(\sigma_N\)</span> je variance, <span class="math notranslate nohighlight">\(V\)</span> velikost oblasti a <span class="math notranslate nohighlight">\(N\)</span> počet vzorků. Chyba tedy klesá pouze s odmocninou počtu vzorků! Je tedy jasné, že pro funkce málo proměnných je naprosto neužitečná, jelikož máme k dispozici metody, které konvergují výrazně rychleji. Ale při <span class="math notranslate nohighlight">\(D \geq 8\)</span> už začíná mít tato metoda (ve vylepšené formě) význam a velká výhoda je pak jednoduchost implementace.</p>
 <p>Pro první metodu použijeme pouze <span class="math notranslate nohighlight">\(\varepsilon \sim \frac{1}{\sqrt{M}}\)</span>. Přesnější vztah s variací lze použít u druhé verze.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
