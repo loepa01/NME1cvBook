@@ -671,7 +671,7 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 </div>
 </div>
 </div>
-<p>Porovnání s výsledkem funkce <code class="docutils literal notranslate"><span class="pre">minimize_scalar(..,</span> <span class="pre">method=golden)</span></code> z knihovny SciPy:</p>
+<p>Porovnání s výsledkem funkce <code class="docutils literal notranslate"><span class="pre">minimize_scalar(..,</span> <span class="pre">method=&quot;golden&quot;)</span></code> z knihovny SciPy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-7</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;golden&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>

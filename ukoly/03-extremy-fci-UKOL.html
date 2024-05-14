@@ -463,6 +463,7 @@ document.write(`
 <p>Metoda konjugovaných gradientů na funkci dvou proměnných (“banánová funkce”).</p>
 <p>Postup metody (viz přednáška):</p>
 <p><img alt="Metoda konjugovaných gradientů postup" src="../_images/konjGrad.png" /></p>
+<p>Pro zopakování této metody se můžete podívat na video <a class="reference external" href="https://youtu.be/af93jh9Ryog?si=zltIQcPT9KXkhCp_">zde</a> (algoritmus v Matlabu je ke konci videa..).</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 2</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
@@ -472,7 +473,9 @@ document.write(`
 \[
 f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 \]</div>
-<p>Srovnejte metodu <em>konjugovaných gradientů</em> a metodu <em>největšího spádu</em> (probrána na cvičení) na této úloze. Okomentujte rychlost konvergence a stabilitu (citlivost na volbu koeficientu <span class="math notranslate nohighlight">\(\alpha\)</span>) obou metod.</p>
+<p>Srovnejte metodu <em>konjugovaných gradientů</em> a metodu <em>největšího spádu</em> (probrána na cvičení - stačí sem zkopírovat) na této úloze. Okomentujte rychlost konvergence obou metod.</p>
+<p>Vyzkoušejte obě metody s několika různými počátečnými odhady řešení (<span class="math notranslate nohighlight">\(\vec{P}_0\)</span>). Co za chování pozorujete u obou metod? Jak je potřeba změnit koeficient <span class="math notranslate nohighlight">\(\alpha\)</span> u metody největšího spádu, aby metoda konvergovala?</p>
+<p>Zvolte dostatečně malý krok <span class="math notranslate nohighlight">\(h\)</span> při numerickém výpočtu gradientu a dostatečný počet kroků tak, aby jste dostali řešení s přesností <span class="math notranslate nohighlight">\(10^{-8}\)</span> u metody konjugovaných gradientů.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -493,7 +496,15 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 </div>
 </div>
 <p><strong>Implementace metody konjugovaných gradientů</strong></p>
-<div class="cell docutils container">
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p><em>Krok 3</em> metody konjugovaných gradientů spočívá v nalezení minima funkce <span class="math notranslate nohighlight">\(f\)</span> v 1D podprostoru určeném směrem <span class="math notranslate nohighlight">\(\vec{h}_{k}\)</span>.
+Pro 1D minimalizaci ve směru <span class="math notranslate nohighlight">\(\vec{h}_k\)</span> a nalezení bodu <span class="math notranslate nohighlight">\(\vec{P}_{k+1}\)</span> můžete použít knihovní funkci <code class="docutils literal notranslate"><span class="pre">optimize.minimize_scalar()</span></code> (zvolte dostatečně malou toleranci) nebo libovolnou z metod představených na cvičení. Pro použití knihovní funkce je vhodné zadefinovat novou funkci (<span class="math notranslate nohighlight">\(g(t; \vec{x}, \vec{h}) = f(x + h_x t, y + h_y t)\)</span>) s jistým parametrem (např. <span class="math notranslate nohighlight">\(t\)</span>), vůči kterému se provádí optimalizace.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
 </pre></div>
@@ -501,6 +512,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
+<p>Vykreslete vývoj chyb pro obě metody a okomentujte.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ověření konvergence</span>
@@ -510,6 +522,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 </div>
 </div>
 <p><strong>Vizualizace řešení</strong></p>
+<p>Vykreslete jednotlivé iterace řešení do 2D grafu Rosenbrockovy funkce (pro vykreslení funkce využijte <code class="docutils literal notranslate"><span class="pre">contourf()</span></code>) a také výsledné řešení odlišnou barvou.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
