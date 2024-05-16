@@ -194,6 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/03-extremy-fci-UKOL.html">3. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/04-integrace-UKOL.html">4. Numerická integrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/05-reseni-odr-UKOL.html">5. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/06-reseni-okraj-UKOL.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 
     </div>
@@ -480,7 +481,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reseni-nelinearnich-rovnic">
-<h1><span class="section-number">2. </span>Řešení nelineárních rovnic<a class="headerlink" href="#reseni-nelinearnich-rovnic" title="Link to this heading">#</a></h1>
+<span id="nelin-rce"></span><h1><span class="section-number">2. </span>Řešení nelineárních rovnic<a class="headerlink" href="#reseni-nelinearnich-rovnic" title="Link to this heading">#</a></h1>
 <p>V této kapitole si představíme několik algoritmů a metod na řešení jedné nebo soustavy nelineárních rovnic.</p>
 <p>Oproti linearním rovnicím budeme vždy potřebovat <strong>počátečný odhad</strong> řešení, který budeme <strong>iteračně zpřesňovat</strong> určitou metodou.</p>
 <p>U metod nás bude zajímat:</p>
@@ -1119,7 +1120,7 @@ f_{3}(x_{1},x_{2},\dots,x_{n})=0,
 f_{n}(x_{1},x_{2},\dots,x_{n})=0.
 \]</div>
 <section id="newton-raphsonova-metoda-2d">
-<h3><span class="section-number">2.2.1. </span>Newton-Raphsonova metoda 2D<a class="headerlink" href="#newton-raphsonova-metoda-2d" title="Link to this heading">#</a></h3>
+<span id="newton2d"></span><h3><span class="section-number">2.2.1. </span>Newton-Raphsonova metoda 2D<a class="headerlink" href="#newton-raphsonova-metoda-2d" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>přesné řešení <span class="math notranslate nohighlight">\(\vec{\xi}\)</span> vyjádříme ve tvaru <span class="math notranslate nohighlight">\(\vec{\xi}=\vec{x}+\delta\vec{x}\)</span></p></li>
 <li><p>hodnotu funkce v bodě <span class="math notranslate nohighlight">\(\vec{\xi}\)</span> vyjádříme pomocí Taylorovy věty:
