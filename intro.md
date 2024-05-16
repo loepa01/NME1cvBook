@@ -27,7 +27,7 @@ V druhé části kurzu je pro získání zápočtu třeba odevzdat **dva** vypra
 
 Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **dva** vámi vybrané úkoly. Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů.
 
-Úkoly odevzdávejte mailem.
+Úkoly odevzdávejte mailem. Nechte jméno jupyter notebooku stejné, pouze přidejte vaše jméno nakonec (příklad: **02-nelinearni-rce-UKOL_JiriLoffelmann**).
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba to zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
 
@@ -41,7 +41,9 @@ Deadline na všechny úkoly je do **14. června**.
 
 (literatura)=
 ## Doporučená literatura
-[1] W. H. Press, B. P. Flannery, S. A. Teukolsky, V. H. Vetterling, Numerical Recipes: The art of scientific computing, Cambridge University Press, Cambridge, 3rd edition 2007.
+[1] W. H. Press, B. P. Flannery, S. A. Teukolsky, V. H. Vetterling, Numerical Recipes: The art of scientific computing, Cambridge University Press, Cambridge, 3rd edition 2007. \
+[2] Materiály k ostatním cvičením a k přednášce \
+[3] [Python Programming And Numerical Methods: A Guide For Engineers And Scientists](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/Index.html)
 
 ## Vedení kurzu
 Tento kurz je veden skupinou [Počítačové fyziky na KFE](http://cphys.fjfi.cvut.cz/cphys/index.php?lang=cs), FJFI ČVUT.

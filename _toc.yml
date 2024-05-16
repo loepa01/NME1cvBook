@@ -23,6 +23,7 @@ parts:
     - file: lekce-vyplnene/05-reseni-odr-vypl
       title: Obyčejné diferenciální rovnice
     - file: lekce/06-reseni-okraj
+    #- file: lekce-vyplnene/06-reseni-okraj-vypl
       title: Diferenciální rovnice s okrajovou podmínkou
       
   - caption: "Úkoly"
@@ -36,3 +37,5 @@ parts:
       title: 4. Numerická integrace
     - file: ukoly/05-reseni-odr-UKOL.ipynb
       title: 5. Obyčejné diferenciální rovnice
+    - file: ukoly/06-reseni-okraj-UKOL.ipynb
+      title: 6. Diferenciální rovnice s okrajovou podmínkou
