@@ -16,8 +16,8 @@ parts:
     #- file: lekce/03-extremy-fci
     - file: lekce-vyplnene/03-extremy-fci-vypl
       title: Extrémy funkcí
-    - file: lekce/04-integrace
-    #- file: lekce-vyplnene/04-integrace-vypl
+    #- file: lekce/04-integrace
+    - file: lekce-vyplnene/04-integrace-vypl
       title: Numerická integrace
     #- file: lekce/05-reseni-odr
     - file: lekce-vyplnene/05-reseni-odr-vypl
