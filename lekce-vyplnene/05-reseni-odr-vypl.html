@@ -482,7 +482,7 @@ document.write(`
 <p>V této kapitole se seznámíme s řešením obyčejných diferenciálních rovnic (ODR) na počítači. Obecný tvar ODR <em>N-tého</em> řádu je následující:</p>
 <div class="math notranslate nohighlight">
 \[
-p(x, y, y^{\prime}, y^{\prime \prime}, \dots, y^{(n)}) = f(x, y(x)), \hspace{5pt} y^{(i)}(0) = y_0^i \hspace{5pt} \forall i \in [0, N-1],
+p(x, y, y^{\prime}, y^{\prime \prime}, \dots, y^{(n)}) = 0, \hspace{5pt} y^{(i)}(0) = y_0^i \hspace{5pt} \forall i \in [0, N-1],
 \]</div>
 <p>kde <span class="math notranslate nohighlight">\(y^{(i)}(0) = y_0^i\)</span> je sada <span class="math notranslate nohighlight">\(n\)</span> počátečních podmínek pro hodnoty jednotlivých derivací funkce <span class="math notranslate nohighlight">\(y\)</span> v počátečním bodě <span class="math notranslate nohighlight">\(0\)</span>. Vidíme, že diferenciální rovnice není sama o sobě kompletní řešitelnou úlohou. Jelikož máme vztah obsahující derivace neznámé funkce, potřebujeme vždy znát nějaké okrajové nebo počáteční podmínky. Zde jsme představili případ, kdy známe počáteční hodnotu všech derivací funkce <span class="math notranslate nohighlight">\(y\)</span> do stupně <span class="math notranslate nohighlight">\(n-1\)</span> v <strong>jednom bodě</strong>. Taková úloha se nazývá <em>počáteční problém</em>. Druhým typem úlohy (<em>okrajový problém</em>), kdy podmínky nemusí být zadané pouze v jednom bodě, se budeme zabývat v posledním cvičení.</p>
 <p>Předchozí diferenciální rovnici lze vždy převést na soustavu <span class="math notranslate nohighlight">\(n\)</span> obyčejných diferenciálních rovnic prvního řádu (viz přednáška):</p>
