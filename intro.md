@@ -31,7 +31,7 @@ Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro z
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
 
-Deadline na všechny úkoly je do **14. června**. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zvláště pokud chcete dělat zkoušku v září!
+Deadline na všechny úkoly je do **14. června**. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!
 
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
