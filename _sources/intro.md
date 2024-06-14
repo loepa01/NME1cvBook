@@ -25,7 +25,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 ## Úkoly
 V druhé části kurzu je pro získání zápočtu třeba odevzdat **dva** vypracované úkoly, které budou zadány na cvičeních.
 
-Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **dva** vámi vybrané úkoly. Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů.
+Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **dva** vámi vybrané úkoly (výjimkou je poslední započtový úkol). Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů.
 
 Úkoly odevzdávejte mailem. Nechte jméno jupyter notebooku stejné, pouze přidejte vaše jméno nakonec (příklad: **02-nelinearni-rce-UKOL_JiriLoffelmann**).
 
