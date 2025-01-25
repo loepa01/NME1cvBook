@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lekce/01-uvod-python';</script>
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -185,6 +187,14 @@
 <li class="toctree-l1"><a class="reference internal" href="04-integrace.html">4. Numerická integrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-reseni-odr.html">5. Obyčejné diferenciální rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-extremy-fci-UKOL.html">3. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-integrace-UKOL.html">4. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-reseni-odr-UKOL.html">5. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/06-reseni-okraj-UKOL.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 
     </div>
@@ -498,7 +508,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="uvod-do-jazyka-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="uvod-do-jazyka-python">
 <h1><span class="section-number">1. </span>Úvod do jazyka Python<a class="headerlink" href="#uvod-do-jazyka-python" title="Link to this heading">#</a></h1>
 <p>Tato přednáška přestavuje stručný úvod do programovacího jazyka Python. Probrány jsou jak základní tak pokročilejší nástroje, které budou používány po zbytek kurzu. Pro zájemce o hlubší porozumění Pythonu doporučuji kurz <a class="reference external" href="https://fjfi.pythonic.eu/">Vědecké programování v Pythonu</a> (12PYTH), ze kterého tato přednáška čerpá.</p>
 <p>Další užitečný kurz v češtině je například od <a class="reference external" href="https://naucse.python.cz/course/pyladies/">Pyladies</a>.</p>
@@ -653,13 +663,13 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Součet  48
-Rozdíl  38
-Součin  215
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Součet  48.0
+Rozdíl  38.0
+Součin  215.0
 Podíl  8.6
-Podíl beze zbytku  8
-Mocnina  147008443
-Zbytek po dělení  3
+Podíl beze zbytku  8.0
+Mocnina  147008443.0
+Zbytek po dělení  3.0
 </pre></div>
 </div>
 </div>
@@ -746,7 +756,6 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cislo = 37
-cislo = 37
 cislo = 37
 cislo = 37, cislo^2 = 1369
 cislo = 37, cislo^2 = 1369
@@ -1670,9 +1679,6 @@ size: 4 dim: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;list&#39;&gt;
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  4,  3, 16])
 </pre></div>
 </div>
@@ -1955,9 +1961,9 @@ size: 4 dim: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.0314906 , 0.02416044],
-       [0.72221238, 0.22997849],
-       [0.54825503, 0.73334058]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.85196594, 0.66928364],
+       [0.17104743, 0.51678847],
+       [0.8152541 , 0.17603683]])
 </pre></div>
 </div>
 </div>
@@ -2024,7 +2030,7 @@ size: 4 dim: 2
 <section id="d-plot">
 <h3><span class="section-number">1.5.1. </span>1D plot<a class="headerlink" href="#d-plot" title="Link to this heading">#</a></h3>
 <p><strong>Možnost 1 - vykreslování ala Matlab</strong></p>
-<p>Vygenerujeme $x$ a $y$ hodnoty pro funkci <code class="docutils literal notranslate"><span class="pre">sin()</span></code>:</p>
+<p>Vygenerujeme <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(y\)</span> hodnoty pro funkci <code class="docutils literal notranslate"><span class="pre">sin()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
@@ -2127,14 +2133,14 @@ Přidáme popisky os pomocí <code class="docutils literal notranslate"><span cl
 </section>
 <section id="id1">
 <h3><span class="section-number">1.5.2. </span>2D plot<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Mějme funkci $z(x,y)$, která závisí na dvou proměnných:
-$
+<p>Mějme funkci <span class="math notranslate nohighlight">\(z(x,y)\)</span>, která závisí na dvou proměnných:
+<span class="math notranslate nohighlight">\(
 \begin{equation}
 z(x,y)=\exp(-\sqrt{x^2+y^2})\cos(2x)\sin(2y),
 \end{equation}
-$
+\)</span>
 a vykreslíme její závislost v 2D grafu.</p>
-<p>Vytvoříme mřížku $x\times y$ pomocí funkce <code class="docutils literal notranslate"><span class="pre">meshgrid()</span></code>:</p>
+<p>Vytvoříme mřížku <span class="math notranslate nohighlight">\(x\times y\)</span> pomocí funkce <code class="docutils literal notranslate"><span class="pre">meshgrid()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">osa_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
@@ -2144,7 +2150,7 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div>
 </div>
 </div>
-<p>Spočítáme hodnoty funkce $z(x,y)$:</p>
+<p>Spočítáme hodnoty funkce <span class="math notranslate nohighlight">\(z(x,y)\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
@@ -2220,16 +2226,8 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jiral\AppData\Local\Programs\Python\Python310\lib\site-packages\scipy\__init__.py:146: UserWarning: A NumPy version &gt;=1.16.5 and &lt;1.23.0 is required for this version of SciPy (detected version 1.26.2
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\jiral\AppData\Local\Programs\Python\Python310\lib\site-packages\scipy\__init__.py:146: UserWarning: A NumPy version &gt;=1.16.5 and &lt;1.23.0 is required for this version of SciPy (detected version 1.26.2
   warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -2249,23 +2247,23 @@ a vykreslíme její závislost v 2D grafu.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793 1.618033988749895 299792458.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>Dále si ukážeme příklady využití funkcí z různých modulů na úlohách, se kterými jste se setkali v <strong>první části</strong> tohoto kurzu.</p>
 <section id="reseni-soustav-rovnic-vlastni-cisla-matice">
 <h3><span class="section-number">1.6.1. </span>Řešení soustav rovnic, vlastní čísla matice<a class="headerlink" href="#reseni-soustav-rovnic-vlastni-cisla-matice" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Soustava lineárních rovnic</strong></p>
+<p>Řešíme soustavu lineárních rovnic:
+<span class="math notranslate nohighlight">\(
+\mathbb{A} \vec{x} = \vec{b}
+\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
@@ -2282,6 +2280,7 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div>
 </div>
 </div>
+<p>Řešení přes inverzi matice <span class="math notranslate nohighlight">\(\mathbb{A}^{-1}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ainv</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># inverze matice A</span>
@@ -2318,6 +2317,7 @@ Vlastní vektory:
 </div>
 </div>
 </div>
+<p>Ověření:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">@</span> <span class="n">eig_vects</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">eig_nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">eig_vects</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># A*v1 = e1*v1</span>
@@ -2353,6 +2353,7 @@ Vlastní vektory:
 </div>
 </div>
 </div>
+<p>Ověření:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">@</span> <span class="p">(</span><span class="n">L</span> <span class="o">@</span> <span class="n">U</span><span class="p">),</span> <span class="n">A</span>
@@ -2375,14 +2376,129 @@ Vlastní vektory:
 <h3><span class="section-number">1.6.2. </span>Aproximace funkcí, interpolace<a class="headerlink" href="#aproximace-funkci-interpolace" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">special</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">special</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\jiral\AppData\Local\Programs\Python\Python310\lib\site-packages\scipy\__init__.py:146: UserWarning: A NumPy version &gt;=1.16.5 and &lt;1.23.0 is required for this version of SciPy (detected version 1.26.2
+  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Lineární interpolace</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">194</span><span class="p">)</span>
+
+<span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_p</span><span class="p">)</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x_p</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_p</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x23d6988aa10&gt;]
+</pre></div>
+</div>
+<img alt="../_images/248218996378d1f2b1c7f97cb6d05290574e65b4afd4e1002175c45e93343fab.png" src="../_images/248218996378d1f2b1c7f97cb6d05290574e65b4afd4e1002175c45e93343fab.png" />
+</div>
+</div>
+<p><strong>Interpolace Lagrangeovým polynomem</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yL</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">lagrange</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yL</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x23d69915c90&gt;]
+</pre></div>
+</div>
+<img alt="../_images/66e8a3dd3408c731606891521e35d3eea9ee8532934041b5879200d2c9d153b9.png" src="../_images/66e8a3dd3408c731606891521e35d3eea9ee8532934041b5879200d2c9d153b9.png" />
+</div>
+</div>
+<p><strong>Least-squares fit</strong></p>
+<p>Proložení bodů polynomem pomocí metody nejmenších čtverců (<code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yP</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yP</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x23d6aa25780&gt;]
+</pre></div>
+</div>
+<img alt="../_images/ae7d3c482c02310e51d6a816c5dca84ce49a2b3a80f81f73c9bb8774d8d73b36.png" src="../_images/ae7d3c482c02310e51d6a816c5dca84ce49a2b3a80f81f73c9bb8774d8d73b36.png" />
 </div>
 </div>
 </section>
 <section id="trideni">
 <h3><span class="section-number">1.6.3. </span>Třídění<a class="headerlink" href="#trideni" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;quicksort&#39;</span><span class="p">)</span>  <span class="c1"># kind=&#39;quicksort&#39;, &#39;mergesort&#39;, &#39;heapsort&#39;, &#39;stable&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-5,  1,  1,  2,  3,  4,  7,  8, 11])
+</pre></div>
+</div>
+</div>
+</div>
 <p>Další funkce si představíme v následujících cvičeních.</p>
 <p>Více se opět můžete dozvědět v oficiální <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/">dokumentaci</a> knihovny.</p>
 </section>
