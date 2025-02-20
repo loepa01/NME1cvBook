@@ -6,32 +6,30 @@ Materiály k přednášce najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/
 
 Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičících.
 
-## Rozvrh pro letní semestr 2023/2024
-* Pátek 10:00 - 11:40, 12:00 - 13:40
-* Trojanova 13, učebna T-125 (od 10h), T-124 (od 12h)
+## Rozvrh pro letní semestr 2024/2025
+* Pátek 8:00 - 9:40, 10:00 - 11:40
+* Trojanova 13, učebna T-124
 * [Jiří Löffelmann](https://usermap.cvut.cz/profile/7a2ecf76-b3c3-4716-b1b2-cd6859a8e193), [loffejir@fjfi.cvut.cz](mailto:loffejir@fjfi.cvut.cz)
-* druhá část: 6 cvičení (od 12.4. do 17.5.)
-* cvičení 3.5. není cvičení v prezenční formě !
-    - máte za úkol samostatně si projít připravený notebook ke 4. tématu
-    - vyplněný notebook (s vyřešenými úkoly) mi pošlete mailem a bude vám započítána docházka z této hodiny (deadline 15.5.)
+* od 21.2. do 16.5. (18.4. volno - Velký pátek), 12 lekcí
 
 ```{tableofcontents}
 ```
 
 ## Podmínky udělení zápočtu
-- max. 3 absence, [DOCHÁZKA](dochazka.xlsx)
-- vypracování 4 domácích úloh (2 úlohy z první části - [Dominika Jochcová](https://github.com/jochcova/NMEcv/), 2 úlohy zadané v druhé části)
+- max. 3 absence (možnost nahrazení 1 absence odevzdáním navíc 1 domácí úlohy), [DOCHÁZKA](dochazka.xlsx)
+- vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (lekce 2-6), 2 úlohy z druhé půlky cvičení (lekce 7-12)
+- na zkoušku je možné jít před udělením zápočtu
 
 ## Úkoly
-V druhé části kurzu je pro získání zápočtu třeba odevzdat **dva** vypracované úkoly, které budou zadány na cvičeních.
+V kurzu je pro získání zápočtu třeba odevzdat **čtyři** vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.
 
-Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **dva** vámi vybrané úkoly (výjimkou je poslední započtový úkol). Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů.
+Celkem bude zadáno 11? úkolů, jeden z každé kapitoly (kromě úvodní ??). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů. Pokud odevzdaný úkol nebude splňovat požadavky, pošlu vám ho na opravu zpět. Typicky vám okomentuji vaše řešení a poradím jak případné chyby opravit. Otázky k úkolům jsou samozřejmě vítány, ideálně na konci cvičení.
 
 Úkoly odevzdávejte mailem. Nechte jméno jupyter notebooku stejné, pouze přidejte vaše jméno nakonec (příklad: **02-nelinearni-rce-UKOL_JiriLoffelmann**).
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
 
-Deadline na všechny úkoly je do **14. června**. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!
+Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!
 
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)

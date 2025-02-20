@@ -8,51 +8,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Úvod do jazyka Python &#8212; NME1cvBook</title>
+    <title>Úvod do jazyka Python &#8212; NME1cvBook</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -63,10 +66,11 @@
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Řešení nelineárních rovnic" href="02-nelinearni-rce-vypl.html" />
+    <link rel="next" title="Řešení nelineárních rovnic" href="07-nelinearni-rce-vypl.html" />
     <link rel="prev" title="Numerické metody (NME1cv) - cvičení 2024" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -74,31 +78,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -106,7 +95,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -114,10 +102,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -126,7 +119,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,6 +135,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -154,21 +150,17 @@
     
     
     <img src="../_static/cphys-logo6.png" class="logo__image only-light" alt="NME1cvBook - Home"/>
-    <script>document.write(`<img src="../_static/cphys-logo6.png" class="logo__image only-dark" alt="NME1cvBook - Home"/>`);</script>
+    <img src="../_static/cphys-logo6.png" class="logo__image only-dark pst-js-only" alt="NME1cvBook - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -182,19 +174,19 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-nelinearni-rce-vypl.html">2. Nelineární rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-extremy-fci-vypl.html">3. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04-integrace-vypl.html">4. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05-reseni-odr-vypl.html">5. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce/06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-extremy-fci-vypl.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-integrace-vypl.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-reseni-odr-vypl.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-extremy-fci-UKOL.html">3. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-integrace-UKOL.html">4. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-reseni-odr-UKOL.html">5. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/06-reseni-okraj-UKOL.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/10-reseni-odr-UKOL.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/11-reseni-okraj-UKOL.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 
     </div>
@@ -203,14 +195,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -219,14 +216,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -251,14 +248,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce-vyplnene/01-uvod-python-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -269,14 +266,14 @@
       
       <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce-vyplnene/01-uvod-python-vypl.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -287,14 +284,14 @@
       
       <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce-vyplnene/01-uvod-python-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -416,27 +413,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -457,46 +446,46 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">1.1. Instalace Pythonu a prostředí Jupyter notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postup-instalace">1.1.1. Postup instalace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">Instalace Pythonu a prostředí Jupyter notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postup-instalace">Postup instalace</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.2. Jupyter notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">1.2.1. Hello world!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">Hello world!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">1.3. Jazyk Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentare">1.3.1. Komentáře</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">1.3.2. Základní aritmetické operace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-if-else-a-elif">1.3.3. Podmínky - if, else a elif</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.4. Základní datové struktury</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kontejnery">1.3.5. Kontejnery</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.6. Opakování - cykly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-vlastni-funkce">1.3.7. Definice vlastní funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">1.3.8. Další základní funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">1.3.9. Import knihoven</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">Jazyk Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentare">Komentáře</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">Základní aritmetické operace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-if-else-a-elif">Podmínky - if, else a elif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">Základní datové struktury</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kontejnery">Kontejnery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">Opakování - cykly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-vlastni-funkce">Definice vlastní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">Další základní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">Import knihoven</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.4. Knihovna numpy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array">1.4.1. Numpy array</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maticove-operace">1.4.2. Maticové operace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicke-funkce">1.4.3. Matematické funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-uzitecne-funkce">1.4.4. Další užitečné funkce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">Knihovna numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array">Numpy array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maticove-operace">Maticové operace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicke-funkce">Matematické funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-uzitecne-funkce">Další užitečné funkce</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">1.5. Vizualizace dat - matplotlib.pyplot</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">1.5.1. 1D plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.5.2. 2D plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-typy-grafu">1.5.3. Další typy grafů</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">Vizualizace dat - matplotlib.pyplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">1D plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2D plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-typy-grafu">Další typy grafů</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">1.6. Knihovna Scipy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-soustav-rovnic-vlastni-cisla-matice">1.6.1. Řešení soustav rovnic, vlastní čísla matice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aproximace-funkci-interpolace">1.6.2. Aproximace funkcí, interpolace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trideni">1.6.3. Třídění</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">Knihovna Scipy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-soustav-rovnic-vlastni-cisla-matice">Řešení soustav rovnic, vlastní čísla matice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aproximace-funkci-interpolace">Aproximace funkcí, interpolace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trideni">Třídění</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">1.7. Bonus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">Bonus</a></li>
 </ul>
             </nav>
         </div>
@@ -509,11 +498,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="uvod-do-jazyka-python">
-<h1><span class="section-number">1. </span>Úvod do jazyka Python<a class="headerlink" href="#uvod-do-jazyka-python" title="Link to this heading">#</a></h1>
+<h1>Úvod do jazyka Python<a class="headerlink" href="#uvod-do-jazyka-python" title="Link to this heading">#</a></h1>
 <p>Tato přednáška přestavuje stručný úvod do programovacího jazyka Python. Probrány jsou jak základní tak pokročilejší nástroje, které budou používány po zbytek kurzu. Pro zájemce o hlubší porozumění Pythonu doporučuji kurz <a class="reference external" href="https://fjfi.pythonic.eu/">Vědecké programování v Pythonu</a> (12PYTH), ze kterého tato přednáška čerpá.</p>
 <p>Další užitečný kurz v češtině je například od <a class="reference external" href="https://naucse.python.cz/course/pyladies/">Pyladies</a>.</p>
 <section id="instalace-pythonu-a-prostredi-jupyter-notebook">
-<span id="install-all"></span><h2><span class="section-number">1.1. </span>Instalace Pythonu a prostředí Jupyter notebook<a class="headerlink" href="#instalace-pythonu-a-prostredi-jupyter-notebook" title="Link to this heading">#</a></h2>
+<span id="install-all"></span><h2>Instalace Pythonu a prostředí Jupyter notebook<a class="headerlink" href="#instalace-pythonu-a-prostredi-jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>V druhé části kurzu Numerických metod budeme používat moderní prostědí <a class="reference external" href="https://jupyter.org/">Jupyter notebook</a> (soubory s koncovkou <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>), které jsou velmi vhodné jak na výuku tak na rychlé otestování a prototipování kódu.</p>
 <p>Máte volbu mezi dvěmi možnostmi, jak sledovat přednášku a mít možnost spouštět kód:</p>
 <ol class="arabic simple">
@@ -521,7 +510,7 @@ document.write(`
 <li><p>Pracovat <em>lokálně</em> na svém počítači</p></li>
 </ol>
 <section id="postup-instalace">
-<h3><span class="section-number">1.1.1. </span>Postup instalace<a class="headerlink" href="#postup-instalace" title="Link to this heading">#</a></h3>
+<h3>Postup instalace<a class="headerlink" href="#postup-instalace" title="Link to this heading">#</a></h3>
 <p><strong>Online interaktivní prostředí</strong> (doporučuji)</p>
 <p>Pro spuštení interaktivní verze této stránky klikněte ve vrchním menu na <i class="fas fa-rocket" aria-hidden="true"></i> a zvolte:</p>
 <ul class="simple">
@@ -557,11 +546,11 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 </div></section>
 </section>
 <section id="jupyter-notebook">
-<h2><span class="section-number">1.2. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
+<h2>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>Jupyter notebook je interaktivní dokument obsahující buňky se spustitelným kódem, textem, obrázky, vzorci a apod. Je to velmi vhodný nástroj pro výuku a proto všechen materiál k tomuto cvičení je ve formě těchto notebooků.</p>
 <p>V této kapitolce se krátce seznámíme, jak se s Jupyter notebooky pracuje. Podrobný popis všech vychytávek si můžete přečíst <a class="reference external" href="https://realpython.com/jupyter-notebook-introduction/">zde</a>.</p>
 <section id="hello-world">
-<h3><span class="section-number">1.2.1. </span>Hello world!<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h3>
+<h3>Hello world!<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h3>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
@@ -604,7 +593,7 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 </div></section>
 </section>
 <section id="jazyk-python">
-<h2><span class="section-number">1.3. </span>Jazyk Python<a class="headerlink" href="#jazyk-python" title="Link to this heading">#</a></h2>
+<h2>Jazyk Python<a class="headerlink" href="#jazyk-python" title="Link to this heading">#</a></h2>
 <p>Python je univerzální programovací jazyk, hojně používaný vědeckou komunitou. Existuje spousta knihoven řešící celou řadou úloh za vás. Některé nejpoužívanější knihovny si v tomto kurzu ukážeme.</p>
 <p>Základní vlastnosti Pythonu (vs C++):</p>
 <ul class="simple">
@@ -616,7 +605,7 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 <li><p>Objekově orientovaný + funkcionální programování</p></li>
 </ul>
 <section id="komentare">
-<h3><span class="section-number">1.3.1. </span>Komentáře<a class="headerlink" href="#komentare" title="Link to this heading">#</a></h3>
+<h3>Komentáře<a class="headerlink" href="#komentare" title="Link to this heading">#</a></h3>
 <p>Jednořádkový komentář se zadává za znak <code class="docutils literal notranslate"><span class="pre">#</span></code>, více řádků lze zakomentovat obklopením <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,7 +628,7 @@ Také je možné přímo stáhnout GitHub repozitáře přes <a class="reference
 </div>
 </section>
 <section id="zakladni-aritmeticke-operace">
-<h3><span class="section-number">1.3.2. </span>Základní aritmetické operace<a class="headerlink" href="#zakladni-aritmeticke-operace" title="Link to this heading">#</a></h3>
+<h3>Základní aritmetické operace<a class="headerlink" href="#zakladni-aritmeticke-operace" title="Link to this heading">#</a></h3>
 <p>Inicializace proměnných <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, základní aritmetické operace a výpis výsledku pomocí funkce <code class="docutils literal notranslate"><span class="pre">print()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -681,7 +670,7 @@ Zbytek po dělení  3.0
 </div>
 </section>
 <section id="podminky-if-else-a-elif">
-<h3><span class="section-number">1.3.3. </span>Podmínky - if, else a elif<a class="headerlink" href="#podminky-if-else-a-elif" title="Link to this heading">#</a></h3>
+<h3>Podmínky - if, else a elif<a class="headerlink" href="#podminky-if-else-a-elif" title="Link to this heading">#</a></h3>
 <p>Za klíčovými slovy <code class="docutils literal notranslate"><span class="pre">if</span></code> a <code class="docutils literal notranslate"><span class="pre">else</span></code> musíme psát <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -731,7 +720,7 @@ True
 </div>
 </section>
 <section id="zakladni-datove-struktury">
-<h3><span class="section-number">1.3.4. </span>Základní datové struktury<a class="headerlink" href="#zakladni-datove-struktury" title="Link to this heading">#</a></h3>
+<h3>Základní datové struktury<a class="headerlink" href="#zakladni-datove-struktury" title="Link to this heading">#</a></h3>
 <p><strong>String</strong> (řetězec)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -804,7 +793,7 @@ text &lt;class &#39;str&#39;&gt;
 </div>
 </section>
 <section id="kontejnery">
-<h3><span class="section-number">1.3.5. </span>Kontejnery<a class="headerlink" href="#kontejnery" title="Link to this heading">#</a></h3>
+<h3>Kontejnery<a class="headerlink" href="#kontejnery" title="Link to this heading">#</a></h3>
 <p>Kontejnery jsou datové struktury obsahující větší počet prvků.
 Mezi základní patří:</p>
 <ul class="simple">
@@ -879,7 +868,7 @@ tuple7=(0, &#39;1&#39;, (0, 1, 2))
 <p>V praxi se s tímto typem setkáte při volání funkcí, které vrací více hodnot. Odpovídající proměnné je pak možné <em>rozbalit</em> následujícím způsobem:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dvecisla</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dvecisla</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">58</span>
 
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">dvecisla</span><span class="p">()</span>   <span class="c1"># rozbalení tuplu</span>
@@ -989,7 +978,7 @@ a
 <p>Tyto kontejnery používat typicky v kurzu nebudeme. Zájemci se o nich můžou vzdělat opět <a class="reference external" href="https://fjfi.pythonic.eu/posts/kontejnery.html">zde</a>.</p>
 </section>
 <section id="opakovani-cykly">
-<h3><span class="section-number">1.3.6. </span>Opakování - cykly<a class="headerlink" href="#opakovani-cykly" title="Link to this heading">#</a></h3>
+<h3>Opakování - cykly<a class="headerlink" href="#opakovani-cykly" title="Link to this heading">#</a></h3>
 <p><strong>For</strong></p>
 <p>Zde využijeme funkci <code class="docutils literal notranslate"><span class="pre">range(min,max,krok)</span></code>, která vytvoří sekvenci celých čísel od <code class="docutils literal notranslate"><span class="pre">min</span></code> po <code class="docutils literal notranslate"><span class="pre">max</span></code> <em><strong>(prvek max není v sekvenci obsažen)</strong></em> s uvedeným krokem. Výchozí hodnoty jsou <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">=</span> <span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">krok</span> <span class="pre">=</span> <span class="pre">1</span></code>.
 Tuto funkci lze použít několika různými způsoby:</p>
@@ -1159,11 +1148,11 @@ Konec, a = 1
 </div>
 </div></section>
 <section id="definice-vlastni-funkce">
-<h3><span class="section-number">1.3.7. </span>Definice vlastní funkce<a class="headerlink" href="#definice-vlastni-funkce" title="Link to this heading">#</a></h3>
+<h3>Definice vlastní funkce<a class="headerlink" href="#definice-vlastni-funkce" title="Link to this heading">#</a></h3>
 <p>Vlastní funkce se definují pomocí hesla <code class="docutils literal notranslate"><span class="pre">def</span></code>. Ukážeme si to na výpočtu faktoriálu pomocí rekurze:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1180,7 +1169,7 @@ Konec, a = 1
 </div>
 </section>
 <section id="dalsi-zakladni-funkce">
-<h3><span class="section-number">1.3.8. </span>Další základní funkce<a class="headerlink" href="#dalsi-zakladni-funkce" title="Link to this heading">#</a></h3>
+<h3>Další základní funkce<a class="headerlink" href="#dalsi-zakladni-funkce" title="Link to this heading">#</a></h3>
 <p>Python obsahuje několik základních funkcí, které se běžně při psaní kódu používají.
 Celý jejich seznam můžete nalézt <a class="reference external" href="https://docs.python.org/3.12/library/functions.html">zde</a>.
 Tady je výtah těch nejběžnějších, které se nám budou hodit:</p>
@@ -1227,12 +1216,12 @@ Tady je výtah těch nejběžnějších, které se nám budou hodit:</p>
 </div>
 </section>
 <section id="import-knihoven">
-<h3><span class="section-number">1.3.9. </span>Import knihoven<a class="headerlink" href="#import-knihoven" title="Link to this heading">#</a></h3>
+<h3>Import knihoven<a class="headerlink" href="#import-knihoven" title="Link to this heading">#</a></h3>
 <p>Pro využití určité knihovny v kódu je třeba danou knihovnu importovat.
 Například knihovnu pro různé matematické funkce přidáme pomocí <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> (v C++ ekvivalentní <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>    <span class="c1"># chceme načíst vestavěný modul math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>    <span class="c1"># chceme načíst vestavěný modul math</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">))</span>    <span class="c1"># použijeme funkci sin a konstantu pi</span>
 </pre></div>
@@ -1247,7 +1236,7 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 <p>Využívání knihovny je možné usnadnit specifikováním, které funkce (proměnné) chceme importovat:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>    <span class="c1"># import pouze některých položek</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>    <span class="c1"># import pouze některých položek</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
@@ -1262,7 +1251,7 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 <p>Nebo můžeme místo jména knihovny zadefinovat alias:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">m</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
@@ -1289,7 +1278,7 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 </section>
 </section>
 <section id="knihovna-numpy">
-<h2><span class="section-number">1.4. </span>Knihovna numpy<a class="headerlink" href="#knihovna-numpy" title="Link to this heading">#</a></h2>
+<h2>Knihovna numpy<a class="headerlink" href="#knihovna-numpy" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://www.numpy.org/">NumPy</a> je základní Python knihovna pro práci s <em>numerickými daty</em>, konkrétně s 1- až n-rozměrnými maticemi. Implementace je z velké části napsána v C a Fortranu a používá BLAS knihovny. Numpy tak umožňuje pracovat s numerickými daty ve stylu Python kontejnerů (existují samozřejmě rozdíly) a zároveň zachovat rychlost kompilovaných jazyků.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
@@ -1308,7 +1297,7 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># import knihovny numpy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  <span class="c1"># import knihovny numpy</span>
 </pre></div>
 </div>
 </div>
@@ -1347,7 +1336,7 @@ Například knihovnu pro různé matematické funkce přidáme pomocí <code cla
 </div>
 <p>Funkce <code class="docutils literal notranslate"><span class="pre">np.diagonal()</span></code> vrátí prvky na diagonále 2D matice jako 1D pole.</p>
 <section id="numpy-array">
-<h3><span class="section-number">1.4.1. </span>Numpy array<a class="headerlink" href="#numpy-array" title="Link to this heading">#</a></h3>
+<h3>Numpy array<a class="headerlink" href="#numpy-array" title="Link to this heading">#</a></h3>
 <p>Vytváření pole (obdoba <code class="docutils literal notranslate"><span class="pre">list</span></code>) je v knihovně <code class="docutils literal notranslate"><span class="pre">numpy</span></code> možné několika způsoby:</p>
 <ul class="simple">
 <li><p>Z již existujícího kontejneru (<code class="docutils literal notranslate"><span class="pre">list</span></code> nebo <code class="docutils literal notranslate"><span class="pre">tuple</span></code>).</p></li>
@@ -1757,7 +1746,7 @@ size: 4 dim: 2
 </div>
 </section>
 <section id="maticove-operace">
-<h3><span class="section-number">1.4.2. </span>Maticové operace<a class="headerlink" href="#maticove-operace" title="Link to this heading">#</a></h3>
+<h3>Maticové operace<a class="headerlink" href="#maticove-operace" title="Link to this heading">#</a></h3>
 <p>Součet/rozdíl matice a skaláru:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1913,7 +1902,7 @@ size: 4 dim: 2
 </div>
 </section>
 <section id="matematicke-funkce">
-<h3><span class="section-number">1.4.3. </span>Matematické funkce<a class="headerlink" href="#matematicke-funkce" title="Link to this heading">#</a></h3>
+<h3>Matematické funkce<a class="headerlink" href="#matematicke-funkce" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> obsahuje často používané funkce a konstanty (napr. <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">log()</span></code>, <code class="docutils literal notranslate"><span class="pre">log10()</span></code>, <code class="docutils literal notranslate"><span class="pre">sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">pi</span></code>, …):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1980,7 +1969,7 @@ size: 4 dim: 2
 </div>
 </section>
 <section id="dalsi-uzitecne-funkce">
-<h3><span class="section-number">1.4.4. </span>Další užitečné funkce<a class="headerlink" href="#dalsi-uzitecne-funkce" title="Link to this heading">#</a></h3>
+<h3>Další užitečné funkce<a class="headerlink" href="#dalsi-uzitecne-funkce" title="Link to this heading">#</a></h3>
 <p><strong>Náhoda</strong></p>
 <p>Pole náhodných čísel v rozmezí 0 az 1 se vygeneruje pomocí funkce <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code>:</p>
 <div class="cell docutils container">
@@ -2046,18 +2035,18 @@ size: 4 dim: 2
 </div></section>
 </section>
 <section id="vizualizace-dat-matplotlib-pyplot">
-<h2><span class="section-number">1.5. </span>Vizualizace dat - matplotlib.pyplot<a class="headerlink" href="#vizualizace-dat-matplotlib-pyplot" title="Link to this heading">#</a></h2>
+<h2>Vizualizace dat - matplotlib.pyplot<a class="headerlink" href="#vizualizace-dat-matplotlib-pyplot" title="Link to this heading">#</a></h2>
 <p>Pro vizualizaci dat v Pythonu existuje obsáhlá knihovna <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="d-plot">
-<h3><span class="section-number">1.5.1. </span>1D plot<a class="headerlink" href="#d-plot" title="Link to this heading">#</a></h3>
+<h3>1D plot<a class="headerlink" href="#d-plot" title="Link to this heading">#</a></h3>
 <p><strong>Možnost 1 - vykreslování ala Matlab</strong></p>
 <p>Vygenerujeme <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(y\)</span> hodnoty pro funkci <code class="docutils literal notranslate"><span class="pre">sin()</span></code>:</p>
 <div class="cell docutils container">
@@ -2083,7 +2072,7 @@ Přidáme popisky os pomocí <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/595b9601a23470f6e6313a2c7a54b493fb341c5852de639d2c040ac6857884cf.png" src="../_images/595b9601a23470f6e6313a2c7a54b493fb341c5852de639d2c040ac6857884cf.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/595b9601a23470f6e6313a2c7a54b493fb341c5852de639d2c040ac6857884cf.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/595b9601a23470f6e6313a2c7a54b493fb341c5852de639d2c040ac6857884cf.png" />
 </div>
 </div>
 <p>Knihovna matplotlib nabízí základní rozložení více grafů v jednom obrázku pomocí funkcí <code class="docutils literal notranslate"><span class="pre">subplot()</span></code> nebo <code class="docutils literal notranslate"><span class="pre">subplots()</span></code>:</p>
@@ -2114,7 +2103,7 @@ Přidáme popisky os pomocí <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/054a340869abaae1b21397ebf5c100a4faaddd0ce4d567532171a6b07a35f16c.png" src="../_images/054a340869abaae1b21397ebf5c100a4faaddd0ce4d567532171a6b07a35f16c.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/054a340869abaae1b21397ebf5c100a4faaddd0ce4d567532171a6b07a35f16c.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/054a340869abaae1b21397ebf5c100a4faaddd0ce4d567532171a6b07a35f16c.png" />
 </div>
 </div>
 <p><strong>Možnost 2 - pokročilejší možnosti vykreslování</strong></p>
@@ -2147,7 +2136,7 @@ Přidáme popisky os pomocí <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cef2075b1fe2c97dbd7a173c481a529d14566b98e423e73a5e37ca0c2840e43b.png" src="../_images/cef2075b1fe2c97dbd7a173c481a529d14566b98e423e73a5e37ca0c2840e43b.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/cef2075b1fe2c97dbd7a173c481a529d14566b98e423e73a5e37ca0c2840e43b.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/cef2075b1fe2c97dbd7a173c481a529d14566b98e423e73a5e37ca0c2840e43b.png" />
 </div>
 </div>
 <p><strong>Uložení obrázku</strong></p>
@@ -2161,7 +2150,7 @@ Přidáme popisky os pomocí <code class="docutils literal notranslate"><span cl
 </div>
 </section>
 <section id="id1">
-<h3><span class="section-number">1.5.2. </span>2D plot<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>2D plot<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Mějme funkci <span class="math notranslate nohighlight">\(z(x,y)\)</span>, která závisí na dvou proměnných:
 <span class="math notranslate nohighlight">\(
 \begin{equation}
@@ -2198,7 +2187,7 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/70e366bf93eef62ca82fc0b94ce41f7d9f54575ffd428d6143c6cda83293565a.png" src="../_images/70e366bf93eef62ca82fc0b94ce41f7d9f54575ffd428d6143c6cda83293565a.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/70e366bf93eef62ca82fc0b94ce41f7d9f54575ffd428d6143c6cda83293565a.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/70e366bf93eef62ca82fc0b94ce41f7d9f54575ffd428d6143c6cda83293565a.png" />
 </div>
 </div>
 <p>Kontury získáme použitím funkce <code class="docutils literal notranslate"><span class="pre">contour()</span></code>:</p>
@@ -2209,7 +2198,7 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f7d9ecff211efe28d3b04ee9041d76d0a98db3646eeb66a7c427a207e587ad48.png" src="../_images/f7d9ecff211efe28d3b04ee9041d76d0a98db3646eeb66a7c427a207e587ad48.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/f7d9ecff211efe28d3b04ee9041d76d0a98db3646eeb66a7c427a207e587ad48.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/f7d9ecff211efe28d3b04ee9041d76d0a98db3646eeb66a7c427a207e587ad48.png" />
 </div>
 </div>
 <p>Plot obrázku pomocí funkce <code class="docutils literal notranslate"><span class="pre">imshow()</span></code>:</p>
@@ -2221,12 +2210,12 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/891357ff2589cef720e7bfe796a4bc6890af7fecd81481f1badd67b0e97ed0d2.png" src="../_images/891357ff2589cef720e7bfe796a4bc6890af7fecd81481f1badd67b0e97ed0d2.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/891357ff2589cef720e7bfe796a4bc6890af7fecd81481f1badd67b0e97ed0d2.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/891357ff2589cef720e7bfe796a4bc6890af7fecd81481f1badd67b0e97ed0d2.png" />
 </div>
 </div>
 </section>
 <section id="dalsi-typy-grafu">
-<h3><span class="section-number">1.5.3. </span>Další typy grafů<a class="headerlink" href="#dalsi-typy-grafu" title="Link to this heading">#</a></h3>
+<h3>Další typy grafů<a class="headerlink" href="#dalsi-typy-grafu" title="Link to this heading">#</a></h3>
 <p>Knihovna obsahuje řadu dalších nástrojů a typů grafů, které je možné vykreslit. Obsáhlejší, přesto stále stručný, popis knihovny najdete opět <a class="reference external" href="https://fjfi.pythonic.eu/posts/matplotlib.html">zde</a>.</p>
 <p>Seznam všech dostupných typů grafů najdete v <a class="reference external" href="https://matplotlib.org/stable/plot_types/index.html">dokumentaci</a> knihovny.</p>
 <p>Tady jen zmíníme některé z často používaných typů grafů:</p>
@@ -2241,16 +2230,16 @@ a vykreslíme její závislost v 2D grafu.</p>
 </section>
 </section>
 <section id="knihovna-scipy">
-<h2><span class="section-number">1.6. </span>Knihovna Scipy<a class="headerlink" href="#knihovna-scipy" title="Link to this heading">#</a></h2>
+<h2>Knihovna Scipy<a class="headerlink" href="#knihovna-scipy" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://scipy.org/scipylib/index.html">SciPy</a> je základní referenční knihovnou, obsahující nástroje pro vědecké výpočty. Najdeme v ní např. speciální funkce, interpolace, Fourierovu transformaci, numerické integrátory a mnohé další. Naším cílem bude ukázat některé z funkcí SciPy.</p>
 <p>Knihovna <code class="docutils literal notranslate"><span class="pre">scipy</span></code> obsahuje ředu užitečných modulů:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span>         <span class="c1"># lineární algebra</span>
-<span class="kn">import</span> <span class="nn">scipy.constants</span>      <span class="c1"># důležité fyzikální a další konstanty</span>
-<span class="kn">import</span> <span class="nn">scipy.interpolate</span>    <span class="c1"># interpolace funkcí</span>
-<span class="kn">import</span> <span class="nn">scipy.optimize</span>       <span class="c1"># optimalizace, hledaní extrémů</span>
-<span class="kn">import</span> <span class="nn">scipy.integrate</span>      <span class="c1"># numerická integrace a řešení ODR</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.linalg</span>         <span class="c1"># lineární algebra</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.constants</span>      <span class="c1"># důležité fyzikální a další konstanty</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.interpolate</span>    <span class="c1"># interpolace funkcí</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span>       <span class="c1"># optimalizace, hledaní extrémů</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.integrate</span>      <span class="c1"># numerická integrace a řešení ODR</span>
 </pre></div>
 </div>
 </div>
@@ -2271,7 +2260,7 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div><p>Příklad využití modulu konstant:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">golden_ratio</span><span class="p">,</span> <span class="n">c</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">golden_ratio</span><span class="p">,</span> <span class="n">c</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">golden_ratio</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2279,11 +2268,11 @@ a vykreslíme její závislost v 2D grafu.</p>
 </div>
 <p>Dále si ukážeme příklady využití funkcí z různých modulů na úlohách, se kterými jste se setkali v <strong>první části</strong> tohoto kurzu.</p>
 <section id="reseni-soustav-rovnic-vlastni-cisla-matice">
-<h3><span class="section-number">1.6.1. </span>Řešení soustav rovnic, vlastní čísla matice<a class="headerlink" href="#reseni-soustav-rovnic-vlastni-cisla-matice" title="Link to this heading">#</a></h3>
+<h3>Řešení soustav rovnic, vlastní čísla matice<a class="headerlink" href="#reseni-soustav-rovnic-vlastni-cisla-matice" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">la</span>
 </pre></div>
 </div>
 </div>
@@ -2402,12 +2391,12 @@ Vlastní vektory:
 </div>
 </section>
 <section id="aproximace-funkci-interpolace">
-<h3><span class="section-number">1.6.2. </span>Aproximace funkcí, interpolace<a class="headerlink" href="#aproximace-funkci-interpolace" title="Link to this heading">#</a></h3>
+<h3>Aproximace funkcí, interpolace<a class="headerlink" href="#aproximace-funkci-interpolace" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">special</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">special</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -2450,7 +2439,7 @@ Vlastní vektory:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x23d6988aa10&gt;]
 </pre></div>
 </div>
-<img alt="../_images/248218996378d1f2b1c7f97cb6d05290574e65b4afd4e1002175c45e93343fab.png" src="../_images/248218996378d1f2b1c7f97cb6d05290574e65b4afd4e1002175c45e93343fab.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/248218996378d1f2b1c7f97cb6d05290574e65b4afd4e1002175c45e93343fab.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/248218996378d1f2b1c7f97cb6d05290574e65b4afd4e1002175c45e93343fab.png" />
 </div>
 </div>
 <p><strong>Interpolace Lagrangeovým polynomem</strong></p>
@@ -2472,7 +2461,7 @@ Vlastní vektory:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x23d69915c90&gt;]
 </pre></div>
 </div>
-<img alt="../_images/66e8a3dd3408c731606891521e35d3eea9ee8532934041b5879200d2c9d153b9.png" src="../_images/66e8a3dd3408c731606891521e35d3eea9ee8532934041b5879200d2c9d153b9.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/66e8a3dd3408c731606891521e35d3eea9ee8532934041b5879200d2c9d153b9.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/66e8a3dd3408c731606891521e35d3eea9ee8532934041b5879200d2c9d153b9.png" />
 </div>
 </div>
 <p><strong>Least-squares fit</strong></p>
@@ -2502,15 +2491,15 @@ Vlastní vektory:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x23d6aa25780&gt;]
 </pre></div>
 </div>
-<img alt="../_images/ae7d3c482c02310e51d6a816c5dca84ce49a2b3a80f81f73c9bb8774d8d73b36.png" src="../_images/ae7d3c482c02310e51d6a816c5dca84ce49a2b3a80f81f73c9bb8774d8d73b36.png" />
+<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/ae7d3c482c02310e51d6a816c5dca84ce49a2b3a80f81f73c9bb8774d8d73b36.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/ae7d3c482c02310e51d6a816c5dca84ce49a2b3a80f81f73c9bb8774d8d73b36.png" />
 </div>
 </div>
 </section>
 <section id="trideni">
-<h3><span class="section-number">1.6.3. </span>Třídění<a class="headerlink" href="#trideni" title="Link to this heading">#</a></h3>
+<h3>Třídění<a class="headerlink" href="#trideni" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -2533,7 +2522,7 @@ Vlastní vektory:
 </section>
 </section>
 <section id="bonus">
-<h2><span class="section-number">1.7. </span>Bonus<a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
+<h2>Bonus<a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - bonus 1</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
@@ -2543,7 +2532,7 @@ Vlastní vektory:
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="n">soucet</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">soucet</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">):</span>
@@ -2604,7 +2593,7 @@ Smůla! 24 bodů je moc!
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -2641,7 +2630,7 @@ Smůla! 24 bodů je moc!
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">quicksort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">arr</span>
     
@@ -2698,7 +2687,7 @@ Smůla! 24 bodů je moc!
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -2711,11 +2700,11 @@ Smůla! 24 bodů je moc!
       </div>
     </a>
     <a class="right-next"
-       href="02-nelinearni-rce-vypl.html"
+       href="07-nelinearni-rce-vypl.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Řešení nelineárních rovnic</p>
+        <p class="prev-next-title">Řešení nelineárních rovnic</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2726,7 +2715,8 @@ Smůla! 24 bodů je moc!
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2735,46 +2725,46 @@ Smůla! 24 bodů je moc!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">1.1. Instalace Pythonu a prostředí Jupyter notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postup-instalace">1.1.1. Postup instalace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalace-pythonu-a-prostredi-jupyter-notebook">Instalace Pythonu a prostředí Jupyter notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postup-instalace">Postup instalace</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.2. Jupyter notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">1.2.1. Hello world!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">Hello world!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">1.3. Jazyk Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentare">1.3.1. Komentáře</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">1.3.2. Základní aritmetické operace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-if-else-a-elif">1.3.3. Podmínky - if, else a elif</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">1.3.4. Základní datové struktury</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kontejnery">1.3.5. Kontejnery</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">1.3.6. Opakování - cykly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-vlastni-funkce">1.3.7. Definice vlastní funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">1.3.8. Další základní funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">1.3.9. Import knihoven</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jazyk-python">Jazyk Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentare">Komentáře</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-aritmeticke-operace">Základní aritmetické operace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-if-else-a-elif">Podmínky - if, else a elif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-datove-struktury">Základní datové struktury</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kontejnery">Kontejnery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opakovani-cykly">Opakování - cykly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definice-vlastni-funkce">Definice vlastní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-zakladni-funkce">Další základní funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-knihoven">Import knihoven</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">1.4. Knihovna numpy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array">1.4.1. Numpy array</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maticove-operace">1.4.2. Maticové operace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicke-funkce">1.4.3. Matematické funkce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-uzitecne-funkce">1.4.4. Další užitečné funkce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-numpy">Knihovna numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array">Numpy array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maticove-operace">Maticové operace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicke-funkce">Matematické funkce</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-uzitecne-funkce">Další užitečné funkce</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">1.5. Vizualizace dat - matplotlib.pyplot</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">1.5.1. 1D plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.5.2. 2D plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-typy-grafu">1.5.3. Další typy grafů</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vizualizace-dat-matplotlib-pyplot">Vizualizace dat - matplotlib.pyplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">1D plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2D plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-typy-grafu">Další typy grafů</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">1.6. Knihovna Scipy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-soustav-rovnic-vlastni-cisla-matice">1.6.1. Řešení soustav rovnic, vlastní čísla matice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aproximace-funkci-interpolace">1.6.2. Aproximace funkcí, interpolace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trideni">1.6.3. Třídění</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knihovna-scipy">Knihovna Scipy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-soustav-rovnic-vlastni-cisla-matice">Řešení soustav rovnic, vlastní čísla matice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aproximace-funkci-interpolace">Aproximace funkcí, interpolace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trideni">Třídění</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">1.7. Bonus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">Bonus</a></li>
 </ul>
   </nav></div>
 
@@ -2823,8 +2813,8 @@ By Jiří Löffelmann
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

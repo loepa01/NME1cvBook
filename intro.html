@@ -14,56 +14,62 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="icon" href="_static/cphys2.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Úvod do jazyka Python" href="lekce/01-uvod-python.html" />
+    <link rel="next" title="Úvod do jazyka Python" href="lekce-vyplnene/01-uvod-python-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -71,31 +77,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -103,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -111,10 +101,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -125,7 +120,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -140,6 +136,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="#">
   
@@ -153,21 +151,17 @@
     
     
     <img src="_static/cphys-logo6.png" class="logo__image only-light" alt="NME1cvBook - Home"/>
-    <script>document.write(`<img src="_static/cphys-logo6.png" class="logo__image only-dark" alt="NME1cvBook - Home"/>`);</script>
+    <img src="_static/cphys-logo6.png" class="logo__image only-dark pst-js-only" alt="NME1cvBook - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -180,20 +174,20 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="lekce/01-uvod-python.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/02-nelinearni-rce.html">2. Nelineární rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/03-extremy-fci.html">3. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/04-integrace.html">4. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/05-reseni-odr.html">5. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/08-extremy-fci-vypl.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/09-integrace-vypl.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/10-reseni-odr-vypl.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/03-extremy-fci-UKOL.html">3. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/04-integrace-UKOL.html">4. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/05-reseni-odr-UKOL.html">5. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/06-reseni-okraj-UKOL.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/07-nelinearni-rce-UKOL.html">7. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/10-reseni-odr-UKOL.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/11-reseni-okraj-UKOL.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 
     </div>
@@ -202,14 +196,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -218,14 +217,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -348,27 +347,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -389,7 +380,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rozvrh-pro-letni-semestr-2023-2024">Rozvrh pro letní semestr 2023/2024</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rozvrh-pro-letni-semestr-2024-2025">Rozvrh pro letní semestr 2024/2025</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-udeleni-zapoctu">Podmínky udělení zápočtu</a></li>
@@ -413,62 +404,57 @@ document.write(`
 <p>Tyto stránky obsahují materiály ke cvičení předmětu 12NME1.</p>
 <p>Materiály k přednášce najdete <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/">zde</a> a další materiály ke cvičením <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/">zde</a>.</p>
 <p>Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičících.</p>
-<section id="rozvrh-pro-letni-semestr-2023-2024">
-<h2>Rozvrh pro letní semestr 2023/2024<a class="headerlink" href="#rozvrh-pro-letni-semestr-2023-2024" title="Link to this heading">#</a></h2>
+<section id="rozvrh-pro-letni-semestr-2024-2025">
+<h2>Rozvrh pro letní semestr 2024/2025<a class="headerlink" href="#rozvrh-pro-letni-semestr-2024-2025" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Pátek 10:00 - 11:40, 12:00 - 13:40</p></li>
-<li><p>Trojanova 13, učebna T-125 (od 10h), T-124 (od 12h)</p></li>
+<li><p>Pátek 8:00 - 9:40, 10:00 - 11:40</p></li>
+<li><p>Trojanova 13, učebna T-124</p></li>
 <li><p><a class="reference external" href="https://usermap.cvut.cz/profile/7a2ecf76-b3c3-4716-b1b2-cd6859a8e193">Jiří Löffelmann</a>, <a class="reference external" href="mailto:loffejir&#37;&#52;&#48;fjfi&#46;cvut&#46;cz">loffejir<span>&#64;</span>fjfi<span>&#46;</span>cvut<span>&#46;</span>cz</a></p></li>
-<li><p>druhá část: 6 cvičení (od 12.4. do 17.5.)</p></li>
-<li><p>cvičení 3.5. není cvičení v prezenční formě !</p>
-<ul>
-<li><p>máte za úkol samostatně si projít připravený notebook ke 4. tématu</p></li>
-<li><p>vyplněný notebook (s vyřešenými úkoly) mi pošlete mailem a bude vám započítána docházka z této hodiny (deadline 15.5.)</p></li>
-</ul>
-</li>
+<li><p>od 21.2. do 16.5. (18.4. volno - Velký pátek), 12 lekcí</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lekce/01-uvod-python.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/02-nelinearni-rce.html">2. Nelineární rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/03-extremy-fci.html">3. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/04-integrace.html">4. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/05-reseni-odr.html">5. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lekce/06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/08-extremy-fci-vypl.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/09-integrace-vypl.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce-vyplnene/10-reseni-odr-vypl.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/03-extremy-fci-UKOL.html">3. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/04-integrace-UKOL.html">4. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/05-reseni-odr-UKOL.html">5. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ukoly/06-reseni-okraj-UKOL.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/07-nelinearni-rce-UKOL.html">7. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/10-reseni-odr-UKOL.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ukoly/11-reseni-okraj-UKOL.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 </div>
 </section>
 <section id="podminky-udeleni-zapoctu">
 <h2>Podmínky udělení zápočtu<a class="headerlink" href="#podminky-udeleni-zapoctu" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>max. 3 absence, <a class="reference internal" href="#dochazka.xlsx"><span class="xref myst">DOCHÁZKA</span></a></p></li>
-<li><p>vypracování 4 domácích úloh (2 úlohy z první části - <a class="reference external" href="https://github.com/jochcova/NMEcv/">Dominika Jochcová</a>, 2 úlohy zadané v druhé části)</p></li>
+<li><p>max. 3 absence (možnost nahrazení 1 absence odevzdáním navíc 1 domácí úlohy), <a class="reference download internal" download="" href="_downloads/c6c3ae9668bda441b5d0323c35330068/dochazka.xlsx"><span class="xref download myst">DOCHÁZKA</span></a></p></li>
+<li><p>vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (lekce 2-6), 2 úlohy z druhé půlky cvičení (lekce 7-12)</p></li>
+<li><p>na zkoušku je možné jít před udělením zápočtu</p></li>
 </ul>
 </section>
 <section id="ukoly">
 <h2>Úkoly<a class="headerlink" href="#ukoly" title="Link to this heading">#</a></h2>
-<p>V druhé části kurzu je pro získání zápočtu třeba odevzdat <strong>dva</strong> vypracované úkoly, které budou zadány na cvičeních.</p>
-<p>Celkem bude zadáno 5 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň <strong>dva</strong> vámi vybrané úkoly (výjimkou je poslední započtový úkol). Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů.</p>
+<p>V kurzu je pro získání zápočtu třeba odevzdat <strong>čtyři</strong> vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.</p>
+<p>Celkem bude zadáno 11? úkolů, jeden z každé kapitoly (kromě úvodní ??). Pro získání zápočtu vypracujte a odevzdejte alespoň <strong>čtyři</strong> vámi vybrané úkoly (výjimkou je poslední započtový úkol). Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů. Pokud odevzdaný úkol nebude splňovat požadavky, pošlu vám ho na opravu zpět. Typicky vám okomentuji vaše řešení a poradím jak případné chyby opravit. Otázky k úkolům jsou samozřejmě vítány, ideálně na konci cvičení.</p>
 <p>Úkoly odevzdávejte mailem. Nechte jméno jupyter notebooku stejné, pouze přidejte vaše jméno nakonec (příklad: <strong>02-nelinearni-rce-UKOL_JiriLoffelmann</strong>).</p>
 <p>Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!</p>
-<p>Deadline na všechny úkoly je do <strong>14. června</strong>. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!</p>
+<p>Deadline na všechny úkoly je do <strong>30. června</strong>. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!</p>
 </section>
 <section id="pouzivane-nastroje">
 <h2>Používané nástroje<a class="headerlink" href="#pouzivane-nastroje" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>programovací jazyk <a class="reference external" href="https://www.python.org/">Python</a></p></li>
-<li><p>prostředí <a class="reference external" href="https://jupyter.org/">Jupyter notebook</a> (instalace popsána <a class="reference internal" href="lekce/01-uvod-python.html#install-all"><span class="std std-ref">zde</span></a>)</p></li>
+<li><p>prostředí <a class="reference external" href="https://jupyter.org/">Jupyter notebook</a> (instalace popsána <a class="reference internal" href="lekce-vyplnene/01-uvod-python-vypl.html#install-all"><span class="std std-ref">zde</span></a>)</p></li>
 <li><p>po proběhnutí cvičení naleznete doplněné notebooky na GitHubu (ve vrchním menu tlačítko <i class="fab fa-github" aria-hidden="true"></i>)</p></li>
 <li><p>po nějaké době je aktualizována i webová stránka s vyplněným Jupyter notebookem</p></li>
 </ul>
@@ -513,15 +499,15 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="lekce/01-uvod-python.html"
+       href="lekce-vyplnene/01-uvod-python-vypl.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Úvod do jazyka Python</p>
+        <p class="prev-next-title">Úvod do jazyka Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -532,7 +518,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -541,7 +528,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rozvrh-pro-letni-semestr-2023-2024">Rozvrh pro letní semestr 2023/2024</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rozvrh-pro-letni-semestr-2024-2025">Rozvrh pro letní semestr 2024/2025</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podminky-udeleni-zapoctu">Podmínky udělení zápočtu</a></li>
@@ -597,8 +584,8 @@ By Jiří Löffelmann
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
