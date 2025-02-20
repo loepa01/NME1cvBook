@@ -14,48 +14,45 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -70,7 +67,6 @@
     <link rel="prev" title="Řešení nelineárních rovnic" href="07-nelinearni-rce-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,16 +74,31 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -95,6 +106,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -102,15 +114,10 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
+</form></div>
+  </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -119,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -135,8 +141,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -150,17 +154,21 @@
     
     
     <img src="../_static/cphys-logo6.png" class="logo__image only-light" alt="NME1cvBook - Home"/>
-    <img src="../_static/cphys-logo6.png" class="logo__image only-dark pst-js-only" alt="NME1cvBook - Home"/>
+    <script>document.write(`<img src="../_static/cphys-logo6.png" class="logo__image only-dark" alt="NME1cvBook - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -195,19 +203,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -216,14 +219,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -248,14 +251,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce-vyplnene/08-extremy-fci-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+    <img src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -266,14 +269,14 @@
       
       <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce-vyplnene/08-extremy-fci-vypl.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
+   title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+    <img src="../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -284,14 +287,14 @@
       
       <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce-vyplnene/08-extremy-fci-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
+   title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+    <img src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -413,19 +416,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -501,9 +512,9 @@ Příklady optimalizačních úloh:</p>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">optimize</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">optimize</span>
 </pre></div>
 </div>
 </div>
@@ -541,7 +552,7 @@ f(x) = 3 \sin(x + 2) + x^2 - 3x + 5
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>  <span class="c1"># zkusit zmenit na 8*sin(x+2) ...</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
@@ -558,7 +569,7 @@ f(x) = 3 \sin(x + 2) + x^2 - 3x + 5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/27ef2e85a753597550cf9021cbdc82c91f36998cdaca1e8e0f260a514a595ee8.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/27ef2e85a753597550cf9021cbdc82c91f36998cdaca1e8e0f260a514a595ee8.png" />
+<img alt="../_images/27ef2e85a753597550cf9021cbdc82c91f36998cdaca1e8e0f260a514a595ee8.png" src="../_images/27ef2e85a753597550cf9021cbdc82c91f36998cdaca1e8e0f260a514a595ee8.png" />
 </div>
 </div>
 <section id="metoda-zlateho-rezu">
@@ -692,7 +703,7 @@ minimum(SciPy): 2.2153014284760957
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" />
+<img alt="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" src="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -715,7 +726,7 @@ minimum(SciPy): 2.2153014284760957
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/a653131ddd40a1b8aaebddfea697e204c98832486a521190964790ae17c7e211.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/a653131ddd40a1b8aaebddfea697e204c98832486a521190964790ae17c7e211.png" />
+<img alt="../_images/a653131ddd40a1b8aaebddfea697e204c98832486a521190964790ae17c7e211.png" src="../_images/a653131ddd40a1b8aaebddfea697e204c98832486a521190964790ae17c7e211.png" />
 </div>
 </div>
 </section>
@@ -860,7 +871,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" />
+<img alt="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" src="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -883,7 +894,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/cbcd40c5677114aabc5abf54c83610b0fc3bb91dbcfc9527f000335db83155ff.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/cbcd40c5677114aabc5abf54c83610b0fc3bb91dbcfc9527f000335db83155ff.png" />
+<img alt="../_images/cbcd40c5677114aabc5abf54c83610b0fc3bb91dbcfc9527f000335db83155ff.png" src="../_images/cbcd40c5677114aabc5abf54c83610b0fc3bb91dbcfc9527f000335db83155ff.png" />
 </div>
 </div>
 </section>
@@ -923,7 +934,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
 
 <span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
@@ -1012,7 +1023,7 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/8130bd2ec4f881e1038cb5de791b1f1eb8f3ce9acc94dbbe333716c8e0a4d266.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/8130bd2ec4f881e1038cb5de791b1f1eb8f3ce9acc94dbbe333716c8e0a4d266.png" />
+<img alt="../_images/8130bd2ec4f881e1038cb5de791b1f1eb8f3ce9acc94dbbe333716c8e0a4d266.png" src="../_images/8130bd2ec4f881e1038cb5de791b1f1eb8f3ce9acc94dbbe333716c8e0a4d266.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -1035,7 +1046,7 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/cdbffd260b3942f9d1d839a108c23baad288eb78f22d3f8c8c7781e431fc263e.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/cdbffd260b3942f9d1d839a108c23baad288eb78f22d3f8c8c7781e431fc263e.png" />
+<img alt="../_images/cdbffd260b3942f9d1d839a108c23baad288eb78f22d3f8c8c7781e431fc263e.png" src="../_images/cdbffd260b3942f9d1d839a108c23baad288eb78f22d3f8c8c7781e431fc263e.png" />
 </div>
 </div>
 </section>
@@ -1067,7 +1078,7 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" />
+<img alt="../_images/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" src="../_images/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" />
 </div>
 </div>
 </section>
@@ -1084,7 +1095,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
@@ -1101,7 +1112,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/a2bab337a6023cafd6fd6672e3bc8bcbac0156a4f0582e8c21d26d87c451fbf7.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/a2bab337a6023cafd6fd6672e3bc8bcbac0156a4f0582e8c21d26d87c451fbf7.png" />
+<img alt="../_images/a2bab337a6023cafd6fd6672e3bc8bcbac0156a4f0582e8c21d26d87c451fbf7.png" src="../_images/a2bab337a6023cafd6fd6672e3bc8bcbac0156a4f0582e8c21d26d87c451fbf7.png" />
 </div>
 </div>
 <p><strong>Algoritmus metody největšího spádu nD</strong></p>
@@ -1123,7 +1134,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">df2</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">df2</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">f2</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="o">-</span> <span class="n">f2</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span> <span class="o">/</span> <span class="n">h</span><span class="p">,</span> <span class="p">(</span><span class="n">f2</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">))</span> <span class="o">-</span> <span class="n">f2</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span> <span class="o">/</span> <span class="n">h</span><span class="p">])</span>
 
@@ -1204,7 +1215,7 @@ minimum(SciPy): [0.99999546 0.99999091]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/080944388697bde7675b9f9da1285f55c55b86d4401711084e3acd09ce37ae0c.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/080944388697bde7675b9f9da1285f55c55b86d4401711084e3acd09ce37ae0c.png" />
+<img alt="../_images/080944388697bde7675b9f9da1285f55c55b86d4401711084e3acd09ce37ae0c.png" src="../_images/080944388697bde7675b9f9da1285f55c55b86d4401711084e3acd09ce37ae0c.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -1228,7 +1239,7 @@ minimum(SciPy): [0.99999546 0.99999091]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/d1c9da99ab75d512c0f3d2005d8ff8fe5fd236a2e30cde1e4f8278affc968977.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/d1c9da99ab75d512c0f3d2005d8ff8fe5fd236a2e30cde1e4f8278affc968977.png" />
+<img alt="../_images/d1c9da99ab75d512c0f3d2005d8ff8fe5fd236a2e30cde1e4f8278affc968977.png" src="../_images/d1c9da99ab75d512c0f3d2005d8ff8fe5fd236a2e30cde1e4f8278affc968977.png" />
 </div>
 </div>
 </section>
@@ -1272,7 +1283,7 @@ minimum(SciPy): [0.99999546 0.99999091]
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1300,8 +1311,7 @@ minimum(SciPy): [0.99999546 0.99999091]
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1370,8 +1380,8 @@ By Jiří Löffelmann
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

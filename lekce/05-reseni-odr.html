@@ -1,0 +1,1147 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Řešení obyčejných diferenciálních rovnic (ODR) &#8212; NME1cvBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lekce/05-reseni-odr';</script>
+    <link rel="icon" href="../_static/cphys2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Řešení diferenciálních rovnic s okrajovou podmínkou" href="06-reseni-okraj.html" />
+    <link rel="prev" title="4. Numerická integrace (1D)" href="04-integrace.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cphys-logo6.png" class="logo__image only-light" alt="NME1cvBook - Home"/>
+    <script>document.write(`<img src="../_static/cphys-logo6.png" class="logo__image only-dark" alt="NME1cvBook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Numerické metody (NME1cv) - cvičení 2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-python.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-nelinearni-rce.html">2. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-extremy-fci.html">3. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-integrace.html">4. Numerická integrace</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-extremy-fci-UKOL.html">3. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-integrace-UKOL.html">4. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-reseni-odr-UKOL.html">5. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/06-reseni-okraj-UKOL.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce/05-reseni-odr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce/05-reseni-odr.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce/05-reseni-odr.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/loepa01/NME1cvBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/loepa01/NME1cvBook/issues/new?title=Issue%20on%20page%20%2Flekce/05-reseni-odr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lekce/05-reseni-odr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Řešení obyčejných diferenciálních rovnic (ODR)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kuttovy-metody">5.1. Runge-Kuttovy metody</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulerova-metoda">5.1.1. Eulerova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-stredniho-bodu-midpoint-leap-frog">5.1.2. Metoda středního bodu (midpoint/leap-frog)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heunova-metoda">5.1.3. Heunova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kuttova-metoda-4-radu">5.1.4. Runge-Kuttova metoda 4. řádu</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bulirsch-stoerova-metody">5.2. Bulirsch-Stoerova metody</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kuttovy-metody-pro-soustavu-odr-nd">5.3. Runge-Kuttovy metody pro soustavu ODR (nD)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="reseni-obycejnych-diferencialnich-rovnic-odr">
+<h1><span class="section-number">5. </span>Řešení obyčejných diferenciálních rovnic (ODR)<a class="headerlink" href="#reseni-obycejnych-diferencialnich-rovnic-odr" title="Link to this heading">#</a></h1>
+<p>V této kapitole se seznámíme s řešením obyčejných diferenciálních rovnic (ODR) na počítači. Obecný tvar ODR <em>N-tého</em> řádu je následující:</p>
+<div class="math notranslate nohighlight">
+\[
+p(x, y, y^{\prime}, y^{\prime \prime}, \dots, y^{(n)}) = 0, \hspace{5pt} y^{(i)}(0) = y_0^i \hspace{5pt} \forall i \in [0, N-1],
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(y^{(i)}(0) = y_0^i\)</span> je sada <span class="math notranslate nohighlight">\(n\)</span> počátečních podmínek pro hodnoty jednotlivých derivací funkce <span class="math notranslate nohighlight">\(y\)</span> v počátečním bodě <span class="math notranslate nohighlight">\(0\)</span>. Vidíme, že diferenciální rovnice není sama o sobě kompletní řešitelnou úlohou. Jelikož máme vztah obsahující derivace neznámé funkce, potřebujeme vždy znát nějaké okrajové nebo počáteční podmínky. Zde jsme představili případ, kdy známe počáteční hodnotu všech derivací funkce <span class="math notranslate nohighlight">\(y\)</span> do stupně <span class="math notranslate nohighlight">\(n-1\)</span> v <strong>jednom bodě</strong>. Taková úloha se nazývá <em>počáteční problém</em>. Druhým typem úlohy (<em>okrajový problém</em>), kdy podmínky nemusí být zadané pouze v jednom bodě, se budeme zabývat v posledním cvičení.</p>
+<p>Předchozí diferenciální rovnici lze vždy převést na soustavu <span class="math notranslate nohighlight">\(n\)</span> obyčejných diferenciálních rovnic prvního řádu (viz přednáška):</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy_i}{dx} = f(x, y_0, y_1, \dots, y_{n-1}), \hspace{5pt} y_i(0) = y_0^i \hspace{5pt} \forall i \in [0, N-1],
+\]</div>
+<p>nebo vektorově:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d \vec{y}}{dx} = f(x, \vec{y}), \hspace{5pt} \vec{y}(0) = \vec{y}_0.
+\]</div>
+<p>Obyčejné diferenciální rovnice typicky popisují vývoj určitého dynamického systému (kde <span class="math notranslate nohighlight">\(x \equiv t\)</span> je chápáno jako čas). Příkladem může být:</p>
+<ul class="simple">
+<li><p>exponenciální růst (populace):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{dN}{dt} = r N
+\]</div>
+<ul class="simple">
+<li><p>logistický růst (populace):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{dN}{dt} = r_{max}\frac{K - N}{K} N
+\]</div>
+<p><img alt="Růst populace" src="../_images/growth.png" /></p>
+<ul class="simple">
+<li><p>harmonický oscilátor:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+m \ddot{x} = -k x
+\]</div>
+<ul class="simple">
+<li><p>Keplerova úloha:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\vec{r}} = -\frac{G M}{r^3} \vec{r}
+\]</div>
+<p>V předchozím cvičení jsme viděli, že integrování je speciálním případem řešení ODR s <span class="math notranslate nohighlight">\(f = f(x)\)</span> a nulovou počáteční podmínkou. Skutečně řešení ODR můžeme chápat jako postupné přičítání příspěvků změny (derivace, která je daná funcí <span class="math notranslate nohighlight">\(f(x, y)\)</span>) hodnoty funkce <span class="math notranslate nohighlight">\(y(x)\)</span>. Výhoda metod řešících ODR spočívá v možnosti volby <strong>adaptivního kroku</strong> (tak jak je vyžadováno) v průběhu výpočtu, jak uvidíme zanedlouho.</p>
+<p>Základní myšledka, jak ODR řešit na počítači, spočívá v nahražení diferenciálů <span class="math notranslate nohighlight">\(dy\)</span> a <span class="math notranslate nohighlight">\(dx\)</span> pomocí velmi malých, ale konečných příspěvků <span class="math notranslate nohighlight">\(\Delta y\)</span> a <span class="math notranslate nohighlight">\(\Delta x\)</span>. Tím získáme <em>soustavu algebraických rovnic</em>, které již na počítači dokázeme efektivně řešit. Také uvidíme, že určení <strong>chyby</strong> výpočtu je analogické jako v případě integrace. Využije řešení získané stejnou metodou při odlišném kroku.</p>
+<p>Existují tři hlavní typy metod pro řešení ODR:</p>
+<ul class="simple">
+<li><p>Runge-Kuttovy metody</p></li>
+<li><p>Bulirsch-Stoerova metoda</p></li>
+<li><p>Metody prediktor-korektor</p></li>
+</ul>
+<p>Zde se zaměříme zejména na první dvě skupiny, jelikož jednodušší verze metod typu prediktor-korektor jsou exaktně stejné jako Runge-Kuttovy metody. Přesto, jako vždy, okomentujeme výhody a nevýhody různých metod. Jako vždy v numerice neexistuje jedna nejlepší metoda na všechny možné úlohy!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro testování různých metod použijeme následující úlohu (obdoba <em>vývoje populace</em>):</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy(t)}{dt} = (1 + 2\cos{(t)}) y(t)
+\]</div>
+<p>U této diferenciální rovnice lze určit řešení analyticky: <span class="math notranslate nohighlight">\(\tilde{y}(t) = \exp(t + 2\sin{(t)}) \tilde{y}(0)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">*</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">y_sol</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> 
+
+<span class="c1"># počáteční podmínka</span>
+<span class="n">y_0</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># časový interval</span>
+<span class="n">T0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="runge-kuttovy-metody">
+<h2><span class="section-number">5.1. </span>Runge-Kuttovy metody<a class="headerlink" href="#runge-kuttovy-metody" title="Link to this heading">#</a></h2>
+<p>Hlavní myšlenkou těchto metod je vývoj řešení (funkce <span class="math notranslate nohighlight">\(y\)</span>) pomocí lineární kombinace vnořených kroků jednoduché Eulerovy metody (následující sekce). Tato lineární kombinace je srovnána s <em>Taylorovým rozvojem</em> určitého řádu.</p>
+<p>Obecný vzorec pro <em>explicitní metody</em> pro ODR N-tého řádu:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{i+1} = y_i + h \sum_{j = 1}^{r} b_j k_j(h), \hspace{5pt} \forall i \in [0, N-1],
+\]</div>
+<p>kde</p>
+<div class="math notranslate nohighlight">
+\[
+k_j = f(x_i + c_j h, y_i + h \sum_{l = 1}^{j-1} a_{jl} k_l)
+\]</div>
+<p>Koeficienty jsou získány srovnáním s Taylorovým rozvojem požadovaného řádu. Existuje nekonečně mnoho kombinací koeficientů, kterými lze získat požadovanou aproximaci. Runge-Kuttovy metody se pak efektivně popisují <em>Butcherovou tabulkou</em>, ve které se vyskytují hodnoty všech koeficientů dané metody:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}
+{c|cccc}
+c_1 &amp; a_{11} &amp; 0 &amp; \cdots &amp; 0 \\
+c_2 &amp; a_{21} &amp; a_{22} &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots  &amp; \ddots &amp; \vdots \\
+c_r &amp; a_{r1} &amp; a_{r2} &amp; \cdots &amp; a_{rr}\\
+\hline
+&amp; b_1 &amp; b_2 &amp; \cdots &amp; b_{r}
+\end{array}
+\end{split}\]</div>
+<p>Následující dvě metody odpovídají jednoduchému nahrazení derivace pomocí buď <em>dopředné</em> (Euler) nebo <em>centrální</em> diference (leap-frog). Přesto tyto metody spadají do obecné definice RK metod, a proto si je předstabujeme zde.</p>
+<p>Dále se budeme věnovat pouze metodám pro řešení <strong>ODR 1. řádu</strong>. Vzorec pro RK metody je stejný, akorát <span class="math notranslate nohighlight">\(y\)</span> je skalár.</p>
+<p>Vlastnosti:</p>
+<ul class="simple">
+<li><p>velmi robustní pro nehladké funkce <span class="math notranslate nohighlight">\(f\)</span>, adaptivní krok <span class="math notranslate nohighlight">\(h\)</span></p></li>
+<li><p>více výpočtů pravé strany <span class="math notranslate nohighlight">\(f\)</span> -&gt; nevýhodné pokud výpočetně náročné</p></li>
+<li><p>většinou nejrychlejší, bežně používané RK4 (RK45 - vnořená metoda)</p></li>
+</ul>
+<section id="eulerova-metoda">
+<h3><span class="section-number">5.1.1. </span>Eulerova metoda<a class="headerlink" href="#eulerova-metoda" title="Link to this heading">#</a></h3>
+<p>Nejjednoduší možností, jak se vypořádat s derivací je nahrazení diferenciálů pomocí konečných rozdílů vzdálených konečným krokem <span class="math notranslate nohighlight">\(\Delta \equiv h\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dx} \approx \frac{y_{i+1} - y_{i}}{x_{i+1} - x_{i}} = f(x_i, y_i),
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(y_i = y(x_i)\)</span>. Tedy po úpravě dostáváme jednoduchý explicitní vzorec pro vývoj <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1} = y_{n} + h f(x_n, y_n),
+\]</div>
+<p>s počáteční podmínkou <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span>. Dostáváme tedy RK metodu 1. řádu.</p>
+<p>Zde znovu zmíníme analogii s integračními metodami. Eulerova metoda dokonce přímo odpovídá levostrannému integračnímu pravidlu!</p>
+<p><img alt="Eulerova metoda" src="../_images/eulerRK.png" /></p>
+<p>Zvolíme počet kroků:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pocet kroku</span>
+<span class="n">M</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># delka kroku</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="o">/</span> <span class="n">M</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte <em>Eulerovu metodu</em> pro řešení zkušební ODR.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># reseni</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_0</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">T0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">y_euler</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_euler:&#39;</span><span class="p">,</span> <span class="n">y_euler</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_sol:  &#39;</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y_euler: 17.567021635626023
+y_sol:   21.805264918818242
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># casove kroky</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_euler</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">ts</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$t$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/a751fdce90f0f387fee7aa52ecc091b5c14d0caff94951cb8118a551d907441b.png" src="../_images/a751fdce90f0f387fee7aa52ecc091b5c14d0caff94951cb8118a551d907441b.png" />
+</div>
+</div>
+</section>
+<section id="metoda-stredniho-bodu-midpoint-leap-frog">
+<h3><span class="section-number">5.1.2. </span>Metoda středního bodu (midpoint/leap-frog)<a class="headerlink" href="#metoda-stredniho-bodu-midpoint-leap-frog" title="Link to this heading">#</a></h3>
+<p>Metoda středního bodu je RK metoda 2. řádu využívající kombinace dvou hodnot pravé strany (derivace):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    k_1 &amp;= f(x_n, y_n) \\
+    k_2 &amp;= f(x_n + \frac{h}{2}, y_n + \frac{h}{2} k_1) \\
+    y_{n+1} &amp;= y_n + h k_2,
+\end{align} 
+\end{split}\]</div>
+<p>s počáteční podmínkou <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span>.</p>
+<p>Tato metoda je ekvivalentní nahrazení derivace pomocí centrární diference:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1} = y_{n-1} + 2h f(x_n, y_n).
+\]</div>
+<p>Toto schéma se typicky nazývá <em>leap-frog</em>, jelikož využívá hodnotu funkce <span class="math notranslate nohighlight">\(y\)</span> o dva kroky zpět v čase.</p>
+<p><img alt="Midpoint metoda" src="../_images/midpointRK.png" /></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte <em>metodu středního bodu</em> pro řešení zkušební ODR.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># reseni</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_0</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">T0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">y_midpoint</span> <span class="o">=</span> <span class="n">midpoint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_midpoint:&#39;</span><span class="p">,</span> <span class="n">y_midpoint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_sol:     &#39;</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y_midpoint: 21.657042981408324
+y_sol:      21.805264918818242
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># casove kroky</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_midpoint</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">ts</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$t$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/c40a14c0456476e969f9624eb8217f3c24215f2a0e93e5c229f99bd0df6bdd89.png" src="../_images/c40a14c0456476e969f9624eb8217f3c24215f2a0e93e5c229f99bd0df6bdd89.png" />
+</div>
+</div>
+</section>
+<section id="heunova-metoda">
+<h3><span class="section-number">5.1.3. </span>Heunova metoda<a class="headerlink" href="#heunova-metoda" title="Link to this heading">#</a></h3>
+<p>Heunova metoda je opět RK metoda 2. řádu využívající tentokrát jiné kombinace dvou hodnot pravé strany (derivace):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    k_1 &amp;= f(x_n, y_n) \\
+    k_2 &amp;= f(x_n + h, y_n + h k_1) \\
+    y_{n+1} &amp;= y_n + \frac{h}{2} (k_1 + k_2),
+\end{align} 
+\end{split}\]</div>
+<p>s počáteční podmínkou <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span>.</p>
+<p><img alt="Heunova metoda" src="../_images/heuneRK.png" /></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte <em>Heunovu metodu</em> pro řešení zkušební ODR.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">heune</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># reseni</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_0</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">T0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">y_heune</span> <span class="o">=</span> <span class="n">heune</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_heune:&#39;</span><span class="p">,</span> <span class="n">y_heune</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_sol:  &#39;</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y_heune: 21.62849358238237
+y_sol:   21.805264918818242
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># casove kroky</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_heune</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">ts</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$t$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/3fa4a973da13c8f8ef5729e50b4e5841cb106080c0bd999bf73951c21ebd0df4.png" src="../_images/3fa4a973da13c8f8ef5729e50b4e5841cb106080c0bd999bf73951c21ebd0df4.png" />
+</div>
+</div>
+</section>
+<section id="runge-kuttova-metoda-4-radu">
+<h3><span class="section-number">5.1.4. </span>Runge-Kuttova metoda 4. řádu<a class="headerlink" href="#runge-kuttova-metoda-4-radu" title="Link to this heading">#</a></h3>
+<p>Nejpoužívanějším typem jsou RK4 metody. To je dané tím, že pro RK metody 5 a vyšších řádů je již potřeba víc vyhodnocení funkce pravé strany, než je řád metody. Proto RK4 metody představují ideální poměr cena-výkon.
+Jedna z nejpoužívanějších je následující RK4 metoda:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    k_1 &amp;= f(x_n, y_n) \\
+    k_2 &amp;= f(x_n + \frac{h}{2}, y_n + \frac{h}{2} k_1) \\
+    k_3 &amp;= f(x_n + \frac{h}{2}, y_n + \frac{h}{2} k_2) \\
+    k_4 &amp;= f(x_n + h, y_n + h k_3) \\
+    y_{n+1} &amp;= y_n + \frac{h}{6} (k_1 + 2 k_2 + 2 k_3 + k_4),
+\end{align} 
+\end{split}\]</div>
+<p>s počáteční podmínkou <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span>.</p>
+<p><img alt="Heunova metoda" src="../_images/rk4.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rk4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># reseni</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_0</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">T0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">y_rk4</span> <span class="o">=</span> <span class="n">rk4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_rk4: &#39;</span><span class="p">,</span> <span class="n">y_rk4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_sol: &#39;</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y_rk4:  21.805099910191224
+y_sol:  21.805264918818242
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># casove kroky</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_rk4</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">ts</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$t$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/59c43cc53cf2a5640f9ae77ade637255da6f2ceecf74f8c69437d42a39a6570f.png" src="../_images/59c43cc53cf2a5640f9ae77ade637255da6f2ceecf74f8c69437d42a39a6570f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="bulirsch-stoerova-metody">
+<h2><span class="section-number">5.2. </span>Bulirsch-Stoerova metody<a class="headerlink" href="#bulirsch-stoerova-metody" title="Link to this heading">#</a></h2>
+<p>Tato metoda je založená na stejném principu jako <em>Rombergova metoda</em> u integrace. Tedy cíl je využít výsledku dané metody pro různé kroky pro zlepšení řádu metody. U integrace jsme měli velmi vhodnou metodu založenou na <em>lichoběžníkovém pravidlu</em>, jejíž rozvoj chyby obsahoval členy pouze sudého řádu. Zde chceme využít metodu se stejnou vlastností.</p>
+<p><img alt="Bulirsch-Stoerova metoda" src="../_images/bulirschStoer.png" /></p>
+<p>Jako vhodná výchozí metoda se ukáže modifikovaná midpoint metoda:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    y_1 &amp;= y_0 + h f(x_0, y_0), \\
+    y_{n+1} &amp;= y_{n-1} + 2 h f(x_n, y_n), \hspace{5pt} \forall n = 1, 2, \dots, M-1 \\
+    \tilde{y}_{M} &amp;\approx \frac{1}{2} \left( y_{M} + y_{M-1} + h f(x_M, y_{M}) \right)
+\end{align} 
+\end{split}\]</div>
+<p>Pro modifikovanou metodu platí:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{y}_M - y_M = a h^2 + b h^4 + c h^6 + \dots 
+\]</div>
+<p>Postup Bulirsch-Stoerovy je tedy následující:</p>
+<ul class="simple">
+<li><p>spočítat řešení <span class="math notranslate nohighlight">\(y_{M}\)</span> s krokem <span class="math notranslate nohighlight">\(h\)</span> a <span class="math notranslate nohighlight">\(2h\)</span></p></li>
+<li><p>aproximovat řešení pomocí:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\tilde{y}_M \approx \frac{4 y^{h}_M - y^{2h}_M}{3}
+\]</div>
+<ul class="simple">
+<li><p>tím z metody 2. řádu získáme metodu <em>4. řádu</em>!</p></li>
+</ul>
+<p>Vlastnosti Bulirsch-Stoerovy metody:</p>
+<ul class="simple">
+<li><p>méně vhodné pro komplikovaný tvar funkce <span class="math notranslate nohighlight">\(f\)</span> nebo obsahující singularity v integrovaném intervalu</p></li>
+<li><p>pro hladké funkce <span class="math notranslate nohighlight">\(f\)</span> poskytuje řešení s velmi vysokou přesností s menším počtem vyhodnocení funkce <span class="math notranslate nohighlight">\(f\)</span> oproti RK metodám stejného řádu</p></li>
+</ul>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte <em>modifikovanou metodu středního bodu</em> pro řešení zkušební ODR.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">midpoint_mod</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># reseni</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_0</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">T0</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># prvni krok Euler</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">h</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="n">h</span>
+    
+    <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">y_midpoint_mod</span> <span class="o">=</span> <span class="n">midpoint_mod</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_midpoint_mod:&#39;</span><span class="p">,</span> <span class="n">y_midpoint_mod</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_sol:         &#39;</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y_midpoint_mod: 21.6141166716386
+y_sol:          21.805264918818242
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># casove kroky</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_midpoint_mod</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">ts</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$t$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/b94f41f0d1480a4db79b5f2670caa8c5c4efa9cac080d6c34e63534154c85a3c.png" src="../_images/b94f41f0d1480a4db79b5f2670caa8c5c4efa9cac080d6c34e63534154c85a3c.png" />
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte <em>Bulirsch-Stoerovu metodu</em> pro řešení zkušební ODR.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_midpoint_mod_h</span> <span class="o">=</span> <span class="n">midpoint_mod</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+<span class="n">y_midpoint_mod_2h</span> <span class="o">=</span> <span class="n">midpoint_mod</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">y_M</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">y_midpoint_mod_h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_midpoint_mod_2h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_bulirschStoer:&#39;</span><span class="p">,</span> <span class="n">y_M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_sol:          &#39;</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y_bulirschStoer: 21.795112319685316
+y_sol:           21.805264918818242
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="runge-kuttovy-metody-pro-soustavu-odr-nd">
+<h2><span class="section-number">5.3. </span>Runge-Kuttovy metody pro soustavu ODR (nD)<a class="headerlink" href="#runge-kuttovy-metody-pro-soustavu-odr-nd" title="Link to this heading">#</a></h2>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 4</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p><a class="reference internal" href="../ukoly/05-reseni-odr-UKOL.html#ukol4"><span class="std std-ref">ZDE</span></a></p>
+</p>
+</div>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lekce"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04-integrace.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Numerická integrace (1D)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06-reseni-okraj.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Řešení diferenciálních rovnic s okrajovou podmínkou</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kuttovy-metody">5.1. Runge-Kuttovy metody</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eulerova-metoda">5.1.1. Eulerova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-stredniho-bodu-midpoint-leap-frog">5.1.2. Metoda středního bodu (midpoint/leap-frog)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heunova-metoda">5.1.3. Heunova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kuttova-metoda-4-radu">5.1.4. Runge-Kuttova metoda 4. řádu</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bulirsch-stoerova-metody">5.2. Bulirsch-Stoerova metody</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kuttovy-metody-pro-soustavu-odr-nd">5.3. Runge-Kuttovy metody pro soustavu ODR (nD)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jiří Löffelmann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

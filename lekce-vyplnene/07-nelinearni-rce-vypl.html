@@ -14,48 +14,45 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -70,7 +67,6 @@
     <link rel="prev" title="Úvod do jazyka Python" href="01-uvod-python-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,16 +74,31 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -95,6 +106,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -102,15 +114,10 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
+</form></div>
+  </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -119,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -135,8 +141,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -150,17 +154,21 @@
     
     
     <img src="../_static/cphys-logo6.png" class="logo__image only-light" alt="NME1cvBook - Home"/>
-    <img src="../_static/cphys-logo6.png" class="logo__image only-dark pst-js-only" alt="NME1cvBook - Home"/>
+    <script>document.write(`<img src="../_static/cphys-logo6.png" class="logo__image only-dark" alt="NME1cvBook - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -195,19 +203,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -216,14 +219,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -248,14 +251,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce-vyplnene/07-nelinearni-rce-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+    <img src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -266,14 +269,14 @@
       
       <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce-vyplnene/07-nelinearni-rce-vypl.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
+   title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+    <img src="../_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -284,14 +287,14 @@
       
       <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce-vyplnene/07-nelinearni-rce-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
+   title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+    <img src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -413,19 +416,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -498,9 +509,9 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span> <span class="n">root_scalar</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span> <span class="n">root_scalar</span>
 </pre></div>
 </div>
 </div>
@@ -528,7 +539,7 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 <p>Uvažujeme funkci: <span class="math notranslate nohighlight">\(f(x) = 0.8 x^3 - 10 x + 20\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">20</span>
 
 <span class="c1"># pocatecni body omezujici reseni</span>
@@ -557,7 +568,7 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/35e802ae0c5d13cc074f0196caad83eebea65d482e95cd78a16bbfb462a47066.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/35e802ae0c5d13cc074f0196caad83eebea65d482e95cd78a16bbfb462a47066.png" />
+<img alt="../_images/35e802ae0c5d13cc074f0196caad83eebea65d482e95cd78a16bbfb462a47066.png" src="../_images/35e802ae0c5d13cc074f0196caad83eebea65d482e95cd78a16bbfb462a47066.png" />
 </div>
 </div>
 <p><strong>Algoritmus bisekce</strong></p>
@@ -628,7 +639,7 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
+<img alt="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -651,7 +662,7 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/7e2c23039ed01675aeec9893ced5aace5b644739e19fc5d885433bfdffa8e424.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/7e2c23039ed01675aeec9893ced5aace5b644739e19fc5d885433bfdffa8e424.png" />
+<img alt="../_images/7e2c23039ed01675aeec9893ced5aace5b644739e19fc5d885433bfdffa8e424.png" src="../_images/7e2c23039ed01675aeec9893ced5aace5b644739e19fc5d885433bfdffa8e424.png" />
 </div>
 </div>
 </section>
@@ -690,7 +701,7 @@ a_{n+1} = \frac{a_{n-1} f(a_{n}) - a_{n} f(a_{n-1})}{f(a_{n}) - f(a_{n-1})}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/ab3b595d6f7debf0ded059cb32601e946c9fdcc128a06db6853cd590c98f38f8.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/ab3b595d6f7debf0ded059cb32601e946c9fdcc128a06db6853cd590c98f38f8.png" />
+<img alt="../_images/ab3b595d6f7debf0ded059cb32601e946c9fdcc128a06db6853cd590c98f38f8.png" src="../_images/ab3b595d6f7debf0ded059cb32601e946c9fdcc128a06db6853cd590c98f38f8.png" />
 </div>
 </div>
 <p><strong>Algoritmus metody sečen</strong></p>
@@ -752,7 +763,7 @@ Sečna:   -4.282289017870752 7.105427357601002e-15 3.552713678800501e-15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
+<img alt="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -774,7 +785,7 @@ Sečna:   -4.282289017870752 7.105427357601002e-15 3.552713678800501e-15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/123f258aaf9ed39a042f9d8786ab1e7c0e97612b5ba705a1320fc8caddbe1aae.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/123f258aaf9ed39a042f9d8786ab1e7c0e97612b5ba705a1320fc8caddbe1aae.png" />
+<img alt="../_images/123f258aaf9ed39a042f9d8786ab1e7c0e97612b5ba705a1320fc8caddbe1aae.png" src="../_images/123f258aaf9ed39a042f9d8786ab1e7c0e97612b5ba705a1320fc8caddbe1aae.png" />
 </div>
 </div>
 </section>
@@ -806,7 +817,7 @@ Sečna:   -4.282289017870752 7.105427357601002e-15 3.552713678800501e-15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/61a4cf1bff6ab5c3f85b2e139d20ae3e0cda06a2e1a75d501a326f400e065699.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/61a4cf1bff6ab5c3f85b2e139d20ae3e0cda06a2e1a75d501a326f400e065699.png" />
+<img alt="../_images/61a4cf1bff6ab5c3f85b2e139d20ae3e0cda06a2e1a75d501a326f400e065699.png" src="../_images/61a4cf1bff6ab5c3f85b2e139d20ae3e0cda06a2e1a75d501a326f400e065699.png" />
 </div>
 </div>
 <p><strong>Algoritmus metody regula falsi</strong></p>
@@ -870,7 +881,7 @@ Regula-falsi: -4.282289017870752 7.105427357601002e-15 8.881784197001252e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
+<img alt="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -892,7 +903,7 @@ Regula-falsi: -4.282289017870752 7.105427357601002e-15 8.881784197001252e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/364f94a4e00abeb3e1fe82e38b06b564363b496a757d236cbda1f33467aab333.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/364f94a4e00abeb3e1fe82e38b06b564363b496a757d236cbda1f33467aab333.png" />
+<img alt="../_images/364f94a4e00abeb3e1fe82e38b06b564363b496a757d236cbda1f33467aab333.png" src="../_images/364f94a4e00abeb3e1fe82e38b06b564363b496a757d236cbda1f33467aab333.png" />
 </div>
 </div>
 </section>
@@ -910,15 +921,15 @@ f(x_{i}+\Delta x)=f(x_{i})+\Delta x f'(x_{i})+\dfrac{(\Delta x)^{2}}{2}f''(x_{i}
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">20</span>
 
 <span class="c1"># analyticky určená derivace</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">dxf</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dxf</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">2.4</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span>
 
 <span class="c1"># numericky - pomocí konečné diference</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">dxf2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dxf2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
 </pre></div>
 </div>
@@ -949,7 +960,7 @@ f(x_{i}+\Delta x)=f(x_{i})+\Delta x f'(x_{i})+\dfrac{(\Delta x)^{2}}{2}f''(x_{i}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/48b049b3e1cd4075cf30bd88d37bd3d9e83d823931cc8fae8b8504a80327f1e7.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/48b049b3e1cd4075cf30bd88d37bd3d9e83d823931cc8fae8b8504a80327f1e7.png" />
+<img alt="../_images/48b049b3e1cd4075cf30bd88d37bd3d9e83d823931cc8fae8b8504a80327f1e7.png" src="../_images/48b049b3e1cd4075cf30bd88d37bd3d9e83d823931cc8fae8b8504a80327f1e7.png" />
 </div>
 </div>
 <p><strong>Algoritmus Newton–Raphsonovy metody</strong></p>
@@ -1021,7 +1032,7 @@ fsolve():      [-4.28228902] [7.10542736e-15]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
+<img alt="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" src="../_images/2235e414c3b8fc5ec433b0981b5a5c1a9be596605d13b74b88706a0d1f4165f8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1043,7 +1054,7 @@ fsolve():      [-4.28228902] [7.10542736e-15]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/d3ca2b06bd85594437a22fb78d28475cb83a0d90dad4e19a7fadf6b7aa5b874d.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/d3ca2b06bd85594437a22fb78d28475cb83a0d90dad4e19a7fadf6b7aa5b874d.png" />
+<img alt="../_images/d3ca2b06bd85594437a22fb78d28475cb83a0d90dad4e19a7fadf6b7aa5b874d.png" src="../_images/d3ca2b06bd85594437a22fb78d28475cb83a0d90dad4e19a7fadf6b7aa5b874d.png" />
 </div>
 </div>
 </section>
@@ -1077,7 +1088,7 @@ fsolve():      [-4.28228902] [7.10542736e-15]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/fc83a713b5df60464a80f1d93611b8f1c9bbbe0560cbfcce2358c6675731e4cb.png" src="/DS723/data/Linux_Windows_Share/b_PhD/NME1cv/NME1cvBook/_build/jupyter_execute/fc83a713b5df60464a80f1d93611b8f1c9bbbe0560cbfcce2358c6675731e4cb.png" />
+<img alt="../_images/fc83a713b5df60464a80f1d93611b8f1c9bbbe0560cbfcce2358c6675731e4cb.png" src="../_images/fc83a713b5df60464a80f1d93611b8f1c9bbbe0560cbfcce2358c6675731e4cb.png" />
 </div>
 </div>
 </section>
@@ -1162,7 +1173,7 @@ f_{i}(\vec{x}+\delta\vec{x})=f_{i}(\vec{x})+\sum_{j=1}^{n}\dfrac{\partial f_{i}}
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1190,8 +1201,7 @@ f_{i}(\vec{x}+\delta\vec{x})=f_{i}(\vec{x})+\sum_{j=1}^{n}\dfrac{\partial f_{i}}
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1260,8 +1270,8 @@ By Jiří Löffelmann
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

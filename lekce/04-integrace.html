@@ -1,0 +1,1460 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Numerická integrace (1D) &#8212; NME1cvBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lekce/04-integrace';</script>
+    <link rel="icon" href="../_static/cphys2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Řešení obyčejných diferenciálních rovnic (ODR)" href="05-reseni-odr.html" />
+    <link rel="prev" title="3. Hledání extrémů funkcí" href="03-extremy-fci.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cphys-logo6.png" class="logo__image only-light" alt="NME1cvBook - Home"/>
+    <script>document.write(`<img src="../_static/cphys-logo6.png" class="logo__image only-dark" alt="NME1cvBook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Numerické metody (NME1cv) - cvičení 2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-python.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-nelinearni-rce.html">2. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-extremy-fci.html">3. Extrémy funkcí</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-reseni-odr.html">5. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-reseni-okraj.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-nelinearni-rce-UKOL.html">2. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-extremy-fci-UKOL.html">3. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-integrace-UKOL.html">4. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-reseni-odr-UKOL.html">5. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/06-reseni-okraj-UKOL.html">6. Diferenciální rovnice s okrajovou podmínkou</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce/04-integrace.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce/04-integrace.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce/04-integrace.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/loepa01/NME1cvBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/loepa01/NME1cvBook/issues/new?title=Issue%20on%20page%20%2Flekce/04-integrace.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lekce/04-integrace.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerická integrace (1D)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cortesovy-vzorce">4.1. Newton-Cortesovy vzorce</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#levostranne-pravidlo">4.1.1. Levostranné pravidlo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lichobeznikove-pravidlo">4.1.2. Lichoběžníkové pravidlo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpsonovo-pravidlo">4.1.3. Simpsonovo pravidlo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obdelnikove-pravidlo-midpoint-rule">4.1.4. Obdélníkové pravidlo (midpoint rule)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rombergova-metoda">4.1.5. Rombergova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#srovnani-metod-konvergence">4.1.6. Srovnání metod - konvergence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussovy-kvadratury">4.2. Gaussovy kvadratury</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrace-funkci-vice-promennych-nd">4.3. Integrace funkcí více proměnných (nD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-1d">4.3.1. Metoda Monte Carlo (1D)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-nd">4.3.2. Metoda Monte Carlo (nD)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #F4330C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #F7C8C0; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Pozor</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Připomínám, že 3.5. <strong>neproběhne</strong> cvičení v prezenční formě! Tento notebook slouží pro samostatné seznámení s tématem.</p>
+<p>Vaším úkolem je látku projít a <strong>doplnit</strong> buňky podle vyznačených úkolů.
+Pro započítání docházky z této hodiny mi pošlete tento notebook s vyplněnými úkoly mailem. V případě nejasností se můžete podívat na materiály <a class="reference external" href="https://mjirka.github.io/nme/Cviceni09vyplnene.html">Martina Jirky</a> nebo na video <a class="reference external" href="https://youtu.be/po1m34mcjAI?si=Ch3zstxQ1Ymdx0BA">Honzy Vábka</a>.</p>
+</p>
+</div>
+</div><section class="tex2jax_ignore mathjax_ignore" id="numericka-integrace-1d">
+<h1><span class="section-number">4. </span>Numerická integrace (1D)<a class="headerlink" href="#numericka-integrace-1d" title="Link to this heading">#</a></h1>
+<p>V tomto cvičení si ukážeme několik numerických metod pro vyčíslení integrálů funkcí jedné proměnné (1D) na počítači. Ukažeme si také, jak se v určuje <strong>chyba</strong> a jak získat metodu vyššího řádu pomocí <em>Rombergovy metody</em>.</p>
+<p>Numerické integrování funkcí, také nazývané <em>kvadratura</em> (výpočet obsahu plochy), spočívá v nahrazení integrálu konečnou sumou aproximující jeho hodnotu. Konkrétně se zajímáme o vyhodnocení intergálu tvaru:</p>
+<div class="math notranslate nohighlight">
+\[
+I = \int_a^{b} f(x) dx.
+\]</div>
+<p>Tato úloha je úzce spojená s řešením obyčejných diferenciálních rovnic (ODE). Výpočet určitého integrálu je <strong>speciální případ řešení ODE</strong>, tedy přímo ekvivalentní úloze:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dI}{dx} = f(x),
+\]</div>
+<p>s počáteční podmínkou <span class="math notranslate nohighlight">\(I(a) = 0\)</span>, kde hledáme <span class="math notranslate nohighlight">\(I(b)\)</span>. Metody pro řešení ODE kladou důraz na zavedení <em>adaptivního kroku</em> (<span class="math notranslate nohighlight">\(h\)</span>), kterým lze snadno kontrolovat chybu výpočtu v závislosti na tvaru funkce <span class="math notranslate nohighlight">\(f(x)\)</span>. V některých případech může být skutečně výhodné úlohu výpočtu integrálu převést na ODE a řešit pomocí těchto metod. Řešením ODE budeme zabývat příští cvičení.</p>
+<p>V první části si představíme několik jednoduchých pravidel: <em>Newton-Cortesovy vzorce</em>. Přestože byly používány po staletí, v dnešní době se v praxi používají již pokročilejší metody, které poskytují rychlejší <em>konvergenci</em> (menší počet vyhodnocení hodnoty funkce pro dosažení dané přesnosti) a zárověň davají <strong>přesný</strong> výsledek pro polynomy vysokého řádu.
+Zde si ukážeme jednu z těchto moderních metod: <em>Gaussovy kvadratury</em>.
+Na záver nahlídneme do problému integrování funkcí více proměnných.</p>
+<p>Na přednášce byly ukázány také případy integrálu se singularitami nebo případ integrálu s nekonečnými mezemi. Tyto integrály lze typicky převést na určitý integrál konečného intervalu bez singularit. Proto se těmito případy zde zabývat nebudeme a budeme předpokládat integrál funkcí bez singularit přes konečný interval. O pokročilejších numerických metodách umožňujících přímo integrovat i tyto komplikované integrály se můžete dočíst v literatuře, viz <a class="reference internal" href="../intro.html#literatura"><span class="std std-ref">Numerical Recipes</span></a>.</p>
+<p>Import knihoven:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Různé metody budeme testovat na následující funkci:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definice funkce</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># integrační inverval</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">2.8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro ověření porovnáme s přesnou hodnotou, kterou lze snadno v tomto případě spočítat pomocí primitivní funkce <span class="math notranslate nohighlight">\(F(x) = -\exp(\cos{(x)})\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># presna hodnota</span>
+<span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">I_pres</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">F</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vykreslení funkce</span>
+<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_vals</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">xmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">3.4</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;--&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)],</span> <span class="s1">&#39;--g&#39;</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;:g&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mf">1.85</span><span class="p">,</span> <span class="n">f</span><span class="p">((</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c60c97ac0145109989b72ecda215aa8ca7fede896021ef0ebfcdcab2df4910af.png" src="../_images/c60c97ac0145109989b72ecda215aa8ca7fede896021ef0ebfcdcab2df4910af.png" />
+</div>
+</div>
+<section id="newton-cortesovy-vzorce">
+<h2><span class="section-number">4.1. </span>Newton-Cortesovy vzorce<a class="headerlink" href="#newton-cortesovy-vzorce" title="Link to this heading">#</a></h2>
+<p>Postup numerického výpočtu integrálu je následující. Uvažujeme funkci <span class="math notranslate nohighlight">\(f(x)\)</span> a chceme spočítat její integrál na intervalu <span class="math notranslate nohighlight">\((a, b)\)</span>. Ten rozdělíme rovnoměrně na <span class="math notranslate nohighlight">\(N\)</span> podintervalů definovaných body <span class="math notranslate nohighlight">\(x_0, x_1, \dots, x_{N-1}, x_{N}\)</span> velikosti <span class="math notranslate nohighlight">\(h\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = x_0 + i h, \hspace{15pt} i = 0, 1, \dots, N.
+\]</div>
+<p>Funkci <span class="math notranslate nohighlight">\(f\)</span> pak vyhodnocujeme v jednotlivých bodech: <span class="math notranslate nohighlight">\(f_i \equiv  f(x_i)\)</span>.</p>
+<p><img alt="integrace rozdeleni intervalu" src="../_images/integDef.png" /></p>
+<p>Podle toho, jestli pro výpočet integrálu jsou používány hodnoty funkce v krajních bodech, rozdělujeme pravidla na:</p>
+<ul class="simple">
+<li><p>Uzavřená formule - využívají hodnoty <span class="math notranslate nohighlight">\(f(a)\)</span> a <span class="math notranslate nohighlight">\(f(b)\)</span></p></li>
+<li><p>Otevřená formule - využívají pouze hodnoty uvnitř intervalu</p></li>
+</ul>
+<p>Celé integrační formule se skládají z integračních pravidel pro přibližný výpočet integrálu v malém počtu podintervalů.
+Použítím konkrétního pravidla na všechny podintervaly pak získáme složenou formuli/vzorec na výpočet celého integrálu.
+Podrovněji si to ukážeme na jednotlivých pravidlech.</p>
+<p>Různé metody poskytují aproximaci integrálu různých řádů přesnosti. Přesto je dobré vždy mít na paměti, že obecně <strong>neplatí</strong>:</p>
+<p>vyšší řád <span class="math notranslate nohighlight">\(\Rightarrow\)</span> vyšší přesnost</p>
+<p>V případě polynomů a téměř hladkých funkcí skutečně vede vyšší řád na přesnější výsledek při stejném počtu vyhodnočení funkce. Ale pokud funkce má například nespojité derivace, můžeme dostat méně přesný výsledek!</p>
+<p>Jako první si ukážeme dvě uzavřená pravidla:</p>
+<p><img alt="integrace rozdeleni intervalu" src="../_images/NCpravidla2.png" /></p>
+<section id="levostranne-pravidlo">
+<h3><span class="section-number">4.1.1. </span>Levostranné pravidlo<a class="headerlink" href="#levostranne-pravidlo" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\int_{x_0}^{x_1} f(x) dx = h f_0 + \mathcal{O}(h^2 f^{\prime})
+\]</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Chyba aproximace integrálu na jednom podintervalu je druhého řádu v <span class="math notranslate nohighlight">\(h\)</span>. Zárověn závísí na hodnotě derivace funkce <span class="math notranslate nohighlight">\(f\)</span> v neznámém bodě uvnitř intervalu <span class="math notranslate nohighlight">\((x_0, x_1)\)</span>. Jelikož tento bod neznáme, musíme velikost chyby určit pomocí jiného odhadu hodnoty integrálu. Stejný případ nastává u ostatních pravidel.</p>
+</p>
+</div>
+</div>
+<p><em>Složený vzorec</em> dostaneme aplikací pravidla na všechny podintervaly:
+$<span class="math notranslate nohighlight">\(
+\int_{x_0}^{x_N} f(x) dx = h \left[f_0 + f_1 + \dots + f_{N-1} + f_N\right] + \mathcal{O}\left(\frac{(b - a)^2}{N} f^{\prime}\right),
+\)</span>$</p>
+<p>kde jsme nahradili v odhadu chyby za <span class="math notranslate nohighlight">\(N h^2 = \frac{(b - a)^2}{N} = (b-a) h\)</span>. Tedy metoda je celkově <strong>prvního řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy <strong>nultého řádu</strong> (konstatní funkce).</p>
+<p>Zvolíme počet podintervalů:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># pocet podintervalu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte výpočet integrálu funkce <span class="math notranslate nohighlight">\(f\)</span> na intervalu <span class="math notranslate nohighlight">\((a, b)\)</span>  pomocí <em>levostranného pravidla</em>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integ_levostranne</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># hodnota integralu</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># krajni body podintervalu x_i</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">I</span> <span class="o">+=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">I</span>
+
+<span class="n">I_levo</span> <span class="o">=</span> <span class="n">integ_levostranne</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_levostranne:&#39;</span><span class="p">,</span> <span class="n">I_levo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:     &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_levostranne: 2.3166707678838026
+I_presny:      2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Odhad chyby integrálu</strong></p>
+<p>Jako u ostatních numerických metod bychom rádi určili chybu, se kterou nám metoda poskytla výsledek pro daný počet vyhodnocení funkce (počet podintervalů <span class="math notranslate nohighlight">\(N\)</span>).</p>
+<p>Jak obecně určit chybu bez znalosti přesného výsledku? K tomu využijeme znalosti řádu metody. Konkrétně pro <em>levostranné pravidlo</em> víme, že dostaneme přibližnou hodnotu integrálu ve tvaru (lze odvodit pomocí Taylorova rozvoje, viz přednáška nebo [1]):</p>
+<div class="math notranslate nohighlight">
+\[
+I_h = I + a h + b h^2 + ... \equiv  I + \varepsilon(I_h)
+\]</div>
+<p>Trik spočívá ve využití výsledku stejné metody pro dvakrát větší velikost podintervalů, který je tvaru:</p>
+<div class="math notranslate nohighlight">
+\[
+I_{2h} = I + 2 a h + b (2h)^2 + ...
+\]</div>
+<p>Když oba výsledky odečteme, dostaneme následující odhad chyby pro hodnotu <span class="math notranslate nohighlight">\(I_h\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon(I_h) \approx I_{2h} - I_h = a h + 3 b h^2 + ...
+\]</div>
+<p>Vidíme, že skutečně provádíme pouze <strong>odhad</strong>. Přesnou chybu nedokážeme určit, přesto nám tento odhad stačí. Víme totiž, že odchylka od reálné chyby je až vyššího řádu v <span class="math notranslate nohighlight">\(h\)</span> (zde konkrétně <span class="math notranslate nohighlight">\(\sim h^2\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I_h</span> <span class="o">=</span> <span class="n">integ_levostranne</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">I_2h</span> <span class="o">=</span> <span class="n">integ_levostranne</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">chyba_levo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_2h</span> <span class="o">-</span> <span class="n">I_h</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad chyby: &#39;</span><span class="p">,</span> <span class="n">chyba_levo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Realná chyba:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_pres</span> <span class="o">-</span> <span class="n">I_h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.0013221091504242999
+Realná chyba: 0.0016958517875402812
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lichobeznikove-pravidlo">
+<h3><span class="section-number">4.1.2. </span>Lichoběžníkové pravidlo<a class="headerlink" href="#lichobeznikove-pravidlo" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\int_{x_0}^{x_1} f(x) dx = h \left[\frac{1}{2}f_0 + \frac{1}{2}f_1\right] + \mathcal{O}(h^3 f^{\prime \prime})
+\]</div>
+<p>Složený vzorec opět dostaneme aplikací pravidla na všechny podintervaly:
+$<span class="math notranslate nohighlight">\(
+\int_{x_0}^{x_N} f(x) dx = h \left[\frac{1}{2}f_0 + f_1 + \dots + f_{N-1} + \frac{1}{2}f_N\right] + \mathcal{O}\left(\frac{(b - a)^3}{N^2} f^{\prime \prime}\right).
+\)</span>$</p>
+<p>Vidíme, že tato metoda je celkově <strong>druhého řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy až <strong>prvního řádu</strong>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte výpočet integrálu funkce <span class="math notranslate nohighlight">\(f\)</span> na intervalu <span class="math notranslate nohighlight">\((a, b)\)</span> pomocí <em>lichoběžníkového pravidla</em>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integ_lichobeznik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># hodnota integralu</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># krajni body podintervalu x_i</span>
+    
+    <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">I</span>
+    
+<span class="n">I_lich</span> <span class="o">=</span> <span class="n">integ_lichobeznik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_lichobeznik:&#39;</span><span class="p">,</span> <span class="n">I_lich</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:     &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_lichobeznik: 2.314788087801567
+I_presny:      2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Odhad chyby integrálu</strong></p>
+<p>Opět chceme určit chybu integrálu. Tentokrát je rozvoj chyby pro <em>lichoběžníkové pravidlo</em> následující (lze odvodit pomocí Taylorova rozvoje, viz přednáška nebo [1]):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    I_h &amp;= I + a h^2 + b h^4 + ... \equiv  I + \varepsilon(I_h) \\
+    I_{2h} &amp;= I + a (2h)^2 + b (2h)^4 + ...
+\end{align}
+\end{split}\]</div>
+<p>Pro odhad chyby tedy dostáváme:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon(I_h) \approx \frac{I_{2h} - I_h}{3} = a h^2 + 5 b h^4 + ...
+\]</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Všimněte si, že rozvoj chyby zde obsahuje pouze sudé mocniny <span class="math notranslate nohighlight">\(h\)</span>! To znamená, že odhad chyby je pro tuto metodu velmi přesný. Navíc této vlastnosti lze vhodně využít ke konstrukci metod vyšších řádů, jak uvídíme v sekci <em>Rombergova metoda</em>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I_h</span> <span class="o">=</span> <span class="n">integ_lichobeznik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">I_2h</span> <span class="o">=</span> <span class="n">integ_lichobeznik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># dvojnasobna velikost podintervalu h</span>
+
+<span class="n">chyba_lich</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_2h</span> <span class="o">-</span> <span class="n">I_h</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad chyby: &#39;</span><span class="p">,</span> <span class="n">chyba_lich</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Realná chyba:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_pres</span> <span class="o">-</span> <span class="n">I_lich</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.0001868569772705738
+Realná chyba: 0.00018682829469529594
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simpsonovo-pravidlo">
+<h3><span class="section-number">4.1.3. </span>Simpsonovo pravidlo<a class="headerlink" href="#simpsonovo-pravidlo" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\int_{x_0}^{x_2} f(x) dx = h \left[\frac{1}{3}f_0 + \frac{4}{3}f_1 + \frac{1}{3}f_2\right] + \mathcal{O}(h^5 f^{(4)})
+\]</div>
+<p>Složený vzorec opět dostaneme aplikací pravidla na všechny podintervaly (zde implicitně předpokládáme, že <span class="math notranslate nohighlight">\(N\)</span> je sudé):</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{x_0}^{x_N} f(x) dx = h \left[\frac{1}{3}f_0 + \frac{4}{3}f_1 + \frac{2}{3}f_2 + \frac{4}{3}f_3 + \dots + \frac{2}{3}f_{N-1} + \frac{4}{3}f_{N-1} + \frac{1}{3}f_N\right] + \mathcal{O}\left(\frac{(b - a)^5}{N^4} f^{(4)}\right).
+\]</div>
+<p>Tato tříbodová metoda je díky jisté symetrii dokonce <strong>čtvrtého řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy až <strong>třetího řádu</strong>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte výpočet integrálu funkce <span class="math notranslate nohighlight">\(f\)</span> na intervalu <span class="math notranslate nohighlight">\((a, b)\)</span> pomocí <em>Simpsonova pravidla</em>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integ_Simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># hodnota integralu</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span>  <span class="c1"># chceme n sude !</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># krajni body podintervalu x_i</span>
+    
+    <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">I</span>
+    
+<span class="n">I_simp</span> <span class="o">=</span> <span class="n">integ_Simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_Simpson:&#39;</span><span class="p">,</span> <span class="n">I_simp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny: &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_Simpson: 2.3149749447788404
+I_presny:  2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Odhad chyby integrálu</strong></p>
+<p>Opět chceme určit chybu integrálu. Tentokrát je rozvoj chyby pro <em>Simpsonovo pravidlo</em> následující:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    I_h &amp;= I + a h^4 + b h^5 + ... \equiv  I + \varepsilon(I_h) \\
+    I_{2h} &amp;= I + a (2h)^4 + b (2h)^5 + ...
+\end{align}
+\end{split}\]</div>
+<p>Pro odhad chyby tedy dostáváme:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon(I_h) \approx \frac{I_{2h} - I_h}{15} = a h^4 + \frac{31}{15} b h^5 + ...
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I_h</span> <span class="o">=</span> <span class="n">integ_Simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">I_2h</span> <span class="o">=</span> <span class="n">integ_Simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">chyba_simp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_2h</span> <span class="o">-</span> <span class="n">I_h</span><span class="p">)</span> <span class="o">/</span> <span class="mi">15</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad chyby: &#39;</span><span class="p">,</span> <span class="n">chyba_simp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Realná chyba:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_pres</span> <span class="o">-</span> <span class="n">I_simp</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  2.8747315639066073e-08
+Realná chyba: 2.868257809041097e-08
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="obdelnikove-pravidlo-midpoint-rule">
+<h3><span class="section-number">4.1.4. </span>Obdélníkové pravidlo (midpoint rule)<a class="headerlink" href="#obdelnikove-pravidlo-midpoint-rule" title="Link to this heading">#</a></h3>
+<p><img alt="integrace rozdeleni intervalu" src="../_images/NCpravidla3.png" /></p>
+<p>Jedním z otevřených pravidel je <em>Obdélníkové pravidlo</em>. Pravidlo může být výhodné využít v případech, kdy je obtížné nebo nemožné vyhodnotit hodnotu funkce v krajích bodech. Otevřená pravidla přesto nejsou dnes tolik zajímavá kvůli existenci pokročilejších metod <em>Gaussových kvadratur</em>. Přesto si zde jedno pro ukázku předvedeme:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{x_0}^{x_1} f(x) dx = h f_{1/2} + \mathcal{O}(h^3 f^{\prime \prime})
+\]</div>
+<p>Složený vzorec dostaneme aplikací pravidla na všechny podintervaly:
+$<span class="math notranslate nohighlight">\(
+\int_{x_0}^{x_N} f(x) dx = h \left[f_{1/2} + f_{3/2} + \dots + f_{N-3/2} + f_{N - 1/2}\right] + \mathcal{O}\left(\frac{(b - a)^3}{N^2} f^{\prime}\right),
+\)</span>$</p>
+<p>Tedy metoda je celkově <strong>druhého řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy <strong>prvního řádu</strong>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte výpočet integrálu funkce <span class="math notranslate nohighlight">\(f\)</span> na intervalu <span class="math notranslate nohighlight">\((a, b)\)</span> pomocí <em>obdélníkového pravidla</em>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integ_obdelnik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># hodnota integralu</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># krajni body podintervalu x_i</span>
+    
+    <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">I</span>
+    
+<span class="n">I_obdk</span> <span class="o">=</span> <span class="n">integ_obdelnik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_obdelnik:&#39;</span><span class="p">,</span> <span class="n">I_obdk</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:  &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_obdelnik: 2.3150683329311827
+I_presny:   2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Odhad chyby integrálu</strong></p>
+<p>Opět chceme určit chybu integrálu. Tentokrát je rozvoj chyby pro <em>Simpsonovo pravidlo</em> následující:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    I_h &amp;= I + a h^2 + b h^3 + ... \equiv  I + \varepsilon(I_h) \\
+    I_{2h} &amp;= I + a (2h)^2 + b (2h)^3 + ...
+\end{align}
+\end{split}\]</div>
+<p>Pro odhad chyby tedy dostáváme:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon(I_h) \approx \frac{I_{2h} - I_h}{3} = a h^2 + \frac{7}{3} b h^3 + ...
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I_h</span> <span class="o">=</span> <span class="n">integ_obdelnik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">I_2h</span> <span class="o">=</span> <span class="n">integ_obdelnik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">chyba_obdk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_2h</span> <span class="o">-</span> <span class="n">I_h</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad chyby: &#39;</span><span class="p">,</span> <span class="n">chyba_obdk</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Realná chyba:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_pres</span> <span class="o">-</span> <span class="n">I_obdk</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  9.344193406590762e-05
+Realná chyba: 9.341683492047892e-05
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rombergova-metoda">
+<h3><span class="section-number">4.1.5. </span>Rombergova metoda<a class="headerlink" href="#rombergova-metoda" title="Link to this heading">#</a></h3>
+<p>Při odhadu chyb předchozích metod jsme viděli, že dokážeme přesně určit první člen v rozvoji chyby.
+Zajímavá myšlenka, která vede k <em>Rombergově metodě</em>, je využít hodnoty odhadu chyby pro zpřesnění vypočtené hodnoty integrálu. Ukážeme si to na <em>lichoběžníkové metodě</em>. Matematicky můžeme napsat:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    I_h &amp;= I + a h^2 + b h^4 + ... \equiv  I + \varepsilon(I_h) \\
+    I_{2h} &amp;= I + a (2h)^2 + b (2h)^4 + ...
+\end{align}
+\end{split}\]</div>
+<p>A pro odhad chyby jsme měli:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon(I_h) \approx \frac{I_{2h} - I_h}{3} = a h^2 + 5 b h^4 + ...
+\]</div>
+<p>Když odečneme chybu <span class="math notranslate nohighlight">\(\varepsilon(I_h)\)</span> od hodnoty integrálu:</p>
+<div class="math notranslate nohighlight">
+\[
+I_h^{new} = I_h - \varepsilon(I_h) = \frac{4}{3} I_{h} -\frac{1}{3} I_{2h} = I - 4 b h^4 + ...
+\]</div>
+<p>Dostáváme přesnější odhad hodnoty integralu a celkově metodu <strong>čtvrtého řádu</strong>, podobně jako v případě Simpsonovy metody. Ve skutečnosti dostáváme přesně Simpsonovu metodu (při rozepsáni vyjde stejná rozšířená formule).</p>
+<p>Obecně <em>Rombergova metoda</em> spočívá v kombinaci výsledků metody pro několik různých hodnot <span class="math notranslate nohighlight">\(N\)</span> (nebo <span class="math notranslate nohighlight">\(h\)</span>). Tím získáme přesnější výsledek a metodu vyššího řádu. <em>Lichoběžníková metoda</em> se zde obzvlášť hodí, jelikož rozvoj její chyby obsahuje pouze sudé mocniny a tedy dostáváme metodu o <strong>dva</strong>  řády vyšší!</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pomocí předchozího vztahu aplikujte Rombergovu metodu s využitím právě <em>lichoběžníkového pravidla</em>. Stačí použít kombinaci dvou hodnot integrálu pro <span class="math notranslate nohighlight">\(h\)</span> a <span class="math notranslate nohighlight">\(2h\)</span>. Zárověň určete chybu této nové metody. K tomu je opět potřeba spočítat hodnotu integrálu pro s jinou velikostí kroku <span class="math notranslate nohighlight">\(I_{2h}^{new}\)</span>.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integ_lichob_Romberg2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="c1">## DOPLŇTE ##</span>
+    
+    <span class="k">return</span> <span class="n">I_new</span>
+
+<span class="n">I_lich_romb</span> <span class="o">=</span> <span class="n">integ_lichob_Romberg2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_lich_romb:&#39;</span><span class="p">,</span> <span class="n">I_lich_romb</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_Simpson:  &#39;</span><span class="p">,</span> <span class="n">I_simp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:   &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_lich_romb: 2.3149749447788377
+I_Simpson:   2.3149749447788404
+I_presny:    2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Odhad chyby</strong></p>
+<p>Zde je odhad stejný jako u Simpsonovy metody, jelikož jsou obě metody identické. Vidíme, že dostáváme téměř stejnou hodnotu integrálu jako u Simpsonovy metody (výsledek se liší v řádu <span class="math notranslate nohighlight">\(10^{15}\)</span> kvůli jinému pořadí operací a tedy díky zaokhrouhlovacím chybám).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I_h</span> <span class="o">=</span> <span class="n">integ_lichob_Romberg2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">I_2h</span> <span class="o">=</span> <span class="n">integ_lichob_Romberg2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">chyba_romb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_2h</span> <span class="o">-</span> <span class="n">I_h</span><span class="p">)</span> <span class="o">/</span> <span class="mi">15</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad chyby: &#39;</span><span class="p">,</span> <span class="n">chyba_romb</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Realná chyba:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_pres</span> <span class="o">-</span> <span class="n">I_lich_romb</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  2.8747315639066073e-08
+Realná chyba: 2.868257542587571e-08
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="srovnani-metod-konvergence">
+<h3><span class="section-number">4.1.6. </span>Srovnání metod - konvergence<a class="headerlink" href="#srovnani-metod-konvergence" title="Link to this heading">#</a></h3>
+<p>V této části srovnáme, s jakou přesností nám jednotlivé metody dávají výsledný integrál.</p>
+<p>Definice nespojité funkce pro ověření konvergence pro nehladké funkce:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">x2</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/78d7198993f9057676abcfcb3111793067bb39812f173d24767c0ada0cf7289d.png" src="../_images/78d7198993f9057676abcfcb3111793067bb39812f173d24767c0ada0cf7289d.png" />
+</div>
+</div>
+<p>Definice polynomu stupně <code class="docutils literal notranslate"><span class="pre">npoly</span> <span class="pre">-</span> <span class="pre">1</span></code> pro ověření absolutní přesnosti metod:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npoly</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># stupen polynomu + 1</span>
+<span class="n">fpoly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">npoly</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">fpoly</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>poly1d([1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">Nstart</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">integs</span> <span class="o">=</span> <span class="p">[</span><span class="n">integ_levostranne</span><span class="p">,</span> <span class="n">integ_lichobeznik</span><span class="p">,</span> <span class="n">integ_Simpson</span><span class="p">,</span> <span class="n">integ_obdelnik</span><span class="p">,</span> <span class="n">integ_lichob_Romberg2</span><span class="p">]</span>
+<span class="n">chybaCoef</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">nI</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">integs</span><span class="p">)</span>
+
+<span class="c1"># prepnuti mezi ruznymi funkcemi</span>
+<span class="n">nespojitaFunkce</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># ZKUSIT &quot;= 1&quot;</span>
+<span class="k">if</span> <span class="n">nespojitaFunkce</span><span class="p">:</span>
+    <span class="n">fun</span> <span class="o">=</span> <span class="n">g</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">fun</span> <span class="o">=</span> <span class="n">f</span>  <span class="c1"># ZKUSIT &quot;= fpoly&quot;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">2.8</span>
+
+<span class="c1"># pole pro ulozeni prubezneho vysledku a chyby</span>
+<span class="n">errs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">nI</span><span class="p">,</span> <span class="n">M</span><span class="p">])</span>
+<span class="n">Ivals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">nI</span><span class="p">,</span> <span class="n">M</span><span class="p">])</span>
+<span class="n">Ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">nI</span><span class="p">,</span> <span class="n">M</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nI</span><span class="p">):</span>
+    <span class="n">integ</span> <span class="o">=</span> <span class="n">integs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">Nstart</span> <span class="o">*</span> <span class="mi">2</span><span class="o">**</span><span class="n">j</span>  <span class="c1"># zdvojnasobeni poctu podintervalu</span>
+        
+        <span class="c1"># vypocet integralu a chyby</span>
+        <span class="n">I_h</span> <span class="o">=</span> <span class="n">integ</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">I_2h</span> <span class="o">=</span> <span class="n">integ</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">chyba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_2h</span> <span class="o">-</span> <span class="n">I_h</span><span class="p">)</span> <span class="o">/</span> <span class="n">chybaCoef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="n">Ns</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span>
+        <span class="n">Ivals</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">I_h</span>
+        <span class="n">errs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">chyba</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># zobrazime vyvoj reseni v zavislosti na iteracich</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ivals</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">nespojitaFunkce</span><span class="p">:</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="n">I_pres</span><span class="p">],</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;:&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;reseni&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;levostranné&#39;</span><span class="p">,</span> <span class="s1">&#39;lichoběžník&#39;</span><span class="p">,</span> <span class="s1">&#39;Simpson&#39;</span><span class="p">,</span> <span class="s1">&#39;obdélník&#39;</span><span class="p">,</span> <span class="s1">&#39;přesná hodnota&#39;</span><span class="p">,</span> <span class="s1">&#39;romberg2&#39;</span><span class="p">])</span>
+
+<span class="c1"># zobrazime vyvoj chyby v zavislosti na iteracich</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ns</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">errs</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;levostranné&#39;</span><span class="p">,</span> <span class="s1">&#39;lichoběžník&#39;</span><span class="p">,</span> <span class="s1">&#39;Simpson&#39;</span><span class="p">,</span> <span class="s1">&#39;obdélník&#39;</span><span class="p">,</span> <span class="s1">&#39;romberg2&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d7cf74d8217ae635d939401b54ab19c8f3870531f22cd055ee523f39a365b692.png" src="../_images/d7cf74d8217ae635d939401b54ab19c8f3870531f22cd055ee523f39a365b692.png" />
+</div>
+</div>
+<p>Na předchozích grafech vidíme srovnání rychlostí konvergence pro jednotlivé představené metody integrace. Skutečně <em>levostranné pravidlo</em> vede na metodu prvního řádu, <em>lichoběžníkové</em> a <em>obdélníkové</em> pravidlo vedou na metodu druhého řádu a nakonec <em>Simpsonovo pravidlo</em> nám dává metodu až <strong>čtvrtého řádu</strong>.</p>
+<p>Zdálo by se, že bychom chtěli vždy použít Simpsonovu metodu, jelikož nám poskytne větší přesnost s menšími výpočetními nároky. Ale je potřeba si opět uvědomit, že větší přesnost při větším řádu metody platí jen pro polynomy nebo skoro hladké funkce!</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Vyzkoušejte předchozí analýzu na nespojitou funkci <span class="math notranslate nohighlight">\(g(x)\)</span>. Stačí v předminulé buňce nastavit <code class="docutils literal notranslate"><span class="pre">nespojitaFunkce</span> <span class="pre">=</span> <span class="pre">1</span></code> a znovu vykreslit grafy. Jak se změnily konvergence jednotlivých metod? Je stále Simpsonova metoda nejlepší?</p>
+</p>
+</div>
+</div><p>// DOPLŇTE ODPOVĚĎ //</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Jak bylo popsáno, představené metody jsou přesné pro polynomy do určitého stupně. Ověřte tuto skutečnost opět pomocí dříve zadefinovaného polynomu <code class="docutils literal notranslate"><span class="pre">fpoly</span></code> stupně <code class="docutils literal notranslate"><span class="pre">npoly</span></code>. Stačí nastavit <code class="docutils literal notranslate"><span class="pre">fun</span> <span class="pre">=</span> <span class="pre">fpoly</span></code> v buňce počítající konvergence metod. Co pozorujete pro polynom <code class="docutils literal notranslate"><span class="pre">fpoly</span></code> stupně 1, 2, 3, 4, 5, 6? Uvědomte si, že chyba <span class="math notranslate nohighlight">\(10^{-15} - 10^{-16}\)</span> odpovídá maximální strojové přesnosti.</p>
+</p>
+</div>
+</div><p>// DOPLŇTE ODPOVĚĎ //</p>
+</section>
+</section>
+<section id="gaussovy-kvadratury">
+<h2><span class="section-number">4.2. </span>Gaussovy kvadratury<a class="headerlink" href="#gaussovy-kvadratury" title="Link to this heading">#</a></h2>
+<p>Na přednášce jste viděli teorii týkající se Gaussových kvadratur. Tyto metody jsou v praxi běžně používané, díky tomu, že jsou přesné pro polynomy do stupně až <span class="math notranslate nohighlight">\(2N - 1\)</span>. Přesto si je zde nepředstavíme, jelikož by bylo časové náročné si je podrobně projít a analyzovat jejich vlastnosti. Na ukázku implementace se můžete podívat například <a class="reference external" href="https://mjirka.github.io/nme/Cviceni09vyplnene.html#">zde</a>.</p>
+<p>Tato metoda je pro Python implementována v knihovně SciPy funkcí <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad()</span></code></a>. Tato funkce počítá hodnotu integrálu se strojovou přesností.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+
+<span class="n">I_gauss</span><span class="p">,</span> <span class="n">chyba_gauss</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_gaussKvad:&#39;</span><span class="p">,</span> <span class="n">I_gauss</span><span class="p">,</span> <span class="s1">&#39;| chyba:&#39;</span><span class="p">,</span> <span class="n">chyba_gauss</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:   &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_gaussKvad: 2.3149749160962623 | chyba: 5.1238144212141194e-12
+I_presny:    2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integrace-funkci-vice-promennych-nd">
+<h2><span class="section-number">4.3. </span>Integrace funkcí více proměnných (nD)<a class="headerlink" href="#integrace-funkci-vice-promennych-nd" title="Link to this heading">#</a></h2>
+<p>V této části se budeme zabývat úlohou integrování funkcí více proměnných. Pro takové funkce lze použít předchozí metody, akorát rozšířené na integrování na nD mřížce. Je potřeba si ale uvědomit, že počet potřebných vyhodnocení funkční hodnoty roste exponenciálně s dimenzí! Například, pokud pro vyhodnocení integrálu je potřeba v každém “směru” (dimenzi) <span class="math notranslate nohighlight">\(100\)</span> bodů, musíme funkce v <span class="math notranslate nohighlight">\(D = 5\)</span> (funkce pěti proměnných) prostoru vyhodnotit celkem v <span class="math notranslate nohighlight">\(100^5 = 10^{10}\)</span> bodech! To již pro jisté funkce nemusí být upočitatelné na běžném počítači..</p>
+<p>Funkce více proměnných jsou typicky lokalizované v malé oblasti nD prostoru (všude jinde je funkčí hodnota téměř nulová). Příkladem může být funkce gaussovkého tvaru. Proto se může vyplatit chytře vzorkovat nD prostor. Takové metody jsou založené na statistické teorii a vychází z jednodušších metod, které si zde představíme. Tyto metody využívají náhody, proto nesou název Metody Monte Carlo. Pod tímto označením se neskrývají pouze metody na integrování ale široká škála metod využívající náhodu.</p>
+<section id="metoda-monte-carlo-1d">
+<h3><span class="section-number">4.3.1. </span>Metoda Monte Carlo (1D)<a class="headerlink" href="#metoda-monte-carlo-1d" title="Link to this heading">#</a></h3>
+<p>Metoda Monte Carlo je založená na statistickém vzorkování funkce. Ukážeme si dva jednoduché způsoby, jak lze vzorkování provést. Tyto metody lze dále vylepšit několika způsoby pro efektivnější vzorkování. Více se dozvíte v předmětu 18MMC.</p>
+<p>Výhoda této metody je velmi jednoduchá implementace jak v 1D tak pro nD funce. My si metodu ukážeme opět na naší 1D funkci, rozšíření do nD je již jednoduché.</p>
+<p><strong>První způsob</strong> spočívá v následujících krocích:
+0. zvolíme si počet pokusů <span class="math notranslate nohighlight">\(N\)</span></p>
+<ol class="arabic simple">
+<li><p>najdeme <span class="math notranslate nohighlight">\(K\)</span> takové, že <span class="math notranslate nohighlight">\(K &gt; f(x), \forall  x \in (a, b)\)</span> (zde navíc předpokládáme, že je funkce kladná na celém intervalu - jinak je možné přičíst konstantu, tak aby byla..)</p></li>
+<li><p>vygenerujeme náhodný bod <span class="math notranslate nohighlight">\(x_r \in (a, b)\)</span></p></li>
+<li><p>vygenerujeme náhodnou hodnotu <span class="math notranslate nohighlight">\(y_r \in (0, K)\)</span></p></li>
+<li><p>vzorek přijmeme, pokud <span class="math notranslate nohighlight">\(f(x_r) &gt; y_r\)</span></p></li>
+<li><p>opakujeme body 2.-4. dokud neprovedeme <span class="math notranslate nohighlight">\(N\)</span> pokusů</p></li>
+<li><p>pak výsledný integrál odhadneme: <span class="math notranslate nohighlight">\(I \approx K (b - a) \frac{M}{N}\)</span>, kde <span class="math notranslate nohighlight">\(M\)</span> je počet přijatých vzorků</p></li>
+</ol>
+<p>Tato metoda odpovídá statistickému výpoctu obsahu plochy útvaru, definovaném funkcí <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Na volbě <span class="math notranslate nohighlight">\(K\)</span> závisí, jak efektivně je funkce <span class="math notranslate nohighlight">\(f\)</span> vzorkováná. Pokud zvolíme příliš velké <span class="math notranslate nohighlight">\(K\)</span>, skoro žádný vzorek nepřijmeme. Ideální je maximum funkce <span class="math notranslate nohighlight">\(f\)</span> na intervalu <span class="math notranslate nohighlight">\((a, b)\)</span>, které ovšem může být v praxi obtížné určit a zárověň naše snaha je funkci vyhodnotit v co nejméně bodech v nD prostoru.</p>
+</p>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte <em>první verzi</em> metody Monte Carlo pro výpočet integrálu funkce <span class="math notranslate nohighlight">\(f\)</span>. Odhadněte chybu metody.</p>
+</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5872294492845591
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">2.8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">M</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># zde odhadujeme ze znalosti, jak funkce vypada</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">xr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span>  <span class="c1"># nahodne cislo z (a,b)</span>
+    <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="n">K</span>  <span class="c1"># nahodne cislo z (0,K)</span>
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">xr</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">yr</span><span class="p">:</span>
+        <span class="n">M</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="n">I_mmc1</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">K</span> <span class="o">*</span> <span class="n">M</span> <span class="o">/</span> <span class="n">N</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_monteCarlo1:&#39;</span><span class="p">,</span> <span class="n">I_mmc1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:     &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_monteCarlo1: 2.35548
+I_presny:      2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nevýhoda metody Monte Carlo je rychlost konvergence. Je možné ukázat, že chyba je tvaru:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon \approx V \sqrt{\frac{\sigma_N}{M}} = V \sqrt{\frac{\langle f^2 \rangle - \langle f \rangle ^2}{M}} \sim \frac{1}{\sqrt{M}},
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(\sigma_N\)</span> je variance, <span class="math notranslate nohighlight">\(V\)</span> velikost oblasti a <span class="math notranslate nohighlight">\(N\)</span> počet vzorků. Chyba tedy klesá pouze s odmocninou počtu vzorků! Je tedy jasné, že pro funkce málo proměnných je naprosto neužitečná, jelikož máme k dispozici metody, které konvergují výrazně rychleji. Ale při <span class="math notranslate nohighlight">\(D \geq 8\)</span> už začíná mít tato metoda (ve vylepšené formě) význam a velká výhoda je pak jednoduchost implementace.</p>
+<p>Pro první metodu použijeme pouze <span class="math notranslate nohighlight">\(\varepsilon \sim \frac{1}{\sqrt{M}}\)</span>. Přesnější vztah s variací lze použít u druhé verze.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zde odhadneme pouze pomoci 1/sqrt(M)</span>
+
+<span class="n">chyba_mmc1</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad chyby: &#39;</span><span class="p">,</span> <span class="n">chyba_mmc1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Realná chyba:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_pres</span> <span class="o">-</span> <span class="n">I_mmc1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.03540393748647288
+Realná chyba: 0.04050508390373775
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Druhá verze</strong> metody Monte Carlo používá nahrazení integrálu pomocí konečného součtu funkčních hodnot v náhodně vygenerovaných bodech <span class="math notranslate nohighlight">\(x_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_V f(x) \approx V \frac{1}{N} \sum_{i=1}^{N} f(x_i) = V \langle f \rangle
+\]</div>
+<p>Velká výhoda této verze je, že nemusíme určovat konstantu <span class="math notranslate nohighlight">\(K\)</span> a také funkce může být rovnou záporná i kladná na intervalu <span class="math notranslate nohighlight">\((a, b)\)</span>. Také lze přesněji odhadnout chybu pomocí variace, jelikož počítáme s funkčními hodnotami:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon \approx V \sqrt{\frac{\langle f^2 \rangle - \langle f \rangle ^2}{M}},
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(\langle f \rangle = \frac{1}{N} \sum_{i=1}^{N} f(x_i)\)</span> a <span class="math notranslate nohighlight">\(\langle f^2 \rangle = \frac{1}{N} \sum_{i=1}^{N} f^2(x_i)\)</span>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte <em>druhou verzi</em> metody Monte Carlo pro výpočet integrálu funkce <span class="math notranslate nohighlight">\(f\)</span>. Odhadněte chybu metody.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="n">f_sum</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># prubezny soucet funkcnich hodnot f(xi)</span>
+<span class="n">f2_sum</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># prubezny soucet druhe mocniny funkcnich hodnot f(xi)**2 - pro vypocet chyby</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="c1">## DOPLŇTE ##</span>
+    
+<span class="n">I_mmc2</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">M</span> <span class="o">*</span> <span class="n">f_sum</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_monteCarlo2:&#39;</span><span class="p">,</span> <span class="n">I_mmc2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I_presny:     &#39;</span><span class="p">,</span> <span class="n">I_pres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_monteCarlo2: 2.3214348407828
+I_presny:      2.3149749160962623
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zde odhadneme pouze pomoci var/sqrt(M)</span>
+
+<span class="n">chyba_mmc2</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">f2_sum</span> <span class="o">/</span> <span class="n">M</span> <span class="o">-</span> <span class="p">(</span><span class="n">f_sum</span> <span class="o">/</span> <span class="n">M</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad chyby: &#39;</span><span class="p">,</span> <span class="n">chyba_mmc2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Realná chyba:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">I_pres</span> <span class="o">-</span> <span class="n">I_mmc2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.01174638353782135
+Realná chyba: 0.006459924686537555
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vidíme, že i pro větší počty vzorků máme výsledek přesně jen na malý počet číslic. Implementace pro funkce mnoha proměnných by byla analogická, akorát by bylo potřeba generovat více náhodných čísel pro jednotlivé proměnné.</p>
+</section>
+<section id="metoda-monte-carlo-nd">
+<h3><span class="section-number">4.3.2. </span>Metoda Monte Carlo (nD)<a class="headerlink" href="#metoda-monte-carlo-nd" title="Link to this heading">#</a></h3>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 3</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p><a class="reference internal" href="../ukoly/04-integrace-UKOL.html#ukol3"><span class="std std-ref">ZDE</span></a></p>
+</p>
+</div>
+</div></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lekce"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03-extremy-fci.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Hledání extrémů funkcí</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05-reseni-odr.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Řešení obyčejných diferenciálních rovnic (ODR)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cortesovy-vzorce">4.1. Newton-Cortesovy vzorce</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#levostranne-pravidlo">4.1.1. Levostranné pravidlo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lichobeznikove-pravidlo">4.1.2. Lichoběžníkové pravidlo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simpsonovo-pravidlo">4.1.3. Simpsonovo pravidlo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obdelnikove-pravidlo-midpoint-rule">4.1.4. Obdélníkové pravidlo (midpoint rule)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rombergova-metoda">4.1.5. Rombergova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#srovnani-metod-konvergence">4.1.6. Srovnání metod - konvergence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussovy-kvadratury">4.2. Gaussovy kvadratury</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrace-funkci-vice-promennych-nd">4.3. Integrace funkcí více proměnných (nD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-1d">4.3.1. Metoda Monte Carlo (1D)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-nd">4.3.2. Metoda Monte Carlo (nD)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jiří Löffelmann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
