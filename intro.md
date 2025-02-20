@@ -10,7 +10,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 * Pátek 8:00 - 9:40, 10:00 - 11:40
 * Trojanova 13, učebna T-124
 * [Jiří Löffelmann](https://usermap.cvut.cz/profile/7a2ecf76-b3c3-4716-b1b2-cd6859a8e193), [loffejir@fjfi.cvut.cz](mailto:loffejir@fjfi.cvut.cz)
-* od 21.2. do 16.5., 12-13 lekcí
+* od 21.2. do 16.5. (18.4. volno - Velký pátek), 12 lekcí
 
 ```{tableofcontents}
 ```
@@ -18,6 +18,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 ## Podmínky udělení zápočtu
 - max. 3 absence (možnost nahrazení 1 absence odevzdáním navíc 1 domácí úlohy), [DOCHÁZKA](dochazka.xlsx)
 - vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (lekce 2-6), 2 úlohy z druhé půlky cvičení (lekce 7-12)
+- na zkoušku je možné jít před udělením zápočtu
 
 ## Úkoly
 V kurzu je pro získání zápočtu třeba odevzdat **čtyři** vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.
