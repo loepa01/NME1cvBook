@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Zápočtový úkol 1" href="../ukoly/07-nelinearni-rce-UKOL.html" />
-    <link rel="prev" title="Řešení obyčejných diferenciálních rovnic (ODR)" href="../lekce-vyplnene/10-reseni-odr-vypl.html" />
+    <link rel="prev" title="Řešení obyčejných diferenciálních rovnic (ODR)" href="10-reseni-odr.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,11 +181,11 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/08-extremy-fci-vypl.html">8. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/09-integrace-vypl.html">9. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/10-reseni-odr-vypl.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-python.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-extremy-fci.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-integrace.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-reseni-odr.html">10. Obyčejné diferenciální rovnice</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
@@ -576,7 +576,7 @@ y^{\prime \prime} = f(x, y(x), y^{\prime}(x)), \quad x \in [a, b], \quad y(a) = 
 <li><p>tím získáme <span class="math notranslate nohighlight">\(y(b; \beta)\)</span></p></li>
 <li><p>řešíme nelineální rovnici <span class="math notranslate nohighlight">\(F(\beta) = y(b; \beta) - \alpha_2 = 0\)</span> tím, že opakujeme kroky 1-3</p></li>
 </ol>
-<p>Na krok 4 je možné aplikovat libovolnou z metod představených v <a class="reference internal" href="../lekce-vyplnene/07-nelinearni-rce-vypl.html#nelin-rce"><span class="std std-ref">předchozím cvičení</span></a>. Jednoduchou volbou je <em>bisekce</em>, tedy máme na začátku dva odhady <span class="math notranslate nohighlight">\(\beta_1\)</span> a <span class="math notranslate nohighlight">\(\beta_2\)</span> takové, že <span class="math notranslate nohighlight">\(F(\beta_1) F(\beta_2) &lt; 0\)</span> (jednou přestřelíme cíl, podruhé podstřelíme). V následujícím kódu použijeme <em>Newton-Raphsonovu metodu</em>.</p>
+<p>Na krok 4 je možné aplikovat libovolnou z metod představených v <a class="reference internal" href="07-nelinearni-rce.html#nelin-rce"><span class="std std-ref">předchozím cvičení</span></a>. Jednoduchou volbou je <em>bisekce</em>, tedy máme na začátku dva odhady <span class="math notranslate nohighlight">\(\beta_1\)</span> a <span class="math notranslate nohighlight">\(\beta_2\)</span> takové, že <span class="math notranslate nohighlight">\(F(\beta_1) F(\beta_2) &lt; 0\)</span> (jednou přestřelíme cíl, podruhé podstřelíme). V následujícím kódu použijeme <em>Newton-Raphsonovu metodu</em>.</p>
 <p>Ukážeme si implementaci metody střelby na úloze <em>tlumeného oscilátoru</em>. Počáteční úloha z bodu 2 metody vypadá následovně:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -899,7 +899,7 @@ y^{\prime \prime} \left( t \right) + 2  y^{\prime} \left( t \right) + 100 y \lef
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../lekce-vyplnene/10-reseni-odr-vypl.html"
+       href="10-reseni-odr.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
