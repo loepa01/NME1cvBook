@@ -7,32 +7,41 @@ parts:
   - caption: "Obsah cvičení"
     numbered: False
     chapters:
-    #- file: lekce/01-uvod-python
-    - file: lekce-vyplnene/01-uvod-python-vypl
+    - file: lekce/01-uvod-python
+    #- file: lekce-vyplnene/01-uvod-python-vypl
       title: 1. Úvod do jazyka Python
-    # TODO: add lectures
-    #- file: lekce/02-nelinearni-rce
-    - file: lekce-vyplnene/07-nelinearni-rce-vypl
+    - file: lekce/02-chyby-stabilita
+    #- file: lekce-vyplnene/02-chyby-stabilita-vypl
+      title: 2. Numerické chyby a stabilita
+    
+    #- file: lekce/03-linalg-prime.ipy
+    #  title: 3. Metody lineární algebry
+
+    - file: lekce/07-nelinearni-rce
+    #- file: lekce-vyplnene/07-nelinearni-rce-vypl
       title: 7. Nelineární rovnice
-    #- file: lekce/03-extremy-fci
-    - file: lekce-vyplnene/08-extremy-fci-vypl
+    - file: lekce/08-extremy-fci
+    #- file: lekce-vyplnene/08-extremy-fci-vypl
       title: 8. Extrémy funkcí
-    #- file: lekce/04-integrace
-    - file: lekce-vyplnene/09-integrace-vypl
+    - file: lekce/09-integrace
+    #- file: lekce-vyplnene/09-integrace-vypl
       title: 9. Numerická integrace
-    #- file: lekce/05-reseni-odr
-    - file: lekce-vyplnene/10-reseni-odr-vypl
+    - file: lekce/10-reseni-odr
+    #- file: lekce-vyplnene/10-reseni-odr-vypl
       title: 10. Obyčejné diferenciální rovnice
     - file: lekce/11-reseni-okraj
-    #- file: lekce-vyplnene/06-reseni-okraj-vypl
+    #- file: lekce-vyplnene/11-reseni-okraj-vypl
       title: 11. Diferenciální rovnice s okrajovou podmínkou
       
   - caption: "Úkoly"
     numbered: False
     chapters:
     # TODO: add hws
+    - file: ukoly/02-chyby-stabilita-UKOL
+      title: 2. Numerické chyby a stabilita
+    
     - file: ukoly/07-nelinearni-rce-UKOL
-      title: 7. Nelinearní rovnice
+      title: 7. Nelineární rovnice
     - file: ukoly/08-extremy-fci-UKOL
       title: 8. Extrémy funkcí
     - file: ukoly/09-integrace-UKOL.ipynb
