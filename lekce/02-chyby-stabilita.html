@@ -479,6 +479,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
             </nav>
         </div>
@@ -506,7 +508,7 @@ document.write(`
 <h2>Numerická matematika<a class="headerlink" href="#numericka-matematika" title="Link to this heading">#</a></h2>
 <p>Je věda, která se zabývá řešením matematicky formulovaných úloh pomocí logických operací a aritmetických operací s čísly o konečné délce.</p>
 <p>Některé úlohy jsou již formulované tak, že je možné je přímo implementovat v počítači. To jsou typicky úlohy z <em>lineární algebry</em> vyžadující k řešení konečný počet kroků. Naopak spojité úlohy z <em>matematické analýzy</em> nejsou numericky formulované, tedy je nelze přímočaře na počítači vyřešit. V takovém případě je třeba úlohu převést na úlohu numerickou, která původní úlohu aproximuje s určitým <strong>řádem přesnosti</strong>.</p>
-<p>Základním požadavkem je vyřešení úloh s dostatečnou přesností. U metod nás často zajímá <strong>konvergence</strong>, neboli počet kroků potřebných k dosažený danné přesnosti. U konvergence neuvažujeme zaokrouhlovací chyby, tedy konvergující metoda vyřeší úlohu pro libovolně malý krok <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> s libovolně vysokou přesností.</p>
+<p>Základním požadavkem je vyřešení úloh s dostatečnou přesností. U metod nás často zajímá <strong>konvergence</strong>, neboli počet kroků potřebných k dosažený dané přesnosti. U konvergence neuvažujeme zaokrouhlovací chyby, tedy konvergující metoda vyřeší úlohu pro libovolně malý krok <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> s libovolně vysokou přesností.</p>
 <p>Výběr metody závisí vždy na charakteru úlohy. Některé metody můžou být v jistých situacích výhodnější než jiné. Velkou roli také hrají výpočetní a pamětové nároky vybraného algoritmu.</p>
 </section>
 <section id="reprezentace-cisel-v-pocitaci">
@@ -515,7 +517,6 @@ document.write(`
 <section id="cela-cisla">
 <h3>Celá čísla<a class="headerlink" href="#cela-cisla" title="Link to this heading">#</a></h3>
 <p>Celá čísla jsou v počítači reprezentovány přesně. Stejně tak aritmetické operace jsou přesné, ovšem za podmínky, že hodnoty operandů a výsledku jsou ve stanoveném rozsahu. Pokud přesáhne hodnota určitou hranici, dojde k takzvanému <strong>přetečení</strong> nebo <strong>podtečení</strong>. U celých čísel je rozsah hodnot výrazně menší a je důležité s ním vždy počítat!</p>
-<p>Chyby při arimetických výpočtech v počítačích mohou mít své důsledky [<a class="reference external" href="https://www3.nd.edu/~markst/castaward/text10n.html">1</a>, <a class="reference external" href="https://www3.nd.edu/~markst/castaward/text9n.html">2</a>].</p>
 <p><img alt="Reprezentace celých čísel" src="../_images/int_reprez.png" /></p>
 <p>S celočíselnými typy se setkáme v knihovně Numpy, kde každá matice nebo vektor má definovaný typ každého elementu. Defaultně se celá čísla ukládají jako <code class="docutils literal notranslate"><span class="pre">np.int32</span></code>:</p>
 <div class="cell docutils container">
@@ -826,6 +827,11 @@ Z definice floating-point reprezentace desetinných čísel je jasné, že není
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False 0.30000000000000004 0.3
+</pre></div>
+</div>
+</div>
 </div>
 <p>Vidíme, že součet dvou čísel již zanesl do výsledku malou chybu. Více se k tomuto můžete dozvědět <a class="reference external" href="https://docs.python.org/3/faq/design.html#why-are-floating-point-calculations-so-inaccurate">zde</a>.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #F4330C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
@@ -846,22 +852,26 @@ a(x \pm y) = a(x) + a(y) \rightarrow r(x \pm y) \leq \max{(a(x), a(y))} \frac{a(
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Uvažujte následující funkci:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>Uvažujte následující funkci:
+$<span class="math notranslate nohighlight">\(
 f(x) = \frac{1 - \cos{x}}{x^2},
-\]</div>
-<p>pro kterou platí následující chování v okolí <span class="math notranslate nohighlight">\(0\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ 
+\)</span><span class="math notranslate nohighlight">\(
+pro kterou platí následující chování v okolí \)</span>0<span class="math notranslate nohighlight">\(:
+\)</span><span class="math notranslate nohighlight">\( 
 \lim_{x \to 0} f(x) = \frac{1}{2}. 
-\]</div>
+\)</span>$</p>
 <p>Odhadněte limitu přiblížným výpočtem hodnoty funkce <span class="math notranslate nohighlight">\(f(x)\)</span> v bodě <span class="math notranslate nohighlight">\(1.2 \times 10^{-8}\)</span>. Je výsledek správný? Pro jaké hodnoty <span class="math notranslate nohighlight">\(x\)</span> dostáváte přesnější hodnotu? Jak se můžeme vyhnout rozdílu blízkych hodnot při výpoču funkce <span class="math notranslate nohighlight">\(f(x)\)</span>?</p>
 </p>
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999999999999999 1.1102230246251565e-16 1.44e-16
+0.7709882115452477
 </pre></div>
 </div>
 </div>
@@ -872,17 +882,22 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Spočítejte součet členů následující posloupnosti pro <span class="math notranslate nohighlight">\(n=400\)</span> v dopředném a zpětném směru:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>Spočítejte součet členů následující posloupnosti pro <span class="math notranslate nohighlight">\(n=400\)</span> v dopředném a zpětném směru:
+$<span class="math notranslate nohighlight">\(
 0.9^0, \ 0.9^1, \ \dots, \ 0.9^n.
-\]</div>
-<p>Srovnejte výsledky a pokuste se je vysvětlit.</p>
+\)</span>$
+Srovnejte výsledky a pokuste se je vysvětlit.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.999999999999993
+10.000000000000004
 </pre></div>
 </div>
 </div>
@@ -900,12 +915,18 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Spočítejte <span class="math notranslate nohighlight">\(x = 0.1 + 0.2 - 0.3\)</span> v dvojité přesnosti (<code class="docutils literal notranslate"><span class="pre">np.float64</span></code>). Poté 100-krát zopakujte výpočet <span class="math notranslate nohighlight">\(x = x + x\)</span>. Jak byste vysvětlili výsledek?</p>
+<p>Spočítejte <span class="math notranslate nohighlight">\(x = 0.1 + 0.2 - 0.3\)</span> v dvojité přesnosti (<code class="docutils literal notranslate"><span class="pre">np.float64</span></code>). Dále chceme 100-krát sečíst hodnotu uloženou v proměnné <span class="math notranslate nohighlight">\(x\)</span> pomocí: <span class="math notranslate nohighlight">\(x = x + x\)</span>. Jak byste vysvětlili výsledek?</p>
 </p>
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.551115123125783e-17
+70368744177664.0
 </pre></div>
 </div>
 </div>
@@ -916,13 +937,13 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Spočítejte hodnotu <span class="math notranslate nohighlight">\(e = \exp(1) = 2.71828...\)</span> pomocí vzorce <span class="math notranslate nohighlight">\(e = \lim_{n \to \infty}{\left(1 + \frac{1}{n}\right)^{n}}\)</span>. Vyhodnoďtě a vypistě přibližnou hodnotu <span class="math notranslate nohighlight">\(e\)</span> pro <span class="math notranslate nohighlight">\(n = 10^k\)</span>, kde <span class="math notranslate nohighlight">\(k = 1..7\)</span>. Také spočítejte relativní chybu. Co pozorujete?</p>
+<p>Spočítejte hodnotu <span class="math notranslate nohighlight">\(e = \exp(1) = 2.71828...\)</span> pomocí vzorce <span class="math notranslate nohighlight">\(e = \lim_{n \to \infty}{\left(1 + \frac{1}{n}\right)^{n}}\)</span>. Vyhodnoďtě a vypistě přibližnou hodnotu <span class="math notranslate nohighlight">\(e\)</span> pro <span class="math notranslate nohighlight">\(n = 10^k\)</span>, kde <span class="math notranslate nohighlight">\(k = {1,2,...,7}\)</span>. Také spočítejte relativní chybu. Co pozorujete?</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
 <p>Je potřeba Python donutit počítat ve fixním typu <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>. Provádějte výpočet za pomocí numpy pole <code class="docutils literal notranslate"><span class="pre">np.array(n,</span> <span class="pre">dtype=np.float32)</span></code>.</p>
-<p>Může se vám hodit funkce <code class="docutils literal notranslate"><span class="pre">np.logspace(,,num=7,base=10)</span></code>.</p>
+<p>Může se vám hodit funkce <code class="docutils literal notranslate"><span class="pre">np.logspace(1,7,num=8,base=10)</span></code>.</p>
 </p>
 </div>
 </div>
@@ -934,6 +955,17 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.593743] [0.04581463]
+[2.7048113] [0.00495488]
+[2.7170508] [0.00045223]
+[2.718597] [0.00011657]
+[2.7219622] [0.00135458]
+[2.5952268] [0.04526881]
+[3.2939677] [0.21178378]
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>Vzájemné vyrušení chyb</strong></p>
 <p>Někdy může dojít k několika chybám během výpočtu, které se v konečném výsledku vyruší. Toho lze využít pro zpřesnění určitých výpočtů.</p>
@@ -941,11 +973,10 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Máme za úkol implementovat výpočet následující funkce pro libovolné <span class="math notranslate nohighlight">\(x\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>Máme za úkol implementovat výpočet následující funkce pro libovolné <span class="math notranslate nohighlight">\(x\)</span>:
+$<span class="math notranslate nohighlight">\(
 f(x) = \frac{e^{x} - 1}{x}.
-\]</div>
+\)</span>$</p>
 <p>Implementujte následující dva rozdílné algoritmy a spočítejte hodnotu funkce <span class="math notranslate nohighlight">\(f(x)\)</span> pro <span class="math notranslate nohighlight">\(x = 10^{-5}..10^{-16}\)</span>:</p>
 <ol class="arabic simple">
 <li><p>If (<span class="math notranslate nohighlight">\(x = 0\)</span>) then <span class="math notranslate nohighlight">\(f = 1\)</span>; else <span class="math notranslate nohighlight">\(f = \frac{e^{x} - 1}{x}\)</span>.</p></li>
@@ -970,6 +1001,23 @@ f(x) = \frac{e^{x} - 1}{x}.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.000005000006965 1.0000050000166667
+1.000000616442873 1.000000616423623
+1.0000000764311845 1.000000075995558
+1.0000000062384284 1.000000009369087
+0.9999999753484707 1.0000000011550647
+0.9999997446031695 1.0000000001424016
+0.9999998870652326 1.000000000017556
+0.9999996054137743 1.0000000000021643
+0.9998187316137019 1.000000000000267
+0.9989646455689632 1.0000000000000329
+1.012863778612346 1.000000000000004
+1.1102230246251565 1.0000000000000004
+1.1102230246251565e-15 1e-15 1.110223024625156e-15
 </pre></div>
 </div>
 </div>
@@ -1001,6 +1049,12 @@ f(x) = \frac{e^{x} - 1}{x}.
 <ul class="simple">
 <li><p>Chyby se v postupných výpočtech šíří. V některých případech se můžou odečítat, někdy naopak zesilovat nebo hromadit!</p></li>
 </ul>
+<p><strong>Šíření chyb</strong>
+Chyby se v numerických výpočtech mohou šířit více způsoby. Může docházet k hromadění i k odečítání chyb. Obecně, při opakovaném provádění určité operace nám chyba může růst:</p>
+<ul class="simple">
+<li><p>lineárně <span class="math notranslate nohighlight">\(O(N \epsilon)\)</span> - chyby mají stejné znaménko</p></li>
+<li><p>s odmocninou <span class="math notranslate nohighlight">\(O(\sqrt{N \epsilon})\)</span> - známenko chyb je náhodné, celková chyba je úmerná jejich <em>varianci</em></p></li>
+</ul>
 <p><strong>Čemu se zejména vyhnout, abychom minimalizovali zaokrouhlovací chyby?</strong></p>
 <ul class="simple">
 <li><p>odčítání blízkých čísel</p></li>
@@ -1024,21 +1078,23 @@ f(x) =  O(g(x)) \quad \text{as} \quad x \rightarrow a
 |f(x)| \leq M |g(x)| \quad \text{as}\quad  |x - a| &lt; \delta \quad \text{where} \quad M, a &gt; 0.
 \]</div>
 <p>Tedy <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">big-O</a> notace vyjadřuje, že chyba v určité limitě (<span class="math notranslate nohighlight">\(x\)</span> jdoucí k <span class="math notranslate nohighlight">\(a\)</span>, většinou <span class="math notranslate nohighlight">\(a = 0\)</span> nebo <span class="math notranslate nohighlight">\(a = \infty\)</span>) nepřekročí hodnotu funkce <span class="math notranslate nohighlight">\(g\)</span>, až na konstantu <span class="math notranslate nohighlight">\(M\)</span>.</p>
-<p>Uvažujme následující úlohu z matematické analýzy - Taylorův rozvoj funkce:</p>
+<p>Uvažujme následující úlohu využívající poznatky z matematické analýzy - Taylorův rozvoj funkce:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(f(x+h)=\sum_{n=0}^{\infty}\dfrac{f^{(n)}(x)}{n!}h^{n} = \sum_{n=0}^{\alpha-1}\dfrac{f^{(n)}(x)}{n!}h^{n} + O(h^{\alpha})\)</span></p></li>
-<li><p>Řád metody <span class="math notranslate nohighlight">\(\alpha\)</span>: chyba veličiny úměrná <span class="math notranslate nohighlight">\(h^{\alpha}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x)=\sum_{n=0}^{\infty}\dfrac{f^{(n)}(a)}{n!}(x - a)^{n} = \sum_{n=0}^{\alpha-1}\dfrac{f^{(n)}(a)}{n!}(x-a)^{n} + O((x-a)^{\alpha})\)</span></p></li>
+<li><p>nahrazením <span class="math notranslate nohighlight">\(h \equiv x - a\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(a+h)=\sum_{n=0}^{\infty}\dfrac{f^{(n)}(a)}{n!}h^{n} = \sum_{n=0}^{\alpha-1}\dfrac{f^{(n)}(a)}{n!}h^{n} + O(h^{\alpha})\)</span></p></li>
+<li><p>Řád metody <span class="math notranslate nohighlight">\(\alpha\)</span>: chyba je úměrná <span class="math notranslate nohighlight">\(h^{\alpha}\)</span></p></li>
 </ul>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Zkonstruujte Taylorův rozvoj následující funkce v bodě <span class="math notranslate nohighlight">\(a=x-h=0\)</span> (<a class="reference external" href="https://cs.wikipedia.org/wiki/Taylorova_%C5%99ada#Maclaurinova_%C5%99ada">Maclaurinova řada</a>):</p>
+<p>Zkonstruujte Taylorův rozvoj <em>exponenciální funkce</em> v bodě <span class="math notranslate nohighlight">\(a=0\)</span> (<a class="reference external" href="https://cs.wikipedia.org/wiki/Taylorova_%C5%99ada#Maclaurinova_%C5%99ada">Maclaurinova řada</a>):</p>
 <div class="math notranslate nohighlight">
 \[
-f(x) = e^x = \sum_{n}{\frac{x^n}{n!}}
+f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{\alpha-1}{\frac{x^n}{n!}} + O(h^{\alpha})
 \]</div>
-<p>s využitím prvních 3 členů řady.</p>
+<p>s využitím prvních <span class="math notranslate nohighlight">\(\alpha=3\)</span> členů řady.</p>
 <ol class="arabic simple">
 <li><p>Vykreslete do jednoho grafu funkci <span class="math notranslate nohighlight">\(e^x\)</span> a aproximaci funkce <span class="math notranslate nohighlight">\(f(x)\)</span> na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span>.</p></li>
 <li><p>Spočítejte absolutní a relativní chyby v tomto intervalu a vykreslete do druhého grafu. Najděte maximum chyby.</p></li>
@@ -1048,6 +1104,56 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}}
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
 <p>Pro vyhodnocení faktoriálu můžete použít funkci <code class="docutils literal notranslate"><span class="pre">np.math.factorial</span></code>.</p>
+</p>
+</div>
+</div>
+<p>Napadá vás, jak aproximovat funkci <span class="math notranslate nohighlight">\(e^x\)</span> na celé množině reálných čísel <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> přesněji (s menší relativní chybou) ?</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p id="lepsi-aprox-ex"><strong>Vylepšená aproximace <span class="math notranslate nohighlight">\(e^x\)</span> na <span class="math notranslate nohighlight">\(\mathbb{R}\)</span></strong></p>
+<p>Taylorův rozvoj funkce aproximuje danou funkci pouze na okolí zvoleného budu. Na aproximaci celé funkce to nestačí.</p>
+<p>Co takhle použít Taylorův rozvoj v různých bodech? To se v případě funkce <span class="math notranslate nohighlight">\(e^x\)</span> dostaneme do problémů, protože pro výpočet členů rozvoje v bodě <span class="math notranslate nohighlight">\(a \neq 0\)</span> potřebujeme znát hodnotu <span class="math notranslate nohighlight">\(e^a\)</span>, což se právě snažíme spočítat!</p>
+<p>My si zde ukážeme malé vylepšení, které již umožní získat hodnotu exponenciální funkce na celé množině <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> s rozumnou přesností. V praxi se používá ještě o několik kroků sofistikovanější algoritmus. Více se můžete dozvědět <a class="reference external" href="https://justinwillmert.com/articles/2020/numerically-computing-the-exponential-function-with-polynomial-approximations/">zde</a>.</p>
+<p>Vylepšení spočívá v následujícím <em>triku</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+e^x = e^{n \ln{2} + x^{\prime}} = 2^n e^{x{\prime}},
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(x = n \ln{2} + x^{\prime}\)</span>. Hodnotu <span class="math notranslate nohighlight">\(x\)</span> jsme tedy rozdělili celočíselný násobek <span class="math notranslate nohighlight">\(\ln{2}\)</span>, která je nejblíže hodnotě <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+n = \text{round}(\frac{x}{\ln{2}}).
+\]</div>
+<p>Spočítat <span class="math notranslate nohighlight">\(2^n\)</span> je v počítači triviální (n-krát bitový posun 1) a <span class="math notranslate nohighlight">\(e^{\prime}\)</span> lze spočítat Taylorem, jelikož <span class="math notranslate nohighlight">\(x{\prime}\)</span> je rozumně blízko 0. Tímto trikem jsme výrazně zlepšili přesnost aproximace exponenciální funkce tím, že jsme <strong>redukovali maximální hodnotu</strong> (<span class="math notranslate nohighlight">\(|x^{\prime}| \leq \frac{\ln(2)}{2}\)</span>) použitou v Taylorově řadě. Jak si ukážeme v následující ukázce, relativní chyba neporoste pro rostoucí <span class="math notranslate nohighlight">\(|x|\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.34657359027997264
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte vylepšenou verzi aproximace <em>exponenciální funkce</em> podle předešlého popisu.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Využijte řešení předchozí úlohy pro vyhodnocení <span class="math notranslate nohighlight">\(e^{x^{\prime}}\)</span>.</p>
 </p>
 </div>
 </div>
@@ -1072,11 +1178,10 @@ Vzájemný vztah těchto dvou chyb ilustruje následující obrázek:</p>
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Implementujte metodu, která najde všechna řešení kvadratické rovnice:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>Implementujte metodu, která najde všechna řešení kvadratické rovnice:
+$<span class="math notranslate nohighlight">\(
 a x^2 + bx + c = 0.
-\]</div>
+\)</span>$</p>
 <p>Najděte kořeny pro <span class="math notranslate nohighlight">\(a = 1/3, b = \sqrt{4*7*1/3}, c = 7\)</span>. Funguje vaše metoda správně? Kolik nalezla kořenů?</p>
 </p>
 </div>
@@ -1086,13 +1191,34 @@ a x^2 + bx + c = 0.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7763568394002505e-15
+(-9.165151263471135, -9.165151263471135)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
 </section>
 <section id="stabilita">
 <h2>Stabilita<a class="headerlink" href="#stabilita" title="Link to this heading">#</a></h2>
-<p>Numerická metoda může za uřčitých podmínek zesilovat zaokrouhlovací chyby, které se vyskytnou z počátku výpočtu. Takovým metodám se říká nestabilní. U takových metod nepomůže snížit krok.</p>
+<p>Numerická metoda může za uřčitých podmínek zesilovat zaokrouhlovací chyby, které se vyskytnou zejména z počátku výpočtu. Takovým metodám se říká nestabilní. Tyto metody by teoreticky fungovali na ideálním počítači bez existence zaokrouhlovacích chyb. U takových metod nepomůže snížit krok.</p>
+<p><strong>Podmíněnost úlohy</strong></p>
+<p>Podmíněnost úlohy nám říká, jestli samotný charakter řešeného problému nevede k zesilování chyb.</p>
+<p><em>Definice:</em> Podmíněnost úlohy <span class="math notranslate nohighlight">\(C_p\)</span> je daná poměrem relativní změny výsledku ku
+relativní změně vstupních dat:</p>
+<div class="math notranslate nohighlight">
+\[
+C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| \delta x \right\|}{\left\| x \right\|}} = \frac{r(y)}{r(x)}.
+\]</div>
+<p>Jinak řečeno, malá chyba ve vstupních datech je zesílena (vynásobena) číslem <span class="math notranslate nohighlight">\(C_p\)</span> v konečném řešení úlohy.</p>
+<p>Rozlišujeme:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C_p \sim 1\)</span> - <em>dobře podmíněná</em> úloha</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_p \geq 100\)</span> - <em>špatně podmíněná</em> úloha</p></li>
+</ul>
+<p>Na následujícím příkladu si ukážeme jeden typ nestabilní metody:</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
@@ -1117,6 +1243,16 @@ a x^2 + bx + c = 0.
 </div>
 </div>
 </div>
+<p>Rekurentní vztah pro výpočet zlatého řezu má 2 řešení: <span class="math notranslate nohighlight">\(\frac{\sqrt{5} \pm 1}{2}\)</span>. Jelikož druhé řešení je vetší než 1, libovolně malá chyba vzniklá zaokrouhlováním exponenciálně poroste (v každé iteraci se vynásobí druhým řešením).</p>
+<p>S nestabilními metodami se znovu setkáme v kapitole řešení ODR.</p>
+</section>
+<section id="ukazky-z-praxe">
+<h2>Ukázky z praxe<a class="headerlink" href="#ukazky-z-praxe" title="Link to this heading">#</a></h2>
+<p>Chyby při arimetických výpočtech v počítačích mohou mít své důsledky [<a class="reference external" href="https://www3.nd.edu/~markst/castaward/text10n.html">1</a>, <a class="reference external" href="https://www3.nd.edu/~markst/castaward/text9n.html">2</a>]. V praxi jsou důležité nejen fyzikální jednotky [<a class="reference external" href="https://www.simscale.com/blog/nasa-mars-climate-orbiter-metric/">3</a>], ale i numerická robustnost algoritmů.</p>
+<p>S poznatky této kapitoly se budeme setkávát v následujících hodinách, kde uvidíme jejich důsledky při konstrukci a aplikaci různých metod numerické matematiky.</p>
+</section>
+<section id="zapoctova-uloha">
+<h2>Zápočtová úloha<a class="headerlink" href="#zapoctova-uloha" title="Link to this heading">#</a></h2>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 1</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
@@ -1211,6 +1347,8 @@ a x^2 + bx + c = 0.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
   </nav></div>
 

@@ -467,18 +467,51 @@ document.write(`
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 1</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Implementujte funkci o jednom parametru <span class="math notranslate nohighlight">\(n \in \mathbb{N}_0\)</span>, která vrací prvních <span class="math notranslate nohighlight">\(n\)</span> členů <a class="reference external" href="https://cs.wikipedia.org/wiki/Taylorova_%C5%99ada#Maclaurinova_%C5%99ada">Maclaurinovy řady</a> (Taylorova řada pro <span class="math notranslate nohighlight">\(a = 0\)</span>) funkce:</p>
+<ol class="arabic simple">
+<li><p>Implementujte funkci o jednom parametru <span class="math notranslate nohighlight">\(n \in \mathbb{N}_0\)</span>, která vrací prvních <span class="math notranslate nohighlight">\(n\)</span> členů <a class="reference external" href="https://cs.wikipedia.org/wiki/Taylorova_%C5%99ada#Maclaurinova_%C5%99ada">Maclaurinovy řady</a> (Taylorova řada pro <span class="math notranslate nohighlight">\(a = 0\)</span>) funkce:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[
-\sin{(x)} = \sum_{k = 0}^{n} \frac{(-1)^k}{(2 k + 1)!} x^{2k + 1}
+\sin(x) = \sum_{k = 0}^{n} \frac{(-1)^k}{(2 k + 1)!} x^{2k + 1}
 \]</div>
-<p>ve formátu <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.poly1d.html"><code class="docutils literal notranslate"><span class="pre">numpy.poly1d</span></code></a>.</p>
-<p>Dále napište funkci, která spočítá relativní chybu aproximace této funkce pro libovolné <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span> a <span class="math notranslate nohighlight">\(n \in \mathbb{N}_0\)</span>.
-Vypiště hodnotu relativní chyby pro <span class="math notranslate nohighlight">\( x = \pi \, / \, 2 \)</span> a <span class="math notranslate nohighlight">\( n = 2\)</span> na 16 platných míst.</p>
+<p>ve formátu <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.poly1d.html"><code class="docutils literal notranslate"><span class="pre">numpy.poly1d</span></code></a>. Vykreslete aproximaci a funkci <span class="math notranslate nohighlight">\(\sin(x)\)</span> na intervalu <span class="math notranslate nohighlight">\([-\pi,\pi]\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Dále napište funkci, která spočítá relativní chybu aproximace této funkce pro libovolné <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span> a <span class="math notranslate nohighlight">\(n \in \mathbb{N}_0\)</span>.
+Vypiště hodnotu relativní chyby pro <span class="math notranslate nohighlight">\( x = \pi \, / \, 2 \)</span> a <span class="math notranslate nohighlight">\( n = 2\)</span> na 16 platných míst.</p></li>
+</ol>
 <p>Najděte <span class="math notranslate nohighlight">\( n \)</span> takové, pro které je relativní chyba v <span class="math notranslate nohighlight">\( x = \pi \, / \, 2 \)</span> menší než <span class="math notranslate nohighlight">\( 200 \, \varepsilon \)</span>, kde <span class="math notranslate nohighlight">\( \varepsilon \)</span> je strojová přesnost pro  64-bitovou floating-point reprezentaci desetinných čísel (<code class="docutils literal notranslate"><span class="pre">np.float64</span></code>). Vypište nalezenou hodnotu <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<ol class="arabic simple" start="3">
+<li><p>Implementujte metodu, která počítá funkci <span class="math notranslate nohighlight">\(\sin(x)\)</span> na celé množině reálných čísel <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> s rozumnou chybou (která příliž neroste pro vysoké hodnoty <span class="math notranslate nohighlight">\(x\)</span>). Princip řešení tohoto problému je podobný jako v přednášce <a class="reference internal" href="../lekce/02-chyby-stabilita.html#lepsi-aprox-ex"><span class="std std-ref">zde</span></a>, kde jsme počítali hodnotu funkce <span class="math notranslate nohighlight">\(e^x\)</span>.
+Navrhněte způsob, jak redukovat hodnotu <span class="math notranslate nohighlight">\(x\)</span>, kterou využíváme v Taylorově řadě funkce <span class="math notranslate nohighlight">\(\sin(x)\)</span>. Využijte k tomu 2 známé základní vlastnosti funkce sinus.</p></li>
+</ol>
+<p>Vykreslete na intervalu <span class="math notranslate nohighlight">\([-5.1\pi,5.1\pi]\)</span>. Kde dochází k největší <em>absolutní</em> a kde <em>relativní</em> chybě?</p>
+<p><em>Bonus:</em></p>
+<ol class="arabic simple" start="4">
+<li><p>Vylepšete aproximaci dále použitím celkem 3 vlastností tak, že použijete také vlastnost:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\sin(x) = \sin(\pi - x).
+\]</div>
+<p>Tento vztah dále omezí interval, na kterém musíme použít Taylora. Dejte pozor na zápornou část intervalu. Relativní chyba by měla být menší než <span class="math notranslate nohighlight">\(10^{-3}\)</span>.</p>
 </p>
 </div>
-</div></section>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
