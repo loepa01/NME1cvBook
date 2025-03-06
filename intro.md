@@ -1,4 +1,4 @@
-# Numerické metody (NME1cv) - cvičení 2024
+# Numerické metody (NME1cv) - cvičení 2025
 
 Tyto stránky obsahují materiály ke cvičení předmětu 12NME1.
 
@@ -16,7 +16,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 ```
 
 ## Podmínky udělení zápočtu
-- max. 3 absence (možnost nahrazení 1 absence odevzdáním navíc 1 domácí úlohy), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B242-12NME112ANM/Sdilene%20dokumenty/General/dochazka_NME1cv_Pa8_10.xlsx?d=we7f112e301fa46f8a69ee37ef7f7ae7a&csf=1&web=1&e=w8K7KL)
+- max. 3 absence (+ možnost nahrazení 2 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B242-12NME112ANM/Sdilene%20dokumenty/General/dochazka_NME1cv_Pa8_10.xlsx?d=we7f112e301fa46f8a69ee37ef7f7ae7a&csf=1&web=1&e=w8K7KL)
 - vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (lekce 2-6), 2 úlohy z druhé půlky cvičení (lekce 7-12)
 - na zkoušku je možné jít před udělením zápočtu
 
@@ -29,13 +29,24 @@ Celkem bude zadáno 10 úkolů, jeden z každé kapitoly (kromě úvodní). Pro 
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
 
+Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https://intranet.fel.cvut.cz/cz/rozvoj/MP-pouzivani-ui.pdf). Tedy můžete používat těchto nástrojů pro pomoc s řešením, ale ne na celé vyřešení úkolu! 
+
+*Příklady správného použití:*
+* dotaz na dílčí krok úlohy - kterou a jak použít určitou knihovní funkci, jak napsat část kódu v pythonu (neznám syntax nebo nevím, jak přesně zapsat jednotlivé kroky algoritmu), atd.
+* dotaz k teorii související s úlohou - jaké jsou kroky daného algoritmu, matematické vzorce, vzdělání se ohledně vlastností metody/algoritmu, atd.
+* kód na vykreslování - zde lze použít umělou inteligenci na vygenerování celého kódu na vykreslení požadovaných grafů (ty pro nás slouží jako kontrola a vizualizace, nejsou přímou součástí hodnocení)
+
+*Příklad nesprávného použití:*
+* zkopírování zadání a vložení jako dotaz k vyřešení umělé inteligenci
+* zkopírování části zadaní a vložení jako dotazu - měli byste sami formulovat dílčí části problému, se kterými chcete pomoc, využívat umělé inteligence pouze jako nástroje!
+
 Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!
 
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
 - prostředí [Jupyter notebook](https://jupyter.org/) (instalace popsána [zde](install-all))
 - po proběhnutí cvičení naleznete doplněné notebooky na GitHubu (ve vrchním menu tlačítko <i class="fab fa-github" aria-hidden="true"></i>)
-- po nějaké době je aktualizována i webová stránka s vyplněným Jupyter notebookem
+- po nějaké době (typicky v den následujícího cvičení) je aktualizována i webová stránka s vyplněným Jupyter notebookem
 
 (literatura)=
 ## Doporučená literatura
