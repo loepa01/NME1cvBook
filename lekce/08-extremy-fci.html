@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Numerické metody (NME1cv) - cvičení 2024
+                    Numerické metody (NME1cv) - cvičení 2025
                 </a>
             </li>
         </ul>
@@ -183,6 +183,8 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-uvod-python.html">1. Úvod do jazyka Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-chyby-stabilita.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09-integrace.html">9. Numerická integrace</a></li>
@@ -192,6 +194,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
@@ -251,7 +255,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce/08-extremy-fci.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/lekce/08-extremy-fci.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +273,7 @@
       
       
       
-      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce/08-extremy-fci.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/lekce/08-extremy-fci.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -470,7 +474,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-nejvetsiho-spadu-nd-gradient-descent">Metoda největšího spádu nD (Gradient descent)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-konjugovanych-gradientu">Metoda konjugovaných gradientů</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha-metoda-konjugovanych-gradientu">Zápočtová úloha - Metoda konjugovaných gradientů</a></li>
 </ul>
             </nav>
         </div>
@@ -483,7 +487,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hledani-extremu-funkci">
-<h1>Hledání extrémů funkcí<a class="headerlink" href="#hledani-extremu-funkci" title="Link to this heading">#</a></h1>
+<span id="extremy"></span><h1>Hledání extrémů funkcí<a class="headerlink" href="#hledani-extremu-funkci" title="Link to this heading">#</a></h1>
 <p>V této kapitole si představíme několik metod na hledání extrémů funkcí jedné nebo více proměnných. Jak uvidíme, tyto metody budou založené na podobných principech jako metody v předchozí kapitole. Také, podobně jako v minulé kapitole, zde neexistuje žádná nejlepší obecná metoda. Každá z představených metod má svoje výhody a naopak limitace, proto v různých situacích může výt výhodné použít různé metody.</p>
 <p>Uvažujeme funkci <span class="math notranslate nohighlight">\(f\)</span> a budeme hledat její minimu (hledání maxima je stejná opět hledání minima, akorát pro funkci <span class="math notranslate nohighlight">\(-f\)</span>). Budeme rozlišovat mezi <strong>lokálním</strong> a <strong>globálním</strong> minimem. Hledání globálního maxima (podobně jako řešení nelineární rovnice) je obecně <em>obtížný</em> problém. Metody, které si zde představíme, dokáží nalézt (zkonvergovat) pouze lokální extrém a vyžadují nějaký počáteční odhad.</p>
 <p>Pro hledání globálního minima existuje několik postupů (z nichž jeden bude součástí zápočtové úlohy z této hodiny):</p>
@@ -1201,13 +1205,13 @@ minimum(SciPy): [0.99999546 0.99999091]
 </div>
 </section>
 </section>
-<section id="metoda-konjugovanych-gradientu">
-<h2>Metoda konjugovaných gradientů<a class="headerlink" href="#metoda-konjugovanych-gradientu" title="Link to this heading">#</a></h2>
+<section id="zapoctova-uloha-metoda-konjugovanych-gradientu">
+<h2>Zápočtová úloha - Metoda konjugovaných gradientů<a class="headerlink" href="#zapoctova-uloha-metoda-konjugovanych-gradientu" title="Link to this heading">#</a></h2>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 2</div>
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 7</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html#ukol2"><span class="std std-ref">ZDE</span></a></p>
+<p><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html#ukol7"><span class="std std-ref">ZDE</span></a></p>
 </p>
 </div>
 </div></section>
@@ -1288,7 +1292,7 @@ minimum(SciPy): [0.99999546 0.99999091]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-nejvetsiho-spadu-nd-gradient-descent">Metoda největšího spádu nD (Gradient descent)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-konjugovanych-gradientu">Metoda konjugovaných gradientů</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha-metoda-konjugovanych-gradientu">Zápočtová úloha - Metoda konjugovaných gradientů</a></li>
 </ul>
   </nav></div>
 
@@ -1313,7 +1317,7 @@ By Jiří Löffelmann
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

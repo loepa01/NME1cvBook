@@ -63,7 +63,7 @@
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Řešení nelineárních rovnic" href="07-nelinearni-rce.html" />
+    <link rel="next" title="Metody lineární algebry" href="../lekce-vyplnene/03-linalg-prime-vypl.html" />
     <link rel="prev" title="Úvod do jazyka Python" href="01-uvod-python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Numerické metody (NME1cv) - cvičení 2024
+                    Numerické metody (NME1cv) - cvičení 2025
                 </a>
             </li>
         </ul>
@@ -183,6 +183,8 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-uvod-python.html">1. Úvod do jazyka Python</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-extremy-fci.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09-integrace.html">9. Numerická integrace</a></li>
@@ -192,6 +194,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
@@ -251,7 +255,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce/02-chyby-stabilita.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/lekce/02-chyby-stabilita.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +273,7 @@
       
       
       
-      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce/02-chyby-stabilita.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/lekce/02-chyby-stabilita.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -852,14 +856,16 @@ a(x \pm y) = a(x) + a(y) \rightarrow r(x \pm y) \leq \max{(a(x), a(y))} \frac{a(
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Uvažujte následující funkci:
-$<span class="math notranslate nohighlight">\(
+<p>Uvažujte následující funkci:</p>
+<div class="math notranslate nohighlight">
+\[
 f(x) = \frac{1 - \cos{x}}{x^2},
-\)</span><span class="math notranslate nohighlight">\(
-pro kterou platí následující chování v okolí \)</span>0<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\( 
+\]</div>
+<p>pro kterou platí následující chování v okolí <span class="math notranslate nohighlight">\(0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ 
 \lim_{x \to 0} f(x) = \frac{1}{2}. 
-\)</span>$</p>
+\]</div>
 <p>Odhadněte limitu přiblížným výpočtem hodnoty funkce <span class="math notranslate nohighlight">\(f(x)\)</span> v bodě <span class="math notranslate nohighlight">\(1.2 \times 10^{-8}\)</span>. Je výsledek správný? Pro jaké hodnoty <span class="math notranslate nohighlight">\(x\)</span> dostáváte přesnější hodnotu? Jak se můžeme vyhnout rozdílu blízkych hodnot při výpoču funkce <span class="math notranslate nohighlight">\(f(x)\)</span>?</p>
 </p>
 </div>
@@ -882,11 +888,12 @@ pro kterou platí následující chování v okolí \)</span>0<span class="math 
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Spočítejte součet členů následující posloupnosti pro <span class="math notranslate nohighlight">\(n=400\)</span> v dopředném a zpětném směru:
-$<span class="math notranslate nohighlight">\(
+<p>Spočítejte součet členů následující posloupnosti pro <span class="math notranslate nohighlight">\(n=400\)</span> v dopředném a zpětném směru:</p>
+<div class="math notranslate nohighlight">
+\[
 0.9^0, \ 0.9^1, \ \dots, \ 0.9^n.
-\)</span>$
-Srovnejte výsledky a pokuste se je vysvětlit.</p>
+\]</div>
+<p>Srovnejte výsledky a pokuste se je vysvětlit.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -973,10 +980,11 @@ Srovnejte výsledky a pokuste se je vysvětlit.</p>
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Máme za úkol implementovat výpočet následující funkce pro libovolné <span class="math notranslate nohighlight">\(x\)</span>:
-$<span class="math notranslate nohighlight">\(
+<p>Máme za úkol implementovat výpočet následující funkce pro libovolné <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
 f(x) = \frac{e^{x} - 1}{x}.
-\)</span>$</p>
+\]</div>
 <p>Implementujte následující dva rozdílné algoritmy a spočítejte hodnotu funkce <span class="math notranslate nohighlight">\(f(x)\)</span> pro <span class="math notranslate nohighlight">\(x = 10^{-5}..10^{-16}\)</span>:</p>
 <ol class="arabic simple">
 <li><p>If (<span class="math notranslate nohighlight">\(x = 0\)</span>) then <span class="math notranslate nohighlight">\(f = 1\)</span>; else <span class="math notranslate nohighlight">\(f = \frac{e^{x} - 1}{x}\)</span>.</p></li>
@@ -1068,10 +1076,11 @@ Chyby se v numerických výpočtech mohou šířit více způsoby. Může dochá
 <p>Typycky výsledná numerická metoda je jistého <strong>řádu</strong>, určující závislost chyby metody na počtu kroků.</p>
 <p><strong>Big-O notace</strong></p>
 <p>Tato notace ukazuje řádovou závislost chyby na jistém rozměru úlohy (velikost kroku numerické metody).</p>
-<p>Definice:
-$<span class="math notranslate nohighlight">\(
+<p>Definice:</p>
+<div class="math notranslate nohighlight">
+\[
 f(x) =  O(g(x)) \quad \text{as} \quad x \rightarrow a
-\)</span>$</p>
+\]</div>
 <p>přávě tehdy když</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1127,7 +1136,7 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{\alpha-1}{\frac{x^n}{n!}} + 
 <p>Vylepšení spočívá v následujícím <em>triku</em>:</p>
 <div class="math notranslate nohighlight">
 \[
-e^x = e^{n \ln{2} + x^{\prime}} = 2^n e^{x{\prime}},
+e^x = e^{n \ln{2} + x^{\prime}} = 2^n e^{x^{\prime}},
 \]</div>
 <p>kde <span class="math notranslate nohighlight">\(x = n \ln{2} + x^{\prime}\)</span>. Hodnotu <span class="math notranslate nohighlight">\(x\)</span> jsme tedy rozdělili celočíselný násobek <span class="math notranslate nohighlight">\(\ln{2}\)</span>, která je nejblíže hodnotě <span class="math notranslate nohighlight">\(x\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -1315,11 +1324,11 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
       </div>
     </a>
     <a class="right-next"
-       href="07-nelinearni-rce.html"
+       href="../lekce-vyplnene/03-linalg-prime-vypl.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Řešení nelineárních rovnic</p>
+        <p class="prev-next-title">Metody lineární algebry</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1385,7 +1394,7 @@ By Jiří Löffelmann
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

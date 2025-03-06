@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Zápočtový úkol 7 &#8212; NME1cvBook</title>
+    <title>Zápočtový úkol 6 &#8212; NME1cvBook</title>
   
   
   
@@ -63,8 +63,8 @@
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Zápočtový úkol 2" href="08-extremy-fci-UKOL.html" />
-    <link rel="prev" title="Zápočtový úkol 1" href="02-chyby-stabilita-UKOL.html" />
+    <link rel="next" title="Zápočtový úkol 7" href="08-extremy-fci-UKOL.html" />
+    <link rel="prev" title="Zápočtový úkol 3" href="04-linalg-iter-UKOL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Numerické metody (NME1cv) - cvičení 2024
+                    Numerické metody (NME1cv) - cvičení 2025
                 </a>
             </li>
         </ul>
@@ -183,6 +183,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../lekce/01-uvod-python.html">1. Úvod do jazyka Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/02-chyby-stabilita.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/08-extremy-fci.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/09-integrace.html">9. Numerická integrace</a></li>
@@ -192,6 +194,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09-integrace-UKOL.html">9. Numerická integrace</a></li>
@@ -251,7 +255,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/ukoly/07-nelinearni-rce-UKOL.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/ukoly/07-nelinearni-rce-UKOL.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +273,7 @@
       
       
       
-      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/ukoly/07-nelinearni-rce-UKOL.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/ukoly/07-nelinearni-rce-UKOL.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -447,7 +451,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Zápočtový úkol 7</h1>
+    <h1>Zápočtový úkol 6</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -461,11 +465,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="zapoctovy-ukol-7">
-<span id="ukol7"></span><h1>Zápočtový úkol 7<a class="headerlink" href="#zapoctovy-ukol-7" title="Link to this heading">#</a></h1>
-<p><a class="reference internal" href="../lekce/07-nelinearni-rce.html#newton2d"><span class="std std-ref">Newton-Raphsonova metoda 2D</span></a> - soustava dvou nelineárních rovnic.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="zapoctovy-ukol-6">
+<span id="ukol6"></span><h1>Zápočtový úkol 6<a class="headerlink" href="#zapoctovy-ukol-6" title="Link to this heading">#</a></h1>
+<p>Newton-Raphsonova metoda 2D - soustava dvou nelineárních rovnic.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 1</div>
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 6</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
 <p>Pomocí Newton-Raphsonovy metody najděte řešení soustavy nelineárních rovnic:</p>
@@ -580,12 +584,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02-chyby-stabilita-UKOL.html"
+       href="04-linalg-iter-UKOL.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Zápočtový úkol 1</p>
+        <p class="prev-next-title">Zápočtový úkol 3</p>
       </div>
     </a>
     <a class="right-next"
@@ -593,7 +597,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Zápočtový úkol 2</p>
+        <p class="prev-next-title">Zápočtový úkol 7</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -625,7 +629,7 @@ By Jiří Löffelmann
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
