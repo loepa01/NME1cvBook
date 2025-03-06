@@ -10,14 +10,16 @@ parts:
     - file: lekce/01-uvod-python
     #- file: lekce-vyplnene/01-uvod-python-vypl
       title: 1. Úvod do jazyka Python
+      
     - file: lekce/02-chyby-stabilita
     #- file: lekce-vyplnene/02-chyby-stabilita-vypl
       title: 2. Numerické chyby a stabilita
     
-    #- file: lekce/03-linalg-prime
-    - file: lekce-vyplnene/03-linalg-prime-vypl
+    - file: lekce/03-linalg-prime
+    #- file: lekce-vyplnene/03-linalg-prime-vypl
       title: 3. Metody lineární algebry
-    #- file: lekce/03-linalg-prime
+
+    #- file: lekce/04-linalg-iter
     - file: lekce-vyplnene/04-linalg-iter-vypl
       title: 4. Iterační metody lineární algebry
 
