@@ -17,6 +17,9 @@ parts:
     #- file: lekce/03-linalg-prime
     - file: lekce-vyplnene/03-linalg-prime-vypl
       title: 3. Metody lineární algebry
+    #- file: lekce/03-linalg-prime
+    - file: lekce-vyplnene/04-linalg-iter-vypl
+      title: 4. Iterační metody lineární algebry
 
     - file: lekce/07-nelinearni-rce
     #- file: lekce-vyplnene/07-nelinearni-rce-vypl
@@ -42,6 +45,8 @@ parts:
       title: 2. Numerické chyby a stabilita
     - file: ukoly/03-linalg-prime-UKOL
       title: 3. Metody lineární algebry
+    - file: ukoly/04-linalg-iter-UKOL
+      title: 4. Iterační metody lineární algebry
     
     - file: ukoly/07-nelinearni-rce-UKOL
       title: 7. Nelineární rovnice
