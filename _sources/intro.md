@@ -29,6 +29,15 @@ Celkem bude zadáno 10 úkolů, jeden z každé kapitoly (kromě úvodní). Pro 
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
 
+Využití umělé inteligence je povoleno v souladu s [řádem ČVUT](https://intranet.fel.cvut.cz/cz/rozvoj/MP-pouzivani-ui.pdf). Tedy můžete používat těchto nástrojů pro pomoc, ale ne na celé vyřešení úkolu! 
+Příklady správného použití:
+* dotaz na dílčí krok úlohy - kterou a jak použít určitou knihovní funkci, jak 
+* dotaz k teorii související s úlohou - jaké jsou kroky daného algoritmu, matematické vzorce, atd.
+* kód na vykreslování - zde lze použít umělou inteligenci na vygenerování celého kódu na vykreslení požadovaných grafů (ty pro nás slouží jako kontrola a vizualizace, nejsou přímou součástí hodnocení)
+Příklad nesprávného použití:
+* zkopírování zadání a vložení jako dotaz k vyřešení umělé inteligenci
+* zkopírování části zadaní a vložení jako dotazu - měli byste sami formulovat dílčí části problému, se kterými chcete pomoc, využívat umělé inteligence pouze jako nástroje!
+
 Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!
 
 ## Používané nástroje
