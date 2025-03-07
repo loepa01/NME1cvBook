@@ -1001,6 +1001,7 @@ x_i = \mu_i x_{i+1} + \rho_i, \qquad i = n-1, n-2, \dots, 0,
 <p>
 <p>Implementujte Thomasův algoritmus pomocí uvedených vzorců. Nejprve je třeba provést <em>dopředný běh</em> (výpočet <span class="math notranslate nohighlight">\(\mu\)</span> a <span class="math notranslate nohighlight">\(\rho\)</span>) a následně <em>zpětný běh</em>. Správnost ověřte pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a>.</p>
 </p>
+</div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1062,6 +1063,7 @@ i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
 <p>
 <p>Implementujte LU dekompozici a aplikujte ji na řešení soustavy linearních rovnic. Můžete využít <em>zpětné substituce</em> výše. <em>Dopřednou substituci</em> (<span class="math notranslate nohighlight">\(\mathbb{L} y = b\)</span>) je třeba doimplementovat zvlášť.</p>
 </p>
+</div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
