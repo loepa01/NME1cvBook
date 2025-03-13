@@ -29,7 +29,7 @@ Celkem bude zadáno 10 úkolů, jeden z každé kapitoly (kromě úvodní). Pro 
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
 
-Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https://intranet.fel.cvut.cz/cz/rozvoj/MP-pouzivani-ui.pdf). Tedy můžete používat těchto nástrojů pro pomoc s řešením, ale ne na celé vyřešení úkolu! 
+Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https://intranet.fel.cvut.cz/cz/rozvoj/MP-pouzivani-ui.pdf). Tedy můžete používat těchto nástrojů pro pomoc s řešením, ale ne na vyřešení celého úkolu!
 
 *Příklady správného použití:*
 * dotaz na dílčí krok úlohy - kterou a jak použít určitou knihovní funkci, jak napsat část kódu v pythonu (neznám syntax nebo nevím, jak přesně zapsat jednotlivé kroky algoritmu), atd.
@@ -40,7 +40,7 @@ Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https:
 * zkopírování zadání a vložení jako dotaz k vyřešení umělé inteligenci
 * zkopírování části zadaní a vložení jako dotazu - měli byste sami formulovat dílčí části problému, se kterými chcete pomoc, využívat umělé inteligence pouze jako nástroje!
 
-Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale mi to může trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září!
+Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale může mi to trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září! Na zkoušku není potřeba mít zápočet.
 
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
