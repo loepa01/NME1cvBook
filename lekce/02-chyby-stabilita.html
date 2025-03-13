@@ -499,7 +499,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="numericke-chyby-a-stabilita">
 <h1>Numerické chyby a stabilita<a class="headerlink" href="#numericke-chyby-a-stabilita" title="Link to this heading">#</a></h1>
 <p>V tomto cvičení si ukážeme základy práce s čísly na počítači. Uvidíme, jak lze celá a desetinná čísla reprezentovat v počítači. Dále analyzujeme vznik chyb při počítání s čísly a prozkoumáme (ne)stabilitu numerických metod.</p>
-<p>Tyto základy jsou stěžení při návrhu numerických metod a počítačových algoritmů. Je potřeba mít na paměti, jak se v počítači nakládá s čísly a že to vždy vede k numerickým chybám. Jak uvidíme v této kapitole, v některých případech může matematicky správný postup výpočtu dát numericky (v počítači) zcela chybný výsledek!</p>
+<p>Tyto základy jsou stěžejní při návrhu numerických metod a počítačových algoritmů. Je potřeba mít na paměti, jak se v počítači nakládá s čísly a že to vždy vede k numerickým chybám. Jak uvidíme v této kapitole, v některých případech může matematicky správný postup výpočtu dát numericky (v počítači) zcela chybný výsledek!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -517,10 +517,10 @@ document.write(`
 </section>
 <section id="reprezentace-cisel-v-pocitaci">
 <h2>Reprezentace čísel v počítači<a class="headerlink" href="#reprezentace-cisel-v-pocitaci" title="Link to this heading">#</a></h2>
-<p>Reprezentace čísel v počítači má zasadní vliv na chyby při výpočtech. Tato podkapitola shrnuje standardizovanou reprezentaci celých a desetinných čísel.</p>
+<p>Reprezentace čísel v počítači má zásadní vliv na chyby při výpočtech. Tato podkapitola shrnuje standardizovanou reprezentaci celých a desetinných čísel.</p>
 <section id="cela-cisla">
 <h3>Celá čísla<a class="headerlink" href="#cela-cisla" title="Link to this heading">#</a></h3>
-<p>Celá čísla jsou v počítači reprezentovány přesně. Stejně tak aritmetické operace jsou přesné, ovšem za podmínky, že hodnoty operandů a výsledku jsou ve stanoveném rozsahu. Pokud přesáhne hodnota určitou hranici, dojde k takzvanému <strong>přetečení</strong> nebo <strong>podtečení</strong>. U celých čísel je rozsah hodnot výrazně menší a je důležité s ním vždy počítat!</p>
+<p>Celá čísla jsou v počítači reprezentována přesně. Stejně tak aritmetické operace jsou přesné, ovšem za podmínky, že hodnoty operandů a výsledku jsou ve stanoveném rozsahu. Pokud přesáhne hodnota určitou hranici, dojde k takzvanému <strong>přetečení</strong> nebo <strong>podtečení</strong>. U celých čísel je rozsah hodnot výrazně menší a je důležité s ním vždy počítat!</p>
 <p><img alt="Reprezentace celých čísel" src="../_images/int_reprez.png" /></p>
 <p>S celočíselnými typy se setkáme v knihovně Numpy, kde každá matice nebo vektor má definovaný typ každého elementu. Defaultně se celá čísla ukládají jako <code class="docutils literal notranslate"><span class="pre">np.int32</span></code>:</p>
 <div class="cell docutils container">
@@ -1098,14 +1098,14 @@ f(x) =  O(g(x)) \quad \text{as} \quad x \rightarrow a
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Zkonstruujte Taylorův rozvoj <em>exponenciální funkce</em> v bodě <span class="math notranslate nohighlight">\(a=0\)</span> (<a class="reference external" href="https://cs.wikipedia.org/wiki/Taylorova_%C5%99ada#Maclaurinova_%C5%99ada">Maclaurinova řada</a>):</p>
+<p>Doplňte kód do funkce <code class="docutils literal notranslate"><span class="pre">exp_taylor(x,N)</span></code>, která má spočítat Taylorův rozvoj <em>exponenciální funkce</em> v bodě <span class="math notranslate nohighlight">\(a=0\)</span> (<a class="reference external" href="https://cs.wikipedia.org/wiki/Taylorova_%C5%99ada#Maclaurinova_%C5%99ada">Maclaurinova řada</a>):</p>
 <div class="math notranslate nohighlight">
 \[
 f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{\alpha-1}{\frac{x^n}{n!}} + O(h^{\alpha})
 \]</div>
-<p>s využitím prvních <span class="math notranslate nohighlight">\(\alpha=3\)</span> členů řady.</p>
+<p>pro obecné <span class="math notranslate nohighlight">\(x\)</span> s využitím prvních <span class="math notranslate nohighlight">\(N\)</span> členů řady.</p>
 <ol class="arabic simple">
-<li><p>Vykreslete do jednoho grafu funkci <span class="math notranslate nohighlight">\(e^x\)</span> a aproximaci funkce <span class="math notranslate nohighlight">\(f(x)\)</span> na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span>.</p></li>
+<li><p>Vykreslete do jednoho grafu funkci <span class="math notranslate nohighlight">\(e^x\)</span> a aproximaci funkce <span class="math notranslate nohighlight">\(f(x)\)</span> na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span> pro <span class="math notranslate nohighlight">\(N = 2,3,4\)</span>.</p></li>
 <li><p>Spočítejte absolutní a relativní chyby v tomto intervalu a vykreslete do druhého grafu. Najděte maximum chyby.</p></li>
 </ol>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
@@ -1140,11 +1140,13 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{\alpha-1}{\frac{x^n}{n!}} + 
     
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;stupeň </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">abs_err</span> <span class="o">=</span> <span class="c1">## DOPLŇTE ##</span>
+    <span class="n">rel_err</span> <span class="o">=</span> <span class="c1">## DOPLŇTE ##</span>
+    
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
-    <span class="n">abs_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span> <span class="o">-</span> <span class="n">ff</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">abs_err</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
-    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">fe</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">rel_err</span><span class="p">)</span>
     
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
@@ -1153,7 +1155,7 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{\alpha-1}{\frac{x^n}{n!}} + 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8dd696e258276d4dc1dd7d6e2eee2e68e5a12a73084636573cc2315109144cc9.png" src="../_images/8dd696e258276d4dc1dd7d6e2eee2e68e5a12a73084636573cc2315109144cc9.png" />
+<img alt="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" src="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" />
 </div>
 </div>
 <p id="lepsi-aprox-ex"><strong>Vylepšená aproximace <span class="math notranslate nohighlight">\(e^x\)</span> na <span class="math notranslate nohighlight">\(\mathbb{R}\)</span></strong></p>
@@ -1214,16 +1216,18 @@ n = \text{round}(\frac{x}{\ln{2}}).
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;relativní chyba&#39;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">ff</span> <span class="o">=</span> <span class="n">exp_aproximace_na_r</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;stupeň </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">abs_err</span> <span class="o">=</span> <span class="c1">## DOPLŇTE ##</span>
+    <span class="n">rel_err</span> <span class="o">=</span> <span class="c1">## DOPLŇTE ##</span>
+    
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
-    <span class="n">abs_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span> <span class="o">-</span> <span class="n">ff</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">abs_err</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
-    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">fe</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">rel_err</span><span class="p">)</span>
     
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
@@ -1247,10 +1251,11 @@ Vzájemný vztah těchto dvou chyb ilustruje následující obrázek:</p>
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Implementujte metodu, která najde všechna řešení kvadratické rovnice:
-$<span class="math notranslate nohighlight">\(
+<p>Implementujte metodu, která najde všechna řešení kvadratické rovnice:</p>
+<div class="math notranslate nohighlight">
+\[
 a x^2 + bx + c = 0.
-\)</span>$</p>
+\]</div>
 <p>Najděte kořeny pro <span class="math notranslate nohighlight">\(a = 1/3, b = \sqrt{4*7*1/3}, c = 7\)</span>. Funguje vaše metoda správně? Kolik nalezla kořenů?</p>
 </p>
 </div>

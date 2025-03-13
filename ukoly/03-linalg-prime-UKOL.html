@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ukoly/03-linalg-prime-UKOL';</script>
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -465,10 +467,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="zapoctovy-ukol-2">
 <span id="ukol2"></span><h1>Zápočtový úkol 2<a class="headerlink" href="#zapoctovy-ukol-2" title="Link to this heading">#</a></h1>
+<p><a class="reference internal" href="#lu_decomp"><span class="xref myst">LU dekompozice</span></a> a její využití.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 2</div>
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
+<p>Implementujte LU dekompozici a aplikujte ji na řešení soustavy linearních rovnic. Můžete využít <em>zpětné substituce</em> výše. <em>Dopřednou substituci</em> (<span class="math notranslate nohighlight">\(\mathbb{L} y = b\)</span>) je třeba doimplementovat zvlášť. Správnost ověřte pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a> aplikovanou na náhodnou matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> a náhodné vektory <span class="math notranslate nohighlight">\(\vec{b}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{b}_2\)</span> a <span class="math notranslate nohighlight">\(\vec{b}_3\)</span>.</p>
+<p>Pomocí dekompozice spočítejte determinant matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span>. Využite vlastnosti determinantu matice. Výsledek opět zkontrolujte pomocí knihovní funkce <code class="docutils literal notranslate"><span class="pre">numpy.linalg.det()</span></code>. Jaká je složitost výpočtu determinantu pomocí <em>LU dekompozice</em> oproti použití vzorečku z <a class="reference external" href="https://cs.wikipedia.org/wiki/Determinant">definice determinantu</a>?</p>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -481,7 +486,12 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">b3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1">## DOPLŇTE ##</span>
 </pre></div>
 </div>
 </div>
