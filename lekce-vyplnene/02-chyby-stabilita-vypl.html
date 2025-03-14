@@ -1,0 +1,1573 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Numerické chyby a stabilita &#8212; NME1cvBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lekce-vyplnene/02-chyby-stabilita-vypl';</script>
+    <link rel="icon" href="../_static/cphys2.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Metody lineární algebry" href="../lekce/03-linalg-prime.html" />
+    <link rel="prev" title="Úvod do jazyka Python" href="01-uvod-python-vypl.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cphys-logo6.png" class="logo__image only-light" alt="NME1cvBook - Home"/>
+    <script>document.write(`<img src="../_static/cphys-logo6.png" class="logo__image only-dark" alt="NME1cvBook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Numerické metody (NME1cv) - cvičení 2025
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/03-linalg-prime.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/08-extremy-fci.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/09-integrace.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/10-reseni-odr.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/10-reseni-odr-UKOL.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/11-reseni-okraj-UKOL.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/lekce-vyplnene/02-chyby-stabilita-vypl.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/lekce-vyplnene/02-chyby-stabilita-vypl.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/lekce-vyplnene/02-chyby-stabilita-vypl.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/loepa01/NME1cvBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/loepa01/NME1cvBook/issues/new?title=Issue%20on%20page%20%2Flekce-vyplnene/02-chyby-stabilita-vypl.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lekce-vyplnene/02-chyby-stabilita-vypl.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerické chyby a stabilita</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericka-matematika">Numerická matematika</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprezentace-cisel-v-pocitaci">Reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desetinna-cisla">Desetinná čísla</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-ve-vypoctech">Chyby ve výpočtech</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-definice">Základní definice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zdroje-chyb">Zdroje chyb</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-zaokrouhlovaci">Chyby zaokrouhlovací</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zaver">Závěr</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-metody">Chyby metody</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numericke-chyby-a-stabilita">
+<h1>Numerické chyby a stabilita<a class="headerlink" href="#numericke-chyby-a-stabilita" title="Link to this heading">#</a></h1>
+<p>V tomto cvičení si ukážeme základy práce s čísly na počítači. Uvidíme, jak lze celá a desetinná čísla reprezentovat v počítači. Dále analyzujeme vznik chyb při počítání s čísly a prozkoumáme (ne)stabilitu numerických metod.</p>
+<p>Tyto základy jsou stěžejní při návrhu numerických metod a počítačových algoritmů. Je potřeba mít na paměti, jak se v počítači nakládá s čísly a že to vždy vede k numerickým chybám. Jak uvidíme v této kapitole, v některých případech může matematicky správný postup výpočtu dát numericky (v počítači) zcela chybný výsledek!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="numericka-matematika">
+<h2>Numerická matematika<a class="headerlink" href="#numericka-matematika" title="Link to this heading">#</a></h2>
+<p>Je věda, která se zabývá řešením matematicky formulovaných úloh pomocí logických operací a aritmetických operací s čísly o konečné délce.</p>
+<p>Některé úlohy jsou již formulované tak, že je možné je přímo implementovat v počítači. To jsou typicky úlohy z <em>lineární algebry</em> vyžadující k řešení konečný počet kroků. Naopak spojité úlohy z <em>matematické analýzy</em> nejsou numericky formulované, tedy je nelze přímočaře na počítači vyřešit. V takovém případě je třeba úlohu převést na úlohu numerickou, která původní úlohu aproximuje s určitým <strong>řádem přesnosti</strong>.</p>
+<p>Základním požadavkem je vyřešení úloh s dostatečnou přesností. U metod nás často zajímá <strong>konvergence</strong>, neboli počet kroků potřebných k dosažený dané přesnosti. U konvergence neuvažujeme zaokrouhlovací chyby, tedy konvergující metoda vyřeší úlohu pro libovolně malý krok <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> s libovolně vysokou přesností.</p>
+<p>Výběr metody závisí vždy na charakteru úlohy. Některé metody můžou být v jistých situacích výhodnější než jiné. Velkou roli také hrají výpočetní a pamětové nároky vybraného algoritmu.</p>
+</section>
+<section id="reprezentace-cisel-v-pocitaci">
+<h2>Reprezentace čísel v počítači<a class="headerlink" href="#reprezentace-cisel-v-pocitaci" title="Link to this heading">#</a></h2>
+<p>Reprezentace čísel v počítači má zásadní vliv na chyby při výpočtech. Tato podkapitola shrnuje standardizovanou reprezentaci celých a desetinných čísel.</p>
+<section id="cela-cisla">
+<h3>Celá čísla<a class="headerlink" href="#cela-cisla" title="Link to this heading">#</a></h3>
+<p>Celá čísla jsou v počítači reprezentována přesně. Stejně tak aritmetické operace jsou přesné, ovšem za podmínky, že hodnoty operandů a výsledku jsou ve stanoveném rozsahu. Pokud přesáhne hodnota určitou hranici, dojde k takzvanému <strong>přetečení</strong> nebo <strong>podtečení</strong>. U celých čísel je rozsah hodnot výrazně menší a je důležité s ním vždy počítat!</p>
+<p><img alt="Reprezentace celých čísel" src="../_images/int_reprez.png" /></p>
+<p>S celočíselnými typy se setkáme v knihovně Numpy, kde každá matice nebo vektor má definovaný typ každého elementu. Defaultně se celá čísla ukládají jako <code class="docutils literal notranslate"><span class="pre">np.int32</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+int32
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kromě standardních typů <code class="docutils literal notranslate"><span class="pre">np.int32</span></code> a <code class="docutils literal notranslate"><span class="pre">np.int64</span></code> knihovna obsahuje i více-bitové reprezentace (až 256 bitů). Typicky pro numerické účely stačí 64-bitová reprezentace.</p>
+<p>Příklady přetečení:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FACTORIAL</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">a</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1">#a = np.array([5], dtype=np.int32)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">f</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+6
+24
+120
+720
+5040
+40320
+362880
+3628800
+39916800
+479001600
+1932053504
+1278945280
+2004310016
+2004189184
+-288522240
+-898433024
+109641728
+-2102132736
+-1195114496
+-522715136
+862453760
+-775946240
+2076180480
+-1853882368
+1484783616
+-1375731712
+-1241513984
+1409286144
+738197504
+-2147483648
+-2147483648
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pokud pracujeme s daty mimo knihovnu Numpy, jazyk python při běžných operacích kontroluje přetečení a při jeho detekci expanduje reprezentaci čísla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FACTORIAL - Python flexible integers</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">a</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1">#a = np.array([5], dtype=np.int32)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">f</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+6
+24
+120
+720
+5040
+40320
+362880
+3628800
+39916800
+479001600
+1932053504
+1278945280
+2004310016
+2004189184
+-288522240
+-898433024
+109641728
+-2102132736
+-1195114496
+-522715136
+862453760
+-775946240
+2076180480
+-1853882368
+1484783616
+-1375731712
+-1241513984
+1409286144
+738197504
+-2147483648
+-2147483648
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #F4330C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #F7C8C0; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Pozor</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro numerických výpočty jsou flexibilní typy nevhodné. Výpočet 32 a 64-bitové reprezentace probíhá v procesoru velmi efektivně během jednoho taktu. Zatímco výpočty čísel s více-bitovými reprezentacemi nejsou procesorem hardwarově podporovány a proto jednoduché aritmetické operace trvají několik, klidně desítek taktů! To by příliš zpomalovalo numerickou metodu. Proto budeme vždy pracovat s knihovnou Numpy, která používá jen pevné reprezentace čísel.</p>
+</p>
+</div>
+</div></section>
+<section id="desetinna-cisla">
+<h3>Desetinná čísla<a class="headerlink" href="#desetinna-cisla" title="Link to this heading">#</a></h3>
+<p>Pro řešení úloh v reálné doméně potřebujeme reprezentovat desetinná čísla. Nejpoužívanější reprezentací je tzv. <em>floating-point</em> uložení desetinných čísel. Floating-point standard definuje základ <span class="math notranslate nohighlight">\(\beta\)</span>, exponent <span class="math notranslate nohighlight">\(E\)</span> and přesnost <span class="math notranslate nohighlight">\(p\)</span>. Obecně tato reprezentace vypadá následovně:</p>
+<div class="math notranslate nohighlight">
+\[ f = \pm \, d_1.d_2d_3 \dots d_p \times \beta^E, \]</div>
+<p>kde <span class="math notranslate nohighlight">\(d_1.d_2d_3 \dots d_p\)</span> se nazývá <em>mantisa</em>.</p>
+<p><strong>Vlastnosti floating-point systému</strong></p>
+<ul class="simple">
+<li><p>Nejmenší kladné číslo (může dojít k <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_underflow">podtečení</a>)</p></li>
+<li><p>Největší číslo (může dojít k <a class="reference external" href="https://en.wikipedia.org/wiki/Integer_overflow">přetečení</a>)</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Machine_epsilon">Strojová přesnost</a>, <span class="math notranslate nohighlight">\(\varepsilon\)</span>, je definována jako rozdíl mezi hodnotou 1 a následujícím číslem, které lze uložit v floating-point reprezentaci (lze chápat jako horní odhad <em>relativní chyby</em> způsobené zaokrouhlováním při aritmetických operacích)</p></li>
+<li><p>Definice speciálních hodnot values: <em>nuly</em> (<code class="docutils literal notranslate"><span class="pre">-0</span></code>, <code class="docutils literal notranslate"><span class="pre">+0</span></code>), <em>nekonečen</em> (<code class="docutils literal notranslate"><span class="pre">-Inf</span></code>, <code class="docutils literal notranslate"><span class="pre">+Inf</span></code>), <a class="reference external" href="https://en.wikipedia.org/wiki/NaN">not a number</a> (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p></li>
+</ul>
+<p><img alt="Floating-point reprezentace" src="../_images/float_reprez.png" /></p>
+<p>V knihovně Numpy máme opět k dispozici odpovídající typy <code class="docutils literal notranslate"><span class="pre">np.float32</span></code> a <code class="docutils literal notranslate"><span class="pre">np.float64</span></code> (= <em>double</em> je defaultní).</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>I dnes se v některých případech se hodí využít typy nižší přesnosti (<code class="docutils literal notranslate"><span class="pre">np.int32</span></code> a <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>), jelikož aritmetické operace jsou s nimi rychlejší, obzvlášt na grafických kartách. Float32 se často používá jako reprezentace v neuronových sítí pro zrychlení trénovacího procesu.</p>
+</p>
+</div>
+</div><p>Numpy defaultní floating-point typ:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Knihovna Numpy poskytuje podrobné informace ke každému typu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Machine parameters for float32
+---------------------------------------------------------------
+precision =   6   resolution = 1.0000000e-06
+machep =    -23   eps =        1.1920929e-07
+negep =     -24   epsneg =     5.9604645e-08
+minexp =   -126   tiny =       1.1754944e-38
+maxexp =    128   max =        3.4028235e+38
+nexp =        8   min =        -max
+smallest_normal = 1.1754944e-38   smallest_subnormal = 1.4012985e-45
+---------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Machine parameters for float64
+---------------------------------------------------------------
+precision =  15   resolution = 1.0000000000000001e-15
+machep =    -52   eps =        2.2204460492503131e-16
+negep =     -53   epsneg =     1.1102230246251565e-16
+minexp =  -1022   tiny =       2.2250738585072014e-308
+maxexp =   1024   max =        1.7976931348623157e+308
+nexp =       11   min =        -max
+smallest_normal = 2.2250738585072014e-308   smallest_subnormal = 4.9406564584124654e-324
+---------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="chyby-ve-vypoctech">
+<h2>Chyby ve výpočtech<a class="headerlink" href="#chyby-ve-vypoctech" title="Link to this heading">#</a></h2>
+<p>Týká se pouze výpočtů s desetinými čísly.
+Z definice floating-point reprezentace desetinných čísel je jasné, že není možné ukládat libovolné reálné číslo s absolutní přesností. Proto se ve výpočtech vždy objeví chyby. Zároveň provádění aritmetických operací vnese do výsledku další chybu vlivem zaokrouhlování, které je při konečné mantise potřeba.</p>
+<section id="zakladni-definice">
+<h3>Základní definice<a class="headerlink" href="#zakladni-definice" title="Link to this heading">#</a></h3>
+<p><strong>Absolutní a relativní chyba</strong></p>
+<ul class="simple">
+<li><p>Přesná hodnota: <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p>Přibližná hodnota hodnota: <span class="math notranslate nohighlight">\(\tilde{x}\)</span></p></li>
+<li><p>Absolutní chyba: <span class="math notranslate nohighlight">\(A(x) = |\tilde{x} - x| \leq a(x)\)</span>, kde <span class="math notranslate nohighlight">\(a(x)\)</span> je odhad absolutní chyby</p></li>
+<li><p>Relativní chyba: <span class="math notranslate nohighlight">\(R(x) = \frac{|\tilde{x} - x|}{|x|} \leq r(x)\)</span>, kde <span class="math notranslate nohighlight">\(r(x) \approx \frac{a(x)}{\tilde{x}}\)</span> je odhad relativní chyby</p></li>
+<li><p>Intervalový odhad: <span class="math notranslate nohighlight">\(\tilde{x} - a(x) \leq x \leq \tilde{x} + a(x) \rightarrow x \approx \tilde{x} \pm a(x) \rightarrow  x \approx \tilde{x} (1 \pm r(x))\)</span></p></li>
+</ul>
+<p><strong>Počet platných číslic</strong></p>
+<p>Relativní chyba <span class="math notranslate nohighlight">\(R\)</span> odpovídá znalosti <span class="math notranslate nohighlight">\(p\)</span> platných číslic, kde <span class="math notranslate nohighlight">\(p\)</span> je největší celé číslo splňující: <span class="math notranslate nohighlight">\(R \leq 5 \times 10^{-p}\)</span>. Přesnosti výpočtů jsou tedy obvykle dané právě relativní chybou.</p>
+</section>
+<section id="zdroje-chyb">
+<h3>Zdroje chyb<a class="headerlink" href="#zdroje-chyb" title="Link to this heading">#</a></h3>
+<p>Chyby v numerických výpočtech vznikají několika způsoby. V této kapitole se na jednotlivé zdroje chyb podíváme podrobně a ilustrujeme si je na příkladech. Také nás bude zajímat, jak se chyby ve výpočtech mohou <em>šířit</em> a <em>hromadit</em>.</p>
+<p>Ve zkratce máme:</p>
+<ul class="simple">
+<li><p><strong>Chyby zaokrouhlovací</strong> - způsobené konečnou reprezentací čísel v počítači</p></li>
+<li><p><strong>Chyby metody</strong> - vznikají aproximací, kterých se dopouštíme při převádění matematické úlohy na numerickou</p></li>
+<li><p><strong>Chyby vstupních dat</strong> - ztracení přesnosti při uložení desetinných čísel do počítače ve vybrané reprezentaci</p></li>
+</ul>
+<section id="chyby-zaokrouhlovaci">
+<h4>Chyby zaokrouhlovací<a class="headerlink" href="#chyby-zaokrouhlovaci" title="Link to this heading">#</a></h4>
+<p>Zaokrouhlovací chyby vznikají při ukládání desetinných čísel v počítači a při aritmetických operacích s těmito čísli. Kvůli konečné reprezentaci dochází k mnoha případům a <em>numerickým jevům</em>, které můžou vést k nečekanému zhoršení ale i zlepšení výsledku! Některé zajímavé případy si teď ukážeme.</p>
+<p>V pythonu se defautně vypisují čísla zkráceně. Vypsat přesnou hodnotu můžeme následovně:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;.55f&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1 0.3
+0.2999999999999999888977697537484345957636833190917968750
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Jelikož jsou čísla v počítači uložena v binární soustavě, většina desetinných čísel nemá přesnou reprezentaci. Číselný systém s desítkovou bází by toto nevýhodu sice neměl, ale výpočty v binární soustavě jsou výrazně rychlejší na počítači a jdou snadněji hardwarově implementovat.</p>
+</p>
+</div>
+</div><p><strong>Chyba reprezentace</strong></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Srovnejte následující dvě čísla: <span class="math notranslate nohighlight">\(0.1 + 0.2\)</span> a <span class="math notranslate nohighlight">\(0.3\)</span> pomocí operátoru <code class="docutils literal notranslate"><span class="pre">==</span></code>. Co vám vyšlo? Vypište obě čísla zvlášť.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False 0.30000000000000004 0.3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vidíme, že součet dvou čísel již zanesl do výsledku malou chybu. Více se k tomuto můžete dozvědět <a class="reference external" href="https://docs.python.org/3/faq/design.html#why-are-floating-point-calculations-so-inaccurate">zde</a>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #F4330C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #F7C8C0; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Pozor</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Z předchozí ukázky je zřejmé, že není vhodné používat operátor <code class="docutils literal notranslate"><span class="pre">==</span></code> na srovnávání desetinných čísel! Vždy použijte <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> nebo <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, jinak může váš algoritmus dávat špatné výsledky.</p>
+</p>
+</div>
+</div><p><strong>Odečítání podobných čísel</strong></p>
+<p>Odečítání velmi blízkých čísel není vhodné, jelikož při tom vzniká velká relativní chyba. Dvě blízké čísla budou mít zvelké části stejnou mantisu. Po jejich odečtení dostaneme výsledek na malý počet platných číslic:</p>
+<div class="math notranslate nohighlight">
+\[
+a(x \pm y) = a(x) + a(y) \rightarrow r(x \pm y) \leq \max{(a(x), a(y))} \frac{a(x) + a(y)}{|x \pm y|}
+\]</div>
+<p>Pokud <span class="math notranslate nohighlight">\(x \approx y\)</span>, bude rozdíl <span class="math notranslate nohighlight">\(|x \pm y| \approx 0\)</span> a tím pádem relativní chyba bude vysoká. Rozdílem blízkých čísel zesiluje původní chybu.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Uvažujte následující funkci:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1 - \cos{x}}{x^2},
+\]</div>
+<p>pro kterou platí následující chování v okolí <span class="math notranslate nohighlight">\(0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\lim_{x \to 0} f(x) = \frac{1}{2}. 
+\]</div>
+<p>Odhadněte limitu přiblížným výpočtem hodnoty funkce <span class="math notranslate nohighlight">\(f(x)\)</span> v bodě <span class="math notranslate nohighlight">\(1.2 \times 10^{-8}\)</span>. Je výsledek správný? Pro jaké hodnoty <span class="math notranslate nohighlight">\(x\)</span> dostáváte přesnější hodnotu? Jak se můžeme vyhnout rozdílu blízkych hodnot při výpoču funkce <span class="math notranslate nohighlight">\(f(x)\)</span>?</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mf">1.2e-8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999999999999999 1.1102230246251565e-16 1.44e-16
+0.7709882115452477
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Asociativita</strong></p>
+<p>V počítači nemusí platit asiciativita sčítání <span class="math notranslate nohighlight">\((a+b)+c = a+(b+c)\)</span>. Ilustrujeme to na následující úloze:</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Spočítejte součet členů následující posloupnosti pro <span class="math notranslate nohighlight">\(n=400\)</span> v dopředném a zpětném směru:</p>
+<div class="math notranslate nohighlight">
+\[
+0.9^0, \ 0.9^1, \ \dots, \ 0.9^n.
+\]</div>
+<p>Srovnejte výsledky a pokuste se je vysvětlit.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">400</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">+=</span> <span class="n">base</span><span class="o">**</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">+=</span> <span class="n">base</span><span class="o">**</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.999999999999993
+10.000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Při sčítání řady různě velkých čísel je tedy výhodnější nejdříve sčítat malé čísla a až pak větší. Pro efektivní a zárověň přesnější sčítání čísel lze využít například <a class="reference external" href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahanův sčítací algoritmus</a>.</p>
+</p>
+</div>
+</div><p><strong>Hromadění chyb 1</strong></p>
+<p>Na následujícím příkladu uvidíme, že malá chyba se může ve výpočtu postupně nahromadit.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Spočítejte <span class="math notranslate nohighlight">\(x = 0.1 + 0.2 - 0.3\)</span> v dvojité přesnosti (<code class="docutils literal notranslate"><span class="pre">np.float64</span></code>). Dále chceme 100-krát sečíst hodnotu uloženou v proměnné <span class="math notranslate nohighlight">\(x\)</span> pomocí: <span class="math notranslate nohighlight">\(x = x + x\)</span>. Jak byste vysvětlili výsledek?</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.551115123125783e-17
+70368744177664.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Hromadění chyb 2</strong></p>
+<p>Protipříklad hromadění chyb. Může se zdát, že k velkým chybám dochází až při mnoha výpočtech za sebou. Následující ukázka prokazuje opak.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Spočítejte hodnotu <span class="math notranslate nohighlight">\(e = \exp(1) = 2.71828...\)</span> pomocí vzorce <span class="math notranslate nohighlight">\(e = \lim_{n \to \infty}{\left(1 + \frac{1}{n}\right)^{n}}\)</span>. Vyhodnoďtě a vypistě přibližnou hodnotu <span class="math notranslate nohighlight">\(e\)</span> pro <span class="math notranslate nohighlight">\(n = 10^k\)</span>, kde <span class="math notranslate nohighlight">\(k = {1,2,...,7}\)</span>. Také spočítejte relativní chybu. Co pozorujete?</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Je potřeba Python donutit počítat ve fixním typu <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>. Provádějte výpočet za pomocí numpy pole <code class="docutils literal notranslate"><span class="pre">np.array(n,</span> <span class="pre">dtype=np.float32)</span></code>.</p>
+<p>Může se vám hodit funkce <code class="docutils literal notranslate"><span class="pre">np.logspace(1,7,num=8,base=10)</span></code>.</p>
+</p>
+</div>
+</div>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="mf">2.71828</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">n</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">arr</span><span class="p">)</span><span class="o">**</span><span class="n">arr</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.593743] [0.04581463]
+[2.7048113] [0.00495488]
+[2.7170508] [0.00045223]
+[2.718597] [0.00011657]
+[2.7219622] [0.00135458]
+[2.5952268] [0.04526881]
+[3.2939677] [0.21178378]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Vzájemné vyrušení chyb</strong></p>
+<p>Někdy může dojít k několika chybám během výpočtu, které se v konečném výsledku vyruší. Toho lze využít pro zpřesnění určitých výpočtů.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Máme za úkol implementovat výpočet následující funkce pro libovolné <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{e^{x} - 1}{x}.
+\]</div>
+<p>Implementujte následující dva rozdílné algoritmy a spočítejte hodnotu funkce <span class="math notranslate nohighlight">\(f(x)\)</span> pro <span class="math notranslate nohighlight">\(x = 10^{-5}..10^{-16}\)</span>:</p>
+<ol class="arabic simple">
+<li><p>If (<span class="math notranslate nohighlight">\(x = 0\)</span>) then <span class="math notranslate nohighlight">\(f = 1\)</span>; else <span class="math notranslate nohighlight">\(f = \frac{e^{x} - 1}{x}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y = e^{x}\)</span>, If (<span class="math notranslate nohighlight">\(y = 1\)</span>) then f = 1; else <span class="math notranslate nohighlight">\(f = \frac{y - 1}{\log{y}}\)</span>.</p></li>
+</ol>
+<p>Který z algoritmů je přesnější? Vypistě hodnotu čitatele a jmenovatele v počítaném podílu. Dokážete vysvětlit větší přesnost jednoho z algoritmů?</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.e-05, 1.e-06, 1.e-07, 1.e-08, 1.e-09, 1.e-10, 1.e-11, 1.e-12,
+       1.e-13, 1.e-14, 1.e-15, 1.e-16])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="c1"># 1., 2.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+    
+<span class="nb">print</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.000005000006965 1.0000050000166667
+1.000000616442873 1.000000616423623
+1.0000000764311845 1.000000075995558
+1.0000000062384284 1.000000009369087
+0.9999999753484707 1.0000000011550647
+0.9999997446031695 1.0000000001424016
+0.9999998870652326 1.000000000017556
+0.9999996054137743 1.0000000000021643
+0.9998187316137019 1.000000000000267
+0.9989646455689632 1.0000000000000329
+1.012863778612346 1.000000000000004
+1.1102230246251565 1.0000000000000004
+1.1102230246251565e-15 1e-15 1.110223024625156e-15
+</pre></div>
+</div>
+</div>
+</div>
+<section id="zaver">
+<h5>Závěr<a class="headerlink" href="#zaver" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Jak jsme viděli, některé operace ve floating-point aritmetice nejsou přesné. Obecně <strong>neplatí</strong> <em>komutativita</em>, <em>asiciativita</em> a <em>distributivita</em>. Je dobré mít zejména na paměti následující:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+&amp; x \cdot x^{-1} \neq 1, \\
+&amp; (1 + x) - 1 \neq x, \\
+&amp; (x + y) + z \neq x + (y + z) 
+\end{align}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Přesto existují operace, které jsou přesné:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+&amp; 1 \cdot x = x, \\
+&amp; x \cdot y = y \cdot x, \\
+&amp; x + x = 2 \cdot x
+\end{align}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Chyby se v postupných výpočtech šíří. V některých případech se můžou odečítat, někdy naopak zesilovat nebo hromadit!</p></li>
+</ul>
+<p><strong>Šíření chyb</strong>
+Chyby se v numerických výpočtech mohou šířit více způsoby. Může docházet k hromadění i k odečítání chyb. Obecně, při opakovaném provádění určité operace nám chyba může růst:</p>
+<ul class="simple">
+<li><p>lineárně <span class="math notranslate nohighlight">\(O(N \epsilon)\)</span> - chyby mají stejné znaménko</p></li>
+<li><p>s odmocninou <span class="math notranslate nohighlight">\(O(\sqrt{N \epsilon})\)</span> - známenko chyb je náhodné, celková chyba je úmerná jejich <em>varianci</em></p></li>
+</ul>
+<p><strong>Čemu se zejména vyhnout, abychom minimalizovali zaokrouhlovací chyby?</strong></p>
+<ul class="simple">
+<li><p>odčítání blízkých čísel</p></li>
+<li><p>odečítaní i sčítání čísel velmi odlišných řádů</p></li>
+</ul>
+</section>
+</section>
+<section id="chyby-metody">
+<h4>Chyby metody<a class="headerlink" href="#chyby-metody" title="Link to this heading">#</a></h4>
+<p>V případě kdy řešíme úlohu, která v matematické formulaci vyžaduje k vyřešení nekonečný počet kroků, nedokážeme napsat přesný algoritmus. Při převedení na numerickou úlohu se budeme muset dopustit jisté aproximace, aby bylo možné řešení spočítat v <strong>konečném počtu kroků</strong>.</p>
+<p>Typycky výsledná numerická metoda je jistého <strong>řádu</strong>, určující závislost chyby metody na počtu kroků.</p>
+<p><strong>Big-O notace</strong></p>
+<p>Tato notace ukazuje řádovou závislost chyby na jistém rozměru úlohy (velikost kroku numerické metody).</p>
+<p>Definice:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) =  O(g(x)) \quad \text{as} \quad x \rightarrow a
+\]</div>
+<p>přávě tehdy když</p>
+<div class="math notranslate nohighlight">
+\[
+|f(x)| \leq M |g(x)| \quad \text{as}\quad  |x - a| &lt; \delta \quad \text{where} \quad M, a &gt; 0.
+\]</div>
+<p>Tedy <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">big-O</a> notace vyjadřuje, že chyba v určité limitě (<span class="math notranslate nohighlight">\(x\)</span> jdoucí k <span class="math notranslate nohighlight">\(a\)</span>, většinou <span class="math notranslate nohighlight">\(a = 0\)</span> nebo <span class="math notranslate nohighlight">\(a = \infty\)</span>) nepřekročí hodnotu funkce <span class="math notranslate nohighlight">\(g\)</span>, až na konstantu <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<p>Uvažujme následující úlohu využívající poznatky z matematické analýzy - Taylorův rozvoj funkce:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x)=\sum_{n=0}^{\infty}\dfrac{f^{(n)}(a)}{n!}(x - a)^{n} = \sum_{n=0}^{\alpha-1}\dfrac{f^{(n)}(a)}{n!}(x-a)^{n} + O((x-a)^{\alpha})\)</span></p></li>
+<li><p>nahrazením <span class="math notranslate nohighlight">\(h \equiv x - a\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(a+h)=\sum_{n=0}^{\infty}\dfrac{f^{(n)}(a)}{n!}h^{n} = \sum_{n=0}^{\alpha-1}\dfrac{f^{(n)}(a)}{n!}h^{n} + O(h^{\alpha})\)</span></p></li>
+<li><p>Řád metody <span class="math notranslate nohighlight">\(\alpha\)</span>: chyba je úměrná <span class="math notranslate nohighlight">\(h^{\alpha}\)</span></p></li>
+</ul>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Doplňte kód do funkce <code class="docutils literal notranslate"><span class="pre">exp_taylor(x,N)</span></code>, která má spočítat Taylorův rozvoj <em>exponenciální funkce</em> v bodě <span class="math notranslate nohighlight">\(a=0\)</span> (<a class="reference external" href="https://cs.wikipedia.org/wiki/Taylorova_%C5%99ada#Maclaurinova_%C5%99ada">Maclaurinova řada</a>):</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{\alpha-1}{\frac{x^n}{n!}} + O(h^{\alpha})
+\]</div>
+<p>pro obecné <span class="math notranslate nohighlight">\(x\)</span> s využitím prvních <span class="math notranslate nohighlight">\(N\)</span> členů řady.</p>
+<ol class="arabic simple">
+<li><p>Vykreslete do jednoho grafu funkci <span class="math notranslate nohighlight">\(e^x\)</span> a aproximaci funkce <span class="math notranslate nohighlight">\(f(x)\)</span> na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span> pro <span class="math notranslate nohighlight">\(N = 2,3,4\)</span>.</p></li>
+<li><p>Spočítejte absolutní a relativní chyby v tomto intervalu a vykreslete do druhého grafu. Najděte maximum chyby.</p></li>
+</ol>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro vyhodnocení faktoriálu můžete použít funkci <code class="docutils literal notranslate"><span class="pre">np.math.factorial</span></code>.</p>
+</p>
+</div>
+</div>
+<p>Napadá vás, jak aproximovat funkci <span class="math notranslate nohighlight">\(e^x\)</span> na celé množině reálných čísel <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> přesněji (s menší relativní chybou) ?</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="k">def</span> <span class="nf">exp_taylor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="n">fx</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="n">n</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fx</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">fe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">fe</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$e^x$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;absolutní chyba&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;relativní chyba&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">ff</span> <span class="o">=</span> <span class="n">exp_taylor</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;stupeň </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">abs_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span> <span class="o">-</span> <span class="n">ff</span><span class="p">)</span>
+    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">fe</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">abs_err</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">rel_err</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" src="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" />
+</div>
+</div>
+<p id="lepsi-aprox-ex"><strong>Vylepšená aproximace <span class="math notranslate nohighlight">\(e^x\)</span> na <span class="math notranslate nohighlight">\(\mathbb{R}\)</span></strong></p>
+<p>Taylorův rozvoj funkce aproximuje danou funkci pouze na okolí zvoleného budu. Na aproximaci celé funkce to nestačí.</p>
+<p>Co takhle použít Taylorův rozvoj v různých bodech? To se v případě funkce <span class="math notranslate nohighlight">\(e^x\)</span> dostaneme do problémů, protože pro výpočet členů rozvoje v bodě <span class="math notranslate nohighlight">\(a \neq 0\)</span> potřebujeme znát hodnotu <span class="math notranslate nohighlight">\(e^a\)</span>, což se právě snažíme spočítat!</p>
+<p>My si zde ukážeme malé vylepšení, které již umožní získat hodnotu exponenciální funkce na celé množině <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> s rozumnou přesností. V praxi se používá ještě o několik kroků sofistikovanější algoritmus. Více se můžete dozvědět <a class="reference external" href="https://justinwillmert.com/articles/2020/numerically-computing-the-exponential-function-with-polynomial-approximations/">zde</a>.</p>
+<p>Vylepšení spočívá v následujícím <em>triku</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+e^x = e^{n \ln{2} + x^{\prime}} = 2^n e^{x^{\prime}},
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(x = n \ln{2} + x^{\prime}\)</span>. Hodnotu <span class="math notranslate nohighlight">\(x\)</span> jsme tedy rozdělili celočíselný násobek <span class="math notranslate nohighlight">\(\ln{2}\)</span>, která je nejblíže hodnotě <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+n = \text{round}(\frac{x}{\ln{2}}).
+\]</div>
+<p>Spočítat <span class="math notranslate nohighlight">\(2^n\)</span> je v počítači triviální (n-krát bitový posun 1) a <span class="math notranslate nohighlight">\(e^{\prime}\)</span> lze spočítat Taylorem, jelikož <span class="math notranslate nohighlight">\(x{\prime}\)</span> je rozumně blízko 0. Tímto trikem jsme výrazně zlepšili přesnost aproximace exponenciální funkce tím, že jsme <strong>redukovali maximální hodnotu</strong> (<span class="math notranslate nohighlight">\(|x^{\prime}| \leq \frac{\ln(2)}{2}\)</span>) použitou v Taylorově řadě. Jak si ukážeme v následující ukázce, relativní chyba neporoste pro rostoucí <span class="math notranslate nohighlight">\(|x|\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.34657359027997264
+</pre></div>
+</div>
+</div>
+</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte vylepšenou verzi aproximace <em>exponenciální funkce</em> podle předešlého popisu.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Využijte řešení předchozí úlohy pro vyhodnocení <span class="math notranslate nohighlight">\(e^{x^{\prime}}\)</span>.</p>
+</p>
+</div>
+</div>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="k">def</span> <span class="nf">exp_aproximace_na_r</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">x_zbytek</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">exp_zbytek</span> <span class="o">=</span> <span class="n">exp_taylor</span><span class="p">(</span><span class="n">x_zbytek</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="c1"># exp(x&#39;)</span>
+    <span class="c1">#print(n, x_zbytek, exp_zbytek)</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">exp_zbytek</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">fe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">fe</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$e^x$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;absolutní chyba&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;relativní chyba&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">ff</span> <span class="o">=</span> <span class="n">exp_aproximace_na_r</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;stupeň </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+    <span class="n">abs_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span> <span class="o">-</span> <span class="n">ff</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">abs_err</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">fe</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">rel_err</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/64c844434c8876fd318efd1930c420615ec76fa68b2c1c583bfb20929cdd5bb3.png" src="../_images/64c844434c8876fd318efd1930c420615ec76fa68b2c1c583bfb20929cdd5bb3.png" />
+</div>
+</div>
+<p><strong>Vztah chyb</strong></p>
+<p>Je dobré mít na paměti, že i když teoreticky může s menším krokem jít chyba metody k nule, vždy se budou ve výpočtu vyskytovat chyby zaokrouhlovací!
+Vzájemný vztah těchto dvou chyb ilustruje následující obrázek:</p>
+<p><img alt="Vztah chyb" src="../_images/vztah_chyb.png" /></p>
+</section>
+<section id="chyby-vstupnich-dat">
+<h4>Chyby vstupních dat<a class="headerlink" href="#chyby-vstupnich-dat" title="Link to this heading">#</a></h4>
+<p>Vstupní data jsou hodnoty, které vkládáme do počítače. Při jejich uložení již dojde ke zaokrouhlovací chybě, která již může způsobit chybný výsledek.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Implementujte metodu, která najde všechna řešení kvadratické rovnice:</p>
+<div class="math notranslate nohighlight">
+\[
+a x^2 + bx + c = 0.
+\]</div>
+<p>Najděte kořeny pro <span class="math notranslate nohighlight">\(a = 1/3, b = \sqrt{4*7*1/3}, c = 7\)</span>. Funguje vaše metoda správně? Kolik nalezla kořenů?</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="k">def</span> <span class="nf">kvad_koreny</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">D</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">a</span>
+
+<span class="c1">#b**2 = 4*a*c</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kvad_koreny</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7763568394002505e-15
+(-4.582575631735567, -4.582575631735567)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="stabilita">
+<h2>Stabilita<a class="headerlink" href="#stabilita" title="Link to this heading">#</a></h2>
+<p>Numerická metoda může za uřčitých podmínek zesilovat zaokrouhlovací chyby, které se vyskytnou zejména z počátku výpočtu. Takovým metodám se říká nestabilní. Tyto metody by teoreticky fungovali na ideálním počítači bez existence zaokrouhlovacích chyb. U takových metod nepomůže snížit krok.</p>
+<p><strong>Podmíněnost úlohy</strong></p>
+<p>Podmíněnost úlohy nám říká, jestli samotný charakter řešeného problému nevede k zesilování chyb.</p>
+<p><em>Definice:</em> Podmíněnost úlohy <span class="math notranslate nohighlight">\(C_p\)</span> je daná poměrem relativní změny výsledku ku
+relativní změně vstupních dat:</p>
+<div class="math notranslate nohighlight">
+\[
+C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| \delta x \right\|}{\left\| x \right\|}} = \frac{r(y)}{r(x)}.
+\]</div>
+<p>Jinak řečeno, malá chyba ve vstupních datech je zesílena (vynásobena) číslem <span class="math notranslate nohighlight">\(C_p\)</span> v konečném řešení úlohy.</p>
+<p>Rozlišujeme:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C_p \sim 1\)</span> - <em>dobře podmíněná</em> úloha</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_p \geq 100\)</span> - <em>špatně podmíněná</em> úloha</p></li>
+</ul>
+<p>Na následujícím příkladu si ukážeme jeden typ nestabilní metody:</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>S využitím jednoduché přesnosti (<code class="docutils literal notranslate"><span class="pre">np.float16</span></code>) spočítejte prvních 20 mocnic zlatého řezu:</p>
+<div class="math notranslate nohighlight">
+\[
+\phi = \frac{\sqrt{5} - 1}{2}.
+\]</div>
+<p>Použijte následující rekurentní vzorec <span class="math notranslate nohighlight">\((\phi^{0} = 1, \phi^{1} = \phi)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\phi^{n+1} = \phi^{n-1} - \phi^{n}.
+\]</div>
+<p>Porovnejte s hodnotami vypočtenými přímým umocněním. Vykreslete do grafu jak hodnoty, tak relativní chybu.</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
+<span class="n">phis2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
+<span class="n">phis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">phis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span>
+<span class="n">phis2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">phis2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">phis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">phis</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">phis</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">phis2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span><span class="o">**</span><span class="n">i</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phis</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;odčítání&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phis2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;násobení&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phis2</span><span class="o">-</span><span class="n">phis</span><span class="p">)</span><span class="o">/</span><span class="n">phis2</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;relativni chyba&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6180339887498949
+</pre></div>
+</div>
+<img alt="../_images/f42f75f0643e81c420944c295dc8d316ae5936f45315f6f3829dfd1d8c465bdf.png" src="../_images/f42f75f0643e81c420944c295dc8d316ae5936f45315f6f3829dfd1d8c465bdf.png" />
+</div>
+</div>
+<p>Rekurentní vztah pro výpočet zlatého řezu má 2 řešení: <span class="math notranslate nohighlight">\(\frac{\sqrt{5} \pm 1}{2}\)</span>. Jelikož druhé řešení je vetší než 1, libovolně malá chyba vzniklá zaokrouhlováním exponenciálně poroste (v každé iteraci se vynásobí druhým řešením).</p>
+<p>S nestabilními metodami se znovu setkáme v kapitole řešení ODR.</p>
+</section>
+<section id="ukazky-z-praxe">
+<h2>Ukázky z praxe<a class="headerlink" href="#ukazky-z-praxe" title="Link to this heading">#</a></h2>
+<p>Chyby při arimetických výpočtech v počítačích mohou mít své důsledky [<a class="reference external" href="https://www3.nd.edu/~markst/castaward/text10n.html">1</a>, <a class="reference external" href="https://www3.nd.edu/~markst/castaward/text9n.html">2</a>]. V praxi jsou důležité nejen fyzikální jednotky [<a class="reference external" href="https://www.simscale.com/blog/nasa-mars-climate-orbiter-metric/">3</a>], ale i numerická robustnost algoritmů.</p>
+<p>S poznatky této kapitoly se budeme setkávát v následujících hodinách, kde uvidíme jejich důsledky při konstrukci a aplikaci různých metod numerické matematiky.</p>
+</section>
+<section id="zapoctova-uloha">
+<h2>Zápočtová úloha<a class="headerlink" href="#zapoctova-uloha" title="Link to this heading">#</a></h2>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 1</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html#ukol1"><span class="std std-ref">ZDE</span></a></p>
+</p>
+</div>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lekce-vyplnene"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-uvod-python-vypl.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Úvod do jazyka Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../lekce/03-linalg-prime.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Metody lineární algebry</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericka-matematika">Numerická matematika</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprezentace-cisel-v-pocitaci">Reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desetinna-cisla">Desetinná čísla</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-ve-vypoctech">Chyby ve výpočtech</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-definice">Základní definice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zdroje-chyb">Zdroje chyb</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-zaokrouhlovaci">Chyby zaokrouhlovací</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#zaver">Závěr</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-metody">Chyby metody</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jiří Löffelmann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
