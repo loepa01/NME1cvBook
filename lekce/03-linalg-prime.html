@@ -518,7 +518,11 @@ document.write(`
 <div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Pro získání rozměrů matice nebo vektoru můžete použít <code class="docutils literal notranslate"><span class="pre">x.shape</span></code>, <code class="docutils literal notranslate"><span class="pre">A.shape[i]</span></code> (velikost v i-tém směru) nebo <code class="docutils literal notranslate"><span class="pre">np.shape(A)[i]</span></code>.</p>
+<ul class="simple">
+<li><p>Pro získání rozměrů matice nebo vektoru můžete použít <code class="docutils literal notranslate"><span class="pre">x.shape</span></code>, <code class="docutils literal notranslate"><span class="pre">A.shape[i]</span></code> (velikost v i-tém směru) nebo <code class="docutils literal notranslate"><span class="pre">np.shape(A)[i]</span></code>.</p></li>
+<li><p>Pro procházení dvou polí najednou lze použít konstrukce <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(xi,yi)</span> <span class="pre">in</span> <span class="pre">zip(x,y):</span></code>.</p></li>
+<li><p>Nový vektor vytvářejte pomocí <code class="docutils literal notranslate"><span class="pre">np.zero()</span></code>.</p></li>
+</ul>
 </p>
 </div>
 </div>
@@ -556,7 +560,7 @@ y_i = (\mathbb{A} \cdot \vec{x})_i = \sum_{j = 0}^{n-1} a_{ij} x_j, \quad i = 0,
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Napište funkci, která počítá součin matice s vektorem. Nepoužijte žádné knihovní funkce (<code class="docutils literal notranslate"><span class="pre">np.dot()</span></code> nebo operátoru <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>). Zkontrolujte správnost pomocí vhodné knihovní funkce.</p>
+<p>Napište funkci, která počítá součin matice s vektorem. Nepoužijte žádné knihovní funkce (<code class="docutils literal notranslate"><span class="pre">np.dot()</span></code> nebo operátoru <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>). Zkontrolujte správnost pomocí vhodné knihovní funkce. Lze využít předchozí funkci <code class="docutils literal notranslate"><span class="pre">skalarni_soucin()</span></code>.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -887,7 +891,33 @@ C:\Users\jiral\AppData\Local\Temp\ipykernel_20156\339819762.py:13: RuntimeWarnin
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>Vidíme, že dostáváme výsledek s nezanedbatelnou chybou! Podobný příklad můžete vidět <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_pivoting.pdf">zde</a>.</p>
+<p>Chyba vzniká zaokrouhlováním při odčítání velmi odlišných čísel. Při použití malého pivota odčítáme od hodnot v matici vysoké číslo, čímž vzníká velká chyba (výrazně větší než strojová přesnost <span class="math notranslate nohighlight">\(\varepsilon\)</span>).</p>
+<p>Dalším problémem je, že malé hodnoty v matici mohou vznikat odečtením blízkých hodnot v předchozích krocích. Nasledné použití této hodnoty jako pivota vede k silnému hromadění chyb!</p>
+<p>Předchozím problémům se lze vyhnout vhodným výběrem pivota (tzv. <em>pivotingem</em>). Vhodný pivot je největší dostupné číslo. Máme několik strategií, jak pivota vybrat:</p>
+<ol class="arabic simple">
+<li><p><strong>úplný pivoting</strong> - výběr z celé dosud neupravené části matice <span class="math notranslate nohighlight">\(\max{|a_{jk}|}\)</span> (nev7hoda: znatelně zpomaluje výpočet)</p></li>
+<li><p><strong>částečný pivoting</strong> - výběr v daném sloupci (<em>sloupcový</em>) a řádku (<em>řádkový</em>)</p></li>
+<li><p><strong>implicitní pivoting</strong> - rychlejší verze sloupcového pivotingu, při výběru je porovnána velikost prvků v daném sloupci normovaném na maximum z prvků v jednotlivých řádcích původní matice</p></li>
+</ol>
+<p>Při výběru pivota z jiného řádku je třeba prohodit odpovídající řádky a pravou stranu. V případě volby pivota v jiném sloupci je třeba prohodit navíc složky hledaného řešení.</p>
+<p>V praxi většinou stačí <em>částečný</em> nebo i <em>sloupcový pivoting</em>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Modifikujte Gaussovu eliminační metodu pomocí tak, že použijete <em>sloupcový pivoting</em>. Ověřte zlepšení přesnosti na řešení předcházející soustavy rovnic. Stačí upravit zpětný chod <code class="docutils literal notranslate"><span class="pre">gauss_elim_dopredna()</span></code>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro nalezení největšího prvku se může hodit funkce <code class="docutils literal notranslate"><span class="pre">np.argmax()</span></code>. Pro prohození řádků lze použít <code class="docutils literal notranslate"><span class="pre">np.copy()</span></code> (pro uložení přepisovaného řádku do pomocné proměné) nebo pokročilého Numpy řezu <code class="docutils literal notranslate"><span class="pre">A[[i,j],:]</span> <span class="pre">=</span> <span class="pre">A[[j,i],:]</span></code> (prohodí řádky <span class="math notranslate nohighlight">\(i,j\)</span>).</p>
+</p>
+</div>
+</div>
+</p>
+</div>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1e-10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">])</span>
