@@ -777,7 +777,7 @@ Z definice floating-point reprezentace desetinných čísel je jasné, že není
 <li><p>Přesná hodnota: <span class="math notranslate nohighlight">\(x\)</span></p></li>
 <li><p>Přibližná hodnota hodnota: <span class="math notranslate nohighlight">\(\tilde{x}\)</span></p></li>
 <li><p>Absolutní chyba: <span class="math notranslate nohighlight">\(A(x) = |\tilde{x} - x| \leq a(x)\)</span>, kde <span class="math notranslate nohighlight">\(a(x)\)</span> je odhad absolutní chyby</p></li>
-<li><p>Relativní chyba: <span class="math notranslate nohighlight">\(R(x) = \frac{|\tilde{x} - x|}{|x|} \leq r(x)\)</span>, kde <span class="math notranslate nohighlight">\(r(x) \approx \frac{a(x)}{\tilde{x}}\)</span> je odhad relativní chyby</p></li>
+<li><p>Relativní chyba: <span class="math notranslate nohighlight">\(R(x) = \frac{|\tilde{x} - x|}{|x|} \leq r(x)\)</span>, kde <span class="math notranslate nohighlight">\(r(x) \approx \frac{a(x)}{|\tilde{x}|}\)</span> je odhad relativní chyby</p></li>
 <li><p>Intervalový odhad: <span class="math notranslate nohighlight">\(\tilde{x} - a(x) \leq x \leq \tilde{x} + a(x) \rightarrow x \approx \tilde{x} \pm a(x) \rightarrow  x \approx \tilde{x} (1 \pm r(x))\)</span></p></li>
 </ul>
 <p><strong>Počet platných číslic</strong></p>
@@ -1187,7 +1187,7 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{\alpha-1}{\frac{x^n}{n!}} + 
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;stupeň </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     
     <span class="n">abs_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span> <span class="o">-</span> <span class="n">ff</span><span class="p">)</span>
-    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">fe</span>
+    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">abs_err</span><span class="p">)</span>
@@ -1276,7 +1276,7 @@ n = \text{round}(\frac{x}{\ln{2}}).
     <span class="n">abs_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span> <span class="o">-</span> <span class="n">ff</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">abs_err</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
-    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">fe</span>
+    <span class="n">rel_err</span> <span class="o">=</span> <span class="n">abs_err</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">rel_err</span><span class="p">)</span>
     
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
@@ -1397,7 +1397,7 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phis2</span><span class="o">-</span><span class="n">phis</span><span class="p">)</span><span class="o">/</span><span class="n">phis2</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phis2</span><span class="o">-</span><span class="n">phis</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phis2</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;relativni chyba&#39;</span><span class="p">);</span>
 </pre></div>
