@@ -19,9 +19,13 @@ parts:
     #- file: lekce-vyplnene/03-linalg-prime-vypl
       title: 3. Metody lineární algebry
 
-    #- file: lekce/04-linalg-iter
-    - file: lekce-vyplnene/04-linalg-iter-vypl
+    - file: lekce/04-linalg-iter
+    #- file: lekce-vyplnene/04-linalg-iter-vypl
       title: 4. Iterační metody lineární algebry
+
+    #- file: lekce/05-aproximace-funkci
+    - file: lekce-vyplnene/05-aproximace-funkci-vypl
+      title: 5. Aproximace funkcí
 
     - file: lekce/07-nelinearni-rce
     #- file: lekce-vyplnene/07-nelinearni-rce-vypl
@@ -49,6 +53,8 @@ parts:
       title: 3. Metody lineární algebry
     - file: ukoly/04-linalg-iter-UKOL
       title: 4. Iterační metody lineární algebry
+    - file: ukoly/05-aproximace-funkci-UKOL
+      title: 5. Aproximace funkcí
     
     - file: ukoly/07-nelinearni-rce-UKOL
       title: 7. Nelineární rovnice

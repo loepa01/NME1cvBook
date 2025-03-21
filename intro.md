@@ -12,9 +12,6 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 * [Jiří Löffelmann](https://usermap.cvut.cz/profile/7a2ecf76-b3c3-4716-b1b2-cd6859a8e193), [loffejir@fjfi.cvut.cz](mailto:loffejir@fjfi.cvut.cz)
 * od 21.2. do 16.5. (18.4. volno - Velký pátek), 12 lekcí
 
-```{tableofcontents}
-```
-
 ## Podmínky udělení zápočtu
 - max. 3 absence (+ možnost nahrazení 2 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B242-12NME112ANM/Sdilene%20dokumenty/General/dochazka_NME1cv_Pa8_10.xlsx?d=we7f112e301fa46f8a69ee37ef7f7ae7a&csf=1&web=1&e=w8K7KL)
 - vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (lekce 2-6), 2 úlohy z druhé půlky cvičení (lekce 7-12)
@@ -23,7 +20,9 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 ## Úkoly
 V kurzu je pro získání zápočtu třeba odevzdat **čtyři** vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.
 
-Celkem bude zadáno 10 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů. Pokud odevzdaný úkol nebude splňovat požadavky, pošlu vám ho na opravu zpět. Typicky vám okomentuji vaše řešení a poradím jak případné chyby opravit. Otázky k úkolům jsou samozřejmě vítány, ideálně na konci cvičení.
+Celkem bude zadáno 9 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). **Dva úkoly musí být z kapitol 2-6 a dva z kapitol 7-12!** Nelze odevzdat všechny úkoly jen z první půlky cvičení.
+
+Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů. Pokud odevzdaný úkol nebude splňovat požadavky, pošlu vám ho na opravu zpět. Typicky vám okomentuji vaše řešení a poradím jak případné chyby opravit. Otázky k úkolům jsou samozřejmě vítány, ideálně na konci cvičení.
 
 Úkoly odevzdávejte mailem. Nechte jméno jupyter notebooku stejné, pouze přidejte vaše jméno nakonec (příklad: **02-nelinearni-rce-UKOL_JiriLoffelmann**).
 
@@ -47,6 +46,9 @@ Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly
 - prostředí [Jupyter notebook](https://jupyter.org/) (instalace popsána [zde](install-all))
 - po proběhnutí cvičení naleznete doplněné notebooky na GitHubu (ve vrchním menu tlačítko <i class="fab fa-github" aria-hidden="true"></i>)
 - po nějaké době (typicky v den následujícího cvičení) je aktualizována i webová stránka s vyplněným Jupyter notebookem
+
+```{tableofcontents}
+```
 
 (literatura)=
 ## Doporučená literatura
