@@ -63,8 +63,8 @@
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Iterační metody lineární algebry" href="04-linalg-iter-vypl.html" />
-    <link rel="prev" title="Numerické chyby a stabilita" href="../lekce/02-chyby-stabilita.html" />
+    <link rel="next" title="Iterační metody lineární algebry" href="../lekce/04-linalg-iter.html" />
+    <link rel="prev" title="Numerické chyby a stabilita" href="02-chyby-stabilita-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,10 +181,11 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lekce/01-uvod-python.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce/02-chyby-stabilita.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-chyby-stabilita-vypl.html">2. Numerické chyby a stabilita</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Metody lineární algebry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/04-linalg-iter.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/05-aproximace-funkci.html">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/08-extremy-fci.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/09-integrace.html">9. Numerická integrace</a></li>
@@ -196,6 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
@@ -464,7 +466,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-operace-s-maticemi">Základní operace s maticemi</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-product">Scalar product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skalarni-soucin">Skalární součin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soucin-matice-s-vektorem">Součin matice s vektorem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soucin-matice-s-matici">Součin matice s maticí</a></li>
 </ul>
@@ -474,7 +476,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussova-eliminace">Gaussova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordanova-eliminace">Gauss-Jordanova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thomasuv-algoritmus">Thomasův algoritmus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterativniho-zpresneni-reseni">Iterativního zpřesnění řešení</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
@@ -502,8 +507,8 @@ document.write(`
 </div>
 <section id="zakladni-operace-s-maticemi">
 <h2>Základní operace s maticemi<a class="headerlink" href="#zakladni-operace-s-maticemi" title="Link to this heading">#</a></h2>
-<section id="scalar-product">
-<h3>Scalar product<a class="headerlink" href="#scalar-product" title="Link to this heading">#</a></h3>
+<section id="skalarni-soucin">
+<h3>Skalární součin<a class="headerlink" href="#skalarni-soucin" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">Skalární součin</a> dvou vektorů <span class="math notranslate nohighlight">\( \vec{x} \in \mathbb{R}^{n} \)</span> a <span class="math notranslate nohighlight">\( \vec{y} \in \mathbb{R}^{n} \)</span> je definován následovně:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -518,7 +523,11 @@ document.write(`
 <div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Pro získání rozměrů matice nebo vektoru můžete použít <code class="docutils literal notranslate"><span class="pre">x.shape</span></code>, <code class="docutils literal notranslate"><span class="pre">A.shape[i]</span></code> (velikost v i-tém směru) nebo <code class="docutils literal notranslate"><span class="pre">np.shape(A)[i]</span></code>.</p>
+<ul class="simple">
+<li><p>Pro získání rozměrů matice nebo vektoru můžete použít <code class="docutils literal notranslate"><span class="pre">x.shape</span></code>, <code class="docutils literal notranslate"><span class="pre">A.shape[i]</span></code> (velikost v i-tém směru) nebo <code class="docutils literal notranslate"><span class="pre">np.shape(A)[i]</span></code>.</p></li>
+<li><p>Pro procházení dvou polí najednou lze použít konstrukce <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(xi,yi)</span> <span class="pre">in</span> <span class="pre">zip(x,y):</span></code>.</p></li>
+<li><p>Nový vektor vytvářejte pomocí <code class="docutils literal notranslate"><span class="pre">np.zero()</span></code>.</p></li>
+</ul>
 </p>
 </div>
 </div>
@@ -542,8 +551,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.83139346 0.13063298 0.57990023] [0.59881827 0.20268352 0.02221312]
-0.5372121429785394 0.5372121429785394
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.20350165 0.5543405  0.8436529 ] [0.34839323 0.44640505 0.58522528]
+0.8120860027740153 0.8120860027740153
 </pre></div>
 </div>
 </div>
@@ -560,7 +569,7 @@ y_i = (\mathbb{A} \cdot \vec{x})_i = \sum_{j = 0}^{n-1} a_{ij} x_j, \quad i = 0,
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Napište funkci, která počítá součin matice s vektorem. Nepoužijte žádné knihovní funkce (<code class="docutils literal notranslate"><span class="pre">np.dot()</span></code> nebo operátoru <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>). Zkontrolujte správnost pomocí vhodné knihovní funkce.</p>
+<p>Napište funkci, která počítá součin matice s vektorem. Nepoužijte žádné knihovní funkce (<code class="docutils literal notranslate"><span class="pre">np.dot()</span></code> nebo operátoru <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>). Zkontrolujte správnost pomocí vhodné knihovní funkce. Lze využít předchozí funkci <code class="docutils literal notranslate"><span class="pre">skalarni_soucin()</span></code>.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -582,10 +591,10 @@ y_i = (\mathbb{A} \cdot \vec{x})_i = \sum_{j = 0}^{n-1} a_{ij} x_j, \quad i = 0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.772886   0.22015307 0.76517971 0.06616971]
- [0.83894046 0.2041534  0.86375422 0.5972472 ]
- [0.34786499 0.6228571  0.35128022 0.68299252]] [0.23429355 0.56975239 0.07411743 0.6347202 ]
-[0.40522735 0.75597933 0.89592198] [0.40522735 0.75597933 0.89592198]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.22633532 0.44566251 0.62000639 0.54792683]
+ [0.57009264 0.29031861 0.77997205 0.4865204 ]
+ [0.20178447 0.84438415 0.70275164 0.92962111]] [0.92842928 0.04714665 0.65948466 0.25394788]
+[0.77917739 1.18090867 0.92668173] [0.77917739 1.18090867 0.92668173]
 </pre></div>
 </div>
 </div>
@@ -627,19 +636,19 @@ y_i = (\mathbb{A} \cdot \vec{x})_i = \sum_{j = 0}^{n-1} a_{ij} x_j, \quad i = 0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.93900362 0.93254905 0.8398923  0.59719839]
- [0.21166823 0.47156266 0.00412861 0.90073539]
- [0.76013947 0.96621237 0.7792041  0.62534165]]
-[[0.57859143 0.18468811 0.87793734]
- [0.59642606 0.62035412 0.31216708]
- [0.50617326 0.34315774 0.90202306]
- [0.53664633 0.29167536 0.64022396]]
-[[1.84511135 1.21433705 2.25544038]
- [0.88918782 0.59576753 0.91343427]
- [1.746084   1.18956922 2.07219329]]
-[[1.84511135 1.21433705 2.25544038]
- [0.88918782 0.59576753 0.91343427]
- [1.746084   1.18956922 2.07219329]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.10135879 0.69883083 0.45457066 0.52305277]
+ [0.56112835 0.46921067 0.24237972 0.40405999]
+ [0.70784711 0.81939215 0.21476439 0.0320192 ]]
+[[0.95302307 0.02676025 0.13412802]
+ [0.96670268 0.77940009 0.2201264 ]
+ [0.65344265 0.40723556 0.77268612]
+ [0.99510268 0.53669345 0.71815166]]
+[[1.58968597 1.01321753 0.89429782]
+ [1.5488179  0.69628077 0.65600848]
+ [1.63890181 0.76222067 0.46425207]]
+[[1.58968597 1.01321753 0.89429782]
+ [1.5488179  0.69628077 0.65600848]
+ [1.63890181 0.76222067 0.46425207]]
 </pre></div>
 </div>
 </div>
@@ -666,7 +675,7 @@ y_i = (\mathbb{A} \cdot \vec{x})_i = \sum_{j = 0}^{n-1} a_{ij} x_j, \quad i = 0,
 </section>
 <section id="reseni-soustavy-linearnich-rovnic">
 <h2>Řešení soustavy lineárních rovnic<a class="headerlink" href="#reseni-soustavy-linearnich-rovnic" title="Link to this heading">#</a></h2>
-<p>Hlavní úlohou lineární algebry je řešení soustavy rovnic. Tuto úlohu dokáže počítat řešit stejně jako člověk, jelikož známe algoritmy s konečným počtem kroků. Stačí tedy provést konečný počet aritmetických operací s konečným počtem čísel.</p>
+<p>Hlavní úlohou lineární algebry je řešení soustavy rovnic. Tuto úlohu dokáže počítač řešit stejně jako člověk, jelikož jsou známy algoritmy s konečným počtem kroků. Stačí tedy provést konečný počet aritmetických operací s konečným počtem čísel.</p>
 <p>Jelikož tento typ lze snadno řešit na počítači, často se jiné úlohy převádí právě na soustavu lineárních rovnic, kterou dokážeme řešit. Příkladem tohoto postupu je řešení <em>obyčejných diferenciálních rovnic</em> (ODR) nebo <em>parciálních diferenciálních rovnic</em> (PDR), se kterými se setkáme v <a class="reference internal" href="../lekce/11-reseni-okraj.html#metoda-siti"><span class="std std-ref">poslední kapitole</span></a>.</p>
 <p>Matematicky můžeme problém zapsat následovně:</p>
 <div class="math notranslate nohighlight">
@@ -685,6 +694,7 @@ y_i = (\mathbb{A} \cdot \vec{x})_i = \sum_{j = 0}^{n-1} a_{ij} x_j, \quad i = 0,
 <section id="gaussova-eliminace">
 <h3>Gaussova eliminace<a class="headerlink" href="#gaussova-eliminace" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_elimination">Gaussova eleminace</a> je algoritmus, který transformuje libovolnou matici na horní (nebo dolní) trojúhelníkovou. To výrazně zjednodušší celou soustavu. Řešení pak lze spočítat pomocí tzv. <em>zpětného běhu</em>. Jednotlivé kroky celého algoritmu si zde ukážeme.</p>
+<p>Je to vlastně zobecněný postup eliminace členů v soustavě rovnic. Podobný postup známe již ze střední - sčítání/odčítání rovnic s cílem eliminovat dostatek členů tak, abychom mohli postupně vyjádřit a spočítat jednotlivé složky řešení.</p>
 <p><img alt="Gaussova eliminace postup" src="../_images/gauss_elim.png" /></p>
 <p><strong>Dopředný běh</strong></p>
 <p>Matici <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{n \ \times \ n} \)</span> je možné transformovat na horní trojúhelníkovou pomocí vzorce:</p>
@@ -721,9 +731,9 @@ b_{j} &amp;:= b_{j}- \frac{a_{ji}}{a_{ii}} b_{i}, \qquad i = 0, 1, \dots, n-1, \
     <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="c1">## DOPLŇTE ##</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="c1"># indexy [i+1,n-1]</span>
             <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span> <span class="c1"># zde staci prochazet indexy [i,n-1]</span>
                 <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span>
             <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">A</span><span class="p">,</span><span class="n">b</span>
@@ -734,18 +744,19 @@ b_{j} &amp;:= b_{j}- \frac{a_{ji}}{a_{ii}} b_{i}, \qquad i = 0, 1, \dots, n-1, \
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.9914132  0.9120253  0.93381036 0.48088198]
- [0.17055387 0.71826111 0.06099502 0.55454411]
- [0.53817095 0.35579706 0.89299434 0.10290006]
- [0.51595647 0.43741892 0.57752847 0.79708226]] [0.32254751 0.97139026 0.59510652 0.31278152]
-[[ 0.9914132   0.9120253   0.93381036  0.48088198]
- [ 0.          0.56136442 -0.09964938  0.47181747]
- [ 0.          0.          0.36136816 -0.04107597]
- [ 0.          0.          0.          0.58775892]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.54181406 0.09292209 0.65864946 0.4490366 ]
+ [0.35231957 0.25207071 0.86527811 0.07756792]
+ [0.37608874 0.55219664 0.70344033 0.25866283]
+ [0.24911291 0.08746683 0.1174474  0.48516246]] [0.45382933 0.4728917  0.02524169 0.06630322]
+[[ 5.41814058e-01  9.29220941e-02  6.58649460e-01  4.49036601e-01]
+ [ 0.00000000e+00  1.91647268e-01  4.36985241e-01 -2.14422251e-01]
+ [ 0.00000000e+00  5.55111512e-17 -8.65770774e-01  4.92627240e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.65232063e-01]]
 </pre></div>
 </div>
 </div>
 </div>
+<p>Předchozí implementace lze zjednodušit při použití <em>řezání polí</em>. Zde pro názornost používáme for-cykly. Díky tomu je snadno vidět, že složitost algoritmu je <span class="math notranslate nohighlight">\(O(N^3)\)</span>.</p>
 <p><strong>Zpětný běh</strong></p>
 <p>Soustava lineárních rovnic <span class="math notranslate nohighlight">\( \mathbb{A} x = b \)</span> s horní trojúhelníkovou maticí <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{n \ \times \ n} \)</span> je možné vyřešit pomocí <a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_matrix#Forward_and_back_substitution">zpětné substituce</a> neboli <em>zpětného běhu Gaussovy eliminace</em>:</p>
 <div class="math notranslate nohighlight">
@@ -780,12 +791,12 @@ x_i := \frac{1}{a_{ii}} \left( b_i - \sum_{j = i + 1}^{n-1} a_{ij} x_j \right), 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.99238736 0.91444374 0.74467695 0.67980813]
- [0.         0.43783844 0.97596445 0.33957138]
- [0.         0.         0.45236023 0.43979398]
- [0.         0.         0.         0.91868856]] [0.84833208 0.96539183 0.43887978 0.87205561]
-[-1.08706757  1.3632094   0.04732931  0.94923966]
-[-1.08706757  1.3632094   0.04732931  0.94923966]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.28261947 0.31088426 0.98006575 0.21658714]
+ [0.         0.47217157 0.24367598 0.22737901]
+ [0.         0.         0.28393215 0.93321029]
+ [0.         0.         0.         0.70837816]] [0.12961106 0.38487749 0.54491015 0.22189565]
+[-3.09210456  0.20517378  0.88960355  0.31324462]
+[-3.09210456  0.20517378  0.88960355  0.31324462]
 </pre></div>
 </div>
 </div>
@@ -811,10 +822,10 @@ x_i := \frac{1}{a_{ii}} \left( b_i - \sum_{j = i + 1}^{n-1} a_{ij} x_j \right), 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.66262611 0.29301267 0.59422536 0.07276833]
- [0.14685898 0.71236235 0.5528195  0.17417942]
- [0.68757098 0.47889717 0.18110509 0.628472  ]
- [0.51145855 0.64432575 0.37681061 0.46435004]] [0.9254799  0.68494708 0.65224819 0.30197395]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.11558118 0.85758044 0.73607042 0.21577914]
+ [0.908435   0.5633516  0.36982372 0.88803557]
+ [0.27289227 0.94334655 0.07696696 0.05864567]
+ [0.45206168 0.56050908 0.86757872 0.05785772]] [0.00302654 0.23464056 0.09013684 0.86612249]
 The implementation is correct.
 </pre></div>
 </div>
@@ -827,13 +838,14 @@ The implementation is correct.
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Použijte Gaussovu eliminaci <code class="docutils literal notranslate"><span class="pre">gauss_elimimace()</span></code> na řešení soustavy s maticí:
-$<span class="math notranslate nohighlight">\(
+<p>Použijte Gaussovu eliminaci <code class="docutils literal notranslate"><span class="pre">gauss_elimimace()</span></code> na řešení soustavy s maticí:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \mathbb{A} = \begin{pmatrix}
 0 &amp; 1 \\
 1 &amp; 1
 \end{pmatrix}.
-\)</span>$</p>
+\end{split}\]</div>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -848,25 +860,25 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jiral\AppData\Local\Temp\ipykernel_20156\339819762.py:13: RuntimeWarning: divide by zero encountered in long_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jiral\AppData\Local\Temp\ipykernel_1788\339819762.py:13: RuntimeWarning: divide by zero encountered in long_scalars
   A[j,k] -= a / A[i,i] * A[i,k]
-C:\Users\jiral\AppData\Local\Temp\ipykernel_20156\339819762.py:13: RuntimeWarning: invalid value encountered in double_scalars
+C:\Users\jiral\AppData\Local\Temp\ipykernel_1788\339819762.py:13: RuntimeWarning: invalid value encountered in double_scalars
   A[j,k] -= a / A[i,i] * A[i,k]
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">219</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">gauss_elimimace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
 
-<span class="nn">Cell In [218], line 6,</span> in <span class="ni">gauss_elimimace</span><span class="nt">(A, b)</span>
+<span class="nn">Cell In [10], line 6,</span> in <span class="ni">gauss_elimimace</span><span class="nt">(A, b)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">gauss_elimimace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">A</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">gauss_elim_dopredna</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">gauss_elim_zpetny</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="nn">Cell In [216], line 13,</span> in <span class="ni">gauss_elim_dopredna</span><span class="nt">(A, b)</span>
+<span class="nn">Cell In [8], line 13,</span> in <span class="ni">gauss_elim_dopredna</span><span class="nt">(A, b)</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
 <span class="ne">---&gt; </span><span class="mi">13</span>             <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span>
@@ -890,8 +902,9 @@ C:\Users\jiral\AppData\Local\Temp\ipykernel_20156\339819762.py:13: RuntimeWarnin
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Použijte Gaussovu eliminaci <code class="docutils literal notranslate"><span class="pre">gauss_elimimace()</span></code> na řešení soustavy s maticí a pravou stranou:
-$<span class="math notranslate nohighlight">\(
+<p>Použijte Gaussovu eliminaci <code class="docutils literal notranslate"><span class="pre">gauss_elimimace()</span></code> na řešení soustavy s maticí a pravou stranou:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \mathbb{A} = \begin{pmatrix}
 10^{-10} &amp; 2 &amp; 3 \\
 4 &amp; 5 &amp; 6 \\
@@ -901,7 +914,7 @@ $<span class="math notranslate nohighlight">\(
 0.1  \\
 0.01
 \end{pmatrix}.
-\)</span>$</p>
+\end{split}\]</div>
 <p>Výsledek porovnejte s řešením získaným pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a>.</p>
 </p>
 </div>
@@ -928,10 +941,11 @@ $<span class="math notranslate nohighlight">\(
 <p>Chyba vzniká zaokrouhlováním při odčítání velmi odlišných čísel. Při použití malého pivota odčítáme od hodnot v matici vysoké číslo, čímž vzníká velká chyba (výrazně větší než strojová přesnost <span class="math notranslate nohighlight">\(\varepsilon\)</span>).</p>
 <p>Dalším problémem je, že malé hodnoty v matici mohou vznikat odečtením blízkých hodnot v předchozích krocích. Nasledné použití této hodnoty jako pivota vede k silnému hromadění chyb!</p>
 <p>Předchozím problémům se lze vyhnout vhodným výběrem pivota (tzv. <em>pivotingem</em>). Vhodný pivot je největší dostupné číslo. Máme několik strategií, jak pivota vybrat:</p>
+<p><img alt="Pivoting strategie" src="../_images/pivoting.png" /></p>
 <ol class="arabic simple">
-<li><p><em>úplný pivoting</em> - výběr z celé dosud neupravené části matice <span class="math notranslate nohighlight">\(\max{|a_{jk}|}\)</span> (nev7hoda: znatelně zpomaluje výpočet)</p></li>
-<li><p><em>částečný pivoting</em> - výběr v daném sloupci (<em>sloupcový</em>) a řádku (<em>řádkový</em>)</p></li>
-<li><p><em>implicitní pivoting</em> - rychlejší verze sloupcového pivotingu, při výběru je porovnána velikost prvků v daném sloupci normovaném na maximum z prvků v jednotlivých řádcích původní matice</p></li>
+<li><p><strong>úplný pivoting</strong> - výběr z celé dosud neupravené části matice <span class="math notranslate nohighlight">\(\max{|a_{jk}|}\)</span> (nevýhoda: znatelně zpomaluje výpočet)</p></li>
+<li><p><strong>částečný pivoting</strong> - výběr v daném sloupci (<em>sloupcový</em>) a řádku (<em>řádkový</em>)</p></li>
+<li><p><strong>implicitní pivoting</strong> - rychlejší verze sloupcového pivotingu, při výběru je porovnána velikost prvků v daném sloupci normovaném na maximum z prvků v jednotlivých řádcích původní matice</p></li>
 </ol>
 <p>Při výběru pivota z jiného řádku je třeba prohodit odpovídající řádky a pravou stranu. V případě volby pivota v jiném sloupci je třeba prohodit navíc složky hledaného řešení.</p>
 <p>V praxi většinou stačí <em>částečný</em> nebo i <em>sloupcový pivoting</em>.</p>
@@ -944,7 +958,7 @@ $<span class="math notranslate nohighlight">\(
 <div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Pro nalezení největšího prvku se může hodit funkce <code class="docutils literal notranslate"><span class="pre">np.argmax()</span></code>.</p>
+<p>Pro nalezení největšího prvku se může hodit funkce <code class="docutils literal notranslate"><span class="pre">np.argmax()</span></code>. Pro prohození řádků lze použít <code class="docutils literal notranslate"><span class="pre">np.copy()</span></code> (pro uložení přepisovaného řádku do pomocné proměné) nebo pokročilého Numpy řezu <code class="docutils literal notranslate"><span class="pre">A[[i,j],:]</span> <span class="pre">=</span> <span class="pre">A[[j,i],:]</span></code> (prohodí řádky <span class="math notranslate nohighlight">\(i,j\)</span>).</p>
 </p>
 </div>
 </div>
@@ -1060,6 +1074,7 @@ x_i = \mu_i x_{i+1} + \rho_i, \qquad i = n-1, n-2, \dots, 0,
 <p>
 <p>Implementujte Thomasův algoritmus pomocí uvedených vzorců. Nejprve je třeba provést <em>dopředný běh</em> (výpočet <span class="math notranslate nohighlight">\(\mu\)</span> a <span class="math notranslate nohighlight">\(\rho\)</span>) a následně <em>zpětný běh</em>. Správnost ověřte pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a>.</p>
 </p>
+</div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1067,8 +1082,7 @@ x_i = \mu_i x_{i+1} + \rho_i, \qquad i = n-1, n-2, \dots, 0,
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">thomas_alg</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-    <span class="c1">## DOPLŇTE ##</span>
-    
+    <span class="c1">## DOPLŇTE ##    </span>
     <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1094,33 +1108,30 @@ x_i = \mu_i x_{i+1} + \rho_i, \qquad i = n-1, n-2, \dots, 0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.36653253 0.01789338 0.         0.         0.        ]
- [0.76320804 0.75026937 0.52011663 0.         0.        ]
- [0.         0.5319773  0.6195286  0.7682034  0.        ]
- [0.         0.         0.229951   0.02978361 0.92169446]
- [0.         0.         0.         0.2992984  0.80208829]] [0.10680473 0.68029879 0.03262974 0.06259222 0.90601487]
-[ 0.1388284   3.12515556 -3.40378397  0.62334982  0.89696768]
-[ 0.1388284   3.12515556 -3.40378397  0.62334982  0.89696768]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.83564522 0.49502089 0.         0.         0.        ]
+ [0.94611263 0.96958677 0.55657327 0.         0.        ]
+ [0.         0.47817651 0.34201066 0.62709574 0.        ]
+ [0.         0.         0.22867621 0.73913228 0.82176068]
+ [0.         0.         0.         0.6185506  0.41949737]] [0.12470432 0.89065639 0.39036287 0.24113495 0.19270496]
+[ 105.68923494 -178.1621758   132.31038848   64.31516518  -94.37360483]
+[ 105.68923494 -178.1621758   132.31038848   64.31516518  -94.37360483]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="lu-dekompozice">
-<h3>LU dekompozice<a class="headerlink" href="#lu-dekompozice" title="Link to this heading">#</a></h3>
+<span id="lu-decomp"></span><h3>LU dekompozice<a class="headerlink" href="#lu-dekompozice" title="Link to this heading">#</a></h3>
+<p><img alt="LU dekompozice obrázek" src="../_images/lu_decomp.png" /></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/LU_decomposition">LU dekompozice</a> rozděluje matici na součin spodní a hodní trojúhelníkové matice. Lze ji spočítat pomocí <a class="reference external" href="https://en.wikipedia.org/wiki/Crout_matrix_decomposition">Croutova algoritmu</a>:</p>
 <div class="math notranslate nohighlight">
-\[
-u_{ij} = a_{ij} - \sum_{k = 1}^{i - 1} l_{ik} u_{kj}, 
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-l_{ji} = \frac{1}{u_{ii}} \left( a_{ji} - \sum_{k = 1}^{i - 1} l_{jk} u_{ki} \right), 
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
-\]</div>
+\[\begin{split}
+\begin{align}
+u_{ij} &amp;= a_{ij} - \sum_{k = 1}^{i - 1} l_{ik} u_{kj}, \quad i = 1, 2, \dots, j, \\
+l_{ij} &amp;= \frac{1}{u_{jj}} \left( a_{ij} - \sum_{k = 1}^{j - 1} l_{ik} u_{kj} \right), \quad i = j + 1, j+2, \dots, n,
+\end{align}
+\end{split}\]</div>
+<p>pro všechna <span class="math notranslate nohighlight">\(j = 1, 2, \dots, n\)</span>.</p>
 <p>Tento algoritmus má podobnou složitost jako Gaussova eliminace. Je výhodný v případě, kdy řešíme stejnou soustavu rovnic pro mnoho různých pravých stran. V takovém případě by se nevyplatilo provádět Gaussovu eliminaci pořád znova. Naopak, pokud matici rozložíme pomocí LU dekompozice, stačí provést dvakrát zpětný běh Gaussovy eliminace, který je pouze <span class="math notranslate nohighlight">\(O(n^2)\)</span> oproti Gaussově eliminaci <span class="math notranslate nohighlight">\(O(n^3)\)</span>! Matematicky stačí vyřešit:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1134,19 +1145,34 @@ i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
 \[
 \mathbb{U} x = y.
 \]</div>
-<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<section id="iterativniho-zpresneni-reseni">
+<h4>Iterativního zpřesnění řešení<a class="headerlink" href="#iterativniho-zpresneni-reseni" title="Link to this heading">#</a></h4>
+<p>Další výhodou je možnost rychlého <strong>iterativního zpřesnění řešení</strong>. Uvažujme nepřesné řešení <span class="math notranslate nohighlight">\(\vec{x}^{\prime}\)</span> soustavy <span class="math notranslate nohighlight">\(\mathbb{A} \vec{x} = \vec{b}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{x}^{\prime} = \vec{x} + \delta \vec{x} \hspace{0.5em} \rightarrow \hspace{0.5em} \mathbb{A}(\vec{x} + \delta \vec{x}) = \vec{b} + \delta \vec{b} \hspace{0.5em} \rightarrow \hspace{0.5em} \mathbb{A} \delta\vec{x} = \delta{b} = \mathbb{A} \vec{x}^{\prime} - \vec{b}.
+\]</div>
+<p>Tedy počáteční nepřesné řešení <span class="math notranslate nohighlight">\(\vec{x}_0\)</span> můžeme nepřesné řešení iterativně zpřesňovat pomocí:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{x}_{i+1} = \vec{x}_i + \delta \vec{x}_i, \quad \text{kde} \quad \mathbb{A} (\delta \vec{x}_i) = \vec{b} - \mathbb{A} \vec{x}_i.
+\]</div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Implementujte LU dekompozici a aplikujte ji na řešení soustavy linearních rovnic. Můžete využít <em>zpětné substituce</em> výše. <em>Dopřednou substituci</em> (<span class="math notranslate nohighlight">\(\mathbb{L} y = b\)</span>) je třeba doimplementovat zvlášť.</p>
+<p>Pro velké matice (<span class="math notranslate nohighlight">\(N &gt; 50\)</span>) již dochází v <em>přímých metodách</em> k výraznému kumulování zaokrouhlovacích chyb, jelikož počet aritmetických operací roste s <span class="math notranslate nohighlight">\(O(N^3)\)</span>. Obzvlášť u matic blízkých <em>singulární matici</em> (lineární závislost řádků) je chyba významně zesilována. Proto je doporučeno využít iterativního zpřesnění, což umožní snížit chybu zpět na strojovou přesnost. Zároveň si tím nepokazíme celkovou složitost, jelikož prvotní řešení soustavy zabere <span class="math notranslate nohighlight">\(O(N^3)\)</span>, zatímco jedna iterace zpřesnění má složitost již jen <span class="math notranslate nohighlight">\(O(N^2)\)</span>!</p>
 </p>
-</div><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
-</pre></div>
 </div>
 </div>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro singulární matice nebo blízké singulární můžou přímé, které jsme v této kapitole viděli, snadno selhat. Existují proto specializované SVD metody (<em>Singular Value Decomposition</em>), které si dokáží poradit s obdélníkovými maticemi a maticemi se soustavami s závislými rovnicemi.</p>
+</p>
 </div>
+</div></section>
 </section>
 </section>
 <section id="zapoctova-uloha">
@@ -1192,7 +1218,7 @@ i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../lekce/02-chyby-stabilita.html"
+       href="02-chyby-stabilita-vypl.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -1201,7 +1227,7 @@ i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
       </div>
     </a>
     <a class="right-next"
-       href="04-linalg-iter-vypl.html"
+       href="../lekce/04-linalg-iter.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -1226,7 +1252,7 @@ i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zakladni-operace-s-maticemi">Základní operace s maticemi</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-product">Scalar product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skalarni-soucin">Skalární součin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soucin-matice-s-vektorem">Součin matice s vektorem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soucin-matice-s-matici">Součin matice s maticí</a></li>
 </ul>
@@ -1236,7 +1262,10 @@ i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussova-eliminace">Gaussova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordanova-eliminace">Gauss-Jordanova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thomasuv-algoritmus">Thomasův algoritmus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterativniho-zpresneni-reseni">Iterativního zpřesnění řešení</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
