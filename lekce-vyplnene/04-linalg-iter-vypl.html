@@ -63,8 +63,8 @@
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Aproximace funkcí" href="05-aproximace-funkci-vypl.html" />
-    <link rel="prev" title="Metody lineární algebry" href="../lekce/03-linalg-prime.html" />
+    <link rel="next" title="Interpolace a aproximace funkcí" href="../lekce/05-aproximace-funkci.html" />
+    <link rel="prev" title="Metody lineární algebry" href="03-linalg-prime-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,9 +183,9 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-chyby-stabilita-vypl.html">2. Numerické chyby a stabilita</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce/03-linalg-prime.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Iterační metody lineární algebry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05-aproximace-funkci-vypl.html">5. Aproximace funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/05-aproximace-funkci.html">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/08-extremy-fci.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/09-integrace.html">9. Numerická integrace</a></li>
@@ -197,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html">5. Aproximace funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
@@ -475,7 +475,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hledani-vlastnich-cisel-matice">Hledání vlastních čísel matice</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#castecny-problem-vlastnich-cisel">Částečný problém vlastních čísel</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-metody-na-hledani-vlastnich-cisel">Další metody na hledání vlastních čísel</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
@@ -510,9 +509,9 @@ document.write(`
 \[
 \mathbb{A} \vec{x} = \vec{b}.
 \]</div>
-<p>Iterativní metody, nebo jinak <em>relaxační metody</em>, hledají řešení jiným způsobem než metody přímé. Fungují na principu postupného zlepšování výsledku podle iterativního vzorce. V jakých případech se vyplatí použít iterativních metod?</p>
-<p>Typikým příkladem je soustava, kde počítat inverzi je výpočetně náročné a řešení lze získat rychleji. Například pro soustavy s řídkou, ale velkou maticí, <em>Gaussova eliminace</em> trvá řádově <span class="math notranslate nohighlight">\(O(N^3)\)</span>. Oproti tomu, jak uvidíme, jeden krok iterativních metod je pouze <span class="math notranslate nohighlight">\(O(N^2)\)</span>! Pokud tedy bude stačit méně iterací než <span class="math notranslate nohighlight">\(N\)</span>, je velmi výhodné takovou metodu použít.</p>
-<p>Iterativní metody můžou být výhodné dále v situaci, kdy máme přibližnou představu, jak řešení vypadá, a stačí se k přesnému řešení pouze přiblížit.</p>
+<p>Iterační metody, nebo jinak <em>relaxační metody</em>, hledají řešení jiným způsobem než metody přímé. Fungují na principu postupného zlepšování výsledku podle iteračního vzorce. V jakých případech se vyplatí použít iteračích metod?</p>
+<p>Typickým příkladem je soustava, kde počítat inverzi je výpočetně náročné a řešení lze získat rychleji. Například pro soustavy s řídkou, ale velkou maticí, <em>Gaussova eliminace</em> trvá řádově <span class="math notranslate nohighlight">\(O(N^3)\)</span>. Oproti tomu, jak uvidíme, jeden krok iteračních metod je pouze <span class="math notranslate nohighlight">\(O(N^2)\)</span>! Pokud tedy bude stačit méně iterací než <span class="math notranslate nohighlight">\(N\)</span>, je velmi výhodné takovou metodu použít.</p>
+<p>Iterační metody můžou být výhodné dále v situaci, kdy máme přibližnou představu, jak řešení vypadá, a stačí se k přesnému řešení pouze přiblížit.</p>
 <p>Naopak nevýhodou těchto metod je omezení, na které matice je lze použít. Přesto jsou tyto metody velmi užitečné, jelikož existuje řada úloh, kde tyto omezení nevadí. V kontextu iteračních metod nás zajímají následující typy matic:</p>
 <ul class="simple">
 <li><p><strong>Diagonálně dominantní matice</strong> - Matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> je <em>diagonálně dominantní</em>, pokud:</p></li>
@@ -535,7 +534,7 @@ document.write(`
 <li><p>Výhody:</p>
 <ul>
 <li><p>postupné zpřesnění odhadu</p></li>
-<li><p>rychlejší pro velké (a řídké) matice, při rychlé konvergenci iterativní metody</p></li>
+<li><p>rychlejší pro velké (a řídké) matice, při rychlé konvergenci iterační metody</p></li>
 <li><p>nedochází k tak silnému kumulovaní chyb, jako u přímých metod!</p></li>
 </ul>
 </li>
@@ -547,7 +546,7 @@ document.write(`
 </ul>
 <p><strong>Iterační proces obecně</strong></p>
 <p>Na začátku máme určitý odhad <span class="math notranslate nohighlight">\(\vec{x}_0\)</span> řešení soustavy lineárních rovnic <span class="math notranslate nohighlight">\(\mathbb{A} \vec{x} = \vec{b}\)</span>. Ten buď známe díky nějaké externí informaci, nebo prostě zvolíme náhodný vektor.
-U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslate nohighlight">\(\mathbb{A}^{-1}\)</span>. Jeden krok přiblížení k přesnému řešení je obecného tvaru:</p>
+U těchto metod se chceme vyhnout přímému výpočtu inverze <span class="math notranslate nohighlight">\(\mathbb{A}^{-1}\)</span>, násobení <em>čtvercových</em> matic a jiným operacím, které jsou pomalé (složitosti <span class="math notranslate nohighlight">\(O(N^3)\)</span>). Jeden krok přiblížení k přesnému řešení je obecného tvaru:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{x}^{(k+1)} = \mathbb{B}_k \vec{x}^{(k)} + \vec{c}_k.
@@ -644,21 +643,21 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.40770167 0.65879573 0.74720399 0.17386257]
- [0.66109752 0.42527978 0.82377857 0.49927991]
- [0.75387143 0.297963   0.97023018 0.4827796 ]
- [0.55982765 0.31415352 0.8497152  0.33368186]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.40685083 0.0987364  0.88443776 0.8123548 ]
+ [0.7049531  0.55596574 0.99293254 0.4229024 ]
+ [0.64012522 0.26821229 0.58313732 0.66651336]
+ [0.42945011 0.96957952 0.42179813 0.74955596]]
 [[0.         0.         0.         0.        ]
- [0.66109752 0.         0.         0.        ]
- [0.75387143 0.297963   0.         0.        ]
- [0.55982765 0.31415352 0.8497152  0.        ]]
-[[0.40770167 0.         0.         0.        ]
- [0.         0.42527978 0.         0.        ]
- [0.         0.         0.97023018 0.        ]
- [0.         0.         0.         0.33368186]]
-[[0.         0.65879573 0.74720399 0.17386257]
- [0.         0.         0.82377857 0.49927991]
- [0.         0.         0.         0.4827796 ]
+ [0.7049531  0.         0.         0.        ]
+ [0.64012522 0.26821229 0.         0.        ]
+ [0.42945011 0.96957952 0.42179813 0.        ]]
+[[0.40685083 0.         0.         0.        ]
+ [0.         0.55596574 0.         0.        ]
+ [0.         0.         0.58313732 0.        ]
+ [0.         0.         0.         0.74955596]]
+[[0.         0.0987364  0.88443776 0.8123548 ]
+ [0.         0.         0.99293254 0.4229024 ]
+ [0.         0.         0.         0.66651336]
  [0.         0.         0.         0.        ]]
 </pre></div>
 </div>
@@ -687,6 +686,14 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
 <p>Implementujte iterační Jacobiho metodu a ověřte pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a>. Parametr <code class="docutils literal notranslate"><span class="pre">n</span></code> je zvolený počet kroků metody.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro násobění matic nebo matic a vektoru použijte funkci <code class="docutils literal notranslate"><span class="pre">np.dot()</span></code> nebo operátoru <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>.</p>
+</p>
+</div>
+</div>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -697,7 +704,7 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
     <span class="n">L</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">ldr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">Dinv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">D</span><span class="o">.</span><span class="n">diagonal</span><span class="p">())</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Dinv</span> <span class="o">@</span> <span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">R</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span> <span class="o">+</span> <span class="n">Dinv</span> <span class="o">@</span> <span class="n">b</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Dinv</span> <span class="o">@</span> <span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">R</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span> <span class="o">+</span> <span class="n">Dinv</span> <span class="o">@</span> <span class="n">b</span> 
     <span class="k">return</span> <span class="n">x</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="mi">4</span>
@@ -706,16 +713,25 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">jacobi</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)),</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.10333303 0.11668044 0.14946291 0.09555793] [0.10333274 0.1166802  0.14946272 0.09555753]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.13589438  0.11056183 -0.02005707  0.12641707] [ 0.13588969  0.11055624 -0.02006049  0.12641312]
+8.976173601742306e-06
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>V každé iteraci sice dochází k násobení čtvercových matic, ale jelikož jsou speciálního tvaru (diagonální a trojúhelníková), lze násobení provést výrazně rychleji!</p>
+</p>
+</div>
+</div></section>
 <section id="gauss-seidelova-metoda">
 <h3>Gauss-Seidelova metoda<a class="headerlink" href="#gauss-seidelova-metoda" title="Link to this heading">#</a></h3>
 <p>Gauss-Seidelova metoda je velmi podobná Jacobiho metodě. Opět nahradíme matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> jejím rozkladem, akorát prohodíme pořadí matic:</p>
@@ -745,7 +761,7 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zpetna_substituce</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dopredna_substituce</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
@@ -757,8 +773,8 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
     <span class="c1">## DOPLŇTE ##</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
     <span class="n">L</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">ldr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">zpetna_substituce</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">D</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">R</span> <span class="o">@</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">dopredna_substituce</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">D</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">R</span> <span class="o">@</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="mi">4</span>
@@ -771,7 +787,7 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.10644583 -0.01305516  0.00594907  0.04266595] [ 0.10644583 -0.01305516  0.00594907  0.04266595]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.1184046  0.08610834 0.16969683 0.02222401] [0.1184046  0.08610834 0.16969683 0.02222401]
 </pre></div>
 </div>
 </div>
@@ -782,21 +798,20 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 <p>Gauss-Seidelova metoda konverguje již pro širší třídu matic, ale konvergence může stále být v některých případech pomalá. Konvergence je možné dále urychlit. <em>Superrelaxační metoda</em> je dána následovně:</p>
 <div class="math notranslate nohighlight">
 \[
-\vec{x}^{(k+1)} = \vec{x}^{(k)} + \omega \Delta \vec{x}^{(k)},
+\vec{x}^{(k+1)} = \vec{x}^{(k)} + \omega \Delta \vec{x}^{(k)} = (1 - \omega) \vec{x}^{(k)} + \omega \vec{x}^{(k+1)}_{GS},
 \]</div>
-<p>kde <span class="math notranslate nohighlight">\(\Delta \vec{x}^{(k)} = \vec{x}^{(k+1)} - \vec{x}^{(k)}\)</span> je rozdíl mezi dvěma kroky Gauss-Seidelovy metody. Tato metoda slouží pouze k <strong>urychlení konvergence</strong> původní metody, pro výše uvedený vztah neplatí podmínka pevného bodu (pro <span class="math notranslate nohighlight">\(\omega \neq 1\)</span>)! Proto metoda sama o sobě nekonverguje k řešení!</p>
-<p>Superrelaxační metodu chceme tedy použít pouze na prvních pár kroků a ve zbývajících krocích použít Gauss-Seidelovu iteraci.</p>
-<p>Relaxační faktor <span class="math notranslate nohighlight">\(\omega\)</span> lze volit z intervalu <span class="math notranslate nohighlight">\((0, 2)\)</span> (aby metoda konvergovala), obvykle se však v praxi volí <span class="math notranslate nohighlight">\(\omega \in [1,2)\)</span>. Tento faktor slouží k urychlení konvergence metody tím, že zvětší velikost kroku v jedné iteraci. Lze ukázat, že optimální hodnota relaxačního faktoru má tvar:</p>
+<p>kde <span class="math notranslate nohighlight">\(\Delta \vec{x}^{(k)} = \vec{x}^{(k+1)} - \vec{x}^{(k)}\)</span> je rozdíl mezi dvěma kroky Gauss-Seidelovy metody (<span class="math notranslate nohighlight">\(\vec{x}^{(k+1)}_{GS}\)</span> je výsledek  Gauss-Seidlovy metody v iteraci <span class="math notranslate nohighlight">\(k\)</span>).</p>
+<p>Relaxační faktor <span class="math notranslate nohighlight">\(\omega\)</span> lze volit z intervalu <span class="math notranslate nohighlight">\((0, 2)\)</span> (aby metoda konvergovala), obvykle se však v praxi volí <span class="math notranslate nohighlight">\(\omega \in [1,2)\)</span>. Tento faktor slouží k urychlení konvergence metody tím, že zvětší velikost kroku Gauss-Seidlovy metody. Lze ukázat, že optimální hodnota relaxačního faktoru má tvar:</p>
 <div class="math notranslate nohighlight">
 \[
 \omega_{opt} = \frac{2}{1 + \sqrt{1 - \rho(\mathbb{B})^2}},
 \]</div>
-<p>kde <span class="math notranslate nohighlight">\(\rho(\mathbb{B}) = \text{max}(|\lambda_1|,|\lambda_2|,\dots,|\lambda_n|)\)</span> je <em>spektrární poloměr</em> a <span class="math notranslate nohighlight">\(\mathbb{B} = -(\mathbb{L} + \mathbb{D})^{-1} \mathbb{R}\)</span> je iterační matice Gauss-Seidelovy metody. Pro spektrární poloměr je potřeba znát pro danou úlohu alespoň přibližný analytický vzorec. Proto využití této metody je dost omezené.</p>
+<p>kde <span class="math notranslate nohighlight">\(\rho(\mathbb{B}) = \text{max}(|\lambda_1|,|\lambda_2|,\dots,|\lambda_n|)\)</span> je <em>spektrární poloměr</em> a <span class="math notranslate nohighlight">\(\mathbb{B} = -(\mathbb{L} + \mathbb{D})^{-1} \mathbb{R}\)</span> je iterační matice Gauss-Seidelovy metody. Pro spektrární poloměr je potřeba znát pro danou úlohu alespoň přibližný analytický vzorec nebo ho odhadnout numericky.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Implementujte superrelaxační metodu s optimálním parametrem. Pro získání největšího vlastního čísla použijte <code class="docutils literal notranslate"><span class="pre">np.max(np.abs(np.linalg.eig(B)[0]))</span></code>. Parametr <code class="docutils literal notranslate"><span class="pre">n</span></code> je zvolený počet kroků metody.</p>
+<p>Implementujte superrelaxační metodu s optimálním parametrem. Pro získání největšího vlastního čísla použijte <code class="docutils literal notranslate"><span class="pre">np.max(np.abs(np.linalg.eig(B)[0]))</span></code>. Inverzi matice <span class="math notranslate nohighlight">\(B\)</span> spočítejte pomocí <code class="docutils literal notranslate"><span class="pre">scipy.linalg.inv(B)</span></code>. Parametr <code class="docutils literal notranslate"><span class="pre">n</span></code> je zvolený počet kroků metody.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
@@ -807,7 +822,7 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8502754412604925
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8724761414822968
 </pre></div>
 </div>
 </div>
@@ -820,22 +835,20 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
     <span class="n">B</span> <span class="o">=</span> <span class="o">-</span> <span class="n">la</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">D</span><span class="p">)</span> <span class="o">@</span> <span class="n">R</span>
     <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">B</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
     <span class="n">omega_opt</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">((</span><span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rho</span><span class="p">)))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">omega_opt</span><span class="p">)</span>
+    <span class="c1">#print((5 * np.log(10))/(-np.log(rho)))</span>
+    <span class="c1">#print(omega_opt)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">omega_opt</span> <span class="o">*</span> <span class="n">gauss_seidel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">omega_opt</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">omega_opt</span> <span class="o">*</span> <span class="n">gauss_seidel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">m</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># diagonalne dominantni matice</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span> <span class="c1"># nahodna symetricka pozitivne definitni matice</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># diagonalne dominantni matice</span>
+
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">m</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">gauss_seidel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">super_relax</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">gauss_seidel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">super_relax</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x</span><span class="p">))</span>
@@ -844,10 +857,8 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.685151403616451
-1.0128171529077825
-2.1514972307406068e-05
-2.1768513963288113e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.120533327024301e-06
+4.638592846044153e-06
 </pre></div>
 </div>
 </div>
@@ -858,7 +869,8 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">40</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># diagonalne dominantni matice</span>
+<span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.6</span> <span class="c1"># pro -0.6</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">q</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># diagonalne dominantni matice</span>
 
 <span class="c1">#A = np.random.rand(m, m) + m*np.eye(m)</span>
 <span class="c1">#A = np.dot(A, A.transpose()) # nahodna symetricka pozitivne definitni matice</span>
@@ -875,16 +887,13 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 <span class="n">x_gauss_seidel</span> <span class="o">=</span> <span class="n">x0</span>
 <span class="n">x_super_relax</span> <span class="o">=</span> <span class="n">x0</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">150</span>
 <span class="n">nn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nn</span><span class="p">:</span>
     <span class="n">x_jacobi</span> <span class="o">=</span> <span class="n">jacobi</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x_jacobi</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">x_gauss_seidel</span> <span class="o">=</span> <span class="n">gauss_seidel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x_gauss_seidel</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">):</span>
-        <span class="n">x_super_relax</span> <span class="o">=</span> <span class="n">super_relax</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x_super_relax</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x_super_relax</span> <span class="o">=</span> <span class="n">gauss_seidel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x_super_relax</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x_super_relax</span> <span class="o">=</span> <span class="n">super_relax</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x_super_relax</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     
     <span class="n">err_jacobi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x_jacobi</span> <span class="o">-</span> <span class="n">x</span><span class="p">))</span>
     <span class="n">err_gauss_seidel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x_gauss_seidel</span> <span class="o">-</span> <span class="n">x</span><span class="p">))</span>
@@ -900,19 +909,7 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.147976130204766
-1.0028702422238398
-5.147976130204766
-1.0028702422238398
-5.147976130204766
-1.0028702422238398
-5.147976130204766
-1.0028702422238398
-5.147976130204766
-1.0028702422238398
-</pre></div>
-</div>
-<img alt="../_images/f4b1b09a36f9c48c0f084942104e1d5d2409e31633e4952a05da38573aab4371.png" src="../_images/f4b1b09a36f9c48c0f084942104e1d5d2409e31633e4952a05da38573aab4371.png" />
+<img alt="../_images/64d8b5b0d421f193090e83421de6e57d40ce368b712ef8c622248a6d11e07b03.png" src="../_images/64d8b5b0d421f193090e83421de6e57d40ce368b712ef8c622248a6d11e07b03.png" />
 </div>
 </div>
 </section>
@@ -920,14 +917,40 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 <section id="hledani-vlastnich-cisel-matice">
 <h2>Hledání vlastních čísel matice<a class="headerlink" href="#hledani-vlastnich-cisel-matice" title="Link to this heading">#</a></h2>
 <section id="castecny-problem-vlastnich-cisel">
-<h3>Částečný problém vlastních čísel<a class="headerlink" href="#castecny-problem-vlastnich-cisel" title="Link to this heading">#</a></h3>
-</section>
-<section id="dalsi-metody-na-hledani-vlastnich-cisel">
-<h3>Další metody na hledání vlastních čísel<a class="headerlink" href="#dalsi-metody-na-hledani-vlastnich-cisel" title="Link to this heading">#</a></h3>
+<span id="cast-vl-cis"></span><h3>Částečný problém vlastních čísel<a class="headerlink" href="#castecny-problem-vlastnich-cisel" title="Link to this heading">#</a></h3>
+<p>Cílem této metody je nalézt pouze největší vlastní číslo v absolutní hodnotě (<em>spektrární poloměr</em>).
+Metodu lze aplikovat na <a class="reference external" href="https://cs.wikipedia.org/wiki/Diagonalizovateln%C3%A1_matice">diagonalizovatelné matice</a>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{A} = \mathbb{R} \mathbb{D} \mathbb{R}^{-1},
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> je regulární matice a <span class="math notranslate nohighlight">\(\mathbb{D}\)</span> je diagonální matice, jejíž diagonální prvky odpovídají vlastním číslům. Sloupce matice <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> odpovídají vlastním vektorům.</p>
+<p>Iterační metoda pro nalezení největšího vlastního čísla začíná z počátečního odhadu <span class="math notranslate nohighlight">\(\vec{v}_0\)</span>, který postupně zpřesňuje pomocí vztahu:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_{k+1} = \frac{\mathbb{A} \vec{v}_k}{\Vert \mathbb{A} \vec{v}_k \Vert}.
+\]</div>
+<p>Tato metoda konverguje za následujících podmínek:</p>
+<ol class="arabic simple">
+<li><p>Matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> má jedno vlastní číslo výrazně větší v absolutní hodnotě než zbylá vlastní čísla.</p></li>
+<li><p>Startující vektor <span class="math notranslate nohighlight">\(\vec{v}_0\)</span> má nenulový příspěvek do směru vlastního vektoru odpovídajícímu největšímu vlastnímu číslu. Tedy <span class="math notranslate nohighlight">\(\vec{v}_{0} \cdot \vec{v} \neq 0\)</span>, kde <span class="math notranslate nohighlight">\(\mathbb{A}\vec{v} = \lambda \vec{v}\)</span> a <span class="math notranslate nohighlight">\(\lambda = \max_i{|\lambda_i|}\)</span>.</p></li>
+</ol>
 </section>
 </section>
 <section id="ukazky-z-praxe">
 <h2>Ukázky z praxe<a class="headerlink" href="#ukazky-z-praxe" title="Link to this heading">#</a></h2>
+<p>S řešením soustav lineáních rovnic se lze setkat téměř v každém technickém odvětví. Typicky dostáváme úlohu tohoto tvaru důsledkem několika vzájemných lineárních závislostí většího počtu veličin a čílem je nalézt průnik, tedy kdy jsou všechny rovnice splněny.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    3x + 2y - z &amp;= 1 \\
+    2x - 2y + 4z &amp;= -2 \\
+    -x + 0.5y - z &amp;= 0
+\end{align*} 
+\end{split}\]</div>
+<p><img alt="linalg systém" src="../_images/linalgsystem3.png" /></p>
+<p>V kvantové mechanice je naprosto zásadní znalost matic operátorů (v dáné bázi) a nalezení vlastních čísel, které například odpovídají energetickým hladinám kvantového systému.</p>
+<p>V numerice se mnoho úloh redukuje na soustavu lineárních rovnic, jelikož jí dokážeme snadno řešit na počítači. Pro nás je nejrelevantnějším příkladem řešení úloh popsaných pomocí různých <em>diferenciálních rovnic</em> (viz <a class="reference internal" href="../lekce/11-reseni-okraj.html#pdr"><span class="std std-ref">kapitola 11</span></a>).</p>
 </section>
 <section id="zapoctova-uloha">
 <h2>Zápočtová úloha<a class="headerlink" href="#zapoctova-uloha" title="Link to this heading">#</a></h2>
@@ -972,7 +995,7 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../lekce/03-linalg-prime.html"
+       href="03-linalg-prime-vypl.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -981,11 +1004,11 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
       </div>
     </a>
     <a class="right-next"
-       href="05-aproximace-funkci-vypl.html"
+       href="../lekce/05-aproximace-funkci.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aproximace funkcí</p>
+        <p class="prev-next-title">Interpolace a aproximace funkcí</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1015,7 +1038,6 @@ U těchto metod se chceme vyhnout výpočtu inverze <span class="math notranslat
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hledani-vlastnich-cisel-matice">Hledání vlastních čísel matice</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#castecny-problem-vlastnich-cisel">Částečný problém vlastních čísel</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dalsi-metody-na-hledani-vlastnich-cisel">Další metody na hledání vlastních čísel</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
