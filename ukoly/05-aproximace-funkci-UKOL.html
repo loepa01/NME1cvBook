@@ -475,7 +475,7 @@ document.write(`
 <p>
 <p>Uvažujte následující situaci. Provádíte experiment a naměříte sadu dat. Bohužel jste ale ztratili vaše teoretické poznámky k experimentu a již nevíte, jakým zákonem/vzorečkem se data řídí. Nedokážete již tedy proložit data odpovídající modelovou funkcí a získat parametry tohoto modelu. Přesto nezačnete zoufat a tuto patálii vyřešíte pomocí numerických nástrojů na počítači. Záchranou je pro vás, že jste si zapamatovali, že se data řídí polynomiální závislostí. Již ale neznáte přesný stupeň onoho polynomu.</p>
 <p>Definice úlohy:
-Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> tvořící experimentální data. Data získáte pomocí funkce <code class="docutils literal notranslate"><span class="pre">(xdata,</span> <span class="pre">ydata)</span> <span class="pre">=</span> <span class="pre">proved_experiment()</span></code> (implementované v binárním souboru <code class="docutils literal notranslate"><span class="pre">experiment.pyc</span></code>), která volí náhodný stupeň polynomu <span class="math notranslate nohighlight">\(m \in [0,10]\)</span>, pro který vygeneruje odpovídající náhodná data s přidaným gausovským šumem (podle normálního rozdělení). Funkce vrací dva vektory/pole <span class="math notranslate nohighlight">\(\vec{x}\)</span> a <span class="math notranslate nohighlight">\(\vec{y}\)</span>. S každým novým voláním této funkce jsou vygenerována data pro jiný modelový polynom!</p>
+Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> tvořící experimentální data. Data získáte pomocí funkce <code class="docutils literal notranslate"><span class="pre">(xdata,</span> <span class="pre">ydata)</span> <span class="pre">=</span> <span class="pre">proved_experiment()</span></code> (implementované v binárním souboru <code class="docutils literal notranslate"><span class="pre">experiment.exe</span></code>), která volí náhodný stupeň polynomu <span class="math notranslate nohighlight">\(m \in [0,10]\)</span>, pro který vygeneruje odpovídající náhodná data s přidaným gausovským šumem (podle normálního rozdělení). Funkce vrací dva vektory/pole <span class="math notranslate nohighlight">\(\vec{x}\)</span> a <span class="math notranslate nohighlight">\(\vec{y}\)</span>. S každým novým voláním této funkce jsou vygenerována data pro jiný modelový polynom!</p>
 <ol class="arabic simple">
 <li><p>Vygenerujte experimentální data pomocí připravené funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code>.</p></li>
 <li><p>Rozdělte data na <em>trénovací</em> a <em>testovací</em> v poměru 3:1 (testovacích dat je třeba méně). Rozdělte data do skupin náhodně tak, aby byly data rovnoměrně rozprostřeny v celém intervalu v obou skupinách!</p></li>
@@ -483,7 +483,8 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 <li><p>Aplikujte model na <em>testovací data</em> a spočítejte chybu, které se model na těchto datech dopouští - účelová funkce <span class="math notranslate nohighlight">\(S\)</span> (viz cvičení).</p></li>
 <li><p>Opakujte kroky 3. a 4. pro různé stupně polynomu a na základě chyby testovacích dat určete parametry a ideální stupeň polynomu modelu.</p></li>
 </ol>
-<p>Cílem je pro libovolné zavolání funkce experimentu najít ideální model, který odpovídá datům nejlépe. Funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code> je již importována v připravené buňce v tomto notebooku, stačí ji zavolat. Pokud chcete řešit úlohu lokálně na osobním počítači, je třeba si spolu s notebookem stáhnout soubor <code class="docutils literal notranslate"><span class="pre">experiment.pyc</span></code> ze složky <code class="docutils literal notranslate"><span class="pre">ukoly/</span></code>.</p>
+<p>Cílem je pro libovolné zavolání funkce experimentu najít ideální model, který odpovídá datům nejlépe. Funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code> se již nachází v jedné z následující připravené buňce v tomto notebooku, stačí funkci zavolat. Pokud chcete řešit úlohu lokálně na osobním počítači, je třeba si spolu s notebookem stáhnout soubor <code class="docutils literal notranslate"><span class="pre">experiment.exe</span></code> ze složky <code class="docutils literal notranslate"><span class="pre">ukoly/</span></code> (z GitHub repozitáře - odkaz na webu).</p>
+<p><strong>Pokud by někdo rád řešil úlohu na Linuxu, budete potřebovat jiný binární soubor!</strong> V takovém případě mi prosím napište email a binární soubor kompatibilní s Linuxem přidám. Děkuji.</p>
 <p>Vykreslete závislost testovací chyby na stupni modelového polynomu. Vykreslete vygenerované data a funkci optimálního modelu.</p>
 <p><em>Bonus:</em></p>
 <p>Upravte krok 2. tak, že místo jednoduché validace použijete pokročilejší <a class="reference external" href="https://cs.wikipedia.org/wiki/K%C5%99%C3%AD%C5%BEov%C3%A1_validace">křížovou validaci</a> (cross validation). Použijte například <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation">tento typ</a> cross validace. Tato metoda je efektivnější pro ohodnocení modelu pro malé množství dat.</p>
@@ -511,9 +512,21 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 <p>Import funkce experimentu:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">experiment</span> <span class="kn">import</span> <span class="n">proved_experiment</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">def</span> <span class="nf">proved_experiment</span><span class="p">():</span>
+    <span class="c1"># returns xdata, ydata</span>
+    
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;experiment.exe&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># zavolani binarniho souboru experiment.exe - ten ulozi vygenerovana data do experimentData.npy</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;experimentData.npy&#39;</span><span class="p">)</span> <span class="c1"># nacteni vygenerovanych dat</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span> <span class="o">=</span> <span class="n">proved_experiment</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/baa253097f23ff57536c851ba493ff176e73d309daf2a0ddded82de054903f3f.png" src="../_images/baa253097f23ff57536c851ba493ff176e73d309daf2a0ddded82de054903f3f.png" />
 </div>
 </div>
 <p>Řešení úlohy:</p>
