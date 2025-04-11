@@ -602,6 +602,15 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1">## DOPLŇTE ##</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">iteraci_max</span> <span class="ow">and</span> <span class="n">eps</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="n">reseni</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">epsilon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">reseni</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="n">iteraci_end</span> <span class="o">=</span> <span class="n">i</span>
 <span class="n">koren</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
@@ -741,6 +750,14 @@ a_{n+1} = \frac{a_{n-1} f(a_{n}) - a_{n} f(a_{n-1})}{f(a_{n}) - f(a_{n-1})}
 
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1">## DOPLŇTE ##</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">iteraci_max2</span> <span class="ow">and</span> <span class="n">eps2</span> <span class="o">&lt;</span> <span class="n">epsilon2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a1</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">a2</span>
+    <span class="n">reseni2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a2</span>
+    <span class="n">epsilon2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">a1</span><span class="p">)</span> <span class="o">/</span> <span class="n">reseni2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="n">iteraci_end2</span> <span class="o">=</span> <span class="n">i</span>
 <span class="n">koren2</span> <span class="o">=</span> <span class="n">reseni2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
