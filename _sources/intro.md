@@ -13,7 +13,7 @@ Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičíc�
 * od 21.2. do 16.5. (18.4. volno - Velký pátek), 12 lekcí
 
 ## Podmínky udělení zápočtu
-- max. 3 absence (+ možnost nahrazení 2 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B242-12NME112ANM/Sdilene%20dokumenty/General/dochazka_NME1cv_Pa8_10.xlsx?d=we7f112e301fa46f8a69ee37ef7f7ae7a&csf=1&web=1&e=w8K7KL)
+- max. 3 absence (+ možnost nahrazení 3 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B242-12NME112ANM/Sdilene%20dokumenty/General/dochazka_NME1cv_Pa8_10.xlsx?d=we7f112e301fa46f8a69ee37ef7f7ae7a&csf=1&web=1&e=w8K7KL)
 - vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (lekce 2-6), 2 úlohy z druhé půlky cvičení (lekce 7-12)
 - na zkoušku je možné jít před udělením zápočtu
 

@@ -537,10 +537,11 @@ Existuje řada jednoduchých metod, které umožňují nalézt řešení v zadan
 <li><p><span class="math notranslate nohighlight">\(a_1 = a_0\)</span> a <span class="math notranslate nohighlight">\(b_1 = c_0\)</span> nebo <span class="math notranslate nohighlight">\(a_1 = c_0\)</span> a <span class="math notranslate nohighlight">\(b_1 = b_0\)</span></p></li>
 </ul>
 </li>
+<li><p>skončíme v momentě, kdy je relativní chyba menší než požadovaná</p></li>
 </ol>
 </li>
 <li><p>po <span class="math notranslate nohighlight">\(n\)</span>-tém kroku je kořen omezený body <span class="math notranslate nohighlight">\(a_{n}\)</span> a <span class="math notranslate nohighlight">\(b_{n}\)</span></p></li>
-<li><p>nepřesnost určení kořene: <span class="math notranslate nohighlight">\(\epsilon = \lvert b_{n}-a_{n}\rvert\)</span>, přičemž <span class="math notranslate nohighlight">\(\epsilon_{n+1}=\epsilon_{n}/2\)</span></p></li>
+<li><p>nepřesnost určení kořene: <span class="math notranslate nohighlight">\(r_n(x)= \frac{\lvert b_{n}-a_{n}\rvert}{|c_n|}\)</span>, kde <span class="math notranslate nohighlight">\(c_n\)</span> je odhad řešení v kroce <span class="math notranslate nohighlight">\(n\)</span> a platí: <span class="math notranslate nohighlight">\(r_{n+1}=r_{n}/2\)</span></p></li>
 <li><p><strong>vždy konverguje</strong> (pokud interval obsahuje kořen)</p></li>
 <li><p>v blízkosti kořene pomalá</p></li>
 </ul>

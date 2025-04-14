@@ -534,9 +534,7 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 </ol>
 <p>Nakonec stačí již porovnat výsledná hodnocení pro modely různých řádů a určit optimální řád modelového polynomu, podle kterého se řídí naměřená data.</p>
 <p>Poslední krok je zjistit parametry modelu - koeficienty polynomu s optimálním řádem. Jelikož již nepotřebujeme model hodnotit, stačí natrénovat model onoho řádu znovu na všech datech. Díky křížové validaci známe přesně řád polynomu a nemůžeme se tedy v naší úloze již dopustit <em>přetrénování</em>. Každý další data point již jen zpřesňuje znalost parametrů modelu. Pokud bychom chtěli znát míru přesnosti výsledného modelu, je třeba využít testovacích dat.</p>
-<div>
-<img src="../images/cross-validace.png" width="500"/>
-</div>
+<p><img alt="křížová validace" src="../_images/cross-validace.png" /></p>
 <p>Tímto způsobem je každý data point použit právě jednou na trénování a testování jednoho z modelů. Opakovaným výběrem zajistíme objektivnější hodnocení modelu a tím zpřesníme výběr nejlepšího modelu, kterému by data měla odpovídat.</p>
 </p>
 </div>
