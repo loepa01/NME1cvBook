@@ -442,7 +442,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -458,6 +460,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-funkce-experimentu">Import funkce experimentu:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-ulohy">Řešení úlohy:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -475,38 +486,63 @@ document.write(`
 <p>
 <p>Uvažujte následující situaci. Provádíte experiment a naměříte sadu dat. Bohužel jste ale ztratili vaše teoretické poznámky k experimentu a již nevíte, jakým zákonem/vzorečkem se data řídí. Nedokážete již tedy proložit data odpovídající modelovou funkcí a získat parametry tohoto modelu. Přesto nezačnete zoufat a tuto patálii vyřešíte pomocí numerických nástrojů na počítači. Záchranou je pro vás, že jste si zapamatovali, že se data řídí polynomiální závislostí. Již ale neznáte přesný stupeň onoho polynomu.</p>
 <p>Definice úlohy:
-Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> tvořící experimentální data. Data získáte pomocí funkce <code class="docutils literal notranslate"><span class="pre">(xdata,</span> <span class="pre">ydata)</span> <span class="pre">=</span> <span class="pre">proved_experiment()</span></code> (implementované v binárním souboru <code class="docutils literal notranslate"><span class="pre">experiment.exe</span></code>), která volí náhodný stupeň polynomu <span class="math notranslate nohighlight">\(m \in [0,10]\)</span>, pro který vygeneruje odpovídající náhodná data s přidaným gausovským šumem (podle normálního rozdělení). Funkce vrací dva vektory/pole <span class="math notranslate nohighlight">\(\vec{x}\)</span> a <span class="math notranslate nohighlight">\(\vec{y}\)</span>. S každým novým voláním této funkce jsou vygenerována data pro jiný modelový polynom!</p>
+Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> tvořící experimentální data. Data získáte pomocí funkce <code class="docutils literal notranslate"><span class="pre">(xdata,</span> <span class="pre">ydata)</span> <span class="pre">=</span> <span class="pre">proved_experiment()</span></code> (implementované v binárním souboru <code class="docutils literal notranslate"><span class="pre">experiment.pyc</span></code>), která volí náhodný stupeň polynomu <span class="math notranslate nohighlight">\(m \in [0,10]\)</span>, pro který vygeneruje odpovídající náhodná data s přidaným gausovským šumem (podle normálního rozdělení). Funkce vrací dva vektory/pole <span class="math notranslate nohighlight">\(\vec{x}\)</span> a <span class="math notranslate nohighlight">\(\vec{y}\)</span>. S každým novým voláním této funkce jsou vygenerována data pro jiný modelový polynom!</p>
 <ol class="arabic simple">
 <li><p>Vygenerujte experimentální data pomocí připravené funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code>.</p></li>
-<li><p>Rozdělte data na <em>trénovací</em> a <em>testovací</em> v poměru 3:1 (testovacích dat je třeba méně). Rozdělte data do skupin náhodně tak, aby byly data rovnoměrně rozprostřeny v celém intervalu v obou skupinách!</p></li>
+<li><p>Rozdělte data na <em>trénovací</em> a <em>testovací</em> v poměru 3:1 (testovacích dat je třeba méně). Rozdělte data do skupin náhodně tak, aby jste výběrem nezanesli nechtěnou informaci do testovací množiny a aby byly data přibližně rovnoměrně rozprostřeny v celém intervalu v obou skupinách! To zajistí přesnější ohodnocení natrénovaného modelu.</p></li>
 <li><p>Natrénujte/spočítejte parametry modelu s využitím <em>trénovacích dat</em>.</p></li>
 <li><p>Aplikujte model na <em>testovací data</em> a spočítejte chybu, které se model na těchto datech dopouští - účelová funkce <span class="math notranslate nohighlight">\(S\)</span> (viz cvičení).</p></li>
 <li><p>Opakujte kroky 3. a 4. pro různé stupně polynomu a na základě chyby testovacích dat určete parametry a ideální stupeň polynomu modelu.</p></li>
 </ol>
-<p>Cílem je pro libovolné zavolání funkce experimentu najít ideální model, který odpovídá datům nejlépe. Funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code> se již nachází v jedné z následující připravené buňce v tomto notebooku, stačí funkci zavolat.</p>
-<p><strong>V závislosti na použitém prostředí je pro vás připraveno několik možností, jak generovat data. Typicky by měla fungovat alespoň jedna z těchto možností:</strong></p>
-<ol class="arabic simple">
-<li><p>Pokud řešíte úlohu v prostředí JupyterHub (jako na cvičení), použijte funkci <code class="docutils literal notranslate"><span class="pre">proved_experiment_JupyterHub()</span></code> definovanou v připravené buňce. Pokud dostanene chybovou hlášku typu <code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">bad</span> <span class="pre">magic</span> <span class="pre">number</span> <span class="pre">in</span> <span class="pre">'experiment'</span></code>, tak mi prosím pošlete email. Může k tomu dojít při změně verze Pythonu na JupyterHub serveru. V takovém případě zkuste použít možnost 3.</p></li>
-<li><p>Pokud chcete řešit úlohu lokálně na osobním počítači, je třeba si spolu s notebookem stáhnout soubor <code class="docutils literal notranslate"><span class="pre">experiment.exe</span></code> ze složky <code class="docutils literal notranslate"><span class="pre">ukoly/</span></code> (z GitHub repozitáře - odkaz na webu) nebo naclonovat celý repozitář. Pak stačí použít zde definovanou funkci <code class="docutils literal notranslate"><span class="pre">proved_experiment_Windows()</span></code>.</p></li>
-<li><p>Pokud používáte Linux na svém počítači, použijte binární soubor <code class="docutils literal notranslate"><span class="pre">experiment</span></code> a definovanou funkci <code class="docutils literal notranslate"><span class="pre">proved_experiment_Linux()</span></code>.</p></li>
-</ol>
+<p>Cílem je pro libovolné zavolání funkce experimentu najít ideální model, který odpovídá datům nejlépe. Funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code> je již importována v připravené buňce v tomto notebooku, stačí ji zavolat. Pokud chcete řešit úlohu lokálně na osobním počítači, je třeba si spolu s notebookem stáhnout soubor <code class="docutils literal notranslate"><span class="pre">experiment.pyc</span></code> ze složky <code class="docutils literal notranslate"><span class="pre">ukoly/</span></code>.</p>
 <p>Vykreslete závislost testovací chyby na stupni modelového polynomu. Vykreslete vygenerované data a funkci optimálního modelu.</p>
+<p>Můžete pozorovat, že v některých případech vychází stupeň polynomu nečekaně vysoký! To je způsobeno tím, že ohodnocení modelů není vždy optimální (viz Bonus a následující poznámky). Přesto výsledek není úplně špatně, jelikož koeficienty u členů vysokého řádu jsou velmi malé. A při jiném výběru testovací množiny již může vyjít správný stupeň polynomu, kterému odpovídají naměřená data. Zkuste proto spustit výběr a trénování několikrát a vyhodnotit správný stupeň polynomu. <strong>Nebo se podívejte na Bonus.</strong></p>
 <p><em>Bonus:</em></p>
-<p>Upravte krok 2. tak, že místo jednoduché validace použijete pokročilejší <a class="reference external" href="https://cs.wikipedia.org/wiki/K%C5%99%C3%AD%C5%BEov%C3%A1_validace">křížovou validaci</a> (cross validation). Použijte například <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation">tento typ</a> cross validace. Tato metoda je efektivnější pro ohodnocení modelu pro malé množství dat.</p>
+<p>Upravte krok 2. tak, že místo jednoduché validace použijete pokročilejší <a class="reference external" href="https://cs.wikipedia.org/wiki/K%C5%99%C3%AD%C5%BEov%C3%A1_validace">křížovou validaci</a> (cross validation). Použijte například <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation">k-fold křížovou validaci</a> (viz následující poznámky). Tato metoda poskytuje efektivnější ohodnocení modelu.</p>
 </p>
 </div>
 </div><div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Validace - rozdělení dat na trénovací a testovací části - se běžně používá při modelování dat. Je to základní nástroj pro ohodnocení například neuronových sítí.</p>
+<p><strong>Validace</strong> - rozdělení dat na trénovací a testovací části - se běžně používá při modelování dat. Je to základní nástroj pro ohodnocení například neuronových sítí, které představují obecné zobrazené mezi vstupními parametry (<code class="docutils literal notranslate"><span class="pre">xdata</span></code>) a daty (<code class="docutils literal notranslate"><span class="pre">ydata</span></code>).</p>
 <p>Princip spočívá v balacování mezi přetrénováním (oversampling) a podtrénováním (undersampling - bias). Tato myšlenka se také nazývá <a class="reference external" href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">bias-variance tradeoff</a>.</p>
-<p>Když bychom volili větší a větší stupeň polynomu, podaří se nám nafitovat model datům čím dál přesněji. Pro volbu <span class="math notranslate nohighlight">\(m=N\)</span> se dostáváme k interpolaci - fit bude procházet všemi data pointy přesně. Dopustíme se ale tzv. přetrénování, jelikož bude model v datech hledat více vlastností/stupnů volnosti/více křivosti než v nich je. Pak když použijeme model na predikování nových dat, bude příliž citlivý na šum v hodnotách <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Když bychom volili větší a větší stupeň polynomu, podaří se nám nafitovat model datům čím dál přesněji. Pro volbu <span class="math notranslate nohighlight">\(m=N\)</span> se dostáváme k interpolaci - fit bude procházet všemi data pointy přesně. Dopustíme se ale tzv. <em>přetrénování</em>, jelikož bude model v datech hledat více vlastností/stupnů volnosti/více křivosti než v nich je. Pak když použijeme model na predikování nových dat, bude příliž citlivý na šum v hodnotách <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Naopak pokud zvolíme příliž nízký stupeň polynomu, nebude model schopný zachytit podstatný charakter schovaný v datech a bude se dopouštět velké chyby z důvodu neznalosti (bias). Takový model není sice citlivý na šum, ale je zpočátku nepřesný.</p>
 <p>Díky využití části dat, na kterých model netrénujeme, lze model otestovat a získat hodnocení, jak si model vede na nových, předem neznámých datech. Když nalezneme minimum chyby na testovacích datech, dostaneme ideální tvar modelu.</p>
 </p>
 </div>
-</div><div class="cell docutils container">
+</div><p><em>Pouze k Bonusu:</em></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p><strong>Křížová validace</strong> (cross-validation) je pokročilejší technika rozdělení dat na trénovací a testovací. I když rozdělujeme data náhodně do obou množin, každý výběr zanese do testovací množiny určitou informaci, která může ovlivnit ohodnocení modelů.</p>
+<p>Například můžeme uvažovat náhodný výběr testovací množiny, jejíž data pointy budou tvarově odpovídat určitému polynomu řádu <span class="math notranslate nohighlight">\(p\)</span>. Data se ve skutečnosti řídí polynomem menšího stupně <span class="math notranslate nohighlight">\(q &lt; p\)</span>. Jelikož ale hodnotíme natrénovaný model pomocí testovací množiny blízké polynomu stupně <span class="math notranslate nohighlight">\(p\)</span>, bude modelový polynom stupně <span class="math notranslate nohighlight">\(p\)</span> zvýhodněn oproti stupni <span class="math notranslate nohighlight">\(q\)</span>. A tedy můžeme získat nepřesný výsledný model.</p>
+<p>V opačném případě testovací množina nemusí zachytit určitou vlastnost, která se v datech skrývá. Uvažujme například polynom vysokého řádu <span class="math notranslate nohighlight">\(q\)</span>, kterému odpovídají naměřená data. Náhodně je vybrána testovací množina, která velmi řídce pokrývá část intervalu, kde polynom vysokého řádu prudce roste. Tím naopak chybí v testovací datech dostatek informace o datech a budou upřednostovány modelové polynomy nižšího řádu <span class="math notranslate nohighlight">\(p &lt; q\)</span>, než je skutečný řád.</p>
+<p>V případě, kdy máme dostatek dat a rozdělujeme data náhodně, bude pro nás zásadní spíš první případ. Tedy <em>přetrénování</em> dat důsledkem neideálního výběru testovací množiny.</p>
+<p>Křížová validace se snaží potlačit zanesení testovací množiny tak, že provede výběr <strong>opakovaně</strong>. Způsobů opakovaného rozdělení dat na trénovací a testovací je <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Types">mnoho</a>. Zde si popíšeme jeden z nejpoužívanějších.</p>
+<p><strong>K-fold cross-validation</strong></p>
+<p>O této metodě se podrobně můžete dočíst například <a class="reference external" href="https://www.datacamp.com/tutorial/k-fold-cross-validation">zde</a>, kde uvidíte i použití v praxi s využitím vhodných knihovních funkcí.</p>
+<p>Tato metoda slouží k nalezení vhodné volby tzv. <strong>hyperparametrů</strong> modelu. V našem případě je to stupeň modelového polynomu. Obecně to může být parametr ovlivňující řád nebo tvar modelu (hloubka neuronové sítě atd.).</p>
+<p>Kroky k-fold křížové validace jsou následující:</p>
+<ol class="arabic simple">
+<li><p>Náhodně zamícháme data, aby nebyly seřazená podle hodnoty parametru (<code class="docutils literal notranslate"><span class="pre">xdata</span></code>) nebo jiného pravidla.</p></li>
+<li><p>Rozdělíme na <span class="math notranslate nohighlight">\(k\)</span> podmožin a zvolíme hodnotu <span class="math notranslate nohighlight">\(p\)</span> řádu modelového polynomu (hyperparameter).</p></li>
+<li><p>Provedeme trénování a otestování modelu <span class="math notranslate nohighlight">\(k\)</span> krát tak, že testovací množinou bude vždy podmnožina <span class="math notranslate nohighlight">\(k\)</span> a zbytek podmožin bude sloužit jako trénovací množina (viz následující obrázek).</p></li>
+<li><p>Jako finální ohodnocení modelu vezmeme průměr jednotlivých <span class="math notranslate nohighlight">\(k\)</span> hodnocení z iterací křížové validace.</p></li>
+</ol>
+<p>Nakonec stačí již porovnat výsledná hodnocení pro modely různých řádů a určit optimální řád modelového polynomu, podle kterého se řídí naměřená data.</p>
+<p>Poslední krok je zjistit parametry modelu - koeficienty polynomu s optimálním řádem. Jelikož již nepotřebujeme model hodnotit, stačí natrénovat model onoho řádu znovu na všech datech. Díky křížové validaci známe přesně řád polynomu a nemůžeme se tedy v naší úloze již dopustit <em>přetrénování</em>. Každý další data point již jen zpřesňuje znalost parametrů modelu. Pokud bychom chtěli znát míru přesnosti výsledného modelu, je třeba využít testovacích dat.</p>
+<div>
+<img src="../images/cross-validace.png" width="500"/>
+</div>
+<p>Tímto způsobem je každý data point použit právě jednou na trénování a testování jednoho z modelů. Opakovaným výběrem zajistíme objektivnější hodnocení modelu a tím zpřesníme výběr nejlepšího modelu, kterému by data měla odpovídat.</p>
+</p>
+</div>
+</div><section id="import-funkce-experimentu">
+<h2>Import funkce experimentu:<a class="headerlink" href="#import-funkce-experimentu" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -514,7 +550,6 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 </div>
 </div>
 </div>
-<p>Import funkce experimentu:</p>
 <ul class="simple">
 <li><p>JupyterHub</p></li>
 </ul>
@@ -589,7 +624,10 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 </div>
 </div>
 </div>
-<p>Řešení úlohy:</p>
+</section>
+<section id="reseni-ulohy">
+<h2>Řešení úlohy:<a class="headerlink" href="#reseni-ulohy" title="Link to this heading">#</a></h2>
+<p><strong>Vygenerování dat</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
@@ -597,6 +635,43 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 </div>
 </div>
 </div>
+<p><strong>Rozdělení na trénovací a testovací množinu</strong></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro rozdělení dat na trénovací a testovací množinu můžete použít tyto dvě možnosti:</p>
+<ol class="arabic simple">
+<li><p>Metodu <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"><code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code></a> z knihovny <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code>, která automaticky při výběru náhodně zamíchá data.</p></li>
+<li><p>Kombinaci funkcí <a class="reference external" href="https://numpy.org/doc/2.1/reference/random/generated/numpy.random.choice.html"><code class="docutils literal notranslate"><span class="pre">np.random.choice()</span></code></a> a <a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.setdiff1d.html"><code class="docutils literal notranslate"><span class="pre">np.setdiff1d()</span></code></a> pro výběr indexů prvků do odpovídajících množin.</p></li>
+<li><p>Pro <em>křížovou validaci</em> lze použít například třídu <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html"><code class="docutils literal notranslate"><span class="pre">KFold</span></code></a> z knihovny <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code>. Funkce <code class="docutils literal notranslate"><span class="pre">split()</span></code> zavolaná na instanci třídy <code class="docutils literal notranslate"><span class="pre">KFold</span></code> vrátí seznam <span class="math notranslate nohighlight">\(k\)</span> dvojic indexů prvků z trénovací a testovací množiny (viz příklad v dokumentaci třídy).</p></li>
+</ol>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Trénování a testování modelu na datech pro různé stupně polynomu</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Výběr nejlepšího modelu a stupně modelového polynomu + vizualizace výsledku</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -654,7 +729,21 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-funkce-experimentu">Import funkce experimentu:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-ulohy">Řešení úlohy:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
