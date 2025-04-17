@@ -466,7 +466,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-funkce-experimentu">Import funkce experimentu:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-ulohy">Řešení úlohy:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-ulohy">Řešení úlohy:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cast-ukolu">1. Část úkolu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Část úkolu</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -487,6 +491,8 @@ document.write(`
 <p>Uvažujte následující situaci. Provádíte experiment a naměříte sadu dat. Bohužel jste ale ztratili vaše teoretické poznámky k experimentu a již nevíte, jakým zákonem/vzorečkem se data řídí. Nedokážete již tedy proložit data odpovídající modelovou funkcí a získat parametry tohoto modelu. Přesto nezačnete zoufat a tuto patálii vyřešíte pomocí numerických nástrojů na počítači. Záchranou je pro vás, že jste si zapamatovali, že se data řídí polynomiální závislostí. Již ale neznáte přesný stupeň onoho polynomu.</p>
 <p>Definice úlohy:
 Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> tvořící experimentální data. Data získáte pomocí funkce <code class="docutils literal notranslate"><span class="pre">(xdata,</span> <span class="pre">ydata)</span> <span class="pre">=</span> <span class="pre">proved_experiment()</span></code> (implementované v binárním souboru <code class="docutils literal notranslate"><span class="pre">experiment.pyc</span></code>), která volí náhodný stupeň polynomu <span class="math notranslate nohighlight">\(m \in [0,10]\)</span>, pro který vygeneruje odpovídající náhodná data s přidaným gausovským šumem (podle normálního rozdělení). Funkce vrací dva vektory/pole <span class="math notranslate nohighlight">\(\vec{x}\)</span> a <span class="math notranslate nohighlight">\(\vec{y}\)</span>. S každým novým voláním této funkce jsou vygenerována data pro jiný modelový polynom!</p>
+<p>Splňte následující dvě části úkolu:</p>
+<p><strong>1. ČÁST ÚKOLU</strong></p>
 <ol class="arabic simple">
 <li><p>Vygenerujte experimentální data pomocí připravené funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code>.</p></li>
 <li><p>Rozdělte data na <em>trénovací</em> a <em>testovací</em> v poměru 3:1 (testovacích dat je třeba méně). Rozdělte data do skupin náhodně tak, aby jste výběrem nezanesli nechtěnou informaci do testovací množiny a aby byly data přibližně rovnoměrně rozprostřeny v celém intervalu v obou skupinách! To zajistí přesnější ohodnocení natrénovaného modelu.</p></li>
@@ -496,9 +502,10 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 </ol>
 <p>Cílem je pro libovolné zavolání funkce experimentu najít ideální model, který odpovídá datům nejlépe. Funkce <code class="docutils literal notranslate"><span class="pre">proved_experiment()</span></code> je již importována v připravené buňce v tomto notebooku, stačí ji zavolat. Pokud chcete řešit úlohu lokálně na osobním počítači, je třeba si spolu s notebookem stáhnout soubor <code class="docutils literal notranslate"><span class="pre">experiment.pyc</span></code> ze složky <code class="docutils literal notranslate"><span class="pre">ukoly/</span></code>.</p>
 <p>Vykreslete závislost testovací chyby na stupni modelového polynomu. Vykreslete vygenerované data a funkci optimálního modelu.</p>
-<p>Můžete pozorovat, že v některých případech vychází stupeň polynomu nečekaně vysoký! To je způsobeno tím, že ohodnocení modelů není vždy optimální (viz Bonus a následující poznámky). Přesto výsledek není úplně špatně, jelikož koeficienty u členů vysokého řádu jsou velmi malé. A při jiném výběru testovací množiny již může vyjít správný stupeň polynomu, kterému odpovídají naměřená data. Zkuste proto spustit výběr a trénování několikrát a vyhodnotit správný stupeň polynomu. <strong>Nebo se podívejte na Bonus.</strong></p>
-<p><em>Bonus:</em></p>
+<p>Můžete pozorovat, že v některých případech vychází stupeň polynomu nečekaně vysoký! To je způsobeno tím, že ohodnocení modelů není vždy optimální (viz Bonus a následující poznámky). Přesto výsledek není úplně špatně, jelikož koeficienty u členů vysokého řádu jsou velmi malé. A při jiném výběru testovací množiny již může vyjít správný stupeň polynomu, kterému odpovídají naměřená data. Zkuste proto spustit výběr a trénování několikrát a vyhodnotit správný stupeň polynomu. <strong>Nebo se podívejte na 2. část úkolu.</strong></p>
+<p><strong>2. ČÁST ÚKOLU</strong></p>
 <p>Upravte krok 2. tak, že místo jednoduché validace použijete pokročilejší <a class="reference external" href="https://cs.wikipedia.org/wiki/K%C5%99%C3%AD%C5%BEov%C3%A1_validace">křížovou validaci</a> (cross validation). Použijte například <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation">k-fold křížovou validaci</a> (viz následující poznámky). Tato metoda poskytuje efektivnější ohodnocení modelu.</p>
+<p>Srovnejte výsledek jednoduché a křížové validace.</p>
 </p>
 </div>
 </div><div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
@@ -512,7 +519,7 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 <p>Díky využití části dat, na kterých model netrénujeme, lze model otestovat a získat hodnocení, jak si model vede na nových, předem neznámých datech. Když nalezneme minimum chyby na testovacích datech, dostaneme ideální tvar modelu.</p>
 </p>
 </div>
-</div><p><em>Pouze k Bonusu:</em></p>
+</div><p><em>Ke 2. části úkolu:</em></p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
@@ -625,6 +632,8 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 </section>
 <section id="reseni-ulohy">
 <h2>Řešení úlohy:<a class="headerlink" href="#reseni-ulohy" title="Link to this heading">#</a></h2>
+<section id="cast-ukolu">
+<h3>1. Část úkolu<a class="headerlink" href="#cast-ukolu" title="Link to this heading">#</a></h3>
 <p><strong>Vygenerování dat</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -669,6 +678,33 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
 </div>
 </div>
 </div>
+</section>
+<section id="id1">
+<h3>2. Část úkolu<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Rozdělení na trénovací a testovací množinu - křížová validace</strong></p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Pro rozdělení dat pomocí <em>křížové validace</em> použijte například třídu <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html"><code class="docutils literal notranslate"><span class="pre">KFold</span></code></a> z knihovny <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code>. Funkce <code class="docutils literal notranslate"><span class="pre">split()</span></code> zavolaná na instanci třídy <code class="docutils literal notranslate"><span class="pre">KFold</span></code> vrátí seznam <span class="math notranslate nohighlight">\(k\)</span> dvojic indexů prvků z trénovací a testovací množiny (viz příklad v dokumentaci třídy).</p>
+</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Výběr nejlepšího modelu a stupně modelového polynomu + vizualizace výsledku</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -737,7 +773,11 @@ Uvažujte <span class="math notranslate nohighlight">\(N=100\)</span> dvojic <sp
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-funkce-experimentu">Import funkce experimentu:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-ulohy">Řešení úlohy:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseni-ulohy">Řešení úlohy:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cast-ukolu">1. Část úkolu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Část úkolu</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
