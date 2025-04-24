@@ -529,7 +529,7 @@ Příklady optimalizačních úloh:</p>
 </div>
 <section id="hledani-extremu-funkce-jedne-promenne">
 <h2>Hledání extrémů funkce jedné proměnné<a class="headerlink" href="#hledani-extremu-funkce-jedne-promenne" title="Link to this heading">#</a></h2>
-<p>V případě hledání minima funkce jedné proměnné (1D minimalizace) můžeme opět využít předem známého ohraničení minima. Druhý způsob využívá výpočet derivace k určení směru, kterým se vydat k připbížení se minimu.</p>
+<p>V případě hledání minima funkce jedné proměnné (1D minimalizace) můžeme opět využít předem známého ohraničení minima. Druhý způsob využívá výpočet derivace k určení směru, kterým se vydat k přiblížení se minimu.</p>
 <p>První dvě metody využívají znalosti ohraničení.</p>
 <p><strong>Ohraničení minima</strong></p>
 <p>Jak získat počáteční ohraničení minima? Existuje jednoduchá metoda, jak takové ohraničení nalézt:</p>
@@ -611,7 +611,7 @@ W = \dfrac{3-\sqrt{5}}{2} \approx 0.38197
 \[
 d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 \]</div>
-<p>V každém máme zajištěno, že změnšíme velikost ohraničení přávě o <span class="math notranslate nohighlight">\(0.38197\)</span>. Tedy velikost nového intervalu bude tvořit <span class="math notranslate nohighlight">\(0.61803\)</span> původní velikosti (u <em>bisekce</em> jsme měli <span class="math notranslate nohighlight">\(0.5\)</span>!).</p>
+<p>V každém kroce máme zajištěno, že změnšíme velikost ohraničení přávě o <span class="math notranslate nohighlight">\(0.38197\)</span>. Tedy velikost nového intervalu bude tvořit <span class="math notranslate nohighlight">\(0.61803\)</span> původní velikosti (u <em>bisekce</em> jsme měli <span class="math notranslate nohighlight">\(0.5\)</span>!).</p>
 <p>Vlastnosti metody:</p>
 <ul class="simple">
 <li><p><em>lineární</em> konvergence - s jedním krokem metody se přesnost zvýší o jednu číslici</p></li>
@@ -629,7 +629,7 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
-<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-15</span>
 
 <span class="c1"># pocatecni ohraniceni</span>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
@@ -669,7 +669,7 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 <p>Porovnání s výsledkem funkce <code class="docutils literal notranslate"><span class="pre">minimize_scalar(..,</span> <span class="pre">method=&quot;golden&quot;)</span></code> z knihovny SciPy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-7</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;golden&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;golden&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -715,6 +715,7 @@ minimum(SciPy): 2.2153014284760957
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraci</span><span class="p">),</span><span class="n">epsilon</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;vyvoj chyby&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -766,7 +767,7 @@ a &lt; b &lt; c \wedge f(a) &gt; f(b) &lt; f(c)
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
-<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-9</span>
 
 <span class="c1"># pocatecni ohraniceni</span>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
@@ -801,7 +802,7 @@ a &lt; b &lt; c \wedge f(a) &gt; f(b) &lt; f(c)
 <p>Porovnání s výsledkem funkce <code class="docutils literal notranslate"><span class="pre">minimize_scalar(..,</span> <span class="pre">method=&quot;brent&quot;)</span></code> z knihovny SciPy (Brentova metoda kombinuje metodu zlatého řezu a parabolické interpolace):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-7</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;brent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-9</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;brent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -862,6 +863,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraci2</span><span class="p">),</span><span class="n">epsilon2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;vyvoj chyby&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -911,7 +913,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
 
 <span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
-<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-8</span> <span class="c1"># ZKUSIT ZMENSIT NA 1e-15</span>
 
 <span class="c1"># pocatecni bod</span>
 <span class="n">a0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
@@ -1004,6 +1006,7 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraci3</span><span class="p">),</span><span class="n">epsilon3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;vyvoj chyby&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
