@@ -27,14 +27,14 @@ parts:
     - file: lekce-vyplnene/05-aproximace-funkci-vypl
       title: 5. Interpolace a aproximace funkcí
 
-    - file: lekce/07-nelinearni-rce
-    #- file: lekce-vyplnene/07-nelinearni-rce-vypl
+    #- file: lekce/07-nelinearni-rce
+    - file: lekce-vyplnene/07-nelinearni-rce-vypl
       title: 7. Nelineární rovnice
-    - file: lekce/08-extremy-fci
-    #- file: lekce-vyplnene/08-extremy-fci-vypl
+    #- file: lekce/08-extremy-fci
+    - file: lekce-vyplnene/08-extremy-fci-vypl
       title: 8. Extrémy funkcí
-    - file: lekce/09-integrace
-    #- file: lekce-vyplnene/09-integrace-vypl
+    #- file: lekce/09-integrace
+    - file: lekce-vyplnene/09-integrace-vypl
       title: 9. Numerická integrace
     - file: lekce/10-reseni-odr
     #- file: lekce-vyplnene/10-reseni-odr-vypl
