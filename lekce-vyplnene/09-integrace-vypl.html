@@ -63,7 +63,7 @@
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Řešení obyčejných diferenciálních rovnic (ODR)" href="10-reseni-odr-vypl.html" />
+    <link rel="next" title="Řešení obyčejných diferenciálních rovnic (ODR)" href="../lekce/10-reseni-odr.html" />
     <link rel="prev" title="Hledání extrémů funkcí" href="08-extremy-fci-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,22 +175,30 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Numerické metody (NME1cv) - cvičení 2024
+                    Numerické metody (NME1cv) - cvičení 2025
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-chyby-stabilita-vypl.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-aproximace-funkci-vypl.html">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-extremy-fci-vypl.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10-reseni-odr-vypl.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/10-reseni-odr.html">10. Obyčejné diferenciální rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html">5. Interpolace a aproximace funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/10-reseni-odr-UKOL.html">10. Obyčejné diferenciální rovnice</a></li>
@@ -249,7 +257,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce-vyplnene/09-integrace-vypl.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/lekce-vyplnene/09-integrace-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -267,7 +275,7 @@
       
       
       
-      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce-vyplnene/09-integrace-vypl.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/lekce-vyplnene/09-integrace-vypl.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -469,9 +477,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussovy-kvadratury">Gaussovy kvadratury</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrace-funkci-vice-promennych-nd">Integrace funkcí více proměnných (nD)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-1d">Metoda Monte Carlo (1D)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-nd">Metoda Monte Carlo (nD)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha-metoda-monte-carlo-nd">Zápočtová úloha - Metoda Monte Carlo (nD)</a></li>
 </ul>
             </nav>
         </div>
@@ -487,7 +495,7 @@ document.write(`
 <div style="background: #F7C8C0; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Pozor</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Připomínám, že 3.5. <strong>neproběhne</strong> cvičení v prezenční formě! Tento notebook slouží pro samostatné seznámení s tématem.</p>
+<p>Připomínám, že 2.5. <strong>neproběhne</strong> cvičení v prezenční formě! Tento notebook slouží pro samostatné seznámení s tématem.</p>
 <p>Vaším úkolem je látku projít a <strong>doplnit</strong> buňky podle vyznačených úkolů.
 Pro započítání docházky z této hodiny mi pošlete tento notebook s vyplněnými úkoly mailem. V případě nejasností se můžete podívat na materiály <a class="reference external" href="https://mjirka.github.io/nme/Cviceni09vyplnene.html">Martina Jirky</a> nebo na video <a class="reference external" href="https://youtu.be/po1m34mcjAI?si=Ch3zstxQ1Ymdx0BA">Honzy Vábka</a>.</p>
 </p>
@@ -565,7 +573,7 @@ Na záver nahlídneme do problému integrování funkcí více proměnných.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c60c97ac0145109989b72ecda215aa8ca7fede896021ef0ebfcdcab2df4910af.png" src="../_images/c60c97ac0145109989b72ecda215aa8ca7fede896021ef0ebfcdcab2df4910af.png" />
+<img alt="../_images/732f41051027f9c369425e6d78bb294d2b11e368eef45d77d2377763793fc42e.png" src="../_images/732f41051027f9c369425e6d78bb294d2b11e368eef45d77d2377763793fc42e.png" />
 </div>
 </div>
 <section id="newton-cortesovy-vzorce">
@@ -783,7 +791,7 @@ Realná chyba: 0.00018682829469529594
 <p>Složený vzorec opět dostaneme aplikací pravidla na všechny podintervaly (zde implicitně předpokládáme, že <span class="math notranslate nohighlight">\(N\)</span> je sudé):</p>
 <div class="math notranslate nohighlight">
 \[
-\int_{x_0}^{x_N} f(x) dx = h \left[\frac{1}{3}f_0 + \frac{4}{3}f_1 + \frac{2}{3}f_2 + \frac{4}{3}f_3 + \dots + \frac{2}{3}f_{N-1} + \frac{4}{3}f_{N-1} + \frac{1}{3}f_N\right] + \mathcal{O}\left(\frac{(b - a)^5}{N^4} f^{(4)}\right).
+\int_{x_0}^{x_N} f(x) dx = h \left[\frac{1}{3}f_0 + \frac{4}{3}f_1 + \frac{2}{3}f_2 + \frac{4}{3}f_3 + \dots + \frac{2}{3}f_{N-2} + \frac{4}{3}f_{N-1} + \frac{1}{3}f_N\right] + \mathcal{O}\left(\frac{(b - a)^5}{N^4} f^{(4)}\right).
 \]</div>
 <p>Tato tříbodová metoda je díky jisté symetrii dokonce <strong>čtvrtého řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy až <strong>třetího řádu</strong>.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
@@ -903,7 +911,7 @@ I_presny:   2.3149749160962623
 </div>
 </div>
 <p><strong>Odhad chyby integrálu</strong></p>
-<p>Opět chceme určit chybu integrálu. Tentokrát je rozvoj chyby pro <em>Simpsonovo pravidlo</em> následující:</p>
+<p>Opět chceme určit chybu integrálu. Tentokrát je rozvoj chyby pro <em>obdélníhové pravidlo</em> následující:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -1027,20 +1035,20 @@ Realná chyba: 2.868257542587571e-08
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/78d7198993f9057676abcfcb3111793067bb39812f173d24767c0ada0cf7289d.png" src="../_images/78d7198993f9057676abcfcb3111793067bb39812f173d24767c0ada0cf7289d.png" />
+<img alt="../_images/20fa2eabb766ba43ba6ea70694365bee246cc8fe389a9e4da44b4d6d1320d1d0.png" src="../_images/20fa2eabb766ba43ba6ea70694365bee246cc8fe389a9e4da44b4d6d1320d1d0.png" />
 </div>
 </div>
 <p>Definice polynomu stupně <code class="docutils literal notranslate"><span class="pre">npoly</span> <span class="pre">-</span> <span class="pre">1</span></code> pro ověření absolutní přesnosti metod:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npoly</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># stupen polynomu + 1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npoly</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># stupen polynomu + 1</span>
 <span class="n">fpoly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">npoly</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">fpoly</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>poly1d([1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>poly1d([1, 2, 3])
 </pre></div>
 </div>
 </div>
@@ -1110,7 +1118,7 @@ Realná chyba: 2.868257542587571e-08
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f5471a757d4d2f17ee620ac9c57114c236f4e65f668228d52ff480bdb79a9269.png" src="../_images/f5471a757d4d2f17ee620ac9c57114c236f4e65f668228d52ff480bdb79a9269.png" />
+<img alt="../_images/895ebd845ee5a71c6760feda000da3b7c0afb39a8c270ec58c162c3c5609903f.png" src="../_images/895ebd845ee5a71c6760feda000da3b7c0afb39a8c270ec58c162c3c5609903f.png" />
 </div>
 </div>
 <p>Na předchozích grafech vidíme srovnání rychlostí konvergence pro jednotlivé představené metody integrace. Skutečně <em>levostranné pravidlo</em> vede na metodu prvního řádu, <em>lichoběžníkové</em> a <em>obdélníkové</em> pravidlo vedou na metodu druhého řádu a nakonec <em>Simpsonovo pravidlo</em> nám dává metodu až <strong>čtvrtého řádu</strong>.</p>
@@ -1151,7 +1159,7 @@ Realná chyba: 2.868257542587571e-08
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_gaussKvad: 2.3149749160962623 | chyba: 5.1238144212141194e-12
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_gaussKvad: 0.0 | chyba: 7.079853266994228e-14
 I_presny:    2.3149749160962623
 </pre></div>
 </div>
@@ -1200,7 +1208,7 @@ I_presny:    2.3149749160962623
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4327057238598927
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.537138043658784
 </pre></div>
 </div>
 </div>
@@ -1234,7 +1242,7 @@ I_presny:    2.3149749160962623
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_monteCarlo1: 2.322675
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_monteCarlo1: 2.290275
 I_presny:      2.3149749160962623
 </pre></div>
 </div>
@@ -1258,8 +1266,8 @@ I_presny:      2.3149749160962623
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.03565307994902807
-Realná chyba: 0.0077000839037375535
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.03590438230125973
+Realná chyba: 0.02469991609626243
 </pre></div>
 </div>
 </div>
@@ -1303,7 +1311,7 @@ Realná chyba: 0.0077000839037375535
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_monteCarlo2: 2.3141874920052237
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I_monteCarlo2: 2.321535281189562
 I_presny:      2.3149749160962623
 </pre></div>
 </div>
@@ -1320,25 +1328,25 @@ I_presny:      2.3149749160962623
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.011672475252880789
-Realná chyba: 0.0007874240910386021
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad chyby:  0.011752135864886262
+Realná chyba: 0.006560365093299936
 </pre></div>
 </div>
 </div>
 </div>
 <p>Vidíme, že i pro větší počty vzorků máme výsledek přesně jen na malý počet číslic. Implementace pro funkce mnoha proměnných by byla analogická, akorát by bylo potřeba generovat více náhodných čísel pro jednotlivé proměnné.</p>
 </section>
-<section id="metoda-monte-carlo-nd">
-<h3>Metoda Monte Carlo (nD)<a class="headerlink" href="#metoda-monte-carlo-nd" title="Link to this heading">#</a></h3>
+</section>
+<section id="zapoctova-uloha-metoda-monte-carlo-nd">
+<h2>Zápočtová úloha - Metoda Monte Carlo (nD)<a class="headerlink" href="#zapoctova-uloha-metoda-monte-carlo-nd" title="Link to this heading">#</a></h2>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 3</div>
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 8</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p><a class="reference internal" href="../ukoly/09-integrace-UKOL.html#ukol3"><span class="std std-ref">ZDE</span></a></p>
+<p><a class="reference internal" href="../ukoly/09-integrace-UKOL.html#ukol8"><span class="std std-ref">ZDE</span></a></p>
 </p>
 </div>
 </div></section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1381,7 +1389,7 @@ Realná chyba: 0.0007874240910386021
       </div>
     </a>
     <a class="right-next"
-       href="10-reseni-odr-vypl.html"
+       href="../lekce/10-reseni-odr.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -1417,9 +1425,9 @@ Realná chyba: 0.0007874240910386021
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussovy-kvadratury">Gaussovy kvadratury</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrace-funkci-vice-promennych-nd">Integrace funkcí více proměnných (nD)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-1d">Metoda Monte Carlo (1D)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-monte-carlo-nd">Metoda Monte Carlo (nD)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha-metoda-monte-carlo-nd">Zápočtová úloha - Metoda Monte Carlo (nD)</a></li>
 </ul>
   </nav></div>
 
@@ -1444,7 +1452,7 @@ By Jiří Löffelmann
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

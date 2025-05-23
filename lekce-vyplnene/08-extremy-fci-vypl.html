@@ -175,22 +175,30 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Numerické metody (NME1cv) - cvičení 2024
+                    Numerické metody (NME1cv) - cvičení 2025
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-chyby-stabilita-vypl.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-aproximace-funkci-vypl.html">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09-integrace-vypl.html">9. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10-reseni-odr-vypl.html">10. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/10-reseni-odr.html">10. Obyčejné diferenciální rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelinearní rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html">5. Interpolace a aproximace funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/10-reseni-odr-UKOL.html">10. Obyčejné diferenciální rovnice</a></li>
@@ -249,7 +257,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=tree/lekce-vyplnene/08-extremy-fci-vypl.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/lekce-vyplnene/08-extremy-fci-vypl.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -267,7 +275,7 @@
       
       
       
-      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=tree/NME1cvBook/lekce-vyplnene/08-extremy-fci-vypl.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/lekce-vyplnene/08-extremy-fci-vypl.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -468,7 +476,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-nejvetsiho-spadu-nd-gradient-descent">Metoda největšího spádu nD (Gradient descent)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-konjugovanych-gradientu">Metoda konjugovaných gradientů</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha-metoda-konjugovanych-gradientu">Zápočtová úloha - Metoda konjugovaných gradientů</a></li>
 </ul>
             </nav>
         </div>
@@ -481,7 +489,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hledani-extremu-funkci">
-<h1>Hledání extrémů funkcí<a class="headerlink" href="#hledani-extremu-funkci" title="Link to this heading">#</a></h1>
+<span id="extremy"></span><h1>Hledání extrémů funkcí<a class="headerlink" href="#hledani-extremu-funkci" title="Link to this heading">#</a></h1>
 <p>V této kapitole si představíme několik metod na hledání extrémů funkcí jedné nebo více proměnných. Jak uvidíme, tyto metody budou založené na podobných principech jako metody v předchozí kapitole. Také, podobně jako v minulé kapitole, zde neexistuje žádná nejlepší obecná metoda. Každá z představených metod má svoje výhody a naopak limitace, proto v různých situacích může výt výhodné použít různé metody.</p>
 <p>Uvažujeme funkci <span class="math notranslate nohighlight">\(f\)</span> a budeme hledat její minimu (hledání maxima je stejná opět hledání minima, akorát pro funkci <span class="math notranslate nohighlight">\(-f\)</span>). Budeme rozlišovat mezi <strong>lokálním</strong> a <strong>globálním</strong> minimem. Hledání globálního maxima (podobně jako řešení nelineární rovnice) je obecně <em>obtížný</em> problém. Metody, které si zde představíme, dokáží nalézt (zkonvergovat) pouze lokální extrém a vyžadují nějaký počáteční odhad.</p>
 <p>Pro hledání globálního minima existuje několik postupů (z nichž jeden bude součástí zápočtové úlohy z této hodiny):</p>
@@ -521,7 +529,7 @@ Příklady optimalizačních úloh:</p>
 </div>
 <section id="hledani-extremu-funkce-jedne-promenne">
 <h2>Hledání extrémů funkce jedné proměnné<a class="headerlink" href="#hledani-extremu-funkce-jedne-promenne" title="Link to this heading">#</a></h2>
-<p>V případě hledání minima funkce jedné proměnné (1D minimalizace) můžeme opět využít předem známého ohraničení minima. Druhý způsob využívá výpočet derivace k určení směru, kterým se vydat k připbížení se minimu.</p>
+<p>V případě hledání minima funkce jedné proměnné (1D minimalizace) můžeme opět využít předem známého ohraničení minima. Druhý způsob využívá výpočet derivace k určení směru, kterým se vydat k přiblížení se minimu.</p>
 <p>První dvě metody využívají znalosti ohraničení.</p>
 <p><strong>Ohraničení minima</strong></p>
 <p>Jak získat počáteční ohraničení minima? Existuje jednoduchá metoda, jak takové ohraničení nalézt:</p>
@@ -569,7 +577,7 @@ f(x) = 3 \sin(x + 2) + x^2 - 3x + 5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/27ef2e85a753597550cf9021cbdc82c91f36998cdaca1e8e0f260a514a595ee8.png" src="../_images/27ef2e85a753597550cf9021cbdc82c91f36998cdaca1e8e0f260a514a595ee8.png" />
+<img alt="../_images/94f0d1187804a7cf5ad3802c79cc0322c89f04270ac06b5b6288aa931f057e1e.png" src="../_images/94f0d1187804a7cf5ad3802c79cc0322c89f04270ac06b5b6288aa931f057e1e.png" />
 </div>
 </div>
 <section id="metoda-zlateho-rezu">
@@ -603,7 +611,7 @@ W = \dfrac{3-\sqrt{5}}{2} \approx 0.38197
 \[
 d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 \]</div>
-<p>V každém máme zajištěno, že změnšíme velikost ohraničení přávě o <span class="math notranslate nohighlight">\(0.38197\)</span>. Tedy velikost nového intervalu bude tvořit <span class="math notranslate nohighlight">\(0.61803\)</span> původní velikosti (u <em>bisekce</em> jsme měli <span class="math notranslate nohighlight">\(0.5\)</span>!).</p>
+<p>V každém kroce máme zajištěno, že změnšíme velikost ohraničení přávě o <span class="math notranslate nohighlight">\(0.38197\)</span>. Tedy velikost nového intervalu bude tvořit <span class="math notranslate nohighlight">\(0.61803\)</span> původní velikosti (u <em>bisekce</em> jsme měli <span class="math notranslate nohighlight">\(0.5\)</span>!).</p>
 <p>Vlastnosti metody:</p>
 <ul class="simple">
 <li><p><em>lineární</em> konvergence - s jedním krokem metody se přesnost zvýší o jednu číslici</p></li>
@@ -621,7 +629,7 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
-<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-15</span>
 
 <span class="c1"># pocatecni ohraniceni</span>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
@@ -667,7 +675,7 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum je v intervalu &lt; 2.2152297539182775 , 2.2153262026750618 &gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum je v intervalu &lt; 2.2153014081899682 , 2.215301408189969 &gt;
 </pre></div>
 </div>
 </div>
@@ -675,7 +683,7 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 <p>Porovnání s výsledkem funkce <code class="docutils literal notranslate"><span class="pre">minimize_scalar(..,</span> <span class="pre">method=&quot;golden&quot;)</span></code> z knihovny SciPy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-7</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;golden&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;golden&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -688,8 +696,8 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum: 2.21527797829667 chyba: 9.644875678427312e-05 iteraci: 24
-minimum(SciPy): 2.2153014284760957
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum: 2.2153014081899687 chyba: 8.881784197001252e-16 iteraci: 76
+minimum(SciPy): 2.2153013932353014
 </pre></div>
 </div>
 </div>
@@ -703,7 +711,7 @@ minimum(SciPy): 2.2153014284760957
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" src="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" />
+<img alt="../_images/ee90b4dd14ef2816b2c3db95ecabfc505cc42eb4b8cc242f7c13904af10205ce.png" src="../_images/ee90b4dd14ef2816b2c3db95ecabfc505cc42eb4b8cc242f7c13904af10205ce.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -721,12 +729,13 @@ minimum(SciPy): 2.2153014284760957
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraci</span><span class="p">),</span><span class="n">epsilon</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;vyvoj chyby&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a653131ddd40a1b8aaebddfea697e204c98832486a521190964790ae17c7e211.png" src="../_images/a653131ddd40a1b8aaebddfea697e204c98832486a521190964790ae17c7e211.png" />
+<img alt="../_images/3dd1b683e5825c8efa619ad5f66735c9fa6d7e38c2a84b0190db91c898747e4c.png" src="../_images/3dd1b683e5825c8efa619ad5f66735c9fa6d7e38c2a84b0190db91c898747e4c.png" />
 </div>
 </div>
 </section>
@@ -772,7 +781,7 @@ a &lt; b &lt; c \wedge f(a) &gt; f(b) &lt; f(c)
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
-<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-9</span>
 
 <span class="c1"># pocatecni ohraniceni</span>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
@@ -828,7 +837,7 @@ a &lt; b &lt; c \wedge f(a) &gt; f(b) &lt; f(c)
 <p>Porovnání s výsledkem funkce <code class="docutils literal notranslate"><span class="pre">minimize_scalar(..,</span> <span class="pre">method=&quot;brent&quot;)</span></code> z knihovny SciPy (Brentova metoda kombinuje metodu zlatého řezu a parabolické interpolace):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-7</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;brent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_SP2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;brent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -842,7 +851,7 @@ a &lt; b &lt; c \wedge f(a) &gt; f(b) &lt; f(c)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum: 2.2153014127787602 chyba: 7.81929188065078e-10 iteraci: 11
-minimum(SciPy): 2.2153014121791386
+minimum(SciPy): 2.2153014131075905
 </pre></div>
 </div>
 </div>
@@ -856,7 +865,7 @@ minimum(SciPy): 2.2153014121791386
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zlatý řez:     2.21527797829667 9.644875678427312e-05 24
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zlatý řez:     2.2153014081899687 8.881784197001252e-16 76
 Parabola :     2.2153014127787602 7.81929188065078e-10 11
 </pre></div>
 </div>
@@ -871,7 +880,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" src="../_images/0145b65c2ed589f4617fb905b5a55233a7fdeba9a3531aedd0a46c45a8430d9e.png" />
+<img alt="../_images/ee90b4dd14ef2816b2c3db95ecabfc505cc42eb4b8cc242f7c13904af10205ce.png" src="../_images/ee90b4dd14ef2816b2c3db95ecabfc505cc42eb4b8cc242f7c13904af10205ce.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -889,12 +898,13 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraci2</span><span class="p">),</span><span class="n">epsilon2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;vyvoj chyby&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cbcd40c5677114aabc5abf54c83610b0fc3bb91dbcfc9527f000335db83155ff.png" src="../_images/cbcd40c5677114aabc5abf54c83610b0fc3bb91dbcfc9527f000335db83155ff.png" />
+<img alt="../_images/a4227d79e3484b6ac4c0e1927c96c1e2df59faa6e6a83fb7d34d90988337f1b9.png" src="../_images/a4227d79e3484b6ac4c0e1927c96c1e2df59faa6e6a83fb7d34d90988337f1b9.png" />
 </div>
 </div>
 </section>
@@ -938,7 +948,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
 
 <span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
-<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-15</span> <span class="c1"># ZKUSIT ZMENSIT NA 1e-15</span>
 
 <span class="c1"># pocatecni bod</span>
 <span class="n">a0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
@@ -992,7 +1002,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum: 2.2102998249848205 chyba: 1.3785796326715172e-05 iteraci: 9
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum: 2.2103001275872014 chyba: 1.8740564655672642e-11 iteraci: 100
 minimum(SciPy): 2.2153014120768595
 </pre></div>
 </div>
@@ -1007,9 +1017,9 @@ minimum(SciPy): 2.2153014120768595
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zlatý řez:     2.21527797829667 9.644875678427312e-05 24
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zlatý řez:     2.2153014081899687 8.881784197001252e-16 76
 Parabola :     2.2153014127787602 7.81929188065078e-10 11
-Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
+Grad. des.:    2.2103001275872014 1.8740564655672642e-11 100
 </pre></div>
 </div>
 </div>
@@ -1023,7 +1033,7 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8130bd2ec4f881e1038cb5de791b1f1eb8f3ce9acc94dbbe333716c8e0a4d266.png" src="../_images/8130bd2ec4f881e1038cb5de791b1f1eb8f3ce9acc94dbbe333716c8e0a4d266.png" />
+<img alt="../_images/d1f5037fbc558a58454a896e398436b2335e50d3aaf6b0bbe46ce514bac3947f.png" src="../_images/d1f5037fbc558a58454a896e398436b2335e50d3aaf6b0bbe46ce514bac3947f.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -1041,12 +1051,13 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">iteraci3</span><span class="p">),</span><span class="n">epsilon3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;vyvoj chyby&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cdbffd260b3942f9d1d839a108c23baad288eb78f22d3f8c8c7781e431fc263e.png" src="../_images/cdbffd260b3942f9d1d839a108c23baad288eb78f22d3f8c8c7781e431fc263e.png" />
+<img alt="../_images/6441de46e5a15914468f9cedab26d0995687c5579bf7c77c0563b9ae1b73278a.png" src="../_images/6441de46e5a15914468f9cedab26d0995687c5579bf7c77c0563b9ae1b73278a.png" />
 </div>
 </div>
 </section>
@@ -1078,7 +1089,7 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" src="../_images/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" />
+<img alt="../_images/e73ce4eea5e4e9776d034428e13438f9f0665651d8d94a4598b1a44a7d4fcf04.png" src="../_images/e73ce4eea5e4e9776d034428e13438f9f0665651d8d94a4598b1a44a7d4fcf04.png" />
 </div>
 </div>
 </section>
@@ -1112,7 +1123,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a2bab337a6023cafd6fd6672e3bc8bcbac0156a4f0582e8c21d26d87c451fbf7.png" src="../_images/a2bab337a6023cafd6fd6672e3bc8bcbac0156a4f0582e8c21d26d87c451fbf7.png" />
+<img alt="../_images/7fb677289d749cffadfa3bcf34a0db2a3fd8623f5ed6788ccb69b6989ef8c217.png" src="../_images/7fb677289d749cffadfa3bcf34a0db2a3fd8623f5ed6788ccb69b6989ef8c217.png" />
 </div>
 </div>
 <p><strong>Algoritmus metody největšího spádu nD</strong></p>
@@ -1166,7 +1177,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
     <span class="n">der</span> <span class="o">=</span> <span class="n">df2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">0.00001</span><span class="p">)</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">der</span>  <span class="c1"># krok metody</span>
     
-    <span class="n">epsilon4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">der</span> <span class="o">@</span> <span class="n">der</span><span class="p">))</span>
+    <span class="n">epsilon4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">der</span> <span class="o">@</span> <span class="n">der</span><span class="p">))</span>
     <span class="n">reseni4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
     
     <span class="c1">#print(a, der)</span>
@@ -1197,7 +1208,7 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum: [0.94856431 0.89956834] chyba: 0.0020617570902599614 iteraci: 200
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum: [0.94856431 0.89956834] chyba: 0.04540657540775302 iteraci: 200
 minimum(SciPy): [0.99999546 0.99999091]
 </pre></div>
 </div>
@@ -1215,7 +1226,7 @@ minimum(SciPy): [0.99999546 0.99999091]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/080944388697bde7675b9f9da1285f55c55b86d4401711084e3acd09ce37ae0c.png" src="../_images/080944388697bde7675b9f9da1285f55c55b86d4401711084e3acd09ce37ae0c.png" />
+<img alt="../_images/1d6cfb165f1bebea5b9e44383f9c48b42bad7e6b4cec07e366637bafa9279a8a.png" src="../_images/1d6cfb165f1bebea5b9e44383f9c48b42bad7e6b4cec07e366637bafa9279a8a.png" />
 </div>
 </div>
 <p><strong>Analýza konvergence</strong></p>
@@ -1239,18 +1250,18 @@ minimum(SciPy): [0.99999546 0.99999091]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d1c9da99ab75d512c0f3d2005d8ff8fe5fd236a2e30cde1e4f8278affc968977.png" src="../_images/d1c9da99ab75d512c0f3d2005d8ff8fe5fd236a2e30cde1e4f8278affc968977.png" />
+<img alt="../_images/b2ccfbef87d6508544aac812ecd309ff112772853d42f3a40805d878d8687b4d.png" src="../_images/b2ccfbef87d6508544aac812ecd309ff112772853d42f3a40805d878d8687b4d.png" />
 </div>
 </div>
 </section>
 </section>
-<section id="metoda-konjugovanych-gradientu">
-<h2>Metoda konjugovaných gradientů<a class="headerlink" href="#metoda-konjugovanych-gradientu" title="Link to this heading">#</a></h2>
+<section id="zapoctova-uloha-metoda-konjugovanych-gradientu">
+<h2>Zápočtová úloha - Metoda konjugovaných gradientů<a class="headerlink" href="#zapoctova-uloha-metoda-konjugovanych-gradientu" title="Link to this heading">#</a></h2>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 2</div>
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 7</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html#ukol2"><span class="std std-ref">ZDE</span></a></p>
+<p><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html#ukol7"><span class="std std-ref">ZDE</span></a></p>
 </p>
 </div>
 </div></section>
@@ -1331,7 +1342,7 @@ minimum(SciPy): [0.99999546 0.99999091]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-nejvetsiho-spadu-nd-gradient-descent">Metoda největšího spádu nD (Gradient descent)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-konjugovanych-gradientu">Metoda konjugovaných gradientů</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha-metoda-konjugovanych-gradientu">Zápočtová úloha - Metoda konjugovaných gradientů</a></li>
 </ul>
   </nav></div>
 
@@ -1356,7 +1367,7 @@ By Jiří Löffelmann
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
