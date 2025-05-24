@@ -476,12 +476,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussova-eliminace">Gaussova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordanova-eliminace">Gauss-Jordanova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thomasuv-algoritmus">Thomasův algoritmus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterativniho-zpresneni-reseni">Iterativního zpřesnění řešení</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterativni-zpresneni-reseni">Iterativní zpřesnění řešení</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
             </nav>
@@ -1120,8 +1118,9 @@ x_i = \mu_i x_{i+1} + \rho_i, \qquad i = n-1, n-2, \dots, 0,
 </div>
 </div>
 </section>
+</section>
 <section id="lu-dekompozice">
-<span id="lu-decomp"></span><h3>LU dekompozice<a class="headerlink" href="#lu-dekompozice" title="Link to this heading">#</a></h3>
+<span id="lu-decomp"></span><h2>LU dekompozice<a class="headerlink" href="#lu-dekompozice" title="Link to this heading">#</a></h2>
 <p><img alt="LU dekompozice obrázek" src="../_images/lu_decomp.png" /></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/LU_decomposition">LU dekompozice</a> rozděluje matici na součin spodní a hodní trojúhelníkové matice. Lze ji spočítat pomocí <a class="reference external" href="https://en.wikipedia.org/wiki/Crout_matrix_decomposition">Croutova algoritmu</a>:</p>
 <div class="math notranslate nohighlight">
@@ -1145,8 +1144,9 @@ l_{ij} &amp;= \frac{1}{u_{jj}} \left( a_{ij} - \sum_{k = 1}^{j - 1} l_{ik} u_{kj
 \[
 \mathbb{U} x = y.
 \]</div>
-<section id="iterativniho-zpresneni-reseni">
-<h4>Iterativního zpřesnění řešení<a class="headerlink" href="#iterativniho-zpresneni-reseni" title="Link to this heading">#</a></h4>
+</section>
+<section id="iterativni-zpresneni-reseni">
+<h2>Iterativní zpřesnění řešení<a class="headerlink" href="#iterativni-zpresneni-reseni" title="Link to this heading">#</a></h2>
 <p>Další výhodou je možnost rychlého <strong>iterativního zpřesnění řešení</strong>. Uvažujme nepřesné řešení <span class="math notranslate nohighlight">\(\vec{x}^{\prime}\)</span> soustavy <span class="math notranslate nohighlight">\(\mathbb{A} \vec{x} = \vec{b}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1173,8 +1173,6 @@ l_{ij} &amp;= \frac{1}{u_{jj}} \left( a_{ij} - \sum_{k = 1}^{j - 1} l_{ik} u_{kj
 </p>
 </div>
 </div></section>
-</section>
-</section>
 <section id="zapoctova-uloha">
 <h2>Zápočtová úloha<a class="headerlink" href="#zapoctova-uloha" title="Link to this heading">#</a></h2>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
@@ -1262,12 +1260,10 @@ l_{ij} &amp;= \frac{1}{u_{jj}} \left( a_{ij} - \sum_{k = 1}^{j - 1} l_{ik} u_{kj
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussova-eliminace">Gaussova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-jordanova-eliminace">Gauss-Jordanova eliminace</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thomasuv-algoritmus">Thomasův algoritmus</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterativniho-zpresneni-reseni">Iterativního zpřesnění řešení</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lu-dekompozice">LU dekompozice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterativni-zpresneni-reseni">Iterativní zpřesnění řešení</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
   </nav></div>
