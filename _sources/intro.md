@@ -4,7 +4,7 @@ Tyto stránky obsahují materiály ke cvičení předmětu 12NME1.
 
 Materiály k přednášce najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/) a další materiály ke cvičením [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/).
 
-Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičících.
+Tyto materiály jsou z části převzaty z materiálů bývalých cvičících.
 
 ## Rozvrh pro letní semestr 2025/2026
 * Čtvrtek 14:00 - 15:40
@@ -28,6 +28,7 @@ Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevz
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
 
+## Umělá inteligence
 Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https://intranet.fel.cvut.cz/cz/rozvoj/MP-pouzivani-ui.pdf). Tedy můžete používat těchto nástrojů pro pomoc s řešením, ale ne na vyřešení celého úkolu!
 
 *Příklady správného použití:*
