@@ -1,4 +1,4 @@
-# Numerické metody (NME1cv) - cvičení 2025
+# Numerické metody (NME1cv) - cvičení 2026
 
 Tyto stránky obsahují materiály ke cvičení předmětu 12NME1.
 
@@ -6,19 +6,19 @@ Materiály k přednášce najdete [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/
 
 Tyto materiály jsou z velké míry převzaty z materiálů ostatních cvičících.
 
-## Rozvrh pro letní semestr 2024/2025
-* Pátek 8:00 - 9:40, 10:00 - 11:40
+## Rozvrh pro letní semestr 2025/2026
+* Čtvrtek 14:00 - 15:40
 * Trojanova 13, učebna T-124
 * [Jiří Löffelmann](https://usermap.cvut.cz/profile/7a2ecf76-b3c3-4716-b1b2-cd6859a8e193), [loffejir@fjfi.cvut.cz](mailto:loffejir@fjfi.cvut.cz)
-* od 21.2. do 16.5. (18.4. volno - Velký pátek), 12 lekcí
+* od 19.2. do 14.5., 13 lekcí
 
 ## Podmínky udělení zápočtu
 - max. 3 absence (+ možnost nahrazení 3 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B242-12NME112ANM/Sdilene%20dokumenty/General/dochazka_NME1cv_Pa8_10.xlsx?d=wb3edebe7d6f8419ab9bdb7418fe7dd64&csf=1&web=1&e=6qV5Qv)
-- vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (lekce 2-6), 2 úlohy z druhé půlky cvičení (lekce 7-12)
-- na zkoušku je možné jít před udělením zápočtu
+- vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (témata 2-6), 2 úlohy z druhé půlky cvičení (témata 7-12)
+- na zkoušku je možné jít před udělením zápočtu v červnu, v září je již zápočet nutný obdržet před přihlášením na zkoušku!
 
 ## Úkoly
-V kurzu je pro získání zápočtu třeba odevzdat **čtyři** vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.
+V kurzu je pro získání zápočtu potřeba odevzdat **čtyři** vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.
 
 Celkem bude zadáno 9 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). **Dva úkoly musí být z kapitol 2-6 a dva z kapitol 7-12!** Nelze odevzdat všechny úkoly jen z první půlky cvičení.
 

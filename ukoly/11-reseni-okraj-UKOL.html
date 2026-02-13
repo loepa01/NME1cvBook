@@ -174,20 +174,20 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Numerické metody (NME1cv) - cvičení 2025
+                    Numerické metody (NME1cv) - cvičení 2026
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/02-chyby-stabilita-vypl.html">2. Numerické chyby a stabilita</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/05-aproximace-funkci-vypl.html">5. Interpolace a aproximace funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/08-extremy-fci-vypl.html">8. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/09-integrace-vypl.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/01-uvod-python.html">1. Úvod do jazyka Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/02-chyby-stabilita.html">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/03-linalg-prime.html">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/04-linalg-iter.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/05-aproximace-funkci.html">5. Interpolace a aproximace funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/07-nelinearni-rce.html">7. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/08-extremy-fci.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/09-integrace.html">9. Numerická integrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/10-reseni-odr.html">10. Obyčejné diferenciální rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
@@ -518,13 +518,14 @@ x(0) = a, \quad y(0) = 0, \quad x(T) = b, \quad y(T) = 0.
 <li><p>Pokud nás nezajímá, kdy zasáhneme cíl, podmínka <span class="math notranslate nohighlight">\(\vec{r}(T) = [x_T, y_T] = [b, 0]\)</span> ve skutečnosti odpovídá jen jedné podmínce <span class="math notranslate nohighlight">\(y(T) = 0\)</span>, kde čas <span class="math notranslate nohighlight">\(T\)</span> je daný vztahem <span class="math notranslate nohighlight">\(x(T&gt;0) = b\)</span> (koule doletěla do vzdálenosti cíle). Tedy pro jednoznačnost potřebujeme další podmínku (počáteční rychlost).</p></li>
 <li><p>Zde tedy nemáme přesně daný integrační interval <span class="math notranslate nohighlight">\([0, T]\)</span>, musíme tedy v každém kroku kontrolovat zda <span class="math notranslate nohighlight">\(x(t) \geq b\)</span>.</p></li>
 <li><p>Odpovídá otázce: “Jaký má být úhel náklonu děla, abych při síle výstřelu <span class="math notranslate nohighlight">\(v(0) = 2\)</span> koule zasáhla cíl?”</p></li>
+<li><p>Najděte všechna řešení - všechny možné úhly, pro které dojde k zásahu cíle. Porovnejte rychlosti dopadu na cíl pro nalezená řešení.</p></li>
 </ul>
 </li>
 <li><p>Najděte hodnotu <span class="math notranslate nohighlight">\(\theta(0) = \theta_0\)</span> tak, aby počáteční rychlost koule <span class="math notranslate nohighlight">\(v(0) = v_0\)</span> byla co nejmenší a cíl byl stále zasažen (v libovolném čase).</p>
 <ul class="simple">
 <li><p>hledejte náklon děla v intervalu <span class="math notranslate nohighlight">\(\theta(0) \in [0.01, \frac{\pi}{2}]\)</span></p></li>
-<li><p>Uvědomte si, že řešením podúlohy 3 získáváte pomyslný vztah (funkci): <span class="math notranslate nohighlight">\(v_0 \rightarrow \theta_0\)</span> (<span class="math notranslate nohighlight">\(G(v_0) = \theta_0\)</span>). Tedy pro určitou počáteční rychlost dostaneme náklon děla <span class="math notranslate nohighlight">\(\theta_0\)</span> takový, že je zasažen cíl za určitý čas <span class="math notranslate nohighlight">\(T=T(v_0)\)</span> (ten závisí na volbě počáteční rychlosti).</p></li>
-<li><p>Stačí formulovat funkci <span class="math notranslate nohighlight">\(G^{-1}(\theta_0) = v_0\)</span> analogicky dle podúlohy 3 a nalézt minimum (využijte vhodné knihovní funkce z modulu <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>).</p></li>
+<li><p>Uvědomte si, že řešením předchozí podúlohy 2 získáváte pomyslný vztah (funkci): <span class="math notranslate nohighlight">\(v_0 \rightarrow \theta_0\)</span> (<span class="math notranslate nohighlight">\(G(v_0) = \theta_0\)</span>). Tedy pro určitou počáteční rychlost dostaneme náklon děla <span class="math notranslate nohighlight">\(\theta_0\)</span> takový, že je zasažen cíl za určitý čas <span class="math notranslate nohighlight">\(T=T(v_0)\)</span> (ten závisí na volbě počáteční rychlosti).</p></li>
+<li><p>Stačí formulovat funkci <span class="math notranslate nohighlight">\(G^{-1}(\theta_0) = v_0\)</span> analogicky dle předchozí podúlohy a nalézt minimum (využijte vhodné knihovní funkce z modulu <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>).</p></li>
 </ul>
 </li>
 </ol>
