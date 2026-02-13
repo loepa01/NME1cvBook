@@ -7,46 +7,41 @@ parts:
   - caption: "Obsah cvičení"
     numbered: False
     chapters:
-    #- file: lekce/01-uvod-python
-    - file: lekce-vyplnene/01-uvod-python-vypl
+    - file: lekce/01-uvod-python
+    #- file: lekce-vyplnene/01-uvod-python-vypl
       title: 1. Úvod do jazyka Python
-      
-    #- file: lekce/02-chyby-stabilita
-    - file: lekce-vyplnene/02-chyby-stabilita-vypl
+    - file: lekce/02-chyby-stabilita
+    #- file: lekce-vyplnene/02-chyby-stabilita-vypl
       title: 2. Numerické chyby a stabilita
-    
-    #- file: lekce/03-linalg-prime
-    - file: lekce-vyplnene/03-linalg-prime-vypl
+    - file: lekce/03-linalg-prime
+    #- file: lekce-vyplnene/03-linalg-prime-vypl
       title: 3. Metody lineární algebry
-
-    #- file: lekce/04-linalg-iter
-    - file: lekce-vyplnene/04-linalg-iter-vypl
+    - file: lekce/04-linalg-iter
+    #- file: lekce-vyplnene/04-linalg-iter-vypl
       title: 4. Iterační metody lineární algebry
-
-    #- file: lekce/05-aproximace-funkci
-    - file: lekce-vyplnene/05-aproximace-funkci-vypl
+    - file: lekce/05-aproximace-funkci
+    #- file: lekce-vyplnene/05-aproximace-funkci-vypl
       title: 5. Interpolace a aproximace funkcí
 
-    #- file: lekce/07-nelinearni-rce
-    - file: lekce-vyplnene/07-nelinearni-rce-vypl
-      title: 7. Nelineární rovnice
-    #- file: lekce/08-extremy-fci
-    - file: lekce-vyplnene/08-extremy-fci-vypl
-      title: 8. Extrémy funkcí
-    #- file: lekce/09-integrace
-    - file: lekce-vyplnene/09-integrace-vypl
-      title: 9. Numerická integrace
-    - file: lekce/10-reseni-odr
-    #- file: lekce-vyplnene/10-reseni-odr-vypl
-      title: 10. Obyčejné diferenciální rovnice
-    - file: lekce/11-reseni-okraj
-    #- file: lekce-vyplnene/11-reseni-okraj-vypl
-      title: 11. Diferenciální rovnice s okrajovou podmínkou
+    - file: lekce/06-nelinearni-rce
+    #- file: lekce-vyplnene/06-nelinearni-rce-vypl
+      title: 6. Nelineární rovnice
+    - file: lekce/07-extremy-fci
+    #- file: lekce-vyplnene/07-extremy-fci-vypl
+      title: 7. Extrémy funkcí
+    - file: lekce/08-integrace
+    #- file: lekce-vyplnene/08-integrace-vypl
+      title: 8. Numerická integrace
+    - file: lekce/09-reseni-odr
+    #- file: lekce-vyplnene/09-reseni-odr-vypl
+      title: 9. Obyčejné diferenciální rovnice
+    - file: lekce/10-reseni-okraj
+    #- file: lekce-vyplnene/10-reseni-okraj-vypl
+      title: 10. Diferenciální rovnice s okrajovou podmínkou
       
   - caption: "Úkoly"
     numbered: False
     chapters:
-    # TODO: add hws
     - file: ukoly/02-chyby-stabilita-UKOL
       title: 2. Numerické chyby a stabilita
     - file: ukoly/03-linalg-prime-UKOL
@@ -56,13 +51,13 @@ parts:
     - file: ukoly/05-aproximace-funkci-UKOL
       title: 5. Interpolace a aproximace funkcí
     
-    - file: ukoly/07-nelinearni-rce-UKOL
-      title: 7. Nelineární rovnice
-    - file: ukoly/08-extremy-fci-UKOL
-      title: 8. Extrémy funkcí
-    - file: ukoly/09-integrace-UKOL.ipynb
-      title: 9. Numerická integrace
-    - file: ukoly/10-reseni-odr-UKOL.ipynb
-      title: 10. Obyčejné diferenciální rovnice
-    - file: ukoly/11-reseni-okraj-UKOL.ipynb
-      title: 11. Diferenciální rovnice s okrajovou podmínkou
+    - file: ukoly/06-nelinearni-rce-UKOL
+      title: 6. Nelineární rovnice
+    - file: ukoly/07-extremy-fci-UKOL
+      title: 7. Extrémy funkcí
+    - file: ukoly/08-integrace-UKOL.ipynb
+      title: 8. Numerická integrace
+    - file: ukoly/09-reseni-odr-UKOL.ipynb
+      title: 9. Obyčejné diferenciální rovnice
+    - file: ukoly/10-reseni-okraj-UKOL.ipynb
+      title: 10. Diferenciální rovnice s okrajovou podmínkou
