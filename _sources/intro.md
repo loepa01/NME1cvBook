@@ -58,5 +58,5 @@ Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly
 [3] [Python Programming And Numerical Methods: A Guide For Engineers And Scientists](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/Index.html)
 
 ## Vedení kurzu
-Tento kurz je veden skupinou [Počítačové fyziky na KFE](http://cphys.fjfi.cvut.cz/cphys/index.php?lang=cs), FJFI ČVUT.
+Tento kurz je veden skupinou [Počítačové fyziky na KLFF](http://cphys.fjfi.cvut.cz/cphys/index.php?lang=cs), FJFI ČVUT.
 [![12NME1, Computational Physics' course logo](images/cphys-logo6.png)](http://cphys.fjfi.cvut.cz/cphys/index.php?lang=cs)
