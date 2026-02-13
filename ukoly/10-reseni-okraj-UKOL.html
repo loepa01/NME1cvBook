@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Zápočtový úkol 2 &#8212; NME1cvBook</title>
+    <title>Zápočtový úkol 10 &#8212; NME1cvBook</title>
   
   
   
@@ -59,12 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ukoly/03-linalg-prime-UKOL';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ukoly/10-reseni-okraj-UKOL';</script>
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Zápočtový úkol 3" href="04-linalg-iter-UKOL.html" />
-    <link rel="prev" title="Zápočtový úkol 1" href="02-chyby-stabilita-UKOL.html" />
+    <link rel="prev" title="Zápočtový úkol 9" href="09-reseni-odr-UKOL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,14 +194,14 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="02-chyby-stabilita-UKOL.html">2. Numerické chyby a stabilita</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-aproximace-funkci-UKOL.html">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-nelinearni-rce-UKOL.html">6. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-extremy-fci-UKOL.html">7. Extrémy funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-integrace-UKOL.html">8. Numerická integrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09-reseni-odr-UKOL.html">9. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10-reseni-okraj-UKOL.html">10. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 
     </div>
@@ -257,7 +256,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/ukoly/03-linalg-prime-UKOL.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/loepa01/NME1cvBook/main?urlpath=lab/tree/ukoly/10-reseni-okraj-UKOL.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -275,7 +274,7 @@
       
       
       
-      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/ukoly/03-linalg-prime-UKOL.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/loepa01/NME1cvBook&urlpath=lab/tree/NME1cvBook/ukoly/10-reseni-okraj-UKOL.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,7 +292,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/ukoly/03-linalg-prime-UKOL.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/loepa01/NME1cvBook/blob/main/ukoly/10-reseni-okraj-UKOL.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -341,7 +340,7 @@
       
       
       
-      <li><a href="https://github.com/loepa01/NME1cvBook/issues/new?title=Issue%20on%20page%20%2Fukoly/03-linalg-prime-UKOL.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/loepa01/NME1cvBook/issues/new?title=Issue%20on%20page%20%2Fukoly/10-reseni-okraj-UKOL.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +370,7 @@
       
       
       
-      <li><a href="../_sources/ukoly/03-linalg-prime-UKOL.ipynb" target="_blank"
+      <li><a href="../_sources/ukoly/10-reseni-okraj-UKOL.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -453,7 +452,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Zápočtový úkol 2</h1>
+    <h1>Zápočtový úkol 10</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -467,33 +466,75 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="zapoctovy-ukol-2">
-<span id="ukol2"></span><h1>Zápočtový úkol 2<a class="headerlink" href="#zapoctovy-ukol-2" title="Link to this heading">#</a></h1>
-<p><a class="reference internal" href="../lekce/03-linalg-prime.html#lu-decomp"><span class="std std-ref">LU dekompozice</span></a> a její využití.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="zapoctovy-ukol-10">
+<span id="ukol10"></span><h1>Zápočtový úkol 10<a class="headerlink" href="#zapoctovy-ukol-10" title="Link to this heading">#</a></h1>
+<p>Při splnění všech podúloh tohoto započtového úkolu bude počítáno jako <strong>splnění 2 započtových úloh</strong>! Pro splnění tohoto zápočtového úkolu (počítán jako 1 splněný úkol) stačí správně vyřešit <em>jednu</em> z podúloh.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 10</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Implementujte LU dekompozici a aplikujte ji na řešení soustavy linearních rovnic. Můžete využít <em>zpětné substituce</em> výše. <em>Dopřednou substituci</em> (<span class="math notranslate nohighlight">\(\mathbb{L} y = b\)</span>) je třeba doimplementovat zvlášť. Správnost ověřte pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a> aplikovanou na náhodnou matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> a náhodné vektory <span class="math notranslate nohighlight">\(\vec{b}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{b}_2\)</span> a <span class="math notranslate nohighlight">\(\vec{b}_3\)</span>.</p>
-<p>Pomocí LU dekompozice spočítejte determinant matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span>. Využite vlastnosti determinantu součinu matic a tvaru matic <span class="math notranslate nohighlight">\(\mathbb{L}\)</span> a <span class="math notranslate nohighlight">\(\mathbb{U}\)</span> pro odvození zjednodušeného vzorce. Výsledek opět zkontrolujte pomocí knihovní funkce <code class="docutils literal notranslate"><span class="pre">numpy.linalg.det()</span></code>. Jaká je složitost (v rámci <a class="reference internal" href="../lekce/02-chyby-stabilita.html#big-o"><span class="std std-ref">big-O notace</span></a>) výpočtu determinantu pomocí <em>LU dekompozice</em> oproti přímému použití vzorečku z <a class="reference external" href="https://cs.wikipedia.org/wiki/Determinant">definice determinantu</a>?</p>
+<p>Pomocí <strong>metody střelby</strong> řešte <em>okrajovou</em> úlohu střelby na cíl v homogenním gravitačním poli Země. Uvažujte tření dělové koule ve vzduchu a působení gravitace země ve tvaru:</p>
+<div class="math notranslate nohighlight">
+\[
+m \ddot{\vec{r}} = - m\vec{g} - \frac{1}{2} C \rho S \vec{v}^2,
+\]</div>
+<p>kde <span class="math notranslate nohighlight">\(\vec{v} = \dot{\vec{r}}\)</span>. Pro jednoduchost zvolte <span class="math notranslate nohighlight">\(C = \rho = S = g = m = 1\)</span>.</p>
+<p>Okrajové podmínky jsou následující:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}(0) = [x_0, y_0] = [a, 0], \quad \vec{r}(T) = [x_T, y_T] = [b, 0],
+\]</div>
+<p>tedy v čase <span class="math notranslate nohighlight">\(t=0\)</span> se dělová koule nachází v poloze <span class="math notranslate nohighlight">\([a, 0]\)</span>, v čase <span class="math notranslate nohighlight">\(T\)</span> dopadne po výstřelu zpět na zem v místě <span class="math notranslate nohighlight">\([b, 0]\)</span>.</p>
+<div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #00843F; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
+<div style="background: #D6ECE1; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Tip</div>
+<div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
+<p>
+<p>Předchozí úlohu je výhodné řešit v následujícím tvaru soustavy <strong>čtyř ODR</strong> (kde místo dvou složek rychlostí máme velikost rychlosti a úhel <span class="math notranslate nohighlight">\(\theta\)</span> aktuálního směru pohybu vůči ose <span class="math notranslate nohighlight">\(x\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\dot{x} &amp;= v \cos{\theta}, \quad \dot{v} = -\frac{1}{2} v^2 - g \sin{\theta}, \\
+\dot{y} &amp;= v \sin{\theta}, \quad \dot{\theta} = -\frac{g}{v} \cos{\theta},
+\end{align}
+\end{split}\]</div>
+<p>s okrajovými podmínkami:</p>
+<div class="math notranslate nohighlight">
+\[
+x(0) = a, \quad y(0) = 0, \quad x(T) = b, \quad y(T) = 0.
+\]</div>
+</p>
+</div>
+</div>
+<p>Implementujte metodu střelby pro předchozí úlohu (můžete se inspirovat cvičením) a využijte ji v následujících <strong>podúlohách</strong>:</p>
+<ol class="arabic simple">
+<li><p>Vyřešte úlohu pro následující parametry: <span class="math notranslate nohighlight">\(a = 0, b = 2, T = 1\)</span>.</p>
+<ul class="simple">
+<li><p>To odpovídá otázce: “Jaký má být úhel náklonu děla a síla výstřelu tak, aby koule zasáhla cíl za dobu <span class="math notranslate nohighlight">\(T=1\)</span>?”</p></li>
+<li><p>V této podúloze bude funkce <span class="math notranslate nohighlight">\(F(\beta)\)</span> vektorem dvou funkcí! Hledáme kořeny soustavy dvou rovnic! (můžete využít například funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code></a>)</p></li>
+</ul>
+</li>
+<li><p>Řešte stejnou úlohu, ale tentokrát doba zasažení cíle může být libovolná a navíc máte podmínku <span class="math notranslate nohighlight">\(v(0) = 2\)</span>.</p>
+<ul class="simple">
+<li><p>Pokud nás nezajímá, kdy zasáhneme cíl, podmínka <span class="math notranslate nohighlight">\(\vec{r}(T) = [x_T, y_T] = [b, 0]\)</span> ve skutečnosti odpovídá jen jedné podmínce <span class="math notranslate nohighlight">\(y(T) = 0\)</span>, kde čas <span class="math notranslate nohighlight">\(T\)</span> je daný vztahem <span class="math notranslate nohighlight">\(x(T&gt;0) = b\)</span> (koule doletěla do vzdálenosti cíle). Tedy pro jednoznačnost potřebujeme další podmínku (počáteční rychlost).</p></li>
+<li><p>Zde tedy nemáme přesně daný integrační interval <span class="math notranslate nohighlight">\([0, T]\)</span>, musíme tedy v každém kroku kontrolovat zda <span class="math notranslate nohighlight">\(x(t) \geq b\)</span>.</p></li>
+<li><p>Odpovídá otázce: “Jaký má být úhel náklonu děla, abych při síle výstřelu <span class="math notranslate nohighlight">\(v(0) = 2\)</span> koule zasáhla cíl?”</p></li>
+<li><p>Najděte všechna řešení - všechny možné úhly, pro které dojde k zásahu cíle. Porovnejte rychlosti dopadu na cíl pro nalezená řešení.</p></li>
+</ul>
+</li>
+<li><p>Najděte hodnotu <span class="math notranslate nohighlight">\(\theta(0) = \theta_0\)</span> tak, aby počáteční rychlost koule <span class="math notranslate nohighlight">\(v(0) = v_0\)</span> byla co nejmenší a cíl byl stále zasažen (v libovolném čase).</p>
+<ul class="simple">
+<li><p>hledejte náklon děla v intervalu <span class="math notranslate nohighlight">\(\theta(0) \in [0.01, \frac{\pi}{2}]\)</span></p></li>
+<li><p>Uvědomte si, že řešením předchozí podúlohy 2 získáváte pomyslný vztah (funkci): <span class="math notranslate nohighlight">\(v_0 \rightarrow \theta_0\)</span> (<span class="math notranslate nohighlight">\(G(v_0) = \theta_0\)</span>). Tedy pro určitou počáteční rychlost dostaneme náklon děla <span class="math notranslate nohighlight">\(\theta_0\)</span> takový, že je zasažen cíl za určitý čas <span class="math notranslate nohighlight">\(T=T(v_0)\)</span> (ten závisí na volbě počáteční rychlosti).</p></li>
+<li><p>Stačí formulovat funkci <span class="math notranslate nohighlight">\(G^{-1}(\theta_0) = v_0\)</span> analogicky dle předchozí podúlohy a nalézt minimum (využijte vhodné knihovní funkce z modulu <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>).</p></li>
+</ul>
+</li>
+</ol>
+<p>Vždy vykreslete výsledné řešení na intervalu <span class="math notranslate nohighlight">\([a, b]\)</span> pro každou podúlohu.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">b1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">b3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="c1">## DOPLŇTE ##</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
 </pre></div>
 </div>
 </div>
@@ -531,22 +572,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02-chyby-stabilita-UKOL.html"
+       href="09-reseni-odr-UKOL.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Zápočtový úkol 1</p>
+        <p class="prev-next-title">Zápočtový úkol 9</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="04-linalg-iter-UKOL.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Zápočtový úkol 3</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
