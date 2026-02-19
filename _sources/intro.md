@@ -20,13 +20,15 @@ Tyto materiály jsou z části převzaty z materiálů bývalých cvičících.
 ## Úkoly
 V kurzu je pro získání zápočtu potřeba odevzdat **čtyři** vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.
 
-Celkem bude zadáno 9 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). **Dva úkoly musí být z kapitol 2-6 a dva z kapitol 7-12!** Nelze odevzdat všechny úkoly jen z první půlky cvičení.
+Celkem bude zadáno 9 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). **Dva úkoly musí být z kapitol 2-5 a dva z kapitol 6-10!** Nelze odevzdat všechny úkoly jen z první půlky cvičení.
 
 Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů. Pokud odevzdaný úkol nebude splňovat požadavky, pošlu vám ho na opravu zpět. Typicky vám okomentuji vaše řešení a poradím jak případné chyby opravit. Otázky k úkolům jsou samozřejmě vítány, ideálně na konci cvičení.
 
 Úkoly odevzdávejte mailem. Nechte jméno jupyter notebooku stejné, pouze přidejte vaše jméno nakonec (příklad: **02-nelinearni-rce-UKOL_JiriLoffelmann**).
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
+
+Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale může mi to trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září! Na zkoušku není potřeba mít zápočet.
 
 ## Umělá inteligence
 Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https://intranet.fel.cvut.cz/cz/rozvoj/MP-pouzivani-ui.pdf). Tedy můžete používat těchto nástrojů pro pomoc s řešením, ale ne na vyřešení celého úkolu!
@@ -39,8 +41,6 @@ Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https:
 *Příklad nesprávného použití:*
 * zkopírování zadání a vložení jako dotaz k vyřešení umělé inteligenci
 * zkopírování části zadaní a vložení jako dotazu - měli byste sami formulovat dílčí části problému, se kterými chcete pomoc, využívat umělé inteligence pouze jako nástroje!
-
-Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale může mi to trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září! Na zkoušku není potřeba mít zápočet.
 
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
