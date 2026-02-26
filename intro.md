@@ -13,20 +13,22 @@ Tyto materiály jsou z části převzaty z materiálů bývalých cvičících.
 * od 19.2. do 14.5., 13 lekcí
 
 ## Podmínky udělení zápočtu
-- max. 3 absence (+ možnost nahrazení 3 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B242-12NME112ANM/Sdilene%20dokumenty/General/dochazka_NME1cv_Pa8_10.xlsx?d=wb3edebe7d6f8419ab9bdb7418fe7dd64&csf=1&web=1&e=6qV5Qv)
+- max. 3 absence (+ možnost nahrazení 3 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B252-12NME1/Sdilene%20dokumenty/General/dochazka_NME1cv_Ct_14.xlsx?d=wb41f9d41eabc4e8ba4761e55a2a6f8d8&csf=1&web=1&e=vdgAwm)
 - vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (témata 2-6), 2 úlohy z druhé půlky cvičení (témata 7-12)
 - na zkoušku je možné jít před udělením zápočtu v červnu, v září je již zápočet nutný obdržet před přihlášením na zkoušku!
 
 ## Úkoly
 V kurzu je pro získání zápočtu potřeba odevzdat **čtyři** vypracované domácí úkoly, které budou zadány a vysvětleny na cvičeních. Domácí úlohy jsou dostupné na těchto stránkách.
 
-Celkem bude zadáno 9 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). **Dva úkoly musí být z kapitol 2-6 a dva z kapitol 7-12!** Nelze odevzdat všechny úkoly jen z první půlky cvičení.
+Celkem bude zadáno 9 úkolů, jeden z každé kapitoly (kromě úvodní). Pro získání zápočtu vypracujte a odevzdejte alespoň **čtyři** vámi vybrané úkoly (výjimkou je poslední započtový úkol). **Dva úkoly musí být z kapitol 2-5 a dva z kapitol 6-10!** Nelze odevzdat všechny úkoly jen z první půlky cvičení.
 
 Odevzdaný úkol musí být splňovat požadavky stanovené v zadání. Na odevzdání úkolů je libovolné množství pokusů. Pokud odevzdaný úkol nebude splňovat požadavky, pošlu vám ho na opravu zpět. Typicky vám okomentuji vaše řešení a poradím jak případné chyby opravit. Otázky k úkolům jsou samozřejmě vítány, ideálně na konci cvičení.
 
 Úkoly odevzdávejte mailem. Nechte jméno jupyter notebooku stejné, pouze přidejte vaše jméno nakonec (příklad: **02-nelinearni-rce-UKOL_JiriLoffelmann**).
 
 Úkoly by měly být vaše samostatná práce. Spolupracovat je povoleno, ale je třeba zmínit ve vašem vypracování, s kým jste na úkolu spolupracovali!
+
+Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale může mi to trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září! Na zkoušku není potřeba mít zápočet.
 
 ## Umělá inteligence
 Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https://intranet.fel.cvut.cz/cz/rozvoj/MP-pouzivani-ui.pdf). Tedy můžete používat těchto nástrojů pro pomoc s řešením, ale ne na vyřešení celého úkolu!
@@ -39,8 +41,6 @@ Využití **umělé inteligence** je povoleno v souladu s [řádem ČVUT](https:
 *Příklad nesprávného použití:*
 * zkopírování zadání a vložení jako dotaz k vyřešení umělé inteligenci
 * zkopírování části zadaní a vložení jako dotazu - měli byste sami formulovat dílčí části problému, se kterými chcete pomoc, využívat umělé inteligence pouze jako nástroje!
-
-Deadline na všechny úkoly je do **30. června**. Po tomto termínu vám úkoly stále opravím, ale může mi to trvat třeba 1-2 týdny (zvláště v červenci nebo v srpnu), než dostanete opravený úkol zpět. Počítejte s tím prosím dopředu, zejména pokud chcete dělat zkoušku v září! Na zkoušku není potřeba mít zápočet.
 
 ## Používané nástroje
 - programovací jazyk [Python](https://www.python.org/)
