@@ -182,8 +182,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Numerické chyby a stabilita</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Numerické chyby a stabilita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-linalg-prime.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-linalg-iter.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-aproximace-funkci.html">5. Interpolace a aproximace funkcí</a></li>
@@ -466,7 +465,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numerické chyby a stabilita</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericka-matematika">Numerická matematika</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprezentace-cisel-v-pocitaci">Reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
@@ -481,21 +479,15 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-metody">Chyby metody</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konec-2-hodiny"><span style="color:red"><strong>&gt;&gt; Konec 2. hodiny</strong></span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -838,6 +830,8 @@ Z definice floating-point reprezentace desetinných čísel je jasné, že není
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -877,6 +871,12 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mf">1.2e-8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -898,6 +898,19 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">400</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">+=</span> <span class="n">base</span><span class="o">**</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">+=</span> <span class="n">base</span><span class="o">**</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -921,6 +934,12 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -946,6 +965,13 @@ f(x) = \frac{1 - \cos{x}}{x^2},
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="mf">2.71828</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">n</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">arr</span><span class="p">)</span><span class="o">**</span><span class="n">arr</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -985,6 +1011,12 @@ f(x) = \frac{e^{x} - 1}{x}.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+
+<span class="c1"># 1., 2.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+    
+<span class="nb">print</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1082,6 +1114,10 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{N-1}{\frac{x^n}{n!}} + O(h^{
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exp_taylor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
     <span class="c1">## DOPLŇTE ##</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="n">fx</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="n">n</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fx</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
@@ -1117,12 +1153,7 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{N-1}{\frac{x^n}{n!}} + O(h^{
 <img alt="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" src="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" />
 </div>
 </div>
-</section>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="konec-2-hodiny">
-<h1><span style="color:red"><strong>&gt;&gt; Konec 2. hodiny</strong></span><a class="headerlink" href="#konec-2-hodiny" title="Link to this heading">#</a></h1>
+<p><span style="color:red"><strong>&gt;&gt; Konec 2. hodiny</strong></span></p>
 <p id="lepsi-aprox-ex"><strong>Vylepšená aproximace <span class="math notranslate nohighlight">\(e^x\)</span> na <span class="math notranslate nohighlight">\(\mathbb{R}\)</span></strong></p>
 <p>Taylorův rozvoj funkce aproximuje danou funkci pouze na okolí zvoleného budu. Na aproximaci celé funkce to nestačí.</p>
 <p>Co takhle použít Taylorův rozvoj v různých bodech? To se v případě funkce <span class="math notranslate nohighlight">\(e^x\)</span> dostaneme do problémů, protože pro výpočet členů rozvoje v bodě <span class="math notranslate nohighlight">\(a \neq 0\)</span> potřebujeme znát hodnotu <span class="math notranslate nohighlight">\(e^a\)</span>, což se právě snažíme spočítat!</p>
@@ -1208,8 +1239,9 @@ n = \text{round}(\frac{x}{\ln{2}}).
 <p>Je dobré mít na paměti, že i když teoreticky může s menším krokem jít chyba metody k nule, vždy se budou ve výpočtu vyskytovat chyby zaokrouhlovací!
 Vzájemný vztah těchto dvou chyb ilustruje následující obrázek:</p>
 <p><img alt="Vztah chyb" src="../_images/vztah_chyb.png" /></p>
+</section>
 <section id="chyby-vstupnich-dat">
-<h2>Chyby vstupních dat<a class="headerlink" href="#chyby-vstupnich-dat" title="Link to this heading">#</a></h2>
+<h4>Chyby vstupních dat<a class="headerlink" href="#chyby-vstupnich-dat" title="Link to this heading">#</a></h4>
 <p>Vstupní data jsou hodnoty, které vkládáme do počítače. Při jejich uložení již dojde ke zaokrouhlovací chybě, která již může způsobit chybný výsledek.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
@@ -1236,9 +1268,11 @@ a x^2 + bx + c = 0.
 </div>
 </div>
 </section>
+</section>
+</section>
 <section id="stabilita">
 <h2>Stabilita<a class="headerlink" href="#stabilita" title="Link to this heading">#</a></h2>
-<p>Numerická metoda může za uřčitých podmínek zesilovat zaokrouhlovací chyby, které se vyskytnou zejména z počátku výpočtu. Takovým metodám se říká nestabilní. Tyto metody by teoreticky fungovali na ideálním počítači bez existence zaokrouhlovacích chyb. U takových metod nepomůže snížit krok.</p>
+<p>Numerická metoda může za určitých podmínek zesilovat zaokrouhlovací chyby, které se vyskytnou zejména z počátku výpočtu. Takovým metodám se říká nestabilní. Tyto metody by teoreticky fungovali na ideálním počítači bez existence zaokrouhlovacích chyb. U takových metod nepomůže snížit krok.</p>
 <p><strong>Podmíněnost úlohy</strong></p>
 <p>Podmíněnost úlohy nám říká, jestli samotný charakter řešeného problému nevede k zesilování chyb.</p>
 <p><em>Definice:</em> Podmíněnost úlohy <span class="math notranslate nohighlight">\(C_p\)</span> je daná poměrem relativní změny výsledku ku
@@ -1258,7 +1292,7 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>S využitím jednoduché přesnosti (<code class="docutils literal notranslate"><span class="pre">np.float16</span></code>) spočítejte prvních 20 mocnic zlatého řezu:</p>
+<p>S využitím jednoduché přesnosti (<code class="docutils literal notranslate"><span class="pre">np.float16</span></code>) spočítejte prvních 20 mocnic zlatého řezu (nebo inverzní hodnoty):</p>
 <div class="math notranslate nohighlight">
 \[
 \phi = \frac{\sqrt{5} - 1}{2}.
@@ -1273,15 +1307,16 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phis</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># odcitani</span>
-<span class="n">phis2</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># nasobeni</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span> <span class="c1"># odcitani</span>
+<span class="n">phis2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span> <span class="c1"># umocneni</span>
 <span class="c1">## DOPLŇTE ##</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phis</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;odčítání&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phis2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;násobení&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phis2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;umocnění&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
@@ -1298,7 +1333,7 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
 <img alt="../_images/f42f75f0643e81c420944c295dc8d316ae5936f45315f6f3829dfd1d8c465bdf.png" src="../_images/f42f75f0643e81c420944c295dc8d316ae5936f45315f6f3829dfd1d8c465bdf.png" />
 </div>
 </div>
-<p>Rekurentní vztah pro výpočet zlatého řezu má 2 řešení: <span class="math notranslate nohighlight">\(\frac{\sqrt{5} \pm 1}{2}\)</span>. Jelikož druhé řešení je vetší než 1, libovolně malá chyba vzniklá zaokrouhlováním exponenciálně poroste (v každé iteraci se vynásobí druhým řešením).</p>
+<p>Rekurentní vztah je platný právě pro dvě hodnoty: <span class="math notranslate nohighlight">\(\frac{\sqrt{5} \pm 1}{2}\)</span>. Jelikož druhé řešení rekurentní rovnice je větší než 1, libovolně malá chyba vzniklá zaokrouhlováním exponenciálně poroste (v každé iteraci se vynásobí druhým řešením).</p>
 <p>S nestabilními metodami se znovu setkáme v kapitole řešení ODR.</p>
 </section>
 <section id="ukazky-z-praxe">
@@ -1382,7 +1417,6 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numerické chyby a stabilita</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericka-matematika">Numerická matematika</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprezentace-cisel-v-pocitaci">Reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
@@ -1397,21 +1431,15 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-metody">Chyby metody</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konec-2-hodiny"><span style="color:red"><strong>&gt;&gt; Konec 2. hodiny</strong></span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
