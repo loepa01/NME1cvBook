@@ -182,7 +182,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Numerické chyby a stabilita</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Numerické chyby a stabilita</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="03-linalg-prime.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-linalg-iter.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-aproximace-funkci.html">5. Interpolace a aproximace funkcí</a></li>
@@ -465,6 +466,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numerické chyby a stabilita</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericka-matematika">Numerická matematika</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprezentace-cisel-v-pocitaci">Reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
@@ -479,15 +481,21 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-metody">Chyby metody</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konec-2-hodiny"><span style="color:red"><strong>Konec 2. hodiny</strong></span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -1109,6 +1117,12 @@ f(x) = e^x = \sum_{n}{\frac{x^n}{n!}} = \sum_{n=0}^{N-1}{\frac{x^n}{n!}} + O(h^{
 <img alt="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" src="../_images/37142945e84fef5dd0665367f2ec7455556bcd9d31ed0970a3587bc3d5d4bf09.png" />
 </div>
 </div>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="konec-2-hodiny">
+<h1><span style="color:red"><strong>Konec 2. hodiny</strong></span><a class="headerlink" href="#konec-2-hodiny" title="Link to this heading">#</a></h1>
 <p id="lepsi-aprox-ex"><strong>Vylepšená aproximace <span class="math notranslate nohighlight">\(e^x\)</span> na <span class="math notranslate nohighlight">\(\mathbb{R}\)</span></strong></p>
 <p>Taylorův rozvoj funkce aproximuje danou funkci pouze na okolí zvoleného budu. Na aproximaci celé funkce to nestačí.</p>
 <p>Co takhle použít Taylorův rozvoj v různých bodech? To se v případě funkce <span class="math notranslate nohighlight">\(e^x\)</span> dostaneme do problémů, protože pro výpočet členů rozvoje v bodě <span class="math notranslate nohighlight">\(a \neq 0\)</span> potřebujeme znát hodnotu <span class="math notranslate nohighlight">\(e^a\)</span>, což se právě snažíme spočítat!</p>
@@ -1194,9 +1208,8 @@ n = \text{round}(\frac{x}{\ln{2}}).
 <p>Je dobré mít na paměti, že i když teoreticky může s menším krokem jít chyba metody k nule, vždy se budou ve výpočtu vyskytovat chyby zaokrouhlovací!
 Vzájemný vztah těchto dvou chyb ilustruje následující obrázek:</p>
 <p><img alt="Vztah chyb" src="../_images/vztah_chyb.png" /></p>
-</section>
 <section id="chyby-vstupnich-dat">
-<h4>Chyby vstupních dat<a class="headerlink" href="#chyby-vstupnich-dat" title="Link to this heading">#</a></h4>
+<h2>Chyby vstupních dat<a class="headerlink" href="#chyby-vstupnich-dat" title="Link to this heading">#</a></h2>
 <p>Vstupní data jsou hodnoty, které vkládáme do počítače. Při jejich uložení již dojde ke zaokrouhlovací chybě, která již může způsobit chybný výsledek.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
@@ -1222,8 +1235,6 @@ a x^2 + bx + c = 0.
 </div>
 </div>
 </div>
-</section>
-</section>
 </section>
 <section id="stabilita">
 <h2>Stabilita<a class="headerlink" href="#stabilita" title="Link to this heading">#</a></h2>
@@ -1371,6 +1382,7 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numerické chyby a stabilita</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericka-matematika">Numerická matematika</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprezentace-cisel-v-pocitaci">Reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
@@ -1385,15 +1397,21 @@ C_p = \frac{\frac{\left\| \delta y \right\|}{\left\| y \right\|}}{\frac{\left\| 
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-metody">Chyby metody</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konec-2-hodiny"><span style="color:red"><strong>Konec 2. hodiny</strong></span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chyby-vstupnich-dat">Chyby vstupních dat</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilita">Stabilita</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ukazky-z-praxe">Ukázky z praxe</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
