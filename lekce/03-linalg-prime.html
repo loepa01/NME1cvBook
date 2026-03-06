@@ -733,6 +733,7 @@ b_{j} &amp;:= b_{j}- \frac{a_{ji}}{a_{ii}} b_{i}, \qquad i = 0, 1, \dots, n-1, \
 </div>
 </div>
 <p>Předchozí implementace lze zjednodušit při použití <em>řezání polí</em>. Zde pro názornost používáme for-cykly. Díky tomu je snadno vidět, že složitost algoritmu je <span class="math notranslate nohighlight">\(O(N^3)\)</span>.</p>
+<p><span style="color:red"><strong>&gt;&gt; Konec 3. hodiny</strong></span></p>
 <p><strong>Zpětný běh</strong></p>
 <p>Soustava lineárních rovnic <span class="math notranslate nohighlight">\( \mathbb{A} x = b \)</span> s horní trojúhelníkovou maticí <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{n \ \times \ n} \)</span> je možné vyřešit pomocí <a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_matrix#Forward_and_back_substitution">zpětné substituce</a> neboli <em>zpětného běhu Gaussovy eliminace</em>:</p>
 <div class="math notranslate nohighlight">
