@@ -474,24 +474,82 @@ document.write(`
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Implementujte LU dekompozici a aplikujte ji na řešení soustavy linearních rovnic. Můžete využít <em>zpětné substituce</em> výše. <em>Dopřednou substituci</em> (<span class="math notranslate nohighlight">\(\mathbb{L} y = b\)</span>) je třeba doimplementovat zvlášť. Správnost ověřte pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a> aplikovanou na náhodnou matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> a náhodné vektory <span class="math notranslate nohighlight">\(\vec{b}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{b}_2\)</span> a <span class="math notranslate nohighlight">\(\vec{b}_3\)</span>.</p>
+<p>Implementujte LU dekompozici a aplikujte ji na řešení soustavy linearních rovnic. Můžete využít <em>zpětné substituce</em> (zpětný chod Gaussovy eliminace) ze cvičení. <em>Dopřednou substituci</em> (<span class="math notranslate nohighlight">\(\mathbb{L} y = b\)</span>) je třeba doimplementovat zvlášť. Správnost ověřte pomocí knihovní funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a> aplikovanou na náhodnou matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> a náhodné vektory <span class="math notranslate nohighlight">\(\vec{b}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{b}_2\)</span> a <span class="math notranslate nohighlight">\(\vec{b}_3\)</span>.</p>
 <p>Pomocí LU dekompozice spočítejte determinant matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span>. Využite vlastnosti determinantu součinu matic a tvaru matic <span class="math notranslate nohighlight">\(\mathbb{L}\)</span> a <span class="math notranslate nohighlight">\(\mathbb{U}\)</span> pro odvození zjednodušeného vzorce. Výsledek opět zkontrolujte pomocí knihovní funkce <code class="docutils literal notranslate"><span class="pre">numpy.linalg.det()</span></code>. Jaká je složitost (v rámci <a class="reference internal" href="../lekce-vyplnene/02-chyby-stabilita-vypl.html#big-o"><span class="std std-ref">big-O notace</span></a>) výpočtu determinantu pomocí <em>LU dekompozice</em> oproti přímému použití vzorečku z <a class="reference external" href="https://cs.wikipedia.org/wiki/Determinant">definice determinantu</a>?</p>
+<p>Použijte řešení soustavy přes LU dekompozici v metodě <a class="reference internal" href="../lekce/03-linalg-prime.html#iter-zpresneni"><span class="std std-ref">iterativního zpřesnění</span></a>. Nejprve spočítejte první odhad řešení a poté ho iterativně zpřesněte podle tohoto algoritmu. Otestujte na maticích o velikosti <span class="math notranslate nohighlight">\(N = 50 - 500\)</span>. Měly by stačit pouze 1-2 iterace. Srovnejte chybu před a po zlepšení. Chybu určete jako <span class="math notranslate nohighlight">\(||\mathbb{A}\vec{x} - \vec{b}||\)</span>, kde normu můžete spočítat např. pomocí <code class="docutils literal notranslate"><span class="pre">scipy.linalg.norm()</span></code>.
+Metoda iterativního zpřesnění funguje i pro velmi nepřesný nebo náhodný počáteční odhad řešení. Otestujte, kolik je potřeba iterací v takovém případě, aby chyba dosáhla podobné úrovně jako v předchozím případě.</p>
 </p>
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>LU dekompozice</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">b1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">b3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kontrola reseni</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b1</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Výpočet determinantu</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Iterativní zpřesnění</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Náhodný odhad řešení</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 
 <span class="c1">## DOPLŇTE ##</span>
 </pre></div>
