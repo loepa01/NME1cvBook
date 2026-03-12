@@ -882,12 +882,6 @@ The implementation is correct.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.8010025   1.30401611 -0.53601074]
-[-0.801  1.304 -0.536]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Vidíme, že dostáváme výsledek s nezanedbatelnou chybou! Podobný příklad můžete vidět <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_pivoting.pdf">zde</a>.</p>
 <p>Chyba vzniká zaokrouhlováním při odčítání velmi odlišných čísel. Při použití malého pivota odčítáme od hodnot v matici vysoké číslo, čímž vzníká velká chyba (výrazně větší než strojová přesnost <span class="math notranslate nohighlight">\(\varepsilon\)</span>).</p>
