@@ -885,7 +885,7 @@ The implementation is correct.
 </div>
 <p>Vidíme, že dostáváme výsledek s nezanedbatelnou chybou! Podobný příklad můžete vidět <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_pivoting.pdf">zde</a>.</p>
 <p>Chyba vzniká zaokrouhlováním při odčítání velmi odlišných čísel. Při použití malého pivota odčítáme od hodnot v matici vysoké číslo, čímž vzníká velká chyba (výrazně větší než strojová přesnost <span class="math notranslate nohighlight">\(\varepsilon\)</span>).</p>
-<p>Dalším problémem je, že malé hodnoty v matici mohou vznikat odečtením blízkých hodnot v předchozích krocích. Nasledné použití této hodnoty jako pivota vede k silnému hromadění chyb!</p>
+<p><strong>Dalším problémem je, že malé hodnoty v matici mohou vznikat odečtením blízkých hodnot v předchozích krocích. Nasledné použití této hodnoty jako pivota vede k silnému hromadění chyb!</strong></p>
 <p>Předchozím problémům se lze vyhnout vhodným výběrem pivota (tzv. <em>pivotingem</em>). Vhodný pivot je největší dostupné číslo. Máme několik strategií, jak pivota vybrat:</p>
 <p><img alt="Pivoting strategie" src="../_images/pivoting.png" /></p>
 <ol class="arabic simple">
