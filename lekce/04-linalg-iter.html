@@ -625,13 +625,6 @@ U těchto metod se chceme vyhnout přímému výpočtu inverze <span class="math
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ldr</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="c1">## DOPLŇTE ##</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">,:</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,:</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
     <span class="k">return</span> <span class="n">L</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">R</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -945,7 +938,8 @@ Metodu lze aplikovat na <a class="reference external" href="https://cs.wikipedia
 <p><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html#ukol3"><span class="std std-ref">ZDE</span></a></p>
 </p>
 </div>
-</div></section>
+</div><p><span style="color:red"><strong>&gt;&gt; Konec 5. hodiny</strong></span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
