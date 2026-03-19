@@ -844,7 +844,7 @@ U těchto metod se chceme vyhnout přímému výpočtu inverze <span class="math
 <h3>Srovnání konvergence iteračních metod<a class="headerlink" href="#srovnani-konvergence-iteracnich-metod" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">40</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1"># zkusit 200</span>
 <span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.6</span> <span class="c1"># pro -0.6</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">q</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># diagonalne dominantni matice</span>
 
@@ -926,7 +926,7 @@ Metodu lze aplikovat na <a class="reference external" href="https://cs.wikipedia
 \end{split}\]</div>
 <p><img alt="linalg systém" src="../_images/linalgsystem3.png" /></p>
 <p>V kvantové mechanice je naprosto zásadní znalost matic operátorů (v dáné bázi) a nalezení vlastních čísel, které například odpovídají energetickým hladinám kvantového systému.</p>
-<p>V numerice se mnoho úloh redukuje na soustavu lineárních rovnic, jelikož jí dokážeme snadno řešit na počítači. Pro nás je nejrelevantnějším příkladem řešení úloh popsaných pomocí různých <em>diferenciálních rovnic</em> (viz <a class="reference internal" href="10-reseni-okraj.html#pdr"><span class="std std-ref">kapitola 11</span></a>).</p>
+<p>V numerice se mnoho úloh redukuje na soustavu lineárních rovnic, jelikož jí dokážeme snadno řešit na počítači. Pro nás je nejrelevantnějším příkladem řešení úloh popsaných pomocí různých <em>diferenciálních rovnic</em> (viz <a class="reference internal" href="10-reseni-okraj.html#pdr"><span class="std std-ref">kapitola 10</span></a>).</p>
 </section>
 <section id="zapoctova-uloha">
 <h2>Zápočtová úloha<a class="headerlink" href="#zapoctova-uloha" title="Link to this heading">#</a></h2>
