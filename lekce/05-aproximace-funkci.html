@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Řešení nelineárních rovnic" href="06-nelinearni-rce.html" />
-    <link rel="prev" title="Iterační metody lineární algebry" href="04-linalg-iter.html" />
+    <link rel="prev" title="Iterační metody lineární algebry" href="../lekce-vyplnene/04-linalg-iter-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/01-uvod-python-vypl.html">1. Úvod do jazyka Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/02-chyby-stabilita-vypl.html">2. Numerické chyby a stabilita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04-linalg-iter.html">4. Iterační metody lineární algebry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce-vyplnene/04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Interpolace a aproximace funkcí</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-nelinearni-rce.html">6. Nelineární rovnice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07-extremy-fci.html">7. Extrémy funkcí</a></li>
@@ -496,6 +496,7 @@ document.write(`
 <h1>Interpolace a aproximace funkcí<a class="headerlink" href="#interpolace-a-aproximace-funkci" title="Link to this heading">#</a></h1>
 <p>V této kapitole si představíme problém aproximace a interpolace funkcí. Touto kapitolou začíná část kurzu numeriky, zabývající se funkčními závislostmi a problémy z matematické analýzy.</p>
 <p>Problém, nazvaný <em>interpolace</em>, vychází z následující situace. Uvažujme funkci <span class="math notranslate nohighlight">\(f(x)\)</span>, pro kterou nemáme žádný analytický předpis, pouze známe hodnotu funkce na jisté množině bodů <span class="math notranslate nohighlight">\(x_0, x_1, \dots, x_{N-1}\)</span> (<span class="math notranslate nohighlight">\(x_0 \lt x_1 \lt \dots \lt x_{N-1}\)</span>). Tyto hodnoty můžou být získany například experimentálně nebo nějakým (náročným) výpočtem. Funkce <span class="math notranslate nohighlight">\(f(x)\)</span> pak může být potřeba k dalším výpočtům a typicky je nutné vyhodnocovat tuto funkci nejen v bodech <span class="math notranslate nohighlight">\(x_i\)</span>, ale pro libovolné <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p><img alt="Interpolační data" src="../_images/interpolation_data.png" /></p>
 <p>Cílem <strong>interpolace</strong> je získat odhad funkční závislosti funkce <span class="math notranslate nohighlight">\(f(x)\)</span> mezi body <span class="math notranslate nohighlight">\(x_i\)</span>. Naopak <strong>extrapolace</strong> aproximuje funkci mimo interval <span class="math notranslate nohighlight">\([x_0, x_{N-1}]\)</span>. Extrapolace je výrazně komplikovanější problém, proto se v této kapitole zaměříme pouze na interpolaci funkcí.</p>
 <p>Aproximace funkcí jsou také užitečné pro další analýzu funkcí, jako například výpočet extrémů, derivací nebo integrálu.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
@@ -989,7 +990,7 @@ f(x) = \frac{1}{1 + 25x^2}
 <div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Čebyševovy polynomy jsou definované pouze na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span>. Pokud chceme aproximovat funkci na obecn0m intervalu <span class="math notranslate nohighlight">\( [a, b] \neq [-1, 1] \)</span>, tak je třeba provést odpovídající transformaci.</p>
+<p>Čebyševovy polynomy jsou definované pouze na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span>. Pokud chceme aproximovat funkci na obecném intervalu <span class="math notranslate nohighlight">\( [a, b] \neq [-1, 1] \)</span>, tak je třeba provést odpovídající transformaci.</p>
 <p>Při výpočtu kořenů <span class="math notranslate nohighlight">\( x_i \)</span> Čebyševovy interpolace lze použít:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1211,7 +1212,7 @@ The implementation is correct.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="04-linalg-iter.html"
+       href="../lekce-vyplnene/04-linalg-iter-vypl.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
