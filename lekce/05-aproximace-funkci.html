@@ -577,7 +577,7 @@ y = y_i + \alpha (x - x_i), \qquad x \in [x_i, x_{i+1}],
 <span class="c1"># vykresleni</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xint</span><span class="p">)</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">linearni_interpolace</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
@@ -1004,7 +1004,8 @@ x = \frac{2 t - (a + b)}{b - a}, \quad x \in [-1, 1], \quad t \in [a,b].
 \]</div>
 </p>
 </div>
-</div></section>
+</div><p><span style="color:red"><strong>&gt;&gt; Konec 6. hodiny</strong></span></p>
+</section>
 </section>
 <section id="modelovani-dat">
 <h2>Modelování dat<a class="headerlink" href="#modelovani-dat" title="Link to this heading">#</a></h2>
