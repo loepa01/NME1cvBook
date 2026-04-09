@@ -691,10 +691,10 @@ L(x) = \sum_{i = 0}^{n-1} y_i \Gamma_i(x)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        4         3         2
--23.33 x + 41.15 x - 22.35 x + 3.289 x + 0.763
+-200.1 x + 456.6 x - 350.8 x + 100.4 x - 7.403
 </pre></div>
 </div>
-<img alt="../_images/7b8831916136584fc52ab977f4164120fee93f8f365179fbe95ae9b4389abb4a.png" src="../_images/7b8831916136584fc52ab977f4164120fee93f8f365179fbe95ae9b4389abb4a.png" />
+<img alt="../_images/8ec4014e90e17609adb443db5a78f17c00f74e75c049196da705e56bdd2453a5.png" src="../_images/8ec4014e90e17609adb443db5a78f17c00f74e75c049196da705e56bdd2453a5.png" />
 </div>
 </div>
 <p>Použití Lagrangeovy interpolace na funkci <span class="math notranslate nohighlight">\(\cos(x)\)</span>.</p>
@@ -1038,23 +1038,23 @@ x = \frac{2 t - (a + b)}{b - a}, \quad x \in [-1, 1], \quad t \in [a,b].
 <p>Pro daných <span class="math notranslate nohighlight">\( n \)</span> známých data pointů <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>, <span class="math notranslate nohighlight">\( i = 0, 1, \dots, n-1 \)</span>, <a class="reference external" href="https://en.wikipedia.org/wiki/Least_squares">metoda nejmenších čtverců</a> hledá aproximaci k datům pomocí minimalizace součtu čtverců reziduí (odchylka dat od modelu):</p>
 <div class="math notranslate nohighlight">
 \[
-S = \sum_{i = 0}^{n - 1} (y_i - f(x_i; \beta))^2,
+S(\vec{\beta}) = \sum_{i = 0}^{n - 1} (y_i - f(x_i; \vec{\beta}))^2,
 \]</div>
-<p>kde <span class="math notranslate nohighlight">\( f(x_i; \beta) \)</span> je modelová funkce a <span class="math notranslate nohighlight">\( \beta \)</span> je vektor parametrů modelu o velikosti <span class="math notranslate nohighlight">\( m \)</span>. K hledání minima <span class="math notranslate nohighlight">\( S \)</span> lze použít několik metod. <span class="math notranslate nohighlight">\( S \)</span> se v optimalizaci často nazývá <em>účelová funkce</em> nebo <em>chyba</em>.</p>
+<p>kde <span class="math notranslate nohighlight">\( f(x_i; \vec{\beta}) \)</span> je modelová funkce a <span class="math notranslate nohighlight">\( \vec{\beta} \)</span> je vektor parametrů modelu o velikosti <span class="math notranslate nohighlight">\( m \)</span>. K hledání minima <span class="math notranslate nohighlight">\( S \)</span> lze použít několik metod. <span class="math notranslate nohighlight">\( S \)</span> se v optimalizaci často nazývá <em>účelová funkce</em> nebo <em>chyba</em>.</p>
 <p>Pokud je modelová funkce lineární ve všech parametrech <span class="math notranslate nohighlight">\(\beta_i\)</span>, lze minimum spočítat přímo položením gradientu rovnu <span class="math notranslate nohighlight">\( 0 \)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial S}{\partial \beta_j} = \sum_{i = 0}^{n - 1} 2 r_i \frac{\partial r_i}{\partial \beta_j} = \sum_{i = 0}^{n - 1} -2 \left( y_i - f(x_i; \beta) \right) \frac{\partial f(x_i; \beta)}{\partial \beta_j} = 0, \qquad j = 0, 1, \dots, m - 1. 
+\frac{\partial S}{\partial \beta_j} = \sum_{i = 0}^{n - 1} 2 r_i \frac{\partial r_i}{\partial \beta_j} = \sum_{i = 0}^{n - 1} -2 \left( y_i - f(x_i; \vec{\beta}) \right) \frac{\partial f(x_i; \vec{\beta})}{\partial \beta_j} = 0, \qquad j = 0, 1, \dots, m - 1. 
 \]</div>
 <p>V opačném případě lze použít jiné minimalizační metody, jako například metodu největšího spádu (uvidíme v <a class="reference internal" href="07-extremy-fci.html#extremy"><span class="std std-ref">kapitole 7</span></a>).</p>
 <p><strong>Polynomiální modelová funkce</strong></p>
 <p>V případě polynomiální modelové funkce:</p>
 <div class="math notranslate nohighlight">
 \[
-f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \beta_0,
+f(x; \vec{\beta}) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \beta_0,
 \]</div>
 <p>lze položit <span class="math notranslate nohighlight">\(\nabla S = 0\)</span> a převést hledání minima <span class="math notranslate nohighlight">\(S\)</span> na řešení soustavy lineárních rovnic.</p>
-<p>Vektor <span class="math notranslate nohighlight">\( \beta \)</span>, který minimalizuje <span class="math notranslate nohighlight">\( S \)</span> lze tedy získat řešením systému <span class="math notranslate nohighlight">\( m \)</span> lineárních algebraických rovnic:</p>
+<p>Vektor <span class="math notranslate nohighlight">\( \vec{\beta} \)</span>, který minimalizuje <span class="math notranslate nohighlight">\( S \)</span> lze tedy získat řešením systému <span class="math notranslate nohighlight">\( m \)</span> lineárních algebraických rovnic:</p>
 <div class="math notranslate nohighlight">
 \[
 \sum_{i = 0}^{n - 1} \left( y_i - \beta_{m-1} x^{m-1} - \beta_{m-2} x^{m-2} - \dots - \beta_1 x - \beta_0 \right) x_i^j = 0, \qquad j = 0, 1, \dots, m - 1.
@@ -1062,7 +1062,7 @@ f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \b
 <p>Systém rovnic lze dále upravit na:</p>
 <div class="math notranslate nohighlight">
 \[
-\beta_0 \sum_{i = 0}^{n - 1} x_i^j + \beta_1 \sum_{i = 0}^{n - 1} x_i^{j+1} + \dots + \sum_{i = 0}^{n - 1} \beta_{m-2} x_i^{j + m - 2} + \beta_{m-1} \sum_{i = 0}^{n - 1} x_i^{j + m-1} = \sum_{i = 0}^{n - 1} y_i x_i^j  
+\beta_0 \sum_{i = 0}^{n - 1} x_i^j + \beta_1 \sum_{i = 0}^{n - 1} x_i^{j+1} + \dots + \beta_{m-2} \sum_{i = 0}^{n - 1} x_i^{j + m - 2} + \beta_{m-1} \sum_{i = 0}^{n - 1} x_i^{j + m-1} = \sum_{i = 0}^{n - 1} y_i x_i^j, \qquad j = 0, 1, \dots, m - 1, 
 \]</div>
 <p>a v maticové formě máme:</p>
 <div class="math notranslate nohighlight">
@@ -1112,14 +1112,6 @@ f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \b
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[10.          1.6074033   1.03128341]
- [ 1.6074033   1.03128341  0.30074111]
- [ 1.03128341  0.30074111  0.15042872]]
-</pre></div>
-</div>
-<img alt="../_images/50b2bd168104afb84332188d90b66800486ab969200b0ad442359ad344f5cd94.png" src="../_images/50b2bd168104afb84332188d90b66800486ab969200b0ad442359ad344f5cd94.png" />
 </div>
 </div>
 <div class="cell docutils container">
