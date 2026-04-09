@@ -573,14 +573,20 @@ y = y_i + \alpha (x - x_i), \qquad x \in [x_i, x_{i+1}],
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linearni_interpolace</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="c1">## DOPLŇTE ##</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_p</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">x_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">):</span>
+            <span class="k">break</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_p</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_p</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y_p</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_p</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">y</span>
     
 <span class="c1"># vykresleni</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span>
+<span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x_p</span><span class="p">)</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">linearni_interpolace</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">linearni_interpolace</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cos(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lin. interpolace&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
@@ -662,6 +668,15 @@ L(x) = \sum_{i = 0}^{n-1} y_i \Gamma_i(x)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lagrangeova_interpolace</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">):</span>
     <span class="c1">## DOPLŇTE ##</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_p</span><span class="p">)</span>
+    <span class="n">lagrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="p">):</span>
+                <span class="n">gamma</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">x_p</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_p</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">lagrange</span> <span class="o">+=</span> <span class="n">y_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">gamma</span>
+    <span class="k">return</span> <span class="n">lagrange</span>
 
 <span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -855,6 +870,11 @@ c_j = \frac{2}{N} \sum_{k=1}^{N} f\left[\cos\left(\frac{\pi \left(k - \frac{1}{2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cebysevuv_polynom</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="c1">## DOPLŇTE ##</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">cebysevuv_polynom</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">cebysevuv_polynom</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -901,6 +921,8 @@ c_j = \frac{2}{N} \sum_{k=1}^{N} f\left[\cos\left(\frac{\pi \left(k - \frac{1}{2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cebysev_koreny</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="c1">## DOPLŇTE ##</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cebysev_koreny</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
@@ -951,8 +973,7 @@ f(x) = \frac{1}{1 + 25x^2}
 </div>
 </div> <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">25</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">12</span>
@@ -1008,7 +1029,7 @@ x = \frac{2 t - (a + b)}{b - a}, \quad x \in [-1, 1], \quad t \in [a,b].
 </section>
 </section>
 <section id="modelovani-dat">
-<h2>Modelování dat<a class="headerlink" href="#modelovani-dat" title="Link to this heading">#</a></h2>
+<span id="model-dat"></span><h2>Modelování dat<a class="headerlink" href="#modelovani-dat" title="Link to this heading">#</a></h2>
 <p>V této podkapitole se budeme zabývat úlohou velmi podobnou <strong>interpolaci</strong>. U interpolace je cílem získat aproximaci funkce, kterou dokážeme vyčíslit na konečném počtu bodů, na reálném intervalu. Funkci dokážeme vyčíslit přesně až na chybu numerické metody a zaokrouhlovací chyby.</p>
 <p>Naopak v případě <strong>modelování dat</strong> uvažujeme data podléhající experimentálním nebo dalším chybám - data obsahují jistou míru šumu. Tedy jednotlivé data pointy se mohou významně odchylovat od skutečné hodnoty/funkce. V takovém případě nemá smysl provádět interpolaci, u které typicky chceme, aby aproximace přesně procházela známými data pointy. U modelování, nebo také <em>fitování dat</em>, chceme proložit data vhodným modelem - křivkou. Tento model typicky známe z teorie, tedy je například znám určitý zákon nebo vzorec, kterým by se data měla řídit.</p>
 <p>Ukážeme si metodu nejmenších čtverců, která pro libovolný tvar modelu najde <strong>nejpravděpodobnéjší hodnoty</strong> parametrů modelu vzhledem k daným datům (viz <em>Numerical Recipes kapitola 15</em>).</p>
@@ -1025,7 +1046,7 @@ S = \sum_{i = 0}^{n - 1} (y_i - f(x_i; \beta))^2,
 \[
 \frac{\partial S}{\partial \beta_j} = \sum_{i = 0}^{n - 1} 2 r_i \frac{\partial r_i}{\partial \beta_j} = \sum_{i = 0}^{n - 1} -2 \left( y_i - f(x_i; \beta) \right) \frac{\partial f(x_i; \beta)}{\partial \beta_j} = 0, \qquad j = 0, 1, \dots, m - 1. 
 \]</div>
-<p>V opačném případě lze použít jiné minimalizační metody, jako například metodu největšího spádu (uvidíme v <a class="reference internal" href="07-extremy-fci.html#extremy"><span class="std std-ref">kapitole 8</span></a>).</p>
+<p>V opačném případě lze použít jiné minimalizační metody, jako například metodu největšího spádu (uvidíme v <a class="reference internal" href="07-extremy-fci.html#extremy"><span class="std std-ref">kapitole 7</span></a>).</p>
 <p><strong>Polynomiální modelová funkce</strong></p>
 <p>V případě polynomiální modelové funkce:</p>
 <div class="math notranslate nohighlight">
