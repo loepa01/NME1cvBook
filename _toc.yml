@@ -23,13 +23,13 @@ parts:
     - file: lekce-vyplnene/04-linalg-iter-vypl
       title: 4. Iterační metody lineární algebry
     
-    - file: lekce/05-aproximace-funkci
-    #- file: lekce-vyplnene/05-aproximace-funkci-vypl
+    #- file: lekce/05-aproximace-funkci
+    - file: lekce-vyplnene/05-aproximace-funkci-vypl
       title: 5. Interpolace a aproximace funkcí
 
     
-    - file: lekce/06-nelinearni-rce
-    #- file: lekce-vyplnene/06-nelinearni-rce-vypl
+    #- file: lekce/06-nelinearni-rce
+    - file: lekce-vyplnene/06-nelinearni-rce-vypl
       title: 6. Nelineární rovnice
     
     - file: lekce/07-extremy-fci
