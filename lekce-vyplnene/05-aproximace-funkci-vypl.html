@@ -63,7 +63,7 @@
     <link rel="icon" href="../_static/cphys2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Řešení nelineárních rovnic" href="07-nelinearni-rce-vypl.html" />
+    <link rel="next" title="Řešení nelineárních rovnic" href="06-nelinearni-rce-vypl.html" />
     <link rel="prev" title="Iterační metody lineární algebry" href="04-linalg-iter-vypl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Numerické metody (NME1cv) - cvičení 2025
+                    Numerické metody (NME1cv) - cvičení 2026
                 </a>
             </li>
         </ul>
@@ -186,11 +186,11 @@
 <li class="toctree-l1"><a class="reference internal" href="03-linalg-prime-vypl.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-linalg-iter-vypl.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Interpolace a aproximace funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07-nelinearni-rce-vypl.html">7. Nelineární rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08-extremy-fci-vypl.html">8. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09-integrace-vypl.html">9. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce/10-reseni-odr.html">10. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lekce/11-reseni-okraj.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-nelinearni-rce-vypl.html">6. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/07-extremy-fci.html">7. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/08-integrace.html">8. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/09-reseni-odr.html">9. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lekce/10-reseni-okraj.html">10. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Úkoly</span></p>
 <ul class="nav bd-sidenav">
@@ -198,11 +198,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/03-linalg-prime-UKOL.html">3. Metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/04-linalg-iter-UKOL.html">4. Iterační metody lineární algebry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html">5. Interpolace a aproximace funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-nelinearni-rce-UKOL.html">7. Nelineární rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/08-extremy-fci-UKOL.html">8. Extrémy funkcí</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/09-integrace-UKOL.html">9. Numerická integrace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/10-reseni-odr-UKOL.html">10. Obyčejné diferenciální rovnice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ukoly/11-reseni-okraj-UKOL.html">11. Diferenciální rovnice s okrajovou podmínkou</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/06-nelinearni-rce-UKOL.html">6. Nelineární rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/07-extremy-fci-UKOL.html">7. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/08-integrace-UKOL.html">8. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/09-reseni-odr-UKOL.html">9. Obyčejné diferenciální rovnice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ukoly/10-reseni-okraj-UKOL.html">10. Diferenciální rovnice s okrajovou podmínkou</a></li>
 </ul>
 
     </div>
@@ -481,6 +481,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-nejmensich-ctvercu">Metoda nejmenších čtverců</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
             </nav>
         </div>
@@ -496,6 +497,7 @@ document.write(`
 <h1>Interpolace a aproximace funkcí<a class="headerlink" href="#interpolace-a-aproximace-funkci" title="Link to this heading">#</a></h1>
 <p>V této kapitole si představíme problém aproximace a interpolace funkcí. Touto kapitolou začíná část kurzu numeriky, zabývající se funkčními závislostmi a problémy z matematické analýzy.</p>
 <p>Problém, nazvaný <em>interpolace</em>, vychází z následující situace. Uvažujme funkci <span class="math notranslate nohighlight">\(f(x)\)</span>, pro kterou nemáme žádný analytický předpis, pouze známe hodnotu funkce na jisté množině bodů <span class="math notranslate nohighlight">\(x_0, x_1, \dots, x_{N-1}\)</span> (<span class="math notranslate nohighlight">\(x_0 \lt x_1 \lt \dots \lt x_{N-1}\)</span>). Tyto hodnoty můžou být získany například experimentálně nebo nějakým (náročným) výpočtem. Funkce <span class="math notranslate nohighlight">\(f(x)\)</span> pak může být potřeba k dalším výpočtům a typicky je nutné vyhodnocovat tuto funkci nejen v bodech <span class="math notranslate nohighlight">\(x_i\)</span>, ale pro libovolné <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p><img alt="Interpolační data" src="../_images/interpolation_data.png" /></p>
 <p>Cílem <strong>interpolace</strong> je získat odhad funkční závislosti funkce <span class="math notranslate nohighlight">\(f(x)\)</span> mezi body <span class="math notranslate nohighlight">\(x_i\)</span>. Naopak <strong>extrapolace</strong> aproximuje funkci mimo interval <span class="math notranslate nohighlight">\([x_0, x_{N-1}]\)</span>. Extrapolace je výrazně komplikovanější problém, proto se v této kapitole zaměříme pouze na interpolaci funkcí.</p>
 <p>Aproximace funkcí jsou také užitečné pro další analýzu funkcí, jako například výpočet extrémů, derivací nebo integrálu.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #276BE9; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
@@ -515,7 +517,7 @@ document.write(`
 <li><p>Polynomiální interpolace (<em>globální</em>) - Lagrangeovy a Newtonovy polynomy</p></li>
 </ol>
 <p><strong>Další aproximační metody</strong></p>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="4">
 <li><p>Čebyševovy polynomy - “nejlepší stejnoměrná aproximace”</p></li>
 <li><p>Fitování funkcí - metoda nejmenších čtverců</p></li>
 </ol>
@@ -582,7 +584,7 @@ y = y_i + \alpha (x - x_i), \qquad x \in [x_i, x_{i+1}],
 <span class="c1"># vykresleni</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xint</span><span class="p">)</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x_p</span><span class="p">)</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">linearni_interpolace</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
@@ -1011,7 +1013,7 @@ f(x) = \frac{1}{1 + 25x^2}
 <div style="background: #DCE7FC; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Poznámka</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p>Čebyševovy polynomy jsou definované pouze na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span>. Pokud chceme aproximovat funkci na obecn0m intervalu <span class="math notranslate nohighlight">\( [a, b] \neq [-1, 1] \)</span>, tak je třeba provést odpovídající transformaci.</p>
+<p>Čebyševovy polynomy jsou definované pouze na intervalu <span class="math notranslate nohighlight">\([-1, 1]\)</span>. Pokud chceme aproximovat funkci na obecném intervalu <span class="math notranslate nohighlight">\( [a, b] \neq [-1, 1] \)</span>, tak je třeba provést odpovídající transformaci.</p>
 <p>Při výpočtu kořenů <span class="math notranslate nohighlight">\( x_i \)</span> Čebyševovy interpolace lze použít:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1037,31 +1039,31 @@ x = \frac{2 t - (a + b)}{b - a}, \quad x \in [-1, 1], \quad t \in [a,b].
 <p>Pro daných <span class="math notranslate nohighlight">\( n \)</span> známých data pointů <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>, <span class="math notranslate nohighlight">\( i = 0, 1, \dots, n-1 \)</span>, <a class="reference external" href="https://en.wikipedia.org/wiki/Least_squares">metoda nejmenších čtverců</a> hledá aproximaci k datům pomocí minimalizace součtu čtverců reziduí (odchylka dat od modelu):</p>
 <div class="math notranslate nohighlight">
 \[
-S = \sum_{i = 0}^{n - 1} (y_i - f(x_i; \beta))^2,
+S(\vec{\beta}) = \sum_{i = 0}^{n - 1} (y_i - f(x_i; \vec{\beta}))^2,
 \]</div>
-<p>kde <span class="math notranslate nohighlight">\( f(x_i; \beta) \)</span> je modelová funkce a <span class="math notranslate nohighlight">\( \beta \)</span> je vektor parametrů modelu o velikosti <span class="math notranslate nohighlight">\( m \)</span>. K hledání minima <span class="math notranslate nohighlight">\( S \)</span> lze použít několik metod. <span class="math notranslate nohighlight">\( S \)</span> se v optimalizaci často nazývá <em>účelová funkce</em> nebo <em>chyba</em>.</p>
+<p>kde <span class="math notranslate nohighlight">\( f(x_i; \vec{\beta}) \)</span> je modelová funkce a <span class="math notranslate nohighlight">\( \vec{\beta} \)</span> je vektor parametrů modelu o velikosti <span class="math notranslate nohighlight">\( m \)</span>. K hledání minima <span class="math notranslate nohighlight">\( S \)</span> lze použít několik metod. <span class="math notranslate nohighlight">\( S \)</span> se v optimalizaci často nazývá <em>účelová funkce</em> nebo <em>chyba</em>.</p>
 <p>Pokud je modelová funkce lineární ve všech parametrech <span class="math notranslate nohighlight">\(\beta_i\)</span>, lze minimum spočítat přímo položením gradientu rovnu <span class="math notranslate nohighlight">\( 0 \)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial S}{\partial \beta_j} = \sum_{i = 0}^{n - 1} 2 r_i \frac{\partial r_i}{\partial \beta_j} = \sum_{i = 0}^{n - 1} -2 \left( y_i - f(x_i; \beta) \right) \frac{\partial f(x_i; \beta)}{\partial \beta_j} = 0, \qquad j = 0, 1, \dots, m - 1. 
+\frac{\partial S}{\partial \beta_j} = \sum_{i = 0}^{n - 1} 2 r_i \frac{\partial r_i}{\partial \beta_j} = \sum_{i = 0}^{n - 1} -2 \left( y_i - f(x_i; \vec{\beta}) \right) \frac{\partial f(x_i; \vec{\beta})}{\partial \beta_j} = 0, \qquad j = 0, 1, \dots, m - 1. 
 \]</div>
-<p>V opačném případě lze použít jiné minimalizační metody, jako například metodu největšího spádu (uvidíme v <a class="reference internal" href="08-extremy-fci-vypl.html#extremy"><span class="std std-ref">kapitole 8</span></a>).</p>
+<p>V opačném případě lze použít jiné minimalizační metody, jako například metodu největšího spádu (uvidíme v <a class="reference internal" href="../lekce/07-extremy-fci.html#extremy"><span class="std std-ref">kapitole 7</span></a>).</p>
 <p><strong>Polynomiální modelová funkce</strong></p>
-<p>V případě polynomiální modelové funkce (stupeň polynomu <span class="math notranslate nohighlight">\(m-1\)</span>):</p>
+<p>V případě polynomiální modelové funkce:</p>
 <div class="math notranslate nohighlight">
 \[
-f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \beta_0,
+f(x; \vec{\beta}) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \beta_0,
 \]</div>
 <p>lze položit <span class="math notranslate nohighlight">\(\nabla S = 0\)</span> a převést hledání minima <span class="math notranslate nohighlight">\(S\)</span> na řešení soustavy lineárních rovnic.</p>
-<p>Vektor <span class="math notranslate nohighlight">\( \beta \)</span>, který minimalizuje <span class="math notranslate nohighlight">\( S \)</span> lze tedy získat řešením systému <span class="math notranslate nohighlight">\( m \)</span> lineárních algebraických rovnic:</p>
+<p>Vektor <span class="math notranslate nohighlight">\( \vec{\beta} \)</span>, který minimalizuje <span class="math notranslate nohighlight">\( S \)</span> lze tedy získat řešením systému <span class="math notranslate nohighlight">\( m \)</span> lineárních algebraických rovnic:</p>
 <div class="math notranslate nohighlight">
 \[
-\sum_{i = 0}^{n - 1} \left( y_i - \beta_{m-1} x_i^{m-1} - \beta_{m-2} x_i^{m-2} - \dots - \beta_1 x_i - \beta_0 \right) x_i^j = 0, \qquad j = 0, 1, \dots, m - 1.
+\sum_{i = 0}^{n - 1} \left( y_i - \beta_{m-1} x^{m-1} - \beta_{m-2} x^{m-2} - \dots - \beta_1 x - \beta_0 \right) x_i^j = 0, \qquad j = 0, 1, \dots, m - 1.
 \]</div>
 <p>Systém rovnic lze dále upravit na:</p>
 <div class="math notranslate nohighlight">
 \[
-\beta_0 \sum_{i = 0}^{n - 1} x_i^j + \beta_1 \sum_{i = 0}^{n - 1} x_i^{j+1} + \dots + \sum_{i = 0}^{n - 1} \beta_{m-2} x_i^{j + m - 2} + \beta_{m-1} \sum_{i = 0}^{n - 1} x_i^{j + m-1} = \sum_{i = 0}^{n - 1} y_i x_i^j  
+\beta_0 \sum_{i = 0}^{n - 1} x_i^j + \beta_1 \sum_{i = 0}^{n - 1} x_i^{j+1} + \dots + \beta_{m-2} \sum_{i = 0}^{n - 1} x_i^{j + m - 2} + \beta_{m-1} \sum_{i = 0}^{n - 1} x_i^{j + m-1} = \sum_{i = 0}^{n - 1} y_i x_i^j, \qquad j = 0, 1, \dots, m - 1, 
 \]</div>
 <p>a v maticové formě máme:</p>
 <div class="math notranslate nohighlight">
@@ -1188,7 +1190,7 @@ f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \b
 <img alt="../_images/43e7c50ce63912b00139fdd13188a38f34a4555232f28a4cd7e63c3a45212f20.png" src="../_images/43e7c50ce63912b00139fdd13188a38f34a4555232f28a4cd7e63c3a45212f20.png" />
 </div>
 </div>
-<p>Polynomiální fit</p>
+<p>Polynomiální fit + výpočet výsledné chyby <span class="math notranslate nohighlight">\(S(\vec{\beta^*})\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
@@ -1245,15 +1247,18 @@ f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \b
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="zapoctova-uloha">
+<h2>Zápočtová úloha<a class="headerlink" href="#zapoctova-uloha" title="Link to this heading">#</a></h2>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
-<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 4</div>
+<div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol - zápočet 5</div>
 <div style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; border-radius: 0px 0px 3px 3px">
 <p>
-<p><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html#ukol4"><span class="std std-ref">ZDE</span></a></p>
+<p><a class="reference internal" href="../ukoly/05-aproximace-funkci-UKOL.html#ukol5"><span class="std std-ref">ZDE</span></a></p>
 </p>
 </div>
 </div></section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1296,7 +1301,7 @@ f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \b
       </div>
     </a>
     <a class="right-next"
-       href="07-nelinearni-rce-vypl.html"
+       href="06-nelinearni-rce-vypl.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -1336,6 +1341,7 @@ f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \b
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metoda-nejmensich-ctvercu">Metoda nejmenších čtverců</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zapoctova-uloha">Zápočtová úloha</a></li>
 </ul>
   </nav></div>
 
@@ -1360,7 +1366,7 @@ By Jiří Löffelmann
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>
