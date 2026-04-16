@@ -942,14 +942,8 @@ y_sol:  21.805264918818242
     <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_0</span>
     
     <span class="n">t</span> <span class="o">=</span> <span class="n">T0</span>
-    <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># prvni krok Euler</span>
-    <span class="n">t</span> <span class="o">+=</span> <span class="n">h</span>
+    <span class="c1">## DOPLŇTE ##</span>
     
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
-        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">t</span> <span class="o">+=</span> <span class="n">h</span>
-    
-    <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">y</span>
 
 <span class="n">y_midpoint_mod</span> <span class="o">=</span> <span class="n">midpoint_mod</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
@@ -995,10 +989,7 @@ y_sol:          21.805264918818242
 </div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_midpoint_mod_h</span> <span class="o">=</span> <span class="n">midpoint_mod</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
-<span class="n">y_midpoint_mod_2h</span> <span class="o">=</span> <span class="n">midpoint_mod</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">M</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">y_M</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">y_midpoint_mod_h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_midpoint_mod_2h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## DOPLŇTE ##</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_bulirschStoer:&#39;</span><span class="p">,</span> <span class="n">y_M</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_sol:          &#39;</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
