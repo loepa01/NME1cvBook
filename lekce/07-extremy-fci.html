@@ -647,7 +647,25 @@ d=a + \dfrac{3-\sqrt{5}}{2}(c-a)
 <span class="n">epsilon</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># odhad chyby, tedy delku intervalu &lt;a,c&gt; v jednotlivych krocich</span>
 <span class="n">reseni</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># aktualni odhad reseni</span>
 
-<span class="c1">## DOPLŇTE ##</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>    
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span> <span class="c1"># b v leve casti -&gt; d volime W krat od bodu c</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="n">zlatyRez</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="c1"># 1-zlatyRez ~ 0.62</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># b v prave casti -&gt; d volime W krat od bodu a</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">zlatyRez</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
+        
+    <span class="c1"># nyni mame a &lt; b &lt; d &lt; c, zjistime ve kterem intervalu je minimum</span>
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="ow">and</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">f</span><span class="p">(</span><span class="n">d</span><span class="p">):</span> <span class="c1"># minimum je v intervalu &lt; a,d &gt;, ten navic obsahuje bod b</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#minimum je v intervalu &lt; b,c &gt;, ten navic obsahuje bod d</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">d</span>
+    
+    <span class="n">reseni</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">epsilon</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">reseni</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="k">if</span> <span class="n">epsilon</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">presnost</span><span class="p">:</span> <span class="c1"># skoncime, pokud je minimum urceno dostatecne presne</span>
+        <span class="k">break</span>
 
 <span class="n">minimum</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
 <span class="n">chyba</span> <span class="o">=</span> <span class="n">epsilon</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecne chyby</span>
@@ -775,7 +793,33 @@ a &lt; b &lt; c \wedge f(a) &gt; f(b) &lt; f(c)
 <span class="n">epsilon2</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># odhad chyby, tedy delku intervalu &lt;a,c&gt; v jednotlivych krocich</span>
 <span class="n">reseni2</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># aktualni odhad reseni</span>
 
-<span class="c1">## DOPLŇTE ##</span>
+<span class="c1"># hledani probiha v cyklu</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>    
+    <span class="c1"># z a,b,c odhadneme polohu d minima paraboly, kterou jsme prolozili body</span>
+    <span class="c1"># a,b,c</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">((</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span> <span class="o">/</span> <span class="p">((</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+    
+    <span class="c1"># zjistime, zda nastala situace a &lt; d &lt; b &lt; c nebo a &lt; b &lt; d &lt; c</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span> <span class="c1"># nastala situace a &lt; d &lt; b &lt; c</span>
+        <span class="c1"># zjistime, na kterem intervalu je minimum</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="ow">and</span> <span class="n">f</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">):</span> <span class="c1"># minimum je na intervalu  &lt; a,b &gt; , ktery obsahuje bod d</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">b</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># minimum je na intervalu  &lt; d,c &gt; , ktery obsahuje bod b</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># nastala situace a &lt; b &lt; d &lt; c</span>
+        <span class="c1"># zjistime, na kterem intervalu je minimum</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="ow">and</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="p">(</span><span class="n">d</span><span class="p">):</span> <span class="c1"># minimum je na intervalu  &lt; a,d &gt;  obsahujicim bod b</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># minimum je na intervalu  &lt; b,c &gt;  obsahujicim bod d</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">d</span>
+    
+    <span class="n">reseni2</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">epsilon2</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">reseni2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="k">if</span> <span class="n">epsilon2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">presnost</span><span class="p">:</span> <span class="c1"># skoncime, pokud je minimum urceno dostatecne presne</span>
+        <span class="k">break</span>
 
 <span class="n">minimum2</span> <span class="o">=</span> <span class="n">reseni2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
 <span class="n">chyba2</span> <span class="o">=</span> <span class="n">epsilon2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecne chyby</span>
@@ -905,7 +949,7 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
 
 <span class="c1"># nastavme presnost, se kterou chceme nalezt minimum</span>
-<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-8</span> <span class="c1"># ZKUSIT ZMENSIT NA 1e-15</span>
+<span class="n">presnost</span> <span class="o">=</span> <span class="mf">1e-15</span> <span class="c1"># ZKUSIT ZMENSIT NA 1e-15</span>
 
 <span class="c1"># pocatecni bod</span>
 <span class="n">a0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
@@ -922,9 +966,19 @@ Parabola :     2.2153014127787602 7.81929188065078e-10 11
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reseni3</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">maxIteraci</span><span class="p">:</span> <span class="c1"># skoncime, pokud je minimum urceno dostatecne presne nebo hodne iteraci</span>
         <span class="k">break</span>
-    <span class="c1">## DOPLŇTE ##</span>
-        
     
+    <span class="n">alpha</span> <span class="o">*=</span> <span class="mf">0.9</span>  <span class="c1"># vylepšení metody - zmenšování kroku</span>
+    
+    <span class="n">der</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+    
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">der</span>  <span class="c1"># krok metody</span>
+    
+    <span class="n">reseni3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">epsilon3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">der</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># odhad chyby, tedy delku intervalu &lt;a,c&gt; v jednotlivych krocich</span>
+    
+    <span class="k">if</span> <span class="n">epsilon3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">presnost</span><span class="p">:</span>
+        <span class="k">break</span>
+
 <span class="n">minimum3</span> <span class="o">=</span> <span class="n">reseni3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
 <span class="n">chyba3</span> <span class="o">=</span> <span class="n">epsilon3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecne chyby</span>
 
@@ -1039,6 +1093,7 @@ Grad. des.:    2.2102998249848205 1.3785796326715172e-05 9
 <img alt="../_images/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" src="../_images/19c62cb402fa9aa0d2be076c7d62e11d41315f169420e7532088474ef19adeb3.png" />
 </div>
 </div>
+<p><span style="color:red"><strong>&gt;&gt; Konec 9. hodiny</strong></span></p>
 </section>
 </section>
 <section id="hledani-extremu-funkce-vice-promennych">
