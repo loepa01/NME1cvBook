@@ -603,10 +603,11 @@ Podrovněji si to ukážeme na jednotlivých pravidlech.</p>
 </p>
 </div>
 </div>
-<p><em>Složený vzorec</em> dostaneme aplikací pravidla na všechny podintervaly:
-$<span class="math notranslate nohighlight">\(
+<p><em>Složený vzorec</em> dostaneme aplikací pravidla na všechny podintervaly:</p>
+<div class="math notranslate nohighlight">
+\[
 \int_{x_0}^{x_N} f(x) dx = h \left[f_0 + f_1 + \dots + f_{N-1} + f_N\right] + \mathcal{O}\left(\frac{(b - a)^2}{N} f^{\prime}\right),
-\)</span>$</p>
+\]</div>
 <p>kde jsme nahradili v odhadu chyby za <span class="math notranslate nohighlight">\(N h^2 = \frac{(b - a)^2}{N} = (b-a) h\)</span>. Tedy metoda je celkově <strong>prvního řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy <strong>nultého řádu</strong> (konstatní funkce).</p>
 <p>Zvolíme počet podintervalů:</p>
 <div class="cell docutils container">
@@ -693,10 +694,11 @@ Realná chyba: 0.0016958517875402812
 \[
 \int_{x_0}^{x_1} f(x) dx = h \left[\frac{1}{2}f_0 + \frac{1}{2}f_1\right] + \mathcal{O}(h^3 f^{\prime \prime})
 \]</div>
-<p>Složený vzorec opět dostaneme aplikací pravidla na všechny podintervaly:
-$<span class="math notranslate nohighlight">\(
+<p>Složený vzorec opět dostaneme aplikací pravidla na všechny podintervaly:</p>
+<div class="math notranslate nohighlight">
+\[
 \int_{x_0}^{x_N} f(x) dx = h \left[\frac{1}{2}f_0 + f_1 + \dots + f_{N-1} + \frac{1}{2}f_N\right] + \mathcal{O}\left(\frac{(b - a)^3}{N^2} f^{\prime \prime}\right).
-\)</span>$</p>
+\]</div>
 <p>Vidíme, že tato metoda je celkově <strong>druhého řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy až <strong>prvního řádu</strong>.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
@@ -856,10 +858,11 @@ Realná chyba: 2.868257809041097e-08
 \[
 \int_{x_0}^{x_1} f(x) dx = h f_{1/2} + \mathcal{O}(h^3 f^{\prime \prime})
 \]</div>
-<p>Složený vzorec dostaneme aplikací pravidla na všechny podintervaly:
-$<span class="math notranslate nohighlight">\(
+<p>Složený vzorec dostaneme aplikací pravidla na všechny podintervaly:</p>
+<div class="math notranslate nohighlight">
+\[
 \int_{x_0}^{x_N} f(x) dx = h \left[f_{1/2} + f_{3/2} + \dots + f_{N-3/2} + f_{N - 1/2}\right] + \mathcal{O}\left(\frac{(b - a)^3}{N^2} f^{\prime}\right),
-\)</span>$</p>
+\]</div>
 <p>Tedy metoda je celkově <strong>druhého řádu</strong> v <span class="math notranslate nohighlight">\(N\)</span> a je přesná pro polynomy <strong>prvního řádu</strong>.</p>
 <div style="margin-top: 25px; margin-bottom: 25px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-radius: 4px; border-color: #E0B32C; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 3px; border-style: solid">
 <div style="background: #FFF3CD; color: #000000; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; border-radius: 1px 3px 0px 0px; font-weight: 600">Úkol</div>
