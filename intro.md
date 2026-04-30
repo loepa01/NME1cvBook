@@ -13,7 +13,7 @@ Tyto materiály jsou z části převzaty z materiálů bývalých cvičících.
 * od 19.2. do 14.5., 13 lekcí
 
 ## Podmínky udělení zápočtu
-- max. 3 absence (+ možnost nahrazení 3 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B252-12NME1/Sdilene%20dokumenty/General/dochazka_NME1cv_Ct_14.xlsx?d=wb41f9d41eabc4e8ba4761e55a2a6f8d8&csf=1&web=1&e=vdgAwm)
+- max. 3 absence (+ možnost nahrazení 3 dalších absencí odevzdáním navíc: 1 domácí úlohy za každou dodatečnou absenci nebo odevzdáním vyplněného jupyter notebooku (vyřešené žlutě vyznačené úkoly) ze zameškané hodiny **do následující hodiny** - 1 týden na odevzdání), [DOCHÁZKA](https://campuscvut.sharepoint.com/:x:/r/sites/B252-12NME1/Sdilene%20dokumenty/General/dochazka_NME1cv_Ct_14.xlsx?d=w9e3012e537a74b0dacd1d073307f3149&csf=1&web=1&e=9dAcLO)
 - vypracování 4 domácích úloh: 2 úlohy z první půlky cvičení (kapitoly 2-5), 2 úlohy z druhé půlky cvičení (kapitoly 6-10)
 - na zkoušku je možné jít před udělením zápočtu v červnu, v září je již zápočet nutný obdržet před přihlášením na zkoušku!
 
