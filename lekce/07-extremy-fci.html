@@ -1166,15 +1166,26 @@ f(x, y) = (1 - x)^2 + 100 (y - x^2)^2
 <span class="n">reseni4</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># aktualni odhad reseni</span>
 
 <span class="n">der</span> <span class="o">=</span> <span class="n">df2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">epsilon4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">der</span> <span class="o">@</span> <span class="n">der</span><span class="p">))</span>
 <span class="n">reseni4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">epsilon4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">der</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
     
 <span class="c1"># hledani probiha v cyklu</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reseni4</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">maxIteraci</span><span class="p">:</span> <span class="c1"># skoncime, pokud je minimum urceno dostatecne presne nebo hodne iteraci</span>
         <span class="k">break</span>
     
-    <span class="c1">## DOPLŇTE ##</span>
+    <span class="n">alpha</span> <span class="o">*=</span> <span class="mf">0.99</span>  <span class="c1"># vylepšení metody - zmenšování kroku</span>
+    
+    <span class="n">der</span> <span class="o">=</span> <span class="n">df2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">0.00001</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">der</span>  <span class="c1"># krok metody</span>
+    
+    <span class="n">reseni4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">epsilon4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">der</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    
+    <span class="c1">#print(a, der)</span>
+    
+    <span class="k">if</span> <span class="n">epsilon4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">presnost</span><span class="p">:</span>
+        <span class="k">break</span>
 
 <span class="n">minimum4</span> <span class="o">=</span> <span class="n">reseni4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
 <span class="n">chyba4</span> <span class="o">=</span> <span class="n">epsilon4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecne chyby</span>
