@@ -32,12 +32,12 @@ parts:
     - file: lekce-vyplnene/06-nelinearni-rce-vypl
       title: 6. Nelineární rovnice
     
-    - file: lekce/07-extremy-fci
-    #- file: lekce-vyplnene/07-extremy-fci-vypl
+    #- file: lekce/07-extremy-fci
+    - file: lekce-vyplnene/07-extremy-fci-vypl
       title: 7. Extrémy funkcí
     
-    - file: lekce/08-integrace
-    #- file: lekce-vyplnene/08-integrace-vypl
+    #- file: lekce/08-integrace
+    - file: lekce-vyplnene/08-integrace-vypl
       title: 8. Numerická integrace
     
     - file: lekce/09-reseni-odr
