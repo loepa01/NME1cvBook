@@ -512,7 +512,7 @@ x(0) = a, \quad y(0) = 0, \quad x(T) = b, \quad y(T) = 0.
 <li><p>V této podúloze bude funkce <span class="math notranslate nohighlight">\(F(\beta)\)</span> vektorem dvou funkcí! Hledáme kořeny soustavy dvou rovnic! (můžete využít například funkce <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code></a>)</p></li>
 </ul>
 </li>
-<li><p>Řešte stejnou úlohu, ale tentokrát doba zasažení cíle může být libovolná a navíc máte podmínku <span class="math notranslate nohighlight">\(v(0) = 2\)</span>.</p>
+<li><p>Řešte stejnou úlohu, ale tentokrát doba zasažení cíle může být libovolná a navíc máte podmínku <span class="math notranslate nohighlight">\(v(0) = 3\)</span>.</p>
 <ul class="simple">
 <li><p>Pokud nás nezajímá, kdy zasáhneme cíl, podmínka <span class="math notranslate nohighlight">\(\vec{r}(T) = [x_T, y_T] = [b, 0]\)</span> ve skutečnosti odpovídá jen jedné podmínce <span class="math notranslate nohighlight">\(y(T) = 0\)</span>, kde čas <span class="math notranslate nohighlight">\(T\)</span> je daný vztahem <span class="math notranslate nohighlight">\(x(T&gt;0) = b\)</span> (koule doletěla do vzdálenosti cíle). Tedy pro jednoznačnost potřebujeme další podmínku (počáteční rychlost).</p></li>
 <li><p>Zde tedy nemáme přesně daný integrační interval <span class="math notranslate nohighlight">\([0, T]\)</span>, musíme tedy v každém kroku kontrolovat zda <span class="math notranslate nohighlight">\(x(t) \geq b\)</span>.</p></li>
@@ -522,11 +522,21 @@ x(0) = a, \quad y(0) = 0, \quad x(T) = b, \quad y(T) = 0.
 </li>
 <li><p>Najděte hodnotu <span class="math notranslate nohighlight">\(\theta(0) = \theta_0\)</span> tak, aby počáteční rychlost koule <span class="math notranslate nohighlight">\(v(0) = v_0\)</span> byla co nejmenší a cíl byl stále zasažen (v libovolném čase).</p>
 <ul class="simple">
-<li><p>hledejte náklon děla v intervalu <span class="math notranslate nohighlight">\(\theta(0) \in [0.01, \frac{\pi}{2}]\)</span></p></li>
+<li><p>hledejte náklon děla v intervalu <span class="math notranslate nohighlight">\(\theta(0) \in [0.001, \frac{\pi}{2}]\)</span></p></li>
 <li><p>Uvědomte si, že řešením předchozí podúlohy 2 získáváte pomyslný vztah (funkci): <span class="math notranslate nohighlight">\(v_0 \rightarrow \theta_0\)</span> (<span class="math notranslate nohighlight">\(G(v_0) = \theta_0\)</span>). Tedy pro určitou počáteční rychlost dostaneme náklon děla <span class="math notranslate nohighlight">\(\theta_0\)</span> takový, že je zasažen cíl za určitý čas <span class="math notranslate nohighlight">\(T=T(v_0)\)</span> (ten závisí na volbě počáteční rychlosti).</p></li>
 <li><p>Stačí formulovat funkci <span class="math notranslate nohighlight">\(G^{-1}(\theta_0) = v_0\)</span> analogicky dle předchozí podúlohy a nalézt minimum (využijte vhodné knihovní funkce z modulu <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>).</p></li>
 </ul>
 </li>
+</ol>
+<p><em>Bonus:</em></p>
+<ol class="arabic simple" start="4">
+<li><p>Najděte hodnotu <span class="math notranslate nohighlight">\(\theta(0) = \theta_0\)</span> a počáteční rychlost koule <span class="math notranslate nohighlight">\(v(0) = v_0\)</span> tak, aby rychlost dopadu projektilu na cíl byla co největší (velké škody). Cíl může být zasažen v libovolném čase.</p>
+<ul class="simple">
+<li><p>hledejte náklon děla v intervalu <span class="math notranslate nohighlight">\(\theta(0) \in [0.001, \frac{\pi}{2}]\)</span></p></li>
+<li><p>hledejte počáteční rychlost koule v intervalu <span class="math notranslate nohighlight">\(v(0) \in [0.001, 20]\)</span></p></li>
+</ul>
+</li>
+<li><p>Najděte největší možnou hodnotu odporového koeficientu <span class="math notranslate nohighlight">\(C &lt; 1\)</span> takovou, aby projektil s počáteční rychlostí <span class="math notranslate nohighlight">\(v(0) = 2\)</span> zasáhl cíl (pro <span class="math notranslate nohighlight">\(C = 1\)</span> nezasáhne). Ostatní koeficienty nechte rovny 1. Úhel náklonu a doba zásahu může být libovolná.</p></li>
 </ol>
 <p>Vždy vykreslete výsledné řešení na intervalu <span class="math notranslate nohighlight">\([a, b]\)</span> pro každou podúlohu.</p>
 </p>
