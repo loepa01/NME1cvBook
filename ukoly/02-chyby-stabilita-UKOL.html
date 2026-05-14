@@ -442,7 +442,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -458,6 +460,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskuze">Diskuze</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -525,6 +535,13 @@ Navrhněte způsob, jak redukovat hodnotu <span class="math notranslate nohighli
 </div>
 </div>
 </div>
+<section id="diskuze">
+<h2>Diskuze<a class="headerlink" href="#diskuze" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Odpovězte na otázky v zadání a ohodnoťte dosažené výsledky.</p></li>
+</ul>
+<p>DOPLŇTE</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -582,7 +599,20 @@ Navrhněte způsob, jak redukovat hodnotu <span class="math notranslate nohighli
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskuze">Diskuze</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
